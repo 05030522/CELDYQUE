@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CELDYQUE | Our Brand Story & Philosophy</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover CELDYQUE's story. We create high-concentration Korean skincare with clinically proven ingredients for visible results. Learn about our philosophy and commitment to efficacy.">
+    <meta name="keywords" content="CELDYQUE brand story, Korean skincare philosophy, high concentration skincare, K-beauty brand">
+    <link rel="canonical" href="https://www.celdyque.com/about.html">
+    
+    <meta property="og:title" content="About CELDYQUE | Our Brand Story">
+    <meta property="og:description" content="We believe skincare should be straightforward. Maximum efficacy, minimum complexity.">
+    <meta property="og:url" content="https://www.celdyque.com/about.html">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About CELDYQUE",
+        "description": "CELDYQUE brand story and philosophy",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "CELDYQUE",
+            "foundingDate": "2020",
+            "description": "High-concentration Korean skincare brand",
+            "slogan": "Essential Skincare, Nothing More"
+        }
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --color-bg: #f5f5f5;
+            --color-white: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-light: #666666;
+            --color-border: #e5e5e5;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--color-bg);
+            border-radius: 50px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+        nav {
+            display: flex;
+            gap: 3rem;
+        }
+        nav a {
+            font-size: 0.9rem;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        nav a:hover, nav a.active { opacity: 0.6; }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .search-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: var(--color-text);
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Brand Story Section */
+        .brand-story {
+            padding: 160px 5% 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .story-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+        .story-header-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+        .story-header-text p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+        .story-header-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 80px 0;
+        }
+        .philosophy h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+        }
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .philosophy-card {
+            background: var(--color-white);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+        .philosophy-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .philosophy-card p {
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+
+        /* Campaign / Coming Soon */
+        .campaign {
+            padding: 100px 5%;
+            background: var(--color-white);
+            margin-top: 80px;
+        }
+        .campaign-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .campaign-text {
+            padding-right: 2rem;
+        }
+        .campaign-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .campaign-text h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+        .campaign-text .coming-soon {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+        .campaign-image {
+            position: relative;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+        }
+        .campaign-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(15px);
+            transform: scale(1.1);
+        }
+        .campaign-image::after {
+            content: 'Coming soon';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 0.85rem;
+            color: var(--color-text);
+            background: rgba(255,255,255,0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+        .campaign-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .campaign-nav button {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--color-border);
+            background: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .campaign-nav span {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 5% 30px;
+            background: var(--color-text);
+            color: var(--color-white);
+        }
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+        .footer-brand h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.9rem; opacity: 0.7; }
+        .footer-col h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.8rem; }
+        .footer-col a {
+            color: var(--color-white);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 1024px) {
+            .story-header, .campaign-inner, .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            header { top: 10px; left: 10px; right: 10px; }
+            nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .footer-inner { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">CELDYQUE</a>
+            <nav>
+                <a href="shop.html">Shop</a>
+                <a href="about.html" class="active">About</a>
+                <a href="store.html">Store</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+            <div class="header-right">
+                <button class="search-btn">
+                    Search
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Brand Story -->
+    <main class="brand-story">
+        <div class="story-header">
+            <div class="story-header-text">
+                <h1>Why We Pursue the Perfect Formula</h1>
+                <p>CELDYQUE was born from a simple frustration: skincare products with impressive ingredient lists but disappointing concentrations. We believed consumers deserved better — formulas with maximum effective doses of clinically proven ingredients.</p>
+                <br>
+                <p>Our name combines Cell, Medicine, and Technique — representing our commitment to science-backed skincare that works at the cellular level. Every product undergoes rigorous testing to ensure it delivers visible results, not just promises.</p>
+            </div>
+            <div class="story-header-image">
+                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=500&fit=crop" alt="CELDYQUE laboratory and research" loading="lazy">
+            </div>
+        </div>
+
+        <section class="philosophy">
+            <h2>Our Philosophy</h2>
+            <div class="philosophy-grid">
+                <article class="philosophy-card">
+                    <h3>Maximum Efficacy</h3>
+                    <p>We use only clinically proven concentrations. If research shows 20% niacinamide works best, that's exactly what you'll find in our formula — not 2% with marketing claims.</p>
+                </article>
+                <article class="philosophy-card">
+                    <h3>Transparency First</h3>
+                    <p>Every ingredient serves a purpose. No fillers, no fragrances, no unnecessary additives. Just what your skin needs to see real results.</p>
+                </article>
+                <article class="philosophy-card">
+                    <h3>Science-Backed</h3>
+                    <p>Our formulations are based on peer-reviewed research and clinical studies. We don't chase trends — we follow the science.</p>
+                </article>
+                <article class="philosophy-card">
+                    <h3>Simplicity</h3>
+                    <p>We don't believe in 10-step routines. Our concentrated formulas deliver more with less, simplifying your skincare while maximizing results.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Campaign / Coming Soon -->
+    <section class="campaign">
+        <div class="campaign-inner">
+            <div class="campaign-text">
+                <p class="campaign-label">Campaign</p>
+                <h2>Our Unique Perspective Toward the World</h2>
+                <p class="coming-soon">Coming soon</p>
+                <div class="campaign-nav">
+                    <button aria-label="Previous">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <span>1</span>
+                    <button aria-label="Next">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="campaign-image">
+                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&h=600&fit=crop" alt="Coming soon campaign" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>CELDYQUE</h3>
+                <p>Cell • Medicine • Technique</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=serum">Serums</a></li>
+                    <li><a href="shop.html?category=concentrate">Concentrates</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="store.html">Where to Buy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:team@credithink.com">team@credithink.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 CELDYQUE. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
