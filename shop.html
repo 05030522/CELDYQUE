@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Shop All Products | CELDYQUE Korean Skincare</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Shop CELDYQUE high-concentration skincare products. Browse our collection of Volufiline, Niacinamide, Bakuchiol serums and concentrates.">
     <meta name="keywords" content="buy Korean skincare, Volufiline serum, Niacinamide 20%, Bakuchiol concentrate, K-beauty shop">
     <link rel="canonical" href="https://www.celdyque.com/shop.html">
+    
+    <!-- Mobile Optimization -->
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Shop CELDYQUE Products">
@@ -22,28 +26,7 @@
         "@type": "CollectionPage",
         "name": "CELDYQUE Products",
         "description": "Shop all CELDYQUE high-concentration skincare products",
-        "url": "https://www.celdyque.com/shop.html",
-        "mainEntity": {
-            "@type": "ItemList",
-            "itemListElement": [
-                {
-                    "@type": "Product",
-                    "position": 1,
-                    "name": "Volufiline 100% Pure Concentrate",
-                    "description": "Pure Volufiline concentrate for skin firming and volumizing",
-                    "brand": "CELDYQUE",
-                    "category": "Serum"
-                },
-                {
-                    "@type": "Product",
-                    "position": 2,
-                    "name": "Niacinamide 20% Advanced Serum",
-                    "description": "High-concentration niacinamide for barrier repair and pore refinement",
-                    "brand": "CELDYQUE",
-                    "category": "Serum"
-                }
-            ]
-        }
+        "url": "https://www.celdyque.com/shop.html"
     }
     </script>
     
@@ -52,12 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --color-bg: #f5f5f5;
             --color-white: #ffffff;
@@ -65,14 +43,18 @@
             --color-text-light: #666666;
             --color-border: #e5e5e5;
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --tap-target: 48px;
+            --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
         }
-
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
         body {
             font-family: var(--font-main);
             background-color: var(--color-bg);
             color: var(--color-text);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
+        body.menu-open { overflow: hidden; position: fixed; width: 100%; }
 
         /* Header */
         header {
@@ -85,105 +67,157 @@
             border-radius: 50px;
             box-shadow: 0 2px 20px rgba(0,0,0,0.08);
         }
-
         .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
         }
-
         .logo {
             font-size: 1.3rem;
             font-weight: 600;
             letter-spacing: 0.05em;
             color: var(--color-text);
             text-decoration: none;
-        }
-
-        nav {
+            min-height: var(--tap-target);
             display: flex;
-            gap: 3rem;
+            align-items: center;
         }
-
+        nav { display: flex; gap: 3rem; }
         nav a {
             font-size: 0.9rem;
-            font-weight: 400;
             color: var(--color-text);
             text-decoration: none;
             transition: opacity 0.3s;
-        }
-
-        nav a:hover, nav a.active {
-            opacity: 0.6;
-        }
-
-        .header-right {
+            min-height: var(--tap-target);
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            padding: 0 0.5rem;
         }
-
+        nav a:hover, nav a.active { opacity: 0.6; }
+        .header-right { display: flex; align-items: center; gap: 1rem; }
         .search-btn {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             background: none;
             border: none;
             font-size: 0.9rem;
             cursor: pointer;
             color: var(--color-text);
+            min-width: var(--tap-target);
+            min-height: var(--tap-target);
         }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            min-width: var(--tap-target);
+            min-height: var(--tap-target);
+            padding: 12px;
+            z-index: 1002;
+        }
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--color-text);
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-btn.active .hamburger span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .mobile-menu-btn.active .hamburger span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active .hamburger span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Mobile Menu */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-menu-overlay.active { display: block; opacity: 1; }
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 400px;
+            height: 100vh;
+            height: 100dvh;
+            background: var(--color-white);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 100px 2rem 2rem;
+            overflow-y: auto;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-nav { display: flex; flex-direction: column; }
+        .mobile-menu-nav a {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--color-border);
+            min-height: var(--tap-target);
+        }
+        .mobile-menu-footer { margin-top: auto; padding-top: 2rem; }
+        .mobile-menu-footer p { font-size: 0.85rem; color: var(--color-text-light); }
 
         /* Search Modal */
         .search-modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0,0,0,0.5);
             z-index: 2000;
             align-items: flex-start;
             justify-content: center;
-            padding-top: 100px;
+            padding: 100px 20px;
         }
-
-        .search-modal.active {
-            display: flex;
-        }
-
+        .search-modal.active { display: flex; }
         .search-box {
             background: var(--color-white);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 16px;
-            width: 90%;
+            width: 100%;
             max-width: 600px;
         }
-
         .search-box input {
             width: 100%;
             padding: 1rem;
-            font-size: 1.2rem;
+            font-size: 1rem;
             border: 2px solid var(--color-border);
             border-radius: 8px;
             outline: none;
+            min-height: var(--tap-target);
         }
-
-        .search-results {
-            margin-top: 1rem;
-        }
-
+        .search-box input:focus { border-color: var(--color-text); }
+        .search-results { margin-top: 1rem; }
         .search-result-item {
             padding: 1rem;
             border-bottom: 1px solid var(--color-border);
             cursor: pointer;
+            min-height: var(--tap-target);
         }
-
-        .search-result-item:hover {
-            background: var(--color-bg);
-        }
+        .search-result-item:active { background: var(--color-bg); }
 
         /* Page Content */
         .page-content {
@@ -191,21 +225,9 @@
             max-width: 1600px;
             margin: 0 auto;
         }
-
-        .page-header {
-            margin-bottom: 3rem;
-        }
-
-        .page-label {
-            font-size: 0.9rem;
-            color: var(--color-text-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .page-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 600;
-        }
+        .page-header { margin-bottom: 3rem; }
+        .page-label { font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 0.5rem; }
+        .page-title { font-size: clamp(2rem, 5vw, 4rem); font-weight: 600; }
 
         /* Filter & Sort */
         .shop-controls {
@@ -213,8 +235,9 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-
         .filter-btn {
             display: flex;
             align-items: center;
@@ -225,9 +248,9 @@
             border-radius: 50px;
             font-size: 0.9rem;
             cursor: pointer;
+            min-height: var(--tap-target);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-
         .sort-select {
             padding: 0.8rem 1.5rem;
             background: var(--color-white);
@@ -235,47 +258,35 @@
             border-radius: 8px;
             font-size: 0.9rem;
             cursor: pointer;
+            min-height: var(--tap-target);
         }
 
         /* Filter Dropdown */
         .filter-dropdown {
             display: none;
             position: fixed;
-            bottom: 100px;
+            bottom: calc(30px + var(--safe-area-inset-bottom));
             left: 50%;
             transform: translateX(-50%);
             background: var(--color-white);
             border-radius: 50px;
-            padding: 0.8rem 1rem;
+            padding: 0.6rem 0.8rem;
             box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             z-index: 100;
         }
-
-        .filter-dropdown.active {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
+        .filter-dropdown.active { display: flex; gap: 0.3rem; align-items: center; }
         .filter-dropdown button {
-            padding: 0.6rem 1.2rem;
+            padding: 0.8rem 1rem;
             background: none;
             border: none;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
+            min-height: 44px;
             transition: background 0.3s;
         }
-
-        .filter-dropdown button:hover,
-        .filter-dropdown button.active {
-            background: var(--color-bg);
-        }
-
-        .filter-close {
-            padding: 0.5rem !important;
-            margin-left: 0.5rem;
-        }
+        .filter-dropdown button:hover, .filter-dropdown button.active { background: var(--color-bg); }
+        .filter-close { padding: 0.6rem !important; }
 
         /* Products Grid */
         .products-grid {
@@ -283,7 +294,6 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
         }
-
         .product-card {
             background: #e0e0e0;
             border-radius: 12px;
@@ -292,45 +302,20 @@
             text-decoration: none;
             color: inherit;
         }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-        .product-card-info {
-            padding: 1.5rem;
-            background: var(--color-bg);
-        }
-
-        .product-card h3 {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-        }
-
-        .product-card p {
-            font-size: 0.85rem;
-            color: var(--color-text-light);
-        }
-
-        .product-card .price {
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-card:active { transform: translateY(-2px); }
+        .product-card img { width: 100%; height: 400px; object-fit: cover; }
+        .product-card-info { padding: 1.5rem; background: var(--color-bg); }
+        .product-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.3rem; }
+        .product-card p { font-size: 0.85rem; color: var(--color-text-light); }
+        .product-card .price { font-weight: 600; margin-top: 0.5rem; }
 
         /* Footer */
         footer {
-            padding: 60px 5% 30px;
+            padding: 60px 5% calc(30px + var(--safe-area-inset-bottom));
             background: var(--color-text);
             color: var(--color-white);
         }
-
         .footer-inner {
             max-width: 1400px;
             margin: 0 auto;
@@ -338,40 +323,12 @@
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
         }
-
-        .footer-brand h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand p {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        .footer-col h4 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-col a {
-            color: var(--color-white);
-            opacity: 0.7;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
+        .footer-brand h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.9rem; opacity: 0.7; }
+        .footer-col h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.8rem; }
+        .footer-col a { color: var(--color-white); opacity: 0.7; text-decoration: none; font-size: 0.9rem; min-height: 44px; display: inline-block; padding: 0.5rem 0; }
         .footer-bottom {
             max-width: 1400px;
             margin: 3rem auto 0;
@@ -382,38 +339,25 @@
             opacity: 0.6;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
+        /* Responsive */
         @media (max-width: 1024px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .footer-inner {
-                grid-template-columns: 1fr 1fr;
-            }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            header { top: 10px; left: 10px; right: 10px; border-radius: 30px; }
+            .header-inner { padding: 0.8rem 1.2rem; }
+            nav { display: none; }
+            .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+            .products-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .product-card img { height: 300px; }
+            .footer-inner { grid-template-columns: 1fr; text-align: center; }
+            .page-content { padding: 120px 5% 80px; }
         }
 
-        @media (max-width: 768px) {
-            header {
-                top: 10px;
-                left: 10px;
-                right: 10px;
-            }
-            nav { display: none; }
-            .mobile-menu-btn { display: block; }
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-inner {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--color-text); outline-offset: 2px; }
     </style>
 </head>
 <body>
@@ -428,28 +372,36 @@
                 <a href="faq.html">FAQ</a>
             </nav>
             <div class="header-right">
-                <button class="search-btn" onclick="openSearch()">
+                <button class="search-btn" onclick="openSearch()" aria-label="Open search">
                     Search
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
                 </button>
-                <button class="mobile-menu-btn" aria-label="Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+                    <div class="hamburger"><span></span><span></span><span></span></div>
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <nav class="mobile-menu-nav">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="store.html">Store</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
+        <div class="mobile-menu-footer">
+            <p>Contact us<br><a href="mailto:team@credithink.com">team@credithink.com</a></p>
+        </div>
+    </div>
+
     <!-- Search Modal -->
     <div class="search-modal" id="searchModal" onclick="closeSearch(event)">
         <div class="search-box" onclick="event.stopPropagation()">
-            <input type="text" placeholder="Search products..." id="searchInput" oninput="searchProducts(this.value)">
+            <input type="search" placeholder="Search products..." id="searchInput" oninput="searchProducts(this.value)">
             <div class="search-results" id="searchResults"></div>
         </div>
     </div>
@@ -460,11 +412,8 @@
         <button data-category="serum" onclick="filterProducts('serum')">Serum</button>
         <button data-category="concentrate" onclick="filterProducts('concentrate')">Concentrate</button>
         <button data-category="cream" onclick="filterProducts('cream')">Cream</button>
-        <button class="filter-close" onclick="closeFilter()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
+        <button class="filter-close" onclick="closeFilter()" aria-label="Close filter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
     </div>
 
@@ -477,14 +426,7 @@
 
         <div class="shop-controls">
             <button class="filter-btn" onclick="toggleFilter()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="4" y1="6" x2="20" y2="6"></line>
-                    <circle cx="8" cy="6" r="2"></circle>
-                    <line x1="4" y1="12" x2="20" y2="12"></line>
-                    <circle cx="14" cy="12" r="2"></circle>
-                    <line x1="4" y1="18" x2="20" y2="18"></line>
-                    <circle cx="8" cy="18" r="2"></circle>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><circle cx="8" cy="6" r="2"></circle><line x1="4" y1="12" x2="20" y2="12"></line><circle cx="14" cy="12" r="2"></circle><line x1="4" y1="18" x2="20" y2="18"></line><circle cx="8" cy="18" r="2"></circle></svg>
                 Filter
             </button>
             <select class="sort-select" onchange="sortProducts(this.value)">
@@ -494,9 +436,7 @@
             </select>
         </div>
 
-        <div class="products-grid" id="productsGrid">
-            <!-- Products will be loaded by JavaScript -->
-        </div>
+        <div class="products-grid" id="productsGrid"></div>
     </main>
 
     <!-- Footer -->
@@ -537,75 +477,18 @@
     <script>
         // Product Data
         const products = [
-            {
-                id: 1,
-                name: 'Volufiline 100%',
-                description: 'Pure firming concentrate from Sederma, France',
-                category: 'concentrate',
-                price: '$28.00',
-                image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop'
-            },
-            {
-                id: 2,
-                name: 'Niacinamide 20%',
-                description: 'Advanced barrier repair serum',
-                category: 'serum',
-                price: '$24.00',
-                image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop'
-            },
-            {
-                id: 3,
-                name: 'Bakuchiol 30,000ppm',
-                description: 'Natural retinol alternative',
-                category: 'serum',
-                price: '$32.00',
-                image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop'
-            },
-            {
-                id: 4,
-                name: 'Vitamin C 20%',
-                description: 'Pure L-Ascorbic acid brightening serum',
-                category: 'serum',
-                price: '$26.00',
-                image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop'
-            },
-            {
-                id: 5,
-                name: 'Retinol 0.5%',
-                description: 'Advanced anti-aging concentrate',
-                category: 'concentrate',
-                price: '$35.00',
-                image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop'
-            },
-            {
-                id: 6,
-                name: 'Peptide Complex',
-                description: 'Multi-peptide firming cream',
-                category: 'cream',
-                price: '$42.00',
-                image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=400&fit=crop'
-            },
-            {
-                id: 7,
-                name: 'Hyaluronic Acid 2%',
-                description: 'Multi-weight hydration serum',
-                category: 'serum',
-                price: '$22.00',
-                image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&h=400&fit=crop'
-            },
-            {
-                id: 8,
-                name: 'Ceramide Barrier Cream',
-                description: 'Intensive moisture barrier repair',
-                category: 'cream',
-                price: '$38.00',
-                image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop'
-            }
+            { id: 1, name: 'Volufiline 100%', description: 'Pure firming concentrate from Sederma, France', category: 'concentrate', price: '$28.00', image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop' },
+            { id: 2, name: 'Niacinamide 20%', description: 'Advanced barrier repair serum', category: 'serum', price: '$24.00', image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop' },
+            { id: 3, name: 'Bakuchiol 30,000ppm', description: 'Natural retinol alternative', category: 'serum', price: '$32.00', image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop' },
+            { id: 4, name: 'Vitamin C 20%', description: 'Pure L-Ascorbic acid brightening serum', category: 'serum', price: '$26.00', image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop' },
+            { id: 5, name: 'Retinol 0.5%', description: 'Advanced anti-aging concentrate', category: 'concentrate', price: '$35.00', image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop' },
+            { id: 6, name: 'Peptide Complex', description: 'Multi-peptide firming cream', category: 'cream', price: '$42.00', image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=400&fit=crop' },
+            { id: 7, name: 'Hyaluronic Acid 2%', description: 'Multi-weight hydration serum', category: 'serum', price: '$22.00', image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&h=400&fit=crop' },
+            { id: 8, name: 'Ceramide Barrier Cream', description: 'Intensive moisture barrier repair', category: 'cream', price: '$38.00', image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop' }
         ];
 
         let currentCategory = 'all';
 
-        // Render Products
         function renderProducts(productsToRender) {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = productsToRender.map(product => `
@@ -620,94 +503,82 @@
             `).join('');
         }
 
-        // Filter Products
         function filterProducts(category) {
             currentCategory = category;
-            
-            // Update active button
             document.querySelectorAll('.filter-dropdown button[data-category]').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.category === category);
             });
-            
-            // Update title
-            const titles = {
-                all: 'All Products',
-                serum: 'Serums',
-                concentrate: 'Concentrates',
-                cream: 'Creams'
-            };
+            const titles = { all: 'All Products', serum: 'Serums', concentrate: 'Concentrates', cream: 'Creams' };
             document.getElementById('categoryTitle').textContent = titles[category];
-            
-            // Filter and render
-            const filtered = category === 'all' 
-                ? products 
-                : products.filter(p => p.category === category);
+            const filtered = category === 'all' ? products : products.filter(p => p.category === category);
             renderProducts(filtered);
         }
 
-        // Sort Products
         function sortProducts(sortBy) {
-            let filtered = currentCategory === 'all' 
-                ? [...products] 
-                : products.filter(p => p.category === currentCategory);
-            
-            if (sortBy === 'price-low') {
-                filtered.sort((a, b) => parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', '')));
-            } else if (sortBy === 'price-high') {
-                filtered.sort((a, b) => parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', '')));
-            }
-            
+            let filtered = currentCategory === 'all' ? [...products] : products.filter(p => p.category === currentCategory);
+            if (sortBy === 'price-low') filtered.sort((a, b) => parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', '')));
+            else if (sortBy === 'price-high') filtered.sort((a, b) => parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', '')));
             renderProducts(filtered);
         }
 
-        // Toggle Filter
-        function toggleFilter() {
-            document.getElementById('filterDropdown').classList.toggle('active');
+        function toggleFilter() { document.getElementById('filterDropdown').classList.toggle('active'); }
+        function closeFilter() { document.getElementById('filterDropdown').classList.remove('active'); }
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function toggleMobileMenu() {
+            const isOpen = mobileMenu.classList.contains('active');
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+            mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+            mobileMenu.setAttribute('aria-hidden', isOpen);
         }
 
-        function closeFilter() {
-            document.getElementById('filterDropdown').classList.remove('active');
+        function closeMobileMenu() {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
         }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        document.querySelectorAll('.mobile-menu-nav a').forEach(link => link.addEventListener('click', closeMobileMenu));
 
         // Search
         function openSearch() {
             document.getElementById('searchModal').classList.add('active');
             document.getElementById('searchInput').focus();
+            document.body.classList.add('menu-open');
         }
 
         function closeSearch(e) {
             if (e.target.id === 'searchModal') {
                 document.getElementById('searchModal').classList.remove('active');
                 document.getElementById('searchResults').innerHTML = '';
+                document.body.classList.remove('menu-open');
             }
         }
 
         function searchProducts(query) {
             const results = document.getElementById('searchResults');
-            if (query.length < 2) {
-                results.innerHTML = '';
-                return;
-            }
-            
-            const filtered = products.filter(p => 
-                p.name.toLowerCase().includes(query.toLowerCase()) ||
-                p.description.toLowerCase().includes(query.toLowerCase())
-            );
-            
-            results.innerHTML = filtered.map(p => `
-                <div class="search-result-item" onclick="window.location.href='shop.html'">
-                    <strong>${p.name}</strong>
-                    <p style="font-size: 0.85rem; color: #666;">${p.description}</p>
-                </div>
-            `).join('') || '<p style="padding: 1rem; color: #666;">No products found</p>';
+            if (query.length < 2) { results.innerHTML = ''; return; }
+            const filtered = products.filter(p => p.name.toLowerCase().includes(query.toLowerCase()) || p.description.toLowerCase().includes(query.toLowerCase()));
+            results.innerHTML = filtered.map(p => `<div class="search-result-item" onclick="window.location.href='shop.html'"><strong>${p.name}</strong><p style="font-size:0.85rem;color:#666;">${p.description}</p></div>`).join('') || '<p style="padding:1rem;color:#666;">No products found</p>';
         }
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.getElementById('searchModal').classList.remove('active');
-                closeFilter();
-            }
+            if (e.key === 'Escape') { document.getElementById('searchModal').classList.remove('active'); closeMobileMenu(); closeFilter(); document.body.classList.remove('menu-open'); }
         });
+
+        // Passive listeners for better scroll
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        document.addEventListener('touchmove', function() {}, {passive: true});
 
         // Initial render
         renderProducts(products);
