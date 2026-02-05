@@ -1,76 +1,50 @@
-# CELDYQUE Website
+# CELDYQUE Website (Optimized)
 
-B:Lab 스타일의 CELDYQUE 브랜드 홈페이지입니다.
+## 적용된 최적화
 
-## 📁 파일 구조
+### 1. 모바일 메뉴 (완전 구현)
+- 햄버거 → X 애니메이션
+- 슬라이드 드로어 메뉴
+- 오버레이 클릭으로 닫기
+- ESC 키로 닫기
+- 메뉴 열릴 때 body 스크롤 잠금
 
-```
-/
-├── index.html      # 메인 홈페이지
-├── shop.html       # 제품 페이지 (필터 기능 포함)
-├── about.html      # 브랜드 스토리 + Coming Soon
-├── store.html      # 외부 판매처 링크
-├── faq.html        # FAQ 페이지
-├── CNAME           # 커스텀 도메인 설정
-└── README.md       # 이 파일
-```
+### 2. 터치 최적화
+- 모든 터치 타겟 최소 48px
+- `:active` 상태 추가
+- Passive event listeners
+- iOS 입력 확대 방지
 
-## 🚀 GitHub Pages 배포
+### 3. 접근성 (a11y)
+- ARIA 속성 (aria-label, aria-expanded, aria-hidden)
+- Skip to content 링크
+- focus-visible 스타일
+- prefers-reduced-motion 지원
+- Semantic HTML
 
-### 터미널에서 실행
+### 4. 성능
+- Preconnect (fonts, images)
+- Lazy loading (이미지)
+- fetchpriority="high" (히어로 이미지)
+- 최소화된 CSS
+
+### 5. 모바일 UX
+- Safe area insets (노치 대응)
+- 100dvh (동적 뷰포트)
+- theme-color 메타태그
+- apple-mobile-web-app-capable
+
+## 배포
 
 ```bash
 git add .
-git commit -m "Add complete CELDYQUE website"
+git commit -m "Add optimized mobile menu and touch support"
 git push origin main
 ```
 
-### Settings → Pages 확인
-- Branch: `main`
-- Folder: `/ (root)`
-
-## 🌐 커스텀 도메인 설정
-
-### 1. DNS 설정 (도메인 제공업체에서)
-
-**A 레코드** (4개):
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
-
-**CNAME 레코드**:
-```
-이름: www
-값: [username].github.io
-```
-
-### 2. GitHub Pages 설정
-Custom domain에 `www.celdyque.com` 입력 → Save
-
-## 🔍 SEO/AEO 최적화 포함 항목
-
-- ✅ Meta tags (title, description, keywords)
-- ✅ Open Graph tags (Facebook/Twitter)
-- ✅ Schema.org JSON-LD (Organization, WebSite, Product, FAQPage)
-- ✅ Canonical URLs
-- ✅ Semantic HTML5 구조
-- ✅ Image alt 태그
-- ✅ 모바일 반응형
-
-## ✏️ 커스터마이징
-
-### 이미지 교체
-Unsplash 이미지 → 실제 제품 이미지로 교체
-
-### 외부 링크 수정
-`store.html`에서 `#` 링크를 실제 URL로 변경
-
-### 제품 데이터 수정
-`shop.html`의 `products` 배열 수정
-
----
-
-© 2024 CELDYQUE
+## 파일
+- `index.html` - 홈
+- `shop.html` - 제품 + 필터
+- `about.html` - 브랜드 스토리
+- `store.html` - 판매처
+- `faq.html` - FAQ
