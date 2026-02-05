@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop All Products | CELDYQUE Korean Skincare</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Shop CELDYQUE high-concentration skincare products. Browse our collection of Volufiline, Niacinamide, Bakuchiol serums and concentrates.">
+    <meta name="keywords" content="buy Korean skincare, Volufiline serum, Niacinamide 20%, Bakuchiol concentrate, K-beauty shop">
+    <link rel="canonical" href="https://www.celdyque.com/shop.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Shop CELDYQUE Products">
+    <meta property="og:description" content="High-concentration Korean skincare. Shop serums, concentrates, and more.">
+    <meta property="og:url" content="https://www.celdyque.com/shop.html">
+    
+    <!-- Schema.org for Products -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "CELDYQUE Products",
+        "description": "Shop all CELDYQUE high-concentration skincare products",
+        "url": "https://www.celdyque.com/shop.html",
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "Product",
+                    "position": 1,
+                    "name": "Volufiline 100% Pure Concentrate",
+                    "description": "Pure Volufiline concentrate for skin firming and volumizing",
+                    "brand": "CELDYQUE",
+                    "category": "Serum"
+                },
+                {
+                    "@type": "Product",
+                    "position": 2,
+                    "name": "Niacinamide 20% Advanced Serum",
+                    "description": "High-concentration niacinamide for barrier repair and pore refinement",
+                    "brand": "CELDYQUE",
+                    "category": "Serum"
+                }
+            ]
+        }
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #f5f5f5;
+            --color-white: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-light: #666666;
+            --color-border: #e5e5e5;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--color-bg);
+            border-radius: 50px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            opacity: 0.6;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .search-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: var(--color-text);
+        }
+
+        /* Search Modal */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 100px;
+        }
+
+        .search-modal.active {
+            display: flex;
+        }
+
+        .search-box {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-results {
+            margin-top: 1rem;
+        }
+
+        .search-result-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--color-border);
+            cursor: pointer;
+        }
+
+        .search-result-item:hover {
+            background: var(--color-bg);
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 140px 5% 80px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+        }
+
+        .page-label {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+        }
+
+        /* Filter & Sort */
+        .shop-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--color-white);
+            border: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .sort-select {
+            padding: 0.8rem 1.5rem;
+            background: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Filter Dropdown */
+        .filter-dropdown {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-white);
+            border-radius: 50px;
+            padding: 0.8rem 1rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            z-index: 100;
+        }
+
+        .filter-dropdown.active {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .filter-dropdown button {
+            padding: 0.6rem 1.2rem;
+            background: none;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .filter-dropdown button:hover,
+        .filter-dropdown button.active {
+            background: var(--color-bg);
+        }
+
+        .filter-close {
+            padding: 0.5rem !important;
+            margin-left: 0.5rem;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .product-card-info {
+            padding: 1.5rem;
+            background: var(--color-bg);
+        }
+
+        .product-card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-card p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        .product-card .price {
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 5% 30px;
+            background: var(--color-text);
+            color: var(--color-white);
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer-col h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: var(--color-white);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+            }
+            nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">CELDYQUE</a>
+            <nav>
+                <a href="shop.html" class="active">Shop</a>
+                <a href="about.html">About</a>
+                <a href="store.html">Store</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+            <div class="header-right">
+                <button class="search-btn" onclick="openSearch()">
+                    Search
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" onclick="closeSearch(event)">
+        <div class="search-box" onclick="event.stopPropagation()">
+            <input type="text" placeholder="Search products..." id="searchInput" oninput="searchProducts(this.value)">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Filter Dropdown -->
+    <div class="filter-dropdown" id="filterDropdown">
+        <button class="active" data-category="all" onclick="filterProducts('all')">All</button>
+        <button data-category="serum" onclick="filterProducts('serum')">Serum</button>
+        <button data-category="concentrate" onclick="filterProducts('concentrate')">Concentrate</button>
+        <button data-category="cream" onclick="filterProducts('cream')">Cream</button>
+        <button class="filter-close" onclick="closeFilter()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Page Content -->
+    <main class="page-content">
+        <div class="page-header">
+            <p class="page-label">Shop</p>
+            <h1 class="page-title" id="categoryTitle">All Products</h1>
+        </div>
+
+        <div class="shop-controls">
+            <button class="filter-btn" onclick="toggleFilter()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="4" y1="6" x2="20" y2="6"></line>
+                    <circle cx="8" cy="6" r="2"></circle>
+                    <line x1="4" y1="12" x2="20" y2="12"></line>
+                    <circle cx="14" cy="12" r="2"></circle>
+                    <line x1="4" y1="18" x2="20" y2="18"></line>
+                    <circle cx="8" cy="18" r="2"></circle>
+                </svg>
+                Filter
+            </button>
+            <select class="sort-select" onchange="sortProducts(this.value)">
+                <option value="newest">Newest</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+            </select>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>CELDYQUE</h3>
+                <p>Cell • Medicine • Technique</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=serum">Serums</a></li>
+                    <li><a href="shop.html?category=concentrate">Concentrates</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="store.html">Where to Buy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:team@credithink.com">team@credithink.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 CELDYQUE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: 'Volufiline 100%',
+                description: 'Pure firming concentrate from Sederma, France',
+                category: 'concentrate',
+                price: '$28.00',
+                image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop'
+            },
+            {
+                id: 2,
+                name: 'Niacinamide 20%',
+                description: 'Advanced barrier repair serum',
+                category: 'serum',
+                price: '$24.00',
+                image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop'
+            },
+            {
+                id: 3,
+                name: 'Bakuchiol 30,000ppm',
+                description: 'Natural retinol alternative',
+                category: 'serum',
+                price: '$32.00',
+                image: 'https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=400&fit=crop'
+            },
+            {
+                id: 4,
+                name: 'Vitamin C 20%',
+                description: 'Pure L-Ascorbic acid brightening serum',
+                category: 'serum',
+                price: '$26.00',
+                image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop'
+            },
+            {
+                id: 5,
+                name: 'Retinol 0.5%',
+                description: 'Advanced anti-aging concentrate',
+                category: 'concentrate',
+                price: '$35.00',
+                image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop'
+            },
+            {
+                id: 6,
+                name: 'Peptide Complex',
+                description: 'Multi-peptide firming cream',
+                category: 'cream',
+                price: '$42.00',
+                image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=400&fit=crop'
+            },
+            {
+                id: 7,
+                name: 'Hyaluronic Acid 2%',
+                description: 'Multi-weight hydration serum',
+                category: 'serum',
+                price: '$22.00',
+                image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&h=400&fit=crop'
+            },
+            {
+                id: 8,
+                name: 'Ceramide Barrier Cream',
+                description: 'Intensive moisture barrier repair',
+                category: 'cream',
+                price: '$38.00',
+                image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop'
+            }
+        ];
+
+        let currentCategory = 'all';
+
+        // Render Products
+        function renderProducts(productsToRender) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = productsToRender.map(product => `
+                <a href="#" class="product-card" data-category="${product.category}">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    <div class="product-card-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <p class="price">${product.price}</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Filter Products
+        function filterProducts(category) {
+            currentCategory = category;
+            
+            // Update active button
+            document.querySelectorAll('.filter-dropdown button[data-category]').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === category);
+            });
+            
+            // Update title
+            const titles = {
+                all: 'All Products',
+                serum: 'Serums',
+                concentrate: 'Concentrates',
+                cream: 'Creams'
+            };
+            document.getElementById('categoryTitle').textContent = titles[category];
+            
+            // Filter and render
+            const filtered = category === 'all' 
+                ? products 
+                : products.filter(p => p.category === category);
+            renderProducts(filtered);
+        }
+
+        // Sort Products
+        function sortProducts(sortBy) {
+            let filtered = currentCategory === 'all' 
+                ? [...products] 
+                : products.filter(p => p.category === currentCategory);
+            
+            if (sortBy === 'price-low') {
+                filtered.sort((a, b) => parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', '')));
+            } else if (sortBy === 'price-high') {
+                filtered.sort((a, b) => parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', '')));
+            }
+            
+            renderProducts(filtered);
+        }
+
+        // Toggle Filter
+        function toggleFilter() {
+            document.getElementById('filterDropdown').classList.toggle('active');
+        }
+
+        function closeFilter() {
+            document.getElementById('filterDropdown').classList.remove('active');
+        }
+
+        // Search
+        function openSearch() {
+            document.getElementById('searchModal').classList.add('active');
+            document.getElementById('searchInput').focus();
+        }
+
+        function closeSearch(e) {
+            if (e.target.id === 'searchModal') {
+                document.getElementById('searchModal').classList.remove('active');
+                document.getElementById('searchResults').innerHTML = '';
+            }
+        }
+
+        function searchProducts(query) {
+            const results = document.getElementById('searchResults');
+            if (query.length < 2) {
+                results.innerHTML = '';
+                return;
+            }
+            
+            const filtered = products.filter(p => 
+                p.name.toLowerCase().includes(query.toLowerCase()) ||
+                p.description.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            results.innerHTML = filtered.map(p => `
+                <div class="search-result-item" onclick="window.location.href='shop.html'">
+                    <strong>${p.name}</strong>
+                    <p style="font-size: 0.85rem; color: #666;">${p.description}</p>
+                </div>
+            `).join('') || '<p style="padding: 1rem; color: #666;">No products found</p>';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('searchModal').classList.remove('active');
+                closeFilter();
+            }
+        });
+
+        // Initial render
+        renderProducts(products);
+    </script>
+</body>
+</html>

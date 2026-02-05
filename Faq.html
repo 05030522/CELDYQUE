@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | CELDYQUE Skincare Questions & Answers</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Find answers to frequently asked questions about CELDYQUE products, shipping, ingredients, and skincare routines. Get expert skincare advice.">
+    <meta name="keywords" content="CELDYQUE FAQ, Korean skincare questions, Volufiline how to use, Niacinamide serum FAQ">
+    <link rel="canonical" href="https://www.celdyque.com/faq.html">
+    
+    <!-- Schema.org FAQ for AEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the product's shelf life?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can check the date on the bottom of each product (up to MM/DD/YYYY). We recommend using each product within one year of opening."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I use Volufiline 100%?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Apply 2-3 drops to target areas (cheeks, nasolabial folds, under eyes) after cleansing and toning. Gently pat until absorbed. Use morning and night for best results. Can be mixed with your moisturizer."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use Niacinamide 20% with other active ingredients?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, Niacinamide 20% is compatible with most skincare ingredients including hyaluronic acid, peptides, and ceramides. However, we recommend not using it simultaneously with Vitamin C to avoid potential irritation. You can use Vitamin C in the morning and Niacinamide at night."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Bakuchiol safe during pregnancy?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bakuchiol is a plant-based alternative to retinol and is generally considered safe during pregnancy. However, we always recommend consulting with your healthcare provider before introducing new skincare products during pregnancy."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where are CELDYQUE products manufactured?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All CELDYQUE products are formulated and manufactured in South Korea using premium ingredients sourced globally. Our Volufiline is sourced from Sederma, France."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you ship internationally?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, CELDYQUE ships worldwide through our authorized retailers including Amazon, YesStyle, iHerb, and other K-beauty platforms. Shipping times and costs vary by location and retailer."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --color-bg: #f5f5f5;
+            --color-white: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-light: #666666;
+            --color-border: #e5e5e5;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--color-bg);
+            border-radius: 50px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+        nav { display: flex; gap: 3rem; }
+        nav a {
+            font-size: 0.9rem;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        nav a:hover, nav a.active { opacity: 0.6; }
+        .header-right { display: flex; align-items: center; gap: 1.5rem; }
+        .search-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: var(--color-text);
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 140px 5% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+        }
+
+        .page-label {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        /* Filter */
+        .faq-filter {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        .faq-filter select {
+            padding: 0.8rem 1.5rem;
+            background: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* FAQ List */
+        .faq-list {
+            border-top: 1px solid var(--color-border);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--color-border);
+            padding: 2rem 0;
+            display: grid;
+            grid-template-columns: 150px 1fr 100px;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .faq-category {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+        .faq-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .faq-content p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-content p.show {
+            display: block;
+        }
+
+        .faq-author {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            text-align: right;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 4rem;
+            padding: 3rem;
+            background: var(--color-white);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--color-text);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 5% 30px;
+            background: var(--color-text);
+            color: var(--color-white);
+            margin-top: 80px;
+        }
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+        .footer-brand h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.9rem; opacity: 0.7; }
+        .footer-col h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.8rem; }
+        .footer-col a {
+            color: var(--color-white);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 1024px) {
+            .faq-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .faq-author { text-align: left; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            header { top: 10px; left: 10px; right: 10px; }
+            nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .footer-inner { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">CELDYQUE</a>
+            <nav>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="store.html">Store</a>
+                <a href="faq.html" class="active">FAQ</a>
+            </nav>
+            <div class="header-right">
+                <button class="search-btn">
+                    Search
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="page-content">
+        <div class="page-header">
+            <p class="page-label">FAQ</p>
+            <h1 class="page-title">Commonly Asked Questions</h1>
+        </div>
+
+        <div class="faq-filter">
+            <select onchange="filterFAQ(this.value)">
+                <option value="all">All</option>
+                <option value="products">Products</option>
+                <option value="shipping">Shipping</option>
+                <option value="ingredients">Ingredients</option>
+            </select>
+        </div>
+
+        <div class="faq-list" id="faqList">
+            <article class="faq-item" data-category="products">
+                <span class="faq-category">Products</span>
+                <div class="faq-content">
+                    <h3 onclick="toggleAnswer(this)">What is the product's shelf life?</h3>
+                    <p>You can check the date on the bottom of each product (up to MM/DD/YYYY). We recommend using each product within one year of opening for optimal efficacy.</p>
+                </div>
+                <span class="faq-author">Administrator</span>
+            </article>
+
+            <article class="faq-item" data-category="products">
+                <span class="faq-category">Products</span>
+                <div class="faq-content">
+                    <h3 onclick="toggleAnswer(this)">How do I use Volufiline 100%?</h3>
+                    <p>Apply 2-3 drops to target areas (cheeks, nasolabial folds, under eyes) after cleansing and toning. Gently pat until absorbed. Use morning and night for best results. Can be mixed with your moisturizer for easier application.</p>
+                </div>
+                <span class="faq-author">Administrator</span>
+            </article>
+
+            <article class="faq-item" data-category="ingredients">
+                <span class="faq-category">Ingredients</span>
+                <div class="faq-content">
+                    <h3 onclick="toggleAnswer(this)">Can I use Niacinamide 20% with other active ingredients?</h3>
+                    <p>Yes, Niacinamide 20% is compatible with most skincare ingredients including hyaluronic acid, peptides, and ceramides. However, we recommend not using it simultaneously with Vitamin C to avoid potential irritation. You can use Vitamin C in the morning and Niacinamide at night.</p>
+                </div>
+                <span class="faq-author">Administrator</span>
+            </article>
+
+            <article class="faq-item" data-category="ingredients">
+                <span class="faq-category">Ingredients</span>
+                <div class="faq-content">
+                    <h3 onclick="toggleAnswer(this)">Is Bakuchiol safe during pregnancy?</h3>
+                    <p>Bakuchiol is a plant-based alternative to retinol and is generally considered safe during pregnancy. However, we always recommend consulting with your healthcare provider before introducing new skincare products during pregnancy or breastfeeding.</p>
+                </div>
+                <span class="faq-author">Administrator</span>
+            </article>
+
+            <article class="faq-item" data-category="products">
+                <span class="faq-category">Products</span>
+                <div class="faq-content">
+                    <h3 onclick="toggleAnswer(this)">Where are CELDYQUE products manufactured?</h3>
+                    <p>All CELDYQUE products are formulated and manufactured in South Korea using premium ingredients sourced globally. Our Volufiline is sourced from Sederma, France — the original patent holder and most trusted supplier.</p>
+                </div>
+                <span class="faq-author">Administrator</span>
+            </article>
+
+            <article class="faq-item" data-category="shipping">
+                <span class="faq-category">Shipping</span>
+                <div class="faq-content">
+                    <h3 onclick="toggleAnswer(this)">Do you ship internationally?</h3>
+                    <p>Yes, CELDYQUE ships worldwide through our authorized retailers including Amazon, YesStyle, iHerb, and other K-beauty platforms. Shipping times and costs vary by location and retailer. Check our Store page for the retailer nearest to you.</p>
+                </div>
+                <span class="faq-author">Administrator</span>
+            </article>
+
+            <article class="faq-item" data-category="shipping">
+                <span class="faq-category">Shipping</span>
+                <div class="faq-content">
+                    <h3 onclick="toggleAnswer(this)">What is your return policy?</h3>
+                    <p>Return policies vary by retailer. For purchases made on Amazon, please refer to Amazon's return policy. For other retailers, please contact their customer service directly. Unopened products in original condition are typically eligible for return within 30 days.</p>
+                </div>
+                <span class="faq-author">Administrator</span>
+            </article>
+
+            <article class="faq-item" data-category="products">
+                <span class="faq-category">Products</span>
+                <div class="faq-content">
+                    <h3 onclick="toggleAnswer(this)">Hello. This is CELDYQUE.</h3>
+                    <p>Hello. This is CELDYQUE. Please leave us a message if you have any questions about CELDYQUE or our products. We will do our best to reply as quickly as possible. You can reach us at team@credithink.com</p>
+                </div>
+                <span class="faq-author">Administrator</span>
+            </article>
+        </div>
+
+        <div class="contact-section">
+            <h2>Still have questions?</h2>
+            <p>Can't find what you're looking for? We're here to help.</p>
+            <a href="mailto:team@credithink.com">Contact Us</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>CELDYQUE</h3>
+                <p>Cell • Medicine • Technique</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=serum">Serums</a></li>
+                    <li><a href="shop.html?category=concentrate">Concentrates</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="store.html">Where to Buy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:team@credithink.com">team@credithink.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 CELDYQUE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('show');
+        }
+
+        function filterFAQ(category) {
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'grid';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

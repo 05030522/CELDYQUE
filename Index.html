@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CELDYQUE | High-Concentration Korean Skincare - Volufiline, Niacinamide, Bakuchiol</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="CELDYQUE offers high-concentration Korean skincare with clinically proven ingredients. Shop Volufiline 100%, Niacinamide 20%, and Bakuchiol serums for visible results.">
+    <meta name="keywords" content="Korean skincare, Volufiline, Niacinamide serum, Bakuchiol, K-beauty, high concentration skincare, anti-aging serum, skin firming">
+    <meta name="author" content="CELDYQUE">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.celdyque.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.celdyque.com/">
+    <meta property="og:title" content="CELDYQUE | High-Concentration Korean Skincare">
+    <meta property="og:description" content="Essential Skincare, Nothing More. High-concentration formulas that deliver definite results.">
+    <meta property="og:image" content="https://www.celdyque.com/images/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CELDYQUE | High-Concentration Korean Skincare">
+    <meta name="twitter:description" content="Essential Skincare, Nothing More. High-concentration formulas that deliver definite results.">
+    
+    <!-- Schema.org JSON-LD for AEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CELDYQUE",
+        "url": "https://www.celdyque.com",
+        "logo": "https://www.celdyque.com/images/logo.png",
+        "description": "High-concentration Korean skincare brand offering clinically proven formulas",
+        "sameAs": [
+            "https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "team@credithink.com",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "CELDYQUE",
+        "url": "https://www.celdyque.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.celdyque.com/shop.html?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-bg: #f5f5f5;
+            --color-white: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-light: #666666;
+            --color-border: #e5e5e5;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* ========== Header ========== */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--color-bg);
+            border-radius: 50px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--color-text);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .search-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: var(--color-text);
+        }
+
+        /* Search Modal */
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 100px;
+        }
+
+        .search-modal.active {
+            display: flex;
+        }
+
+        .search-box {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: var(--color-text);
+        }
+
+        /* ========== Hero ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 5% 80px;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--color-text);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* ========== Featured Products ========== */
+        .featured {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .section-header a {
+            font-size: 0.9rem;
+            color: var(--color-text);
+            text-decoration: underline;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .product-card-info {
+            padding: 1.5rem;
+            background: var(--color-bg);
+        }
+
+        .product-card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-card p {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+
+        /* ========== About Preview ========== */
+        .about-preview {
+            padding: 100px 5%;
+            background: var(--color-white);
+        }
+
+        .about-preview-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-preview-text h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-preview-text p {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .about-preview-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* ========== Store Links ========== */
+        .store-preview {
+            padding: 80px 5%;
+        }
+
+        .store-preview h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .store-card {
+            background: #e8e8e8;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .store-card:hover {
+            background: #ddd;
+        }
+
+        .store-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .store-card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--color-text);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        /* ========== Footer ========== */
+        footer {
+            padding: 60px 5% 30px;
+            background: var(--color-text);
+            color: var(--color-white);
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a {
+            color: var(--color-white);
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* ========== Mobile Menu ========== */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-content,
+            .about-preview-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .store-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">CELDYQUE</a>
+            <nav>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="store.html">Store</a>
+                <a href="faq.html">FAQ</a>
+            </nav>
+            <div class="header-right">
+                <button class="search-btn" onclick="openSearch()">
+                    Search
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" onclick="closeSearch(event)">
+        <div class="search-box" onclick="event.stopPropagation()">
+            <input type="text" placeholder="Search products..." id="searchInput" autofocus>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Essential Skincare, Nothing More</h1>
+                <p>High-concentration formulas with clinically proven ingredients. No fillers, no fragrances — just results you can see and feel.</p>
+                <a href="shop.html" class="hero-btn">Shop Now</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop" alt="CELDYQUE skincare products featuring high-concentration serums" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="products">
+        <div class="section-header">
+            <h2>Best Sellers</h2>
+            <a href="shop.html">View All →</a>
+        </div>
+        <div class="products-grid">
+            <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                <a href="shop.html">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=350&fit=crop" alt="Volufiline 100% Pure Concentrate bottle" loading="lazy" itemprop="image">
+                </a>
+                <div class="product-card-info">
+                    <h3 itemprop="name">Volufiline 100%</h3>
+                    <p itemprop="description">Pure firming concentrate</p>
+                </div>
+            </article>
+            <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                <a href="shop.html">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=350&fit=crop" alt="Niacinamide 20% Advanced Serum bottle" loading="lazy" itemprop="image">
+                </a>
+                <div class="product-card-info">
+                    <h3 itemprop="name">Niacinamide 20%</h3>
+                    <p itemprop="description">Barrier repair serum</p>
+                </div>
+            </article>
+            <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                <a href="shop.html">
+                    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=350&fit=crop" alt="Bakuchiol 30,000ppm Concentrate bottle" loading="lazy" itemprop="image">
+                </a>
+                <div class="product-card-info">
+                    <h3 itemprop="name">Bakuchiol 30,000ppm</h3>
+                    <p itemprop="description">Natural retinol alternative</p>
+                </div>
+            </article>
+            <article class="product-card" itemscope itemtype="https://schema.org/Product">
+                <a href="shop.html">
+                    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=350&fit=crop" alt="Vitamin C 20% Brightening Serum bottle" loading="lazy" itemprop="image">
+                </a>
+                <div class="product-card-info">
+                    <h3 itemprop="name">Vitamin C 20%</h3>
+                    <p itemprop="description">Brightening serum</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview">
+        <div class="about-preview-inner">
+            <div class="about-preview-text">
+                <h2>Science Meets Simplicity</h2>
+                <p>We believe skincare should be straightforward. Our formulas use maximum effective concentrations of clinically proven ingredients — nothing more, nothing less. Each product is designed to deliver visible results without unnecessary additives.</p>
+                <a href="about.html" class="hero-btn">Our Story</a>
+            </div>
+            <div class="about-preview-image">
+                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=500&fit=crop" alt="CELDYQUE laboratory research and development" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Preview -->
+    <section class="store-preview">
+        <h2>Shop CELDYQUE Worldwide</h2>
+        <div class="store-grid">
+            <div class="store-card">
+                <h3>Amazon</h3>
+                <a href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    Go Shop
+                </a>
+            </div>
+            <div class="store-card">
+                <h3>YesStyle</h3>
+                <a href="#" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    Go Shop
+                </a>
+            </div>
+            <div class="store-card">
+                <h3>iHerb</h3>
+                <a href="#" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    Go Shop
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>CELDYQUE</h3>
+                <p>Cell • Medicine • Technique<br>High-concentration skincare that delivers definite results.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=serum">Serums</a></li>
+                    <li><a href="shop.html?category=concentrate">Concentrates</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="store.html">Where to Buy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:team@credithink.com">team@credithink.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 CELDYQUE. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openSearch() {
+            document.getElementById('searchModal').classList.add('active');
+            document.getElementById('searchInput').focus();
+        }
+
+        function closeSearch(e) {
+            if (e.target.id === 'searchModal') {
+                document.getElementById('searchModal').classList.remove('active');
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('searchModal').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
