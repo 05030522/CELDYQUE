@@ -53,7 +53,7 @@
         .seller-card a{font-size:0.85rem;color:var(--text-light)}
 
         .contact-map{background:#e0e0e0;border-radius:16px;overflow:hidden;min-height:500px}
-        .contact-map iframe{width:100%;height:100%;min-height:500px;border:none;filter:grayscale(100%)}
+        .contact-map iframe{width:100%;height:100%;min-height:500px;border:none;} /* grayscale 필터 제거하여 지도 색상 원래대로 */
 
         footer{padding:60px 5% 30px;background:var(--text);color:var(--white);margin-top:80px}
         .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
@@ -112,6 +112,11 @@
                 </div>
 
                 <div class="info-section">
+                    <h3>Address</h3>
+                    <p>Garak-ro 25, 4th Floor<br>Songpa-gu, Seoul, Republic of Korea</p>
+                </div>
+
+                <div class="info-section">
                     <h3>Email</h3>
                     <p><a href="mailto:team@credithink.com">team@credithink.com</a></p>
                 </div>
@@ -137,7 +142,15 @@
             </div>
 
             <div class="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.3556349870815!2d126.97796661531045!3d37.56653797979893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca28b61c565cd%3A0x858aedb4e4ea83eb!2sSeoul%2C%20South%20Korea!5e0!3m2!1sen!2sus!4v1629789123456!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe 
+                    src="https://maps.google.com/maps?q=Garak-ro%2025%2C%20Songpa-gu%2C%20Seoul&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; min-height: 500px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </main>
@@ -148,7 +161,7 @@
             <div class="footer-col"><h4>About</h4><ul><li><a href="about.html">Brand Story</a></li><li><a href="coming-soon.html">Coming Soon</a></li><li><a href="contact.html">Contact</a></li></ul></div>
             <div class="footer-col"><h4>Store</h4><ul><li><a href="store.html">Where to Buy</a></li></ul></div>
             <div class="footer-col"><h4>Community</h4><ul><li><a href="faq.html">FAQ</a></li></ul></div>
-            <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:team@credithink.com">team@credithink.com</a></li></ul></div>
+            <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:team@celdyque.com">team@celdyque.com</a></li></ul></div>
         </div>
         <div class="footer-bottom"><p>© 2024 CELDYQUE. All Rights Reserved.</p></div>
     </footer>

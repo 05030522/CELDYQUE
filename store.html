@@ -42,7 +42,8 @@
         .page-header h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600;margin-bottom:1rem}
         .page-header p{color:var(--text-light);max-width:600px;line-height:1.8}
 
-        .store-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+        /* 스토어 그리드 수정: 카드가 4개이므로 4열 또는 2열로 배치 */
+        .store-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
         .store-card{background:#e8e8e8;padding:3.5rem 2rem;border-radius:16px;text-align:center;transition:background 0.3s,transform 0.3s}
         .store-card:hover{background:#ddd;transform:translateY(-3px)}
         .store-card h3{font-size:1.5rem;font-weight:500;margin-bottom:1.5rem}
@@ -56,6 +57,7 @@
         .footer-col a{font-size:0.85rem;opacity:0.7}
         .footer-bottom{max-width:1400px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.5}
 
+        /* 반응형: 태블릿/모바일에서는 2열, 1열로 변경 */
         @media(max-width:1024px){.store-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:repeat(3,1fr)}}
         @media(max-width:768px){header{top:10px;left:10px;right:10px;border-radius:30px}.header-inner{padding:0.8rem 1.2rem}.desktop-nav{display:none}.mobile-menu-btn{display:flex;align-items:center;justify-content:center}.store-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr 1fr}}
     </style>
@@ -83,18 +85,30 @@
     <main class="page-content">
         <div class="page-header">
             <p class="label">Store</p>
-            <h1>CELDYQUE from around the world</h1>
-            <p>CELDYQUE constantly researches optimal concentrations so your skin can always remain in its perfect state.</p>
+            <h1>Authorized Retailers</h1>
+            <p>Find CELDYQUE products at these trusted official partners.</p>
         </div>
 
         <div class="store-grid">
-            <div class="store-card"><h3>Amazon</h3><a href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" rel="noopener">🔗 Go Shop</a></div>
-            <div class="store-card"><h3>YesStyle</h3><a href="#">🔗 Go Shop</a></div>
-            <div class="store-card"><h3>iHerb</h3><a href="#">🔗 Go Shop</a></div>
-            <div class="store-card"><h3>Shopee</h3><a href="#">🔗 Go Shop</a></div>
-            <div class="store-card"><h3>Style Korean</h3><a href="#">🔗 Go Shop</a></div>
-            <div class="store-card"><h3>Jolse</h3><a href="#">🔗 Go Shop</a></div>
-            <div class="store-card"><h3>Lazada</h3><a href="#">🔗 Go Shop</a></div>
+            <div class="store-card">
+                <h3>Amazon</h3>
+                <a href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" rel="noopener">🔗 Visit Store</a>
+            </div>
+            
+            <div class="store-card">
+                <h3>TikTok Shop</h3>
+                <a href="https://www.tiktok.com/@celdyque" target="_blank" rel="noopener">🔗 Visit Store</a>
+            </div>
+            
+            <div class="store-card">
+                <h3>YesStyle</h3>
+                <a href="https://www.yesstyle.com/en/celdyque/list.html/bpt.299_bid.331400" target="_blank" rel="noopener">🔗 Visit Store</a>
+            </div>
+
+            <div class="store-card">
+                <h3>Stylevana</h3>
+                <a href="https://www.stylevana.com/en_US/brands/celdyque.html" target="_blank" rel="noopener">🔗 Visit Store</a>
+            </div>
         </div>
     </main>
 
