@@ -152,9 +152,92 @@
         @media(max-width:480px){
             .footer-inner{grid-template-columns:1fr}
         }
+
+        /* --- Video Hero Section 추가 --- */
+        .video-hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* 화면 전체 높이 사용 */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1a1a; /* 로딩 전 배경색 */
+        }
+        
+        .video-hero-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover; /* 영상을 화면에 꽉 차게 잘라냄 */
+            z-index: 0;
+        }
+
+        /* 비디오 위에 올라갈 텍스트 (선택사항) */
+        .video-overlay-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        .video-overlay-content h1 {
+            font-family: 'Playfair Display', serif; /* 명조체 느낌 */
+            font-size: 4rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .video-overlay-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            letter-spacing: 0.1em;
+        }
+
+        /* 스크롤 유도 화살표 */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 2rem;
+            z-index: 2;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform:translate(-50%, 0);} 40% {transform:translate(-50%, -10px);} 60% {transform:translate(-50%, -5px);} }
+        
+        /* 모바일 대응 */
+        @media(max-width: 768px){
+            .video-overlay-content h1 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
+    <section class="video-hero-section">
+        <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1920&q=80">
+            <source src="https://videos.pexels.com/video-files/5532772/5532772-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="video-overlay-content">
+            <h1>The Essence of Purity</h1>
+            <p>High-Concentration Skincare</p>
+        </div>
+
+        <div class="scroll-indicator" onclick="window.scrollBy({top: window.innerHeight, behavior: 'smooth'})">↓</div>
+    </section>
+    
     <header>
         <div class="header-inner">
             <a href="index.html" class="logo">CELDYQUE</a>
