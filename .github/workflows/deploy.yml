@@ -1,0 +1,198 @@
+name: CELDYQUE 통합 검사 및 배포
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install validators
+        run: |
+          npm install -g htmlhint
+          npm install -g linkinator
+
+      # ===== 1. 파일 존재 검사 =====
+      - name: File Existence Check
+        run: |
+          echo "📁 필수 파일 검사..."
+          REQUIRED_FILES="index.html shop.html about.html faq.html"
+          for file in $REQUIRED_FILES; do
+            if [ ! -f "$file" ]; then
+              echo "❌ 에러: $file 없음"
+              exit 1
+            fi
+          done
+          echo "✅ 필수 파일 확인 완료"
+
+      # ===== 2. HTML 문법 검사 =====
+      - name: HTML Validation
+        run: |
+          echo "🔍 HTML 문법 검사..."
+          htmlhint "*.html" --config .htmlhintrc || true
+          
+          # 치명적 오류만 체크 (닫히지 않은 태그)
+          for file in *.html; do
+            if ! grep -q "</html>" "$file"; then
+              echo "❌ $file: </html> 태그 누락"
+              exit 1
+            fi
+            if ! grep -q "</head>" "$file"; then
+              echo "❌ $file: </head> 태그 누락"
+              exit 1
+            fi
+          done
+          echo "✅ HTML 검사 완료"
+
+      # ===== 3. SEO 필수 요소 검사 =====
+      - name: SEO Check
+        run: |
+          echo "🔎 SEO 검사..."
+          ERRORS=0
+          
+          for file in *.html; do
+            # title 태그
+            if ! grep -q "<title>" "$file"; then
+              echo "⚠️ $file: <title> 없음"
+              ERRORS=$((ERRORS+1))
+            fi
+            
+            # meta description
+            if ! grep -q 'meta name="description"' "$file"; then
+              echo "⚠️ $file: meta description 없음"
+              ERRORS=$((ERRORS+1))
+            fi
+            
+            # viewport
+            if ! grep -q 'meta name="viewport"' "$file"; then
+              echo "⚠️ $file: viewport 없음"
+              ERRORS=$((ERRORS+1))
+            fi
+          done
+          
+          if [ $ERRORS -gt 5 ]; then
+            echo "❌ SEO 오류 $ERRORS개 (5개 초과 시 실패)"
+            exit 1
+          fi
+          echo "✅ SEO 검사 완료 (경고: $ERRORS개)"
+
+      # ===== 4. 내부 링크 검사 =====
+      - name: Internal Link Check
+        run: |
+          echo "🔗 내부 링크 검사..."
+          
+          # HTML 파일에서 href 추출 후 존재 확인
+          for file in *.html; do
+            # 내부 .html 링크만 추출
+            LINKS=$(grep -oP 'href="[^"#]*\.html' "$file" | sed 's/href="//' | sort -u)
+            for link in $LINKS; do
+              # 외부 링크 제외
+              if [[ ! "$link" =~ ^http ]]; then
+                if [ ! -f "$link" ]; then
+                  echo "❌ $file → $link (파일 없음)"
+                  exit 1
+                fi
+              fi
+            done
+          done
+          echo "✅ 내부 링크 검사 완료"
+
+      # ===== 5. 이미지 alt 태그 검사 =====
+      - name: Image Accessibility Check
+        run: |
+          echo "🖼️ 이미지 접근성 검사..."
+          MISSING_ALT=0
+          
+          for file in *.html; do
+            # alt 없는 img 태그 찾기
+            COUNT=$(grep -c '<img[^>]*[^a]>' "$file" 2>/dev/null | grep -v 'alt=' || echo 0)
+            if grep -q '<img ' "$file"; then
+              if ! grep -q '<img[^>]*alt=' "$file"; then
+                echo "⚠️ $file: alt 없는 이미지 존재 가능"
+                MISSING_ALT=$((MISSING_ALT+1))
+              fi
+            fi
+          done
+          echo "✅ 이미지 검사 완료 (경고: $MISSING_ALT개)"
+
+      # ===== 6. 보안 검사 =====
+      - name: Security Check
+        run: |
+          echo "🔒 보안 검사..."
+          
+          for file in *.html; do
+            # 인라인 onclick (XSS 위험)
+            if grep -q 'javascript:' "$file"; then
+              echo "⚠️ $file: javascript: 프로토콜 발견"
+            fi
+            
+            # 외부 스크립트 integrity 없음
+            if grep -q '<script src="http' "$file"; then
+              if ! grep -q 'integrity=' "$file"; then
+                echo "⚠️ $file: 외부 스크립트 integrity 없음"
+              fi
+            fi
+          done
+          echo "✅ 보안 검사 완료"
+
+      # ===== 7. 파일 크기 검사 =====
+      - name: File Size Check
+        run: |
+          echo "📊 파일 크기 검사..."
+          MAX_SIZE=500000  # 500KB
+          
+          for file in *.html; do
+            SIZE=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file")
+            if [ "$SIZE" -gt "$MAX_SIZE" ]; then
+              echo "⚠️ $file: ${SIZE}bytes (500KB 초과)"
+            fi
+          done
+          echo "✅ 파일 크기 검사 완료"
+
+  deploy:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Deployment Summary
+        run: |
+          echo "🚀 배포 완료!"
+          echo "URL: ${{ steps.deployment.outputs.page_url }}"
