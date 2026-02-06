@@ -3,985 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>CELDYQUE | High-Concentration Korean Skincare - Volufiline, Niacinamide, Bakuchiol</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="CELDYQUE offers high-concentration Korean skincare with clinically proven ingredients. Shop Volufiline 100%, Niacinamide 20%, and Bakuchiol serums for visible results.">
-    <meta name="keywords" content="Korean skincare, Volufiline, Niacinamide serum, Bakuchiol, K-beauty, high concentration skincare, anti-aging serum, skin firming">
-    <meta name="author" content="CELDYQUE">
-    <meta name="robots" content="index, follow">
+    <title>CELDYQUE | High-Concentration Korean Skincare</title>
+    <meta name="description" content="CELDYQUE offers high-concentration Korean skincare with clinically proven ingredients. Volufiline 100%, Niacinamide 20%, Bakuchiol serums.">
+    <meta name="theme-color" content="#1a1a1a">
     <link rel="canonical" href="https://www.celdyque.com/">
     
-    <!-- Mobile Optimization -->
-    <meta name="theme-color" content="#1a1a1a">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.celdyque.com/">
-    <meta property="og:title" content="CELDYQUE | High-Concentration Korean Skincare">
-    <meta property="og:description" content="Essential Skincare, Nothing More. High-concentration formulas that deliver definite results.">
-    <meta property="og:image" content="https://www.celdyque.com/images/og-image.jpg">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CELDYQUE | High-Concentration Korean Skincare">
-    <meta name="twitter:description" content="Essential Skincare, Nothing More. High-concentration formulas that deliver definite results.">
-    
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Schema.org JSON-LD for AEO -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "CELDYQUE",
-        "url": "https://www.celdyque.com",
-        "logo": "https://www.celdyque.com/images/logo.png",
-        "description": "High-concentration Korean skincare brand offering clinically proven formulas",
-        "sameAs": [
-            "https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "team@credithink.com",
-            "contactType": "customer service"
-        }
-    }
+    {"@context":"https://schema.org","@type":"Organization","name":"CELDYQUE","url":"https://www.celdyque.com","description":"High-concentration Korean skincare brand"}
     </script>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --color-bg: #f5f5f5;
-            --color-white: #ffffff;
-            --color-text: #1a1a1a;
-            --color-text-light: #666666;
-            --color-border: #e5e5e5;
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --tap-target: 48px; /* Minimum touch target size */
-            --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Prevent body scroll when mobile menu is open */
-        body.menu-open {
-            overflow: hidden;
-            position: fixed;
-            width: 100%;
-        }
-
-        /* ========== Header ========== */
-        header {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: var(--color-bg);
-            border-radius: 50px;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-            transition: top 0.3s ease;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            color: var(--color-text);
-            text-decoration: none;
-            min-height: var(--tap-target);
-            display: flex;
-            align-items: center;
-        }
-
-        nav {
-            display: flex;
-            gap: 3rem;
-        }
-
-        nav a {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: var(--color-text);
-            text-decoration: none;
-            transition: opacity 0.3s;
-            min-height: var(--tap-target);
-            display: flex;
-            align-items: center;
-            padding: 0 0.5rem;
-        }
-
-        nav a:hover {
-            opacity: 0.6;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .search-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            background: none;
-            border: none;
-            font-size: 0.9rem;
-            cursor: pointer;
-            color: var(--color-text);
-            min-width: var(--tap-target);
-            min-height: var(--tap-target);
-            padding: 0.5rem;
-        }
-
-        /* ========== Mobile Menu Button ========== */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            min-width: var(--tap-target);
-            min-height: var(--tap-target);
-            padding: 12px;
-            position: relative;
-            z-index: 1002;
-        }
-
-        .hamburger {
-            width: 24px;
-            height: 18px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: var(--color-text);
-            transition: all 0.3s ease;
-            transform-origin: center;
-        }
-
-        /* Hamburger Animation */
-        .mobile-menu-btn.active .hamburger span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-
-        .mobile-menu-btn.active .hamburger span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active .hamburger span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        /* ========== Mobile Menu Drawer ========== */
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .mobile-menu-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 85%;
-            max-width: 400px;
-            height: 100vh;
-            height: 100dvh;
-            background: var(--color-white);
-            z-index: 1001;
-            transition: right 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            padding: calc(80px + var(--safe-area-inset-bottom)) 2rem 2rem;
-            overflow-y: auto;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .mobile-menu-nav a {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--color-text);
-            text-decoration: none;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid var(--color-border);
-            min-height: var(--tap-target);
-            display: flex;
-            align-items: center;
-            transition: opacity 0.3s;
-        }
-
-        .mobile-menu-nav a:hover,
-        .mobile-menu-nav a:active {
-            opacity: 0.6;
-        }
-
-        .mobile-menu-footer {
-            margin-top: auto;
-            padding-top: 2rem;
-        }
-
-        .mobile-menu-footer p {
-            font-size: 0.85rem;
-            color: var(--color-text-light);
-            line-height: 1.8;
-        }
-
-        .mobile-menu-footer a {
-            color: var(--color-text);
-        }
-
-        /* ========== Search Modal ========== */
-        .search-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 100px 20px 20px;
-        }
-
-        .search-modal.active {
-            display: flex;
-        }
-
-        .search-box {
-            background: var(--color-white);
-            padding: 1.5rem;
-            border-radius: 16px;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-            border: 2px solid var(--color-border);
-            border-radius: 8px;
-            outline: none;
-            min-height: var(--tap-target);
-        }
-
-        .search-box input:focus {
-            border-color: var(--color-text);
-        }
-
-        /* ========== Hero ========== */
-        .hero {
-            min-height: 100vh;
-            min-height: 100dvh;
-            display: flex;
-            align-items: center;
-            padding: 120px 5% 80px;
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 600;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--color-text-light);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .hero-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2.5rem;
-            background: var(--color-text);
-            color: var(--color-white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            min-height: var(--tap-target);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        /* Active state for touch */
-        .hero-btn:active {
-            transform: translateY(0);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        /* ========== Featured Products ========== */
-        .featured {
-            padding: 80px 5%;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 3rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-        }
-
-        .section-header a {
-            font-size: 0.9rem;
-            color: var(--color-text);
-            text-decoration: underline;
-            min-height: var(--tap-target);
-            display: inline-flex;
-            align-items: center;
-            padding: 0.5rem;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: #e0e0e0;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card:active {
-            transform: translateY(-2px);
-        }
-
-        .product-card a {
-            display: block;
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-        }
-
-        .product-card-info {
-            padding: 1.5rem;
-            background: var(--color-bg);
-        }
-
-        .product-card h3 {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 0.3rem;
-        }
-
-        .product-card p {
-            font-size: 0.85rem;
-            color: var(--color-text-light);
-        }
-
-        /* ========== About Preview ========== */
-        .about-preview {
-            padding: 100px 5%;
-            background: var(--color-white);
-        }
-
-        .about-preview-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-preview-text h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-preview-text p {
-            font-size: 1rem;
-            color: var(--color-text-light);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .about-preview-image img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-        /* ========== Store Links ========== */
-        .store-preview {
-            padding: 80px 5%;
-        }
-
-        .store-preview h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .store-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .store-card {
-            background: #e8e8e8;
-            padding: 3rem 2rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: background 0.3s;
-        }
-
-        .store-card:hover {
-            background: #ddd;
-        }
-
-        .store-card h3 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .store-card a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background: var(--color-text);
-            color: var(--color-white);
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            min-height: var(--tap-target);
-            transition: background 0.3s;
-        }
-
-        .store-card a:active {
-            background: #333;
-        }
-
-        /* ========== Footer ========== */
-        footer {
-            padding: 60px 5% calc(30px + var(--safe-area-inset-bottom));
-            background: var(--color-text);
-            color: var(--color-white);
-        }
-
-        .footer-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .footer-brand h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand p {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            line-height: 1.7;
-        }
-
-        .footer-col h4 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-col a {
-            color: var(--color-white);
-            opacity: 0.7;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: opacity 0.3s;
-            display: inline-block;
-            min-height: 44px;
-            padding: 0.5rem 0;
-        }
-
-        .footer-col a:hover {
-            opacity: 1;
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            font-size: 0.85rem;
-            opacity: 0.6;
-        }
-
-        /* ========== Responsive ========== */
-        @media (max-width: 1024px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .hero-content,
-            .about-preview-inner {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .footer-inner {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                border-radius: 30px;
-            }
-
-            .header-inner {
-                padding: 0.8rem 1.2rem;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .hero {
-                padding: 100px 5% 60px;
-            }
-
-            .hero-image img {
-                height: 350px;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .product-card img {
-                height: 280px;
-            }
-
-            .store-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-inner {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .store-preview h2 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .hero-text p {
-                font-size: 1rem;
-            }
-        }
-
-        /* ========== Accessibility ========== */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-
-        /* Focus styles for keyboard navigation */
-        a:focus-visible,
-        button:focus-visible {
-            outline: 2px solid var(--color-text);
-            outline-offset: 2px;
-        }
-
-        /* Skip to main content link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--color-text);
-            color: var(--color-white);
-            padding: 8px 16px;
-            z-index: 9999;
-            transition: top 0.3s;
-        }
-
-        .skip-link:focus {
-            top: 0;
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#f5f5f5;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;
+            --font:'Inter',-apple-system,sans-serif;--tap:48px;--safe-bottom:env(safe-area-inset-bottom,0)
+        }
+        html{scroll-behavior:smooth}
+        body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+        body.menu-open{overflow:hidden;position:fixed;width:100%}
+        a{text-decoration:none;color:inherit}
+
+        /* Header */
+        header{position:fixed;top:20px;left:20px;right:20px;z-index:1000;background:var(--bg);border-radius:50px;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+        .header-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
+        .logo{font-size:1.3rem;font-weight:600;letter-spacing:0.05em;min-height:var(--tap);display:flex;align-items:center}
+        
+        /* Desktop Nav with Mega Menu */
+        .desktop-nav{display:flex;gap:2.5rem;position:relative}
+        .nav-item{position:relative}
+        .nav-item>a{font-size:0.9rem;min-height:var(--tap);display:flex;align-items:center;padding:0 0.5rem;transition:opacity 0.3s}
+        .nav-item>a:hover{opacity:0.6}
+        
+        /* Mega Menu */
+        .mega-menu{position:absolute;top:100%;left:-20px;background:var(--white);border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);padding:1.5rem;min-width:200px;opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s}
+        .nav-item:hover .mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
+        .mega-menu a{display:block;padding:0.6rem 0;font-size:0.85rem;color:var(--text-light);transition:color 0.2s}
+        .mega-menu a:hover{color:var(--text)}
+        
+        .header-right{display:flex;align-items:center;gap:1rem}
+        .search-btn{display:flex;align-items:center;gap:0.5rem;background:none;border:none;font-size:0.9rem;cursor:pointer;min-width:var(--tap);min-height:var(--tap)}
+        
+        /* Mobile Menu */
+        .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;min-width:var(--tap);min-height:var(--tap);padding:12px;z-index:1002}
+        .hamburger{width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between}
+        .hamburger span{display:block;width:100%;height:2px;background:var(--text);transition:all 0.3s}
+        .mobile-menu-btn.active .hamburger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+        .mobile-menu-btn.active .hamburger span:nth-child(2){opacity:0}
+        .mobile-menu-btn.active .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+        
+        .mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
+        .mobile-menu-overlay.active{display:block}
+        .mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:400px;height:100dvh;background:var(--white);z-index:1001;transition:right 0.3s;padding:100px 2rem 2rem;overflow-y:auto}
+        .mobile-menu.active{right:0}
+        .mobile-menu-nav a{display:block;font-size:1.3rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border)}
+        .mobile-menu-sub{padding-left:1rem}
+        .mobile-menu-sub a{font-size:1rem;font-weight:400;color:var(--text-light)}
+
+        /* Hero Grid - 4 Cards */
+        .hero-grid{display:grid;grid-template-columns:repeat(4,1fr);min-height:100vh;padding-top:80px}
+        .hero-card{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;min-height:500px}
+        .hero-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+        .hero-card:hover img{transform:scale(1.05)}
+        .hero-card-content{position:relative;z-index:1;color:var(--white)}
+        .hero-card-label{font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
+        .hero-card h2{font-size:1.5rem;font-weight:600;margin-bottom:1rem}
+        .hero-card-link{font-size:0.85rem;display:inline-flex;align-items:center;gap:0.5rem;opacity:0.8;transition:opacity 0.3s}
+        .hero-card:hover .hero-card-link{opacity:1}
+        .hero-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);z-index:1}
+
+        /* Philosophy Slider */
+        .philosophy{padding:100px 5%;background:var(--white)}
+        .philosophy-slider{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+        .philosophy-nav{display:flex;gap:2rem;margin-bottom:3rem}
+        .philosophy-nav button{background:none;border:none;font-size:2rem;font-weight:300;color:var(--border);cursor:pointer;transition:color 0.3s}
+        .philosophy-nav button.active{color:var(--text)}
+        .philosophy-content h3{font-size:1.5rem;font-weight:500;margin-bottom:1.5rem;line-height:1.5}
+        .philosophy-content p{color:var(--text-light);margin-bottom:1.5rem;line-height:1.8}
+        .philosophy-content a{font-size:0.9rem;text-decoration:underline}
+        .philosophy-image img{width:100%;height:450px;object-fit:cover;border-radius:12px}
+
+        /* Recommend Products */
+        .recommend{padding:100px 5%}
+        .section-header{max-width:1400px;margin:0 auto 3rem;display:flex;justify-content:space-between;align-items:flex-end}
+        .section-header h2{font-size:2rem;font-weight:600}
+        .section-header p{color:var(--text-light);font-size:0.95rem}
+        .products-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+        .product-card{background:var(--white);border-radius:12px;overflow:hidden;transition:transform 0.3s}
+        .product-card:hover{transform:translateY(-5px)}
+        .product-card img{width:100%;height:300px;object-fit:cover}
+        .product-card-info{padding:1.5rem}
+        .product-card h3{font-size:1rem;font-weight:500;margin-bottom:0.3rem}
+        .product-card p{font-size:0.9rem;color:var(--text-light)}
+
+        /* Article */
+        .article{padding:100px 5%;background:var(--white)}
+        .article-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+        .article-card{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-radius:12px;overflow:hidden}
+        .article-card img{width:100%;height:300px;object-fit:cover}
+        .article-card-content{padding:2rem;display:flex;flex-direction:column;justify-content:center}
+        .article-card h3{font-size:1.3rem;font-weight:600;margin-bottom:1rem}
+        .article-card p{font-size:0.9rem;color:var(--text-light);line-height:1.7}
+
+        /* Footer */
+        footer{padding:60px 5% calc(30px + var(--safe-bottom));background:var(--text);color:var(--white)}
+        .footer-top{max-width:1400px;margin:0 auto 3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+        .footer-top p{font-size:0.95rem;opacity:0.8;max-width:600px;line-height:1.8}
+        .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
+        .footer-col h4{font-size:0.8rem;font-weight:600;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.1em}
+        .footer-col ul{list-style:none}
+        .footer-col li{margin-bottom:0.6rem}
+        .footer-col a{font-size:0.85rem;opacity:0.7;transition:opacity 0.3s}
+        .footer-col a:hover{opacity:1}
+        .footer-bottom{max-width:1400px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.5}
+        .footer-bottom p{margin-bottom:0.3rem}
+
+        /* Search Modal */
+        .search-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;align-items:flex-start;justify-content:center;padding:120px 20px}
+        .search-modal.active{display:flex}
+        .search-box{background:var(--white);padding:1.5rem;border-radius:16px;width:100%;max-width:600px}
+        .search-box input{width:100%;padding:1rem;font-size:1rem;border:2px solid var(--border);border-radius:8px;outline:none}
+
+        /* Responsive */
+        @media(max-width:1200px){
+            .hero-grid{grid-template-columns:repeat(2,1fr)}
+            .products-grid{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:1024px){
+            .philosophy-slider{grid-template-columns:1fr}
+            .article-grid{grid-template-columns:1fr}
+            .footer-inner{grid-template-columns:repeat(3,1fr)}
+        }
+        @media(max-width:768px){
+            header{top:10px;left:10px;right:10px;border-radius:30px}
+            .header-inner{padding:0.8rem 1.2rem}
+            .desktop-nav{display:none}
+            .mobile-menu-btn{display:flex;align-items:center;justify-content:center}
+            .hero-grid{grid-template-columns:1fr;padding-top:70px}
+            .hero-card{min-height:350px}
+            .products-grid{grid-template-columns:1fr}
+            .article-card{grid-template-columns:1fr}
+            .footer-inner{grid-template-columns:1fr 1fr}
+            .section-header{flex-direction:column;align-items:flex-start;gap:0.5rem}
+        }
+        @media(max-width:480px){
+            .footer-inner{grid-template-columns:1fr}
         }
     </style>
 </head>
 <body>
-    <!-- Skip to main content for accessibility -->
-    <a href="#main" class="skip-link">Skip to main content</a>
-
-    <!-- Header -->
     <header>
         <div class="header-inner">
             <a href="index.html" class="logo">CELDYQUE</a>
-            <nav aria-label="Main navigation">
-                <a href="shop.html">Shop</a>
-                <a href="about.html">About</a>
-                <a href="store.html">Store</a>
-                <a href="faq.html">FAQ</a>
+            <nav class="desktop-nav">
+                <div class="nav-item">
+                    <a href="shop.html">Shop</a>
+                    <div class="mega-menu">
+                        <a href="shop.html">All</a>
+                        <a href="shop.html?cat=serum">Serum</a>
+                        <a href="shop.html?cat=cream">Cream</a>
+                        <a href="shop.html?cat=cleanser">Cleanser</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="about.html">About</a>
+                    <div class="mega-menu">
+                        <a href="about.html">Brand Story</a>
+                        <a href="coming-soon.html">Coming Soon</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="store.html">Store</a>
+                </div>
+                <div class="nav-item">
+                    <a href="faq.html">FAQ</a>
+                </div>
             </nav>
             <div class="header-right">
-                <button class="search-btn" onclick="openSearch()" aria-label="Open search">
-                    <span class="search-text">Search</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
+                <button class="search-btn" onclick="openSearch()" aria-label="Search">
+                    Search <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                 </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <div class="hamburger"><span></span><span></span><span></span></div>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-
-    <!-- Mobile Menu Drawer -->
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-        <nav class="mobile-menu-nav" aria-label="Mobile navigation">
-            <a href="index.html">Home</a>
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
             <a href="shop.html">Shop</a>
+            <div class="mobile-menu-sub">
+                <a href="shop.html">All</a>
+                <a href="shop.html?cat=serum">Serum</a>
+                <a href="shop.html?cat=cream">Cream</a>
+                <a href="shop.html?cat=cleanser">Cleanser</a>
+            </div>
             <a href="about.html">About</a>
+            <div class="mobile-menu-sub">
+                <a href="about.html">Brand Story</a>
+                <a href="coming-soon.html">Coming Soon</a>
+                <a href="contact.html">Contact</a>
+            </div>
             <a href="store.html">Store</a>
             <a href="faq.html">FAQ</a>
         </nav>
-        <div class="mobile-menu-footer">
-            <p>
-                Contact us<br>
-                <a href="mailto:team@credithink.com">team@credithink.com</a>
-            </p>
-        </div>
     </div>
 
-    <!-- Search Modal -->
-    <div class="search-modal" id="searchModal" onclick="closeSearch(event)" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-modal" id="searchModal" onclick="closeSearch(event)">
         <div class="search-box" onclick="event.stopPropagation()">
-            <input type="search" placeholder="Search products..." id="searchInput" aria-label="Search products">
+            <input type="search" placeholder="Search products..." id="searchInput">
         </div>
     </div>
 
-    <!-- Main Content -->
-    <main id="main">
-        <!-- Hero Section -->
-        <section class="hero" aria-label="Introduction">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Essential Skincare, Nothing More</h1>
-                    <p>High-concentration formulas with clinically proven ingredients. No fillers, no fragrances — just results you can see and feel.</p>
-                    <a href="shop.html" class="hero-btn">Shop Now</a>
-                </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop" 
-                         alt="CELDYQUE skincare products featuring high-concentration serums" 
-                         loading="eager"
-                         fetchpriority="high">
-                </div>
+    <!-- Hero Grid -->
+    <section class="hero-grid">
+        <a href="shop.html" class="hero-card">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=800&fit=crop" alt="New Products" loading="eager">
+            <div class="hero-card-content">
+                <p class="hero-card-label">Shop</p>
+                <h2>New Product</h2>
+                <span class="hero-card-link">Shop Now →</span>
             </div>
-        </section>
-
-        <!-- Featured Products -->
-        <section class="featured" id="products" aria-label="Featured products">
-            <div class="section-header">
+        </a>
+        <a href="about.html" class="hero-card">
+            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=800&fit=crop" alt="Our Story" loading="eager">
+            <div class="hero-card-content">
+                <p class="hero-card-label">Our Story</p>
+                <h2>Formula Story</h2>
+                <span class="hero-card-link">See More →</span>
+            </div>
+        </a>
+        <a href="coming-soon.html" class="hero-card">
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=800&fit=crop" alt="Coming Soon" loading="lazy">
+            <div class="hero-card-content">
+                <p class="hero-card-label">Archive</p>
+                <h2>New Season</h2>
+                <span class="hero-card-link">See More →</span>
+            </div>
+        </a>
+        <a href="shop.html" class="hero-card">
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&h=800&fit=crop" alt="Best Sellers" loading="lazy">
+            <div class="hero-card-content">
+                <p class="hero-card-label">Product</p>
                 <h2>Best Sellers</h2>
-                <a href="shop.html">View All →</a>
+                <span class="hero-card-link">Shop Now →</span>
             </div>
-            <div class="products-grid">
-                <article class="product-card" itemscope itemtype="https://schema.org/Product">
-                    <a href="shop.html">
-                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=350&fit=crop" 
-                             alt="Volufiline 100% Pure Concentrate bottle" 
-                             loading="lazy" 
-                             itemprop="image">
-                    </a>
-                    <div class="product-card-info">
-                        <h3 itemprop="name">Volufiline 100%</h3>
-                        <p itemprop="description">Pure firming concentrate</p>
-                    </div>
-                </article>
-                <article class="product-card" itemscope itemtype="https://schema.org/Product">
-                    <a href="shop.html">
-                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=350&fit=crop" 
-                             alt="Niacinamide 20% Advanced Serum bottle" 
-                             loading="lazy" 
-                             itemprop="image">
-                    </a>
-                    <div class="product-card-info">
-                        <h3 itemprop="name">Niacinamide 20%</h3>
-                        <p itemprop="description">Barrier repair serum</p>
-                    </div>
-                </article>
-                <article class="product-card" itemscope itemtype="https://schema.org/Product">
-                    <a href="shop.html">
-                        <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=350&fit=crop" 
-                             alt="Bakuchiol 30,000ppm Concentrate bottle" 
-                             loading="lazy" 
-                             itemprop="image">
-                    </a>
-                    <div class="product-card-info">
-                        <h3 itemprop="name">Bakuchiol 30,000ppm</h3>
-                        <p itemprop="description">Natural retinol alternative</p>
-                    </div>
-                </article>
-                <article class="product-card" itemscope itemtype="https://schema.org/Product">
-                    <a href="shop.html">
-                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=350&fit=crop" 
-                             alt="Vitamin C 20% Brightening Serum bottle" 
-                             loading="lazy" 
-                             itemprop="image">
-                    </a>
-                    <div class="product-card-info">
-                        <h3 itemprop="name">Vitamin C 20%</h3>
-                        <p itemprop="description">Brightening serum</p>
-                    </div>
-                </article>
-            </div>
-        </section>
+        </a>
+    </section>
 
-        <!-- About Preview -->
-        <section class="about-preview" aria-label="About us">
-            <div class="about-preview-inner">
-                <div class="about-preview-text">
-                    <h2>Science Meets Simplicity</h2>
-                    <p>We believe skincare should be straightforward. Our formulas use maximum effective concentrations of clinically proven ingredients — nothing more, nothing less. Each product is designed to deliver visible results without unnecessary additives.</p>
-                    <a href="about.html" class="hero-btn">Our Story</a>
+    <!-- Philosophy Slider -->
+    <section class="philosophy">
+        <div class="philosophy-slider">
+            <div class="philosophy-text">
+                <div class="philosophy-nav">
+                    <button class="active" data-slide="0">①</button>
+                    <button data-slide="1">②</button>
+                    <button data-slide="2">③</button>
+                    <button data-slide="3">④</button>
                 </div>
-                <div class="about-preview-image">
-                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=500&fit=crop" 
-                         alt="CELDYQUE laboratory research and development" 
-                         loading="lazy">
+                <div class="philosophy-content" id="philosophyContent">
+                    <h3>We aim to find and provide ingredients with proven efficacy through research and clinical studies.</h3>
+                    <p>새로운 연구자료와 논문 등을 통해 입증된 효능 원료를 찾아 제공하고자 합니다.</p>
+                    <a href="about.html">Read more</a>
                 </div>
             </div>
-        </section>
+            <div class="philosophy-image">
+                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=450&fit=crop" alt="Philosophy" id="philosophyImage" loading="lazy">
+            </div>
+        </div>
+    </section>
 
-        <!-- Store Preview -->
-        <section class="store-preview" aria-label="Where to buy">
-            <h2>Shop CELDYQUE Worldwide</h2>
-            <div class="store-grid">
-                <div class="store-card">
-                    <h3>Amazon</h3>
-                    <a href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" rel="noopener noreferrer">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                        Go Shop
-                    </a>
+    <!-- Recommend Products -->
+    <section class="recommend">
+        <div class="section-header">
+            <div>
+                <h2>Recommend Product</h2>
+                <p>Offer The Perfect Product You've Been Looking For.</p>
+            </div>
+        </div>
+        <div class="products-grid">
+            <a href="product-detail.html" class="product-card">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=300&fit=crop" alt="Volufiline 100%" loading="lazy">
+                <div class="product-card-info">
+                    <h3>Volufiline 100%</h3>
+                    <p>$28.00</p>
                 </div>
-                <div class="store-card">
-                    <h3>YesStyle</h3>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                        Go Shop
-                    </a>
+            </a>
+            <a href="product-detail.html" class="product-card">
+                <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=300&fit=crop" alt="Niacinamide 20%" loading="lazy">
+                <div class="product-card-info">
+                    <h3>Niacinamide 20%</h3>
+                    <p>$24.00</p>
                 </div>
-                <div class="store-card">
-                    <h3>iHerb</h3>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                        Go Shop
-                    </a>
+            </a>
+            <a href="product-detail.html" class="product-card">
+                <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=400&h=300&fit=crop" alt="Bakuchiol 30,000ppm" loading="lazy">
+                <div class="product-card-info">
+                    <h3>Bakuchiol 30,000ppm</h3>
+                    <p>$32.00</p>
+                </div>
+            </a>
+            <a href="product-detail.html" class="product-card">
+                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=300&fit=crop" alt="Vitamin C 20%" loading="lazy">
+                <div class="product-card-info">
+                    <h3>Vitamin C 20%</h3>
+                    <p>$26.00</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Article -->
+    <section class="article">
+        <div class="section-header">
+            <div>
+                <h2>Article</h2>
+                <p>Our journey to find the perfect formula.</p>
+            </div>
+        </div>
+        <div class="article-grid">
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=300&fit=crop" alt="Article" loading="lazy">
+                <div class="article-card-content">
+                    <h3>CELDYQUE : Colon</h3>
+                    <p>There is a punctuation mark called the colon. It is used to indicate and explain differences. Each person may have different skin concerns...</p>
                 </div>
             </div>
-        </section>
-    </main>
+            <div class="article-card">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop" alt="Coming Soon" loading="lazy">
+                <div class="article-card-content">
+                    <h3>Coming Soon</h3>
+                    <p>New article coming soon. Stay tuned for more insights into skincare science and ingredient research.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
+        <div class="footer-top">
+            <p>CELDYQUE constantly researches optimal concentrations and true efficacy so that your skin can always remain in its perfect state.</p>
+        </div>
         <div class="footer-inner">
-            <div class="footer-brand">
-                <h3>CELDYQUE</h3>
-                <p>Cell • Medicine • Technique<br>High-concentration skincare that delivers definite results.</p>
-            </div>
             <div class="footer-col">
                 <h4>Shop</h4>
                 <ul>
-                    <li><a href="shop.html">All Products</a></li>
-                    <li><a href="shop.html?category=serum">Serums</a></li>
-                    <li><a href="shop.html?category=concentrate">Concentrates</a></li>
+                    <li><a href="shop.html">All</a></li>
+                    <li><a href="shop.html?cat=serum">Serum</a></li>
+                    <li><a href="shop.html?cat=cream">Cream</a></li>
+                    <li><a href="shop.html?cat=cleanser">Cleanser</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Company</h4>
+                <h4>About</h4>
                 <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">Brand Story</a></li>
+                    <li><a href="coming-soon.html">Coming Soon</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Store</h4>
+                <ul>
                     <li><a href="store.html">Where to Buy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -992,88 +388,53 @@
             </div>
         </div>
         <div class="footer-bottom">
+            <p>CS Center: AM 10 - PM 17</p>
             <p>© 2024 CELDYQUE. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Philosophy Slider Data
+        const slides = [
+            {title: "We aim to find and provide ingredients with proven efficacy through research and clinical studies.", desc: "새로운 연구자료와 논문 등을 통해 입증된 효능 원료를 찾아 제공하고자 합니다.", img: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=450&fit=crop"},
+            {title: "Maximum efficacy while providing comfortable use from the customer's perspective.", desc: "최고의 효능을 유지하는 동시에 고객의 입장에서 편안한 사용감을 제공합니다.", img: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=450&fit=crop"},
+            {title: "We do not develop products recklessly to expand meaningless product lines.", desc: "의미없는 제품라인의 확장을 위해 무분별한 제품을 개발하지 않습니다.", img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=450&fit=crop"},
+            {title: "Find yourself regaining confidence with visibly transformed skin.", desc: "눈에 보이는 변화를 통해 자신감을 되찾은 나를 발견할 수 있습니다.", img: "https://images.unsplash.com/photo-1617897903246-719242758050?w=600&h=450&fit=crop"}
+        ];
+        
+        document.querySelectorAll('.philosophy-nav button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const idx = parseInt(btn.dataset.slide);
+                document.querySelectorAll('.philosophy-nav button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('philosophyContent').innerHTML = `<h3>${slides[idx].title}</h3><p>${slides[idx].desc}</p><a href="about.html">Read more</a>`;
+                document.getElementById('philosophyImage').src = slides[idx].img;
+            });
+        });
+
         // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         
-        function toggleMobileMenu() {
-            const isOpen = mobileMenu.classList.contains('active');
-            
+        function toggleMenu() {
             mobileMenuBtn.classList.toggle('active');
             mobileMenu.classList.toggle('active');
             mobileMenuOverlay.classList.toggle('active');
             document.body.classList.toggle('menu-open');
-            
-            // Accessibility
-            mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
-            mobileMenu.setAttribute('aria-hidden', isOpen);
-            mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
         }
-        
-        function closeMobileMenu() {
-            mobileMenuBtn.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            mobileMenuBtn.setAttribute('aria-label', 'Open menu');
-        }
-        
-        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-        
-        // Close mobile menu on link click
-        document.querySelectorAll('.mobile-menu-nav a').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-        
-        // Search Modal
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMenu);
+
+        // Search
         function openSearch() {
             document.getElementById('searchModal').classList.add('active');
             document.getElementById('searchInput').focus();
-            document.body.classList.add('menu-open');
         }
-        
         function closeSearch(e) {
-            if (e.target.id === 'searchModal') {
-                document.getElementById('searchModal').classList.remove('active');
-                document.body.classList.remove('menu-open');
-            }
+            if (e.target.id === 'searchModal') document.getElementById('searchModal').classList.remove('active');
         }
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.getElementById('searchModal').classList.remove('active');
-                closeMobileMenu();
-                document.body.classList.remove('menu-open');
-            }
-        });
-        
-        // Prevent zoom on input focus (iOS)
-        document.querySelectorAll('input, select, textarea').forEach(element => {
-            element.addEventListener('focus', () => {
-                if (window.innerWidth < 768) {
-                    document.querySelector('meta[name="viewport"]').setAttribute('content', 
-                        'width=device-width, initial-scale=1.0, maximum-scale=1.0');
-                }
-            });
-            element.addEventListener('blur', () => {
-                document.querySelector('meta[name="viewport"]').setAttribute('content', 
-                    'width=device-width, initial-scale=1.0, maximum-scale=5.0');
-            });
-        });
-
-        // Passive event listeners for better scroll performance
-        document.addEventListener('touchstart', function() {}, {passive: true});
-        document.addEventListener('touchmove', function() {}, {passive: true});
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('searchModal').classList.remove('active'); }});
     </script>
 </body>
 </html>
