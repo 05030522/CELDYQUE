@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CELDYQUE | Renewal Opening</title>
+    <title>CELDYQUE | Valentine's Renewal Opening</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -31,14 +31,13 @@
             background: url('https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&q=80&w=1200') no-repeat center center;
             background-size: cover;
             position: relative;
-            display: none; /* 모바일에서는 숨김 */
+            display: none;
         }
 
         @media (min-width: 1024px) {
             .image-section { display: block; }
         }
 
-        /* 오른쪽: 정보 및 카운트다운 영역 */
         .content-section {
             flex: 1;
             display: flex;
@@ -84,7 +83,6 @@
             margin-bottom: 4rem;
         }
 
-        /* 카운트다운 레이아웃 */
         .countdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -124,16 +122,15 @@
     </style>
 </head>
 <body>
-    <div class="image-section">
-        </div>
+    <div class="image-section"></div>
 
     <main class="content-section">
         <div class="brand-logo">CELDYQUE</div>
         
         <div class="main-text">
-            <span class="status-tag">Site Renewal in Progress</span>
-            <h1>The Essence of <br>Balanced Beauty</h1>
-            <p>We are meticulously refining our digital experience to better serve your skin's needs. The new CELDYQUE returns shortly.</p>
+            <span class="status-tag">Valentine's Special Launch</span>
+            <h1>A Gift for <br>Your True Skin</h1>
+            <p>We are meticulously refining our digital experience for a more romantic encounter with your skin. Returning this Valentine's Day.</p>
         </div>
 
         <div class="countdown-grid">
@@ -156,19 +153,20 @@
         </div>
 
         <div class="footer-info">
-            Launching: Feb 8, 2026, 18:00 KST
+            Coming: Feb 14, 2026, 18:00 KST
         </div>
     </main>
 
     <script>
-        const targetDate = new Date("Feb 8, 2026 18:00:00 GMT+0900").getTime();
+        // 날짜 수정: 2026년 2월 14일 18:00 (KST)
+        const targetDate = new Date("Feb 14, 2026 18:00:00 GMT+0900").getTime();
 
         const updateTimer = () => {
             const now = new Date().getTime();
             const diff = targetDate - now;
 
             if (diff <= 0) {
-                window.location.reload(); // 시간이 다 되면 새로고침하여 메인 페이지 확인 유도
+                document.querySelector('.main-text').innerHTML = "<h1>Happy Valentine's Day</h1><p>CELDYQUE is now open.</p>";
                 return;
             }
 
