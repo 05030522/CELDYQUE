@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Brand Story | CELDYQUE</title>
-    <meta name="description" content="Discover CELDYQUE's story. High-concentration Korean skincare with clinically proven ingredients.">
+    <title>Volufiline 100% | CELDYQUE</title>
+    <meta name="description" content="CELDYQUE Volufiline 100% Pure Concentrate. Skin firming and volumizing effects with clinically proven ingredients.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
         *{margin:0;padding:0;box-sizing:border-box}
         :root{--bg:#f5f5f5;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;--font:'Inter',-apple-system,sans-serif;--tap:48px}
         body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+        body.menu-open{overflow:hidden;position:fixed;width:100%}
         a{text-decoration:none;color:inherit}
 
         header{position:fixed;top:20px;left:20px;right:20px;z-index:1000;background:var(--bg);border-radius:50px;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
@@ -36,37 +37,31 @@
         .mobile-menu.active{right:0}
         .mobile-menu-nav a{display:block;font-size:1.3rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border)}
 
-        /* Hero */
-        .brand-hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:80px}
-        .brand-hero-text{display:flex;flex-direction:column;justify-content:center;padding:5%}
-        .brand-hero-text .label{font-size:0.85rem;color:var(--text-light);margin-bottom:1rem}
-        .brand-hero-text h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600;line-height:1.1;margin-bottom:2rem}
-        .brand-hero-text p{color:var(--text-light);line-height:1.9;margin-bottom:1rem}
-        .brand-hero-image{position:relative}
-        .brand-hero-image img{width:100%;height:100%;object-fit:cover}
+        .product-detail{padding:140px 5% 80px;max-width:1400px;margin:0 auto}
+        .product-main{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem}
+        .product-gallery img{width:100%;height:600px;object-fit:cover;border-radius:16px}
+        .product-info{padding:2rem 0}
+        .product-info .label{font-size:0.85rem;color:var(--text-light);margin-bottom:0.5rem}
+        .product-info h1{font-size:2.5rem;font-weight:600;margin-bottom:1rem}
+        .product-info .price{font-size:1.5rem;font-weight:600;margin-bottom:2rem}
+        .product-info .desc{color:var(--text-light);line-height:1.8;margin-bottom:2rem}
+        .buy-btn{display:inline-flex;align-items:center;justify-content:center;padding:1rem 3rem;background:var(--text);color:var(--white);border-radius:50px;font-size:0.95rem;font-weight:500;min-height:var(--tap);transition:opacity 0.3s}
+        .buy-btn:hover{opacity:0.8}
 
-        /* Mission */
-        .mission{padding:100px 5%;background:var(--white)}
-        .mission-inner{max-width:1000px;margin:0 auto;text-align:center}
-        .mission h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;line-height:1.5;margin-bottom:2rem}
-        .mission p{color:var(--text-light);line-height:1.9}
+        /* Ingredients & How to Use */
+        .product-sections{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+        .product-section{background:var(--white);padding:3rem;border-radius:16px}
+        .product-section h2{font-size:1.3rem;font-weight:600;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+        .product-section h2 .num{width:28px;height:28px;background:var(--text);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem}
+        .product-section p{color:var(--text-light);line-height:1.9;margin-bottom:1rem}
+        .ingredient-list{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+        .ingredient-item{display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid var(--border)}
+        .ingredient-item:last-child{border-bottom:none}
+        .ingredient-name{font-weight:500}
+        .ingredient-value{color:var(--text-light)}
+        .highlight{background:#f0f7ff;padding:1rem;border-radius:8px;font-size:0.85rem;margin-top:1rem}
 
-        /* Philosophy */
-        .philosophy{padding:100px 5%}
-        .philosophy-header{max-width:1400px;margin:0 auto 4rem}
-        .philosophy-header h2{font-size:2rem;font-weight:600;margin-bottom:0.5rem}
-        .philosophy-header p{color:var(--text-light)}
-        .philosophy-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
-        .philosophy-card{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-radius:16px;overflow:hidden}
-        .philosophy-card:nth-child(even){direction:rtl}
-        .philosophy-card:nth-child(even)>*{direction:ltr}
-        .philosophy-card img{width:100%;height:300px;object-fit:cover}
-        .philosophy-card-content{padding:2.5rem;display:flex;flex-direction:column;justify-content:center}
-        .philosophy-card-content .num{font-size:0.9rem;color:var(--text-light);margin-bottom:1rem}
-        .philosophy-card-content h3{font-size:1.1rem;font-weight:500;margin-bottom:1rem;line-height:1.5}
-        .philosophy-card-content p{font-size:0.9rem;color:var(--text-light);line-height:1.8}
-
-        footer{padding:60px 5% 30px;background:var(--text);color:var(--white)}
+        footer{padding:60px 5% 30px;background:var(--text);color:var(--white);margin-top:80px}
         .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
         .footer-col h4{font-size:0.8rem;font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.1em}
         .footer-col ul{list-style:none}
@@ -74,13 +69,14 @@
         .footer-col a{font-size:0.85rem;opacity:0.7}
         .footer-bottom{max-width:1400px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.5}
 
-        @media(max-width:1024px){.brand-hero,.philosophy-card{grid-template-columns:1fr}.philosophy-grid{grid-template-columns:1fr}.philosophy-card:nth-child(even){direction:ltr}.footer-inner{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:1024px){.product-main,.product-sections{grid-template-columns:1fr}.footer-inner{grid-template-columns:repeat(3,1fr)}}
         @media(max-width:768px){
             header{top:10px;left:10px;right:10px;border-radius:30px}
             .header-inner{padding:0.8rem 1.2rem}
             .desktop-nav{display:none}
             .mobile-menu-btn{display:flex;align-items:center;justify-content:center}
-            .brand-hero-image{height:400px}
+            .product-gallery img{height:400px}
+            .product-info h1{font-size:2rem}
             .footer-inner{grid-template-columns:1fr 1fr}
         }
     </style>
@@ -104,71 +100,60 @@
 
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
-        <nav class="mobile-menu-nav"><a href="shop.html">Shop</a><a href="about.html">About</a><a href="store.html">Store</a><a href="faq.html">FAQ</a></nav>
+        <nav class="mobile-menu-nav">
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="store.html">Store</a>
+            <a href="faq.html">FAQ</a>
+        </nav>
     </div>
 
-    <!-- Hero -->
-    <section class="brand-hero">
-        <div class="brand-hero-text">
-            <p class="label">Brand Story</p>
-            <h1>CELDYQUE from around the world</h1>
-            <p>We strive to find the perfect balance for each product to achieve optimal efficacy.</p>
-            <p>CELDYQUE constantly researches optimal concentrations and true efficacy so that your skin can always remain in its perfect state. Our mission is not to chase trends, but to persistently research each ingredient to find the perfect formula.</p>
+    <main class="product-detail">
+        <div class="product-main">
+            <div class="product-gallery">
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&h=600&fit=crop" alt="Volufiline 100%">
+            </div>
+            <div class="product-info">
+                <p class="label">Serum</p>
+                <h1>Volufiline 100%</h1>
+                <p class="price">$28.00</p>
+                <p class="desc">We tested numerous ingredient combinations during product development to find the ratio that provides the most moisturizing experience without irritation. A pure Volufiline concentrate from Sederma, France for exceptional skin firming and volumizing effects.</p>
+                <a href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" class="buy-btn">Buy Now →</a>
+            </div>
         </div>
-        <div class="brand-hero-image">
-            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&h=900&fit=crop" alt="CELDYQUE Brand">
-        </div>
-    </section>
 
-    <!-- Mission -->
-    <section class="mission">
-        <div class="mission-inner">
-            <h2>We strive to find the perfect balance for each product to achieve optimal efficacy.</h2>
-            <p>We aim to find and provide raw materials with proven efficacy through new research data and papers. Our research involves diligently studying clinical data to identify the exact concentration at which each active ingredient performs best.</p>
-        </div>
-    </section>
+        <div class="product-sections">
+            <div class="product-section">
+                <h2><span class="num">①</span> Key Ingredients</h2>
+                <p>We tested numerous ingredient combinations during product development to find the perfect ratio that provides maximum efficacy without irritation.</p>
+                <div class="ingredient-list">
+                    <div class="ingredient-item">
+                        <span class="ingredient-name">Volufiline™</span>
+                        <span class="ingredient-value">100%</span>
+                    </div>
+                    <div class="ingredient-item">
+                        <span class="ingredient-name">Squalane</span>
+                        <span class="ingredient-value">High</span>
+                    </div>
+                </div>
+                <div class="highlight">
+                    <strong>Volufiline™</strong> is a patented ingredient from Sederma, France. Clinically proven to boost collagen synthesis and improve skin firmness.
+                </div>
+            </div>
 
-    <!-- Philosophy -->
-    <section class="philosophy">
-        <div class="philosophy-header">
-            <h2>Our Philosophy</h2>
-            <p>셀디끄의 철학은 단순합니다.</p>
-        </div>
-        <div class="philosophy-grid">
-            <div class="philosophy-card">
-                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=500&h=300&fit=crop" alt="Step 1">
-                <div class="philosophy-card-content">
-                    <p class="num">1st Step</p>
-                    <h3>We aim to find and provide ingredients with proven efficacy through research.</h3>
-                    <p>새로운 연구자료와 논문을 통해 입증된 효능 원료를 찾아 제공합니다.</p>
-                </div>
-            </div>
-            <div class="philosophy-card">
-                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&h=300&fit=crop" alt="Step 2">
-                <div class="philosophy-card-content">
-                    <p class="num">2nd Step</p>
-                    <h3>Maximum efficacy while providing comfortable use from the customer's perspective.</h3>
-                    <p>최고의 효능을 유지하면서 편안한 사용감을 제공합니다.</p>
-                </div>
-            </div>
-            <div class="philosophy-card">
-                <img src="https://images.unsplash.com/photo-1617897903246-719242758050?w=500&h=300&fit=crop" alt="Step 3">
-                <div class="philosophy-card-content">
-                    <p class="num">3rd Step</p>
-                    <h3>We do not develop products recklessly to expand meaningless product lines.</h3>
-                    <p>의미없는 제품라인 확장을 위해 무분별한 제품을 개발하지 않습니다.</p>
-                </div>
-            </div>
-            <div class="philosophy-card">
-                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&h=300&fit=crop" alt="Step 4">
-                <div class="philosophy-card-content">
-                    <p class="num">4th Step</p>
-                    <h3>Find yourself regaining confidence with visibly transformed skin.</h3>
-                    <p>눈에 보이는 변화를 통해 자신감을 되찾을 수 있습니다.</p>
+            <div class="product-section">
+                <h2><span class="num">②</span> How to Use</h2>
+                <p>We tested numerous usage methods during product development to find the application that provides the most effective results.</p>
+                <p><strong>Step 1:</strong> After cleansing and toning, apply 2-3 drops to target areas.</p>
+                <p><strong>Step 2:</strong> Focus on cheeks, nasolabial folds, and under-eye area.</p>
+                <p><strong>Step 3:</strong> Gently pat until fully absorbed.</p>
+                <p><strong>Step 4:</strong> Follow with moisturizer. Use morning and night.</p>
+                <div class="highlight">
+                    <strong>Tip:</strong> Can be mixed with your moisturizer for easier application. Each drop goes a long way - a small amount is enough for visible results.
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <footer>
         <div class="footer-inner">
@@ -185,7 +170,12 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        function toggleMenu() { mobileMenuBtn.classList.toggle('active'); mobileMenu.classList.toggle('active'); mobileMenuOverlay.classList.toggle('active'); }
+        function toggleMenu() {
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
         mobileMenuBtn.addEventListener('click', toggleMenu);
         mobileMenuOverlay.addEventListener('click', toggleMenu);
     </script>

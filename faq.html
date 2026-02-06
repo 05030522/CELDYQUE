@@ -3,250 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>FAQ | CELDYQUE Skincare Questions & Answers</title>
-    
-    <meta name="description" content="Find answers to frequently asked questions about CELDYQUE products, shipping, ingredients, and skincare routines.">
-    <meta name="theme-color" content="#1a1a1a">
-    <link rel="canonical" href="https://www.celdyque.com/faq.html">
-    
+    <title>FAQ | CELDYQUE</title>
+    <meta name="description" content="Frequently asked questions about CELDYQUE skincare products.">
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the product's shelf life?","acceptedAnswer":{"@type":"Answer","text":"Check the date on the bottom of each product. We recommend using within one year of opening."}},{"@type":"Question","name":"How do I use Volufiline 100%?","acceptedAnswer":{"@type":"Answer","text":"Apply 2-3 drops to target areas after cleansing and toning. Use morning and night."}},{"@type":"Question","name":"Can I use Niacinamide 20% with other actives?","acceptedAnswer":{"@type":"Answer","text":"Yes, compatible with most ingredients. Avoid using with Vitamin C simultaneously."}},{"@type":"Question","name":"Is Bakuchiol safe during pregnancy?","acceptedAnswer":{"@type":"Answer","text":"Generally considered safe, but consult your healthcare provider first."}},{"@type":"Question","name":"Do you ship internationally?","acceptedAnswer":{"@type":"Answer","text":"Yes, through Amazon, YesStyle, iHerb, and other K-beauty platforms worldwide."}}]}
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the product's shelf life?","acceptedAnswer":{"@type":"Answer","text":"Check the date on the bottom of each product. Use within one year of opening."}},{"@type":"Question","name":"How do I use Volufiline 100%?","acceptedAnswer":{"@type":"Answer","text":"Apply 2-3 drops to target areas after cleansing. Use morning and night."}}]}
     </script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--color-bg:#f5f5f5;--color-white:#fff;--color-text:#1a1a1a;--color-text-light:#666;--color-border:#e5e5e5;--font-main:'Inter',-apple-system,sans-serif;--tap-target:48px;--safe-area-inset-bottom:env(safe-area-inset-bottom,0px)}
-        html{scroll-behavior:smooth}
-        body{font-family:var(--font-main);background:var(--color-bg);color:var(--color-text);line-height:1.6;-webkit-font-smoothing:antialiased}
-        body.menu-open{overflow:hidden;position:fixed;width:100%}
+        :root{--bg:#f5f5f5;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;--font:'Inter',-apple-system,sans-serif;--tap:48px}
+        body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+        a{text-decoration:none;color:inherit}
 
-        header{position:fixed;top:20px;left:20px;right:20px;z-index:1000;background:var(--color-bg);border-radius:50px;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+        header{position:fixed;top:20px;left:20px;right:20px;z-index:1000;background:var(--bg);border-radius:50px;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
         .header-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
-        .logo{font-size:1.3rem;font-weight:600;letter-spacing:0.05em;color:var(--color-text);text-decoration:none;min-height:var(--tap-target);display:flex;align-items:center}
-        nav{display:flex;gap:3rem}
-        nav a{font-size:0.9rem;color:var(--color-text);text-decoration:none;min-height:var(--tap-target);display:flex;align-items:center;padding:0 0.5rem}
-        nav a:hover,nav a.active{opacity:0.6}
+        .logo{font-size:1.3rem;font-weight:600;letter-spacing:0.05em}
+        .desktop-nav{display:flex;gap:2.5rem}
+        .nav-item{position:relative}
+        .nav-item>a{font-size:0.9rem;min-height:var(--tap);display:flex;align-items:center;padding:0 0.5rem}
+        .mega-menu{position:absolute;top:100%;left:-20px;background:var(--white);border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);padding:1.5rem;min-width:200px;opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s}
+        .nav-item:hover .mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
+        .mega-menu a{display:block;padding:0.6rem 0;font-size:0.85rem;color:var(--text-light)}
         .header-right{display:flex;align-items:center;gap:1rem}
-        .search-btn{display:flex;align-items:center;gap:0.5rem;background:none;border:none;font-size:0.9rem;cursor:pointer;min-width:var(--tap-target);min-height:var(--tap-target)}
-        .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;min-width:var(--tap-target);min-height:var(--tap-target);padding:12px;z-index:1002}
+        .search-btn{display:flex;align-items:center;gap:0.5rem;background:none;border:none;font-size:0.9rem;cursor:pointer;min-width:var(--tap);min-height:var(--tap)}
+        .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;min-width:var(--tap);min-height:var(--tap);padding:12px}
         .hamburger{width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between}
-        .hamburger span{display:block;width:100%;height:2px;background:var(--color-text);transition:all 0.3s}
-        .mobile-menu-btn.active .hamburger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-        .mobile-menu-btn.active .hamburger span:nth-child(2){opacity:0}
-        .mobile-menu-btn.active .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+        .hamburger span{display:block;width:100%;height:2px;background:var(--text);transition:all 0.3s}
 
-        .mobile-menu-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:999}
+        .mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
         .mobile-menu-overlay.active{display:block}
-        .mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:400px;height:100dvh;background:var(--color-white);z-index:1001;transition:right 0.3s;display:flex;flex-direction:column;padding:100px 2rem 2rem;overflow-y:auto}
+        .mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:400px;height:100dvh;background:var(--white);z-index:1001;transition:right 0.3s;padding:100px 2rem 2rem}
         .mobile-menu.active{right:0}
-        .mobile-menu-nav{display:flex;flex-direction:column}
-        .mobile-menu-nav a{font-size:1.5rem;font-weight:500;color:var(--color-text);text-decoration:none;padding:1.2rem 0;border-bottom:1px solid var(--color-border);min-height:var(--tap-target)}
-        .mobile-menu-footer{margin-top:auto;padding-top:2rem}
-        .mobile-menu-footer p{font-size:0.85rem;color:var(--color-text-light)}
+        .mobile-menu-nav a{display:block;font-size:1.3rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border)}
 
         .page-content{padding:140px 5% 80px;max-width:1200px;margin:0 auto}
-        .page-header{margin-bottom:3rem}
-        .page-label{font-size:0.9rem;color:var(--color-text-light);margin-bottom:0.5rem}
-        .page-title{font-size:clamp(2rem,5vw,4rem);font-weight:600;line-height:1.1}
+        .page-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+        .page-header-left .label{font-size:0.85rem;color:var(--text-light);margin-bottom:0.3rem}
+        .page-header-left h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:600}
+        .filter-select{padding:0.8rem 1.5rem;background:var(--white);border:none;border-radius:8px;font-size:0.85rem;min-height:44px}
 
-        .faq-filter{display:flex;justify-content:flex-end;margin-bottom:2rem}
-        .faq-filter select{padding:0.8rem 1.5rem;background:var(--color-white);border:none;border-radius:8px;font-size:0.9rem;cursor:pointer;min-height:var(--tap-target)}
-
-        .faq-list{border-top:1px solid var(--color-border)}
-        .faq-item{border-bottom:1px solid var(--color-border);padding:1.5rem 0}
-        .faq-item-header{display:flex;justify-content:space-between;align-items:flex-start;cursor:pointer;min-height:var(--tap-target);gap:1rem}
-        .faq-category{font-size:0.8rem;color:var(--color-text-light);font-weight:500;min-width:80px;padding-top:0.2rem}
-        .faq-question{flex:1;font-size:1rem;font-weight:600;padding-right:1rem}
-        .faq-toggle{width:var(--tap-target);height:var(--tap-target);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-        .faq-toggle svg{transition:transform 0.3s}
-        .faq-item.open .faq-toggle svg{transform:rotate(180deg)}
-        .faq-answer{display:none;padding:1rem 0 0 90px;color:var(--color-text-light);line-height:1.8;font-size:0.95rem}
+        .faq-list{border-top:1px solid var(--border)}
+        .faq-item{border-bottom:1px solid var(--border)}
+        .faq-header{display:grid;grid-template-columns:120px 1fr 100px;gap:1rem;padding:1.5rem 0;cursor:pointer;align-items:start;min-height:var(--tap)}
+        .faq-category{font-size:0.85rem;color:var(--text-light)}
+        .faq-question{font-weight:600}
+        .faq-author{font-size:0.85rem;color:var(--text-light);text-align:right}
+        .faq-answer{display:none;padding:0 0 1.5rem 120px;color:var(--text-light);line-height:1.8}
         .faq-item.open .faq-answer{display:block}
-        .faq-author{font-size:0.8rem;color:var(--color-text-light);text-align:right;padding-top:0.5rem}
 
-        .contact-section{margin-top:4rem;padding:3rem;background:var(--color-white);border-radius:20px;text-align:center}
-        .contact-section h2{font-size:1.5rem;margin-bottom:1rem}
-        .contact-section p{color:var(--color-text-light);margin-bottom:1.5rem}
-        .contact-section a{display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;background:var(--color-text);color:var(--color-white);text-decoration:none;border-radius:50px;font-size:0.9rem;min-height:var(--tap-target)}
-
-        footer{padding:60px 5% calc(30px + var(--safe-area-inset-bottom));background:var(--color-text);color:var(--color-white);margin-top:80px}
-        .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
-        .footer-brand h3{font-size:1.5rem;margin-bottom:1rem}
-        .footer-brand p{font-size:0.9rem;opacity:0.7}
-        .footer-col h4{font-size:0.85rem;font-weight:600;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.1em}
+        footer{padding:60px 5% 30px;background:var(--text);color:var(--white);margin-top:80px}
+        .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
+        .footer-col h4{font-size:0.8rem;font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.1em}
         .footer-col ul{list-style:none}
-        .footer-col li{margin-bottom:0.8rem}
-        .footer-col a{color:var(--color-white);opacity:0.7;text-decoration:none;font-size:0.9rem;min-height:44px;display:inline-block;padding:0.5rem 0}
-        .footer-bottom{max-width:1400px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);text-align:center;font-size:0.85rem;opacity:0.6}
+        .footer-col li{margin-bottom:0.5rem}
+        .footer-col a{font-size:0.85rem;opacity:0.7}
+        .footer-bottom{max-width:1400px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.5}
 
-        @media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr}.faq-answer{padding-left:0}}
-        @media(max-width:768px){header{top:10px;left:10px;right:10px;border-radius:30px}.header-inner{padding:0.8rem 1.2rem}nav{display:none}.mobile-menu-btn{display:flex;align-items:center;justify-content:center}.page-content{padding:120px 5% 60px}.faq-category{display:none}.footer-inner{grid-template-columns:1fr;text-align:center}}
-        a:focus-visible,button:focus-visible{outline:2px solid var(--color-text);outline-offset:2px}
+        @media(max-width:1024px){.footer-inner{grid-template-columns:repeat(3,1fr)}.faq-header{grid-template-columns:1fr}.faq-category{margin-bottom:0.3rem}.faq-author{display:none}.faq-answer{padding-left:0}}
+        @media(max-width:768px){header{top:10px;left:10px;right:10px;border-radius:30px}.header-inner{padding:0.8rem 1.2rem}.desktop-nav{display:none}.mobile-menu-btn{display:flex;align-items:center;justify-content:center}.footer-inner{grid-template-columns:1fr 1fr}}
     </style>
 </head>
 <body>
     <header>
         <div class="header-inner">
             <a href="index.html" class="logo">CELDYQUE</a>
-            <nav>
-                <a href="shop.html">Shop</a>
-                <a href="about.html">About</a>
-                <a href="store.html">Store</a>
-                <a href="faq.html" class="active">FAQ</a>
+            <nav class="desktop-nav">
+                <div class="nav-item"><a href="shop.html">Shop</a><div class="mega-menu"><a href="shop.html">All</a><a href="shop.html?cat=serum">Serum</a><a href="shop.html?cat=cream">Cream</a><a href="shop.html?cat=cleanser">Cleanser</a></div></div>
+                <div class="nav-item"><a href="about.html">About</a><div class="mega-menu"><a href="about.html">Brand Story</a><a href="coming-soon.html">Coming Soon</a><a href="contact.html">Contact</a></div></div>
+                <div class="nav-item"><a href="store.html">Store</a></div>
+                <div class="nav-item"><a href="faq.html">FAQ</a></div>
             </nav>
             <div class="header-right">
-                <button class="search-btn" aria-label="Search">Search <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+                <button class="search-btn" aria-label="Search">Search <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><div class="hamburger"><span></span><span></span><span></span></div></button>
             </div>
         </div>
     </header>
 
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-        <nav class="mobile-menu-nav">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="store.html">Store</a>
-            <a href="faq.html">FAQ</a>
-        </nav>
-        <div class="mobile-menu-footer"><p>Contact<br><a href="mailto:team@credithink.com">team@credithink.com</a></p></div>
-    </div>
+    <div class="mobile-menu" id="mobileMenu"><nav class="mobile-menu-nav"><a href="shop.html">Shop</a><a href="about.html">About</a><a href="store.html">Store</a><a href="faq.html">FAQ</a></nav></div>
 
     <main class="page-content">
         <div class="page-header">
-            <p class="page-label">FAQ</p>
-            <h1 class="page-title">Commonly Asked Questions</h1>
-        </div>
-
-        <div class="faq-filter">
-            <select onchange="filterFAQ(this.value)">
+            <div class="page-header-left">
+                <p class="label">FAQ</p>
+                <h1>Commonly Asked Questions</h1>
+            </div>
+            <select class="filter-select" onchange="filterFAQ(this.value)">
                 <option value="all">All</option>
                 <option value="products">Products</option>
                 <option value="shipping">Shipping</option>
-                <option value="ingredients">Ingredients</option>
             </select>
         </div>
 
-        <div class="faq-list" id="faqList">
-            <article class="faq-item" data-category="products">
-                <div class="faq-item-header" onclick="toggleFAQ(this)">
+        <div class="faq-list">
+            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
+                <div class="faq-header">
                     <span class="faq-category">Products</span>
                     <h3 class="faq-question">What is the product's shelf life?</h3>
-                    <div class="faq-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                    <span class="faq-author">Administrator</span>
                 </div>
-                <div class="faq-answer">
-                    <p>You can check the date on the bottom of each product (up to MM/DD/YYYY). We recommend using each product within one year of opening for optimal efficacy.</p>
-                    <p class="faq-author">Administrator</p>
-                </div>
+                <div class="faq-answer">You can check the date on the bottom of each product (up to MM/DD/YYYY). We recommend using each product within one year of opening for optimal efficacy.</div>
             </article>
 
-            <article class="faq-item" data-category="products">
-                <div class="faq-item-header" onclick="toggleFAQ(this)">
+            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
+                <div class="faq-header">
                     <span class="faq-category">Products</span>
                     <h3 class="faq-question">How do I use Volufiline 100%?</h3>
-                    <div class="faq-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                    <span class="faq-author">Administrator</span>
                 </div>
-                <div class="faq-answer">
-                    <p>Apply 2-3 drops to target areas (cheeks, nasolabial folds, under eyes) after cleansing and toning. Gently pat until absorbed. Use morning and night for best results. Can be mixed with your moisturizer.</p>
-                    <p class="faq-author">Administrator</p>
-                </div>
+                <div class="faq-answer">Apply 2-3 drops to target areas (cheeks, nasolabial folds, under eyes) after cleansing and toning. Gently pat until absorbed. Use morning and night. Can be mixed with moisturizer.</div>
             </article>
 
-            <article class="faq-item" data-category="ingredients">
-                <div class="faq-item-header" onclick="toggleFAQ(this)">
-                    <span class="faq-category">Ingredients</span>
-                    <h3 class="faq-question">Can I use Niacinamide 20% with other actives?</h3>
-                    <div class="faq-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, Niacinamide 20% is compatible with most skincare ingredients including hyaluronic acid, peptides, and ceramides. However, we recommend not using it simultaneously with Vitamin C. You can use Vitamin C in the morning and Niacinamide at night.</p>
-                    <p class="faq-author">Administrator</p>
-                </div>
-            </article>
-
-            <article class="faq-item" data-category="ingredients">
-                <div class="faq-item-header" onclick="toggleFAQ(this)">
-                    <span class="faq-category">Ingredients</span>
-                    <h3 class="faq-question">Is Bakuchiol safe during pregnancy?</h3>
-                    <div class="faq-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-                </div>
-                <div class="faq-answer">
-                    <p>Bakuchiol is a plant-based alternative to retinol and is generally considered safe during pregnancy. However, we always recommend consulting with your healthcare provider before introducing new skincare products during pregnancy.</p>
-                    <p class="faq-author">Administrator</p>
-                </div>
-            </article>
-
-            <article class="faq-item" data-category="products">
-                <div class="faq-item-header" onclick="toggleFAQ(this)">
+            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
+                <div class="faq-header">
                     <span class="faq-category">Products</span>
-                    <h3 class="faq-question">Where are CELDYQUE products manufactured?</h3>
-                    <div class="faq-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                    <h3 class="faq-question">Can I use Niacinamide 20% with other actives?</h3>
+                    <span class="faq-author">Administrator</span>
                 </div>
-                <div class="faq-answer">
-                    <p>All CELDYQUE products are formulated and manufactured in South Korea using premium ingredients sourced globally. Our Volufiline is sourced from Sederma, France — the original patent holder.</p>
-                    <p class="faq-author">Administrator</p>
-                </div>
+                <div class="faq-answer">Yes, Niacinamide 20% is compatible with most ingredients. Avoid using with Vitamin C simultaneously. Use Vitamin C in the morning and Niacinamide at night.</div>
             </article>
 
-            <article class="faq-item" data-category="shipping">
-                <div class="faq-item-header" onclick="toggleFAQ(this)">
+            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
+                <div class="faq-header">
+                    <span class="faq-category">Products</span>
+                    <h3 class="faq-question">Is Bakuchiol safe during pregnancy?</h3>
+                    <span class="faq-author">Administrator</span>
+                </div>
+                <div class="faq-answer">Bakuchiol is plant-based and generally considered safe during pregnancy. However, consult your healthcare provider before introducing new skincare products.</div>
+            </article>
+
+            <article class="faq-item" data-cat="shipping" onclick="this.classList.toggle('open')">
+                <div class="faq-header">
                     <span class="faq-category">Shipping</span>
                     <h3 class="faq-question">Do you ship internationally?</h3>
-                    <div class="faq-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+                    <span class="faq-author">Administrator</span>
                 </div>
-                <div class="faq-answer">
-                    <p>Yes, CELDYQUE ships worldwide through our authorized retailers including Amazon, YesStyle, iHerb, and other K-beauty platforms. Shipping times and costs vary by location and retailer.</p>
-                    <p class="faq-author">Administrator</p>
-                </div>
+                <div class="faq-answer">Yes, CELDYQUE ships worldwide through Amazon, YesStyle, iHerb, and other K-beauty platforms. Shipping times vary by retailer.</div>
             </article>
 
-            <article class="faq-item" data-category="shipping">
-                <div class="faq-item-header" onclick="toggleFAQ(this)">
-                    <span class="faq-category">Shipping</span>
-                    <h3 class="faq-question">What is your return policy?</h3>
-                    <div class="faq-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
+                <div class="faq-header">
+                    <span class="faq-category">Products</span>
+                    <h3 class="faq-question">Hello. This is CELDYQUE.</h3>
+                    <span class="faq-author">Administrator</span>
                 </div>
-                <div class="faq-answer">
-                    <p>Return policies vary by retailer. For Amazon purchases, refer to Amazon's return policy. Unopened products in original condition are typically eligible for return within 30 days.</p>
-                    <p class="faq-author">Administrator</p>
-                </div>
+                <div class="faq-answer">Hello. This is CELDYQUE. Please leave us a message if you have any questions. Contact: team@credithink.com</div>
             </article>
-        </div>
-
-        <div class="contact-section">
-            <h2>Still have questions?</h2>
-            <p>Can't find what you're looking for? We're here to help.</p>
-            <a href="mailto:team@credithink.com">Contact Us</a>
         </div>
     </main>
 
     <footer>
         <div class="footer-inner">
-            <div class="footer-brand"><h3>CELDYQUE</h3><p>Cell • Medicine • Technique</p></div>
-            <div class="footer-col"><h4>Shop</h4><ul><li><a href="shop.html">All Products</a></li><li><a href="shop.html?category=serum">Serums</a></li></ul></div>
-            <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="faq.html">FAQ</a></li><li><a href="store.html">Where to Buy</a></li></ul></div>
+            <div class="footer-col"><h4>Shop</h4><ul><li><a href="shop.html">All</a></li><li><a href="shop.html?cat=serum">Serum</a></li></ul></div>
+            <div class="footer-col"><h4>About</h4><ul><li><a href="about.html">Brand Story</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+            <div class="footer-col"><h4>Store</h4><ul><li><a href="store.html">Where to Buy</a></li></ul></div>
+            <div class="footer-col"><h4>Community</h4><ul><li><a href="faq.html">FAQ</a></li></ul></div>
             <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:team@credithink.com">team@credithink.com</a></li></ul></div>
         </div>
         <div class="footer-bottom"><p>© 2024 CELDYQUE. All Rights Reserved.</p></div>
     </footer>
 
     <script>
-        function toggleFAQ(el){el.parentElement.classList.toggle('open')}
-        function filterFAQ(cat){document.querySelectorAll('.faq-item').forEach(item=>{item.style.display=(cat==='all'||item.dataset.category===cat)?'block':'none'})}
-
+        function filterFAQ(cat) {
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+            });
+        }
         const mobileMenuBtn=document.getElementById('mobileMenuBtn'),mobileMenu=document.getElementById('mobileMenu'),mobileMenuOverlay=document.getElementById('mobileMenuOverlay');
-        function toggleMobileMenu(){mobileMenuBtn.classList.toggle('active');mobileMenu.classList.toggle('active');mobileMenuOverlay.classList.toggle('active');document.body.classList.toggle('menu-open')}
-        function closeMobileMenu(){mobileMenuBtn.classList.remove('active');mobileMenu.classList.remove('active');mobileMenuOverlay.classList.remove('active');document.body.classList.remove('menu-open')}
-        mobileMenuBtn.addEventListener('click',toggleMobileMenu);
-        mobileMenuOverlay.addEventListener('click',closeMobileMenu);
-        document.querySelectorAll('.mobile-menu-nav a').forEach(a=>a.addEventListener('click',closeMobileMenu));
-        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileMenu()});
-        document.addEventListener('touchstart',function(){},{passive:true});
+        function toggleMenu(){mobileMenuBtn.classList.toggle('active');mobileMenu.classList.toggle('active');mobileMenuOverlay.classList.toggle('active')}
+        mobileMenuBtn.addEventListener('click',toggleMenu);mobileMenuOverlay.addEventListener('click',toggleMenu);
     </script>
 </body>
 </html>
