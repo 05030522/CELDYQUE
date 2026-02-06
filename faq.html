@@ -8,10 +8,8 @@
   <meta name="description" content="CELDYQUE FAQ: product shelf life, how to use Volufiline 100% concentrate, Niacinamide layering, pregnancy-safe routines, international shipping, and support." />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
-  <!-- Replace with your real canonical URL -->
   <link rel="canonical" href="https://www.celdyque.com/faq.html" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CELDYQUE" />
   <meta property="og:title" content="FAQ | CELDYQUE" />
@@ -116,30 +114,6 @@
             "acceptedAnswer":{
               "@type":"Answer",
               "text":"Email team@celdyque.com. Include your order number (if available) and the product name for faster support."
-            }
-          },
-          {
-            "@type":"Question",
-            "name":"Do I need AEO as a separate strategy in 2025?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"Google states there are no additional requirements to appear in AI features (AI Overviews / AI Mode). If your page is indexed and eligible to appear in Google Search with a snippet, it can be eligible as a supporting link in these AI experiences. Focus on foundational SEO and helpful, reliable content."
-            }
-          },
-          {
-            "@type":"Question",
-            "name":"How do I optimize for AI Overviews / AI Mode?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"Optimize as you would for Google Search: allow crawling (robots.txt / infrastructure), ensure index eligibility and a snippet can be shown, make important content textual and easy to find via internal links, and use structured data only when it matches visible content."
-            }
-          },
-          {
-            "@type":"Question",
-            "name":"Does GEO matter and how should I think about it?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"GEO is an industry term. For Google AI features, Google states there are no additional requirements beyond being eligible in Search. For other generative assistants, keep your brand and product information consistent, easy to access, and supported by clear on-page context and reliable references."
             }
           }
         ]
@@ -354,7 +328,6 @@
         <option value="products">Products & Usage</option>
         <option value="shipping">Shipping</option>
         <option value="support">Support</option>
-        <option value="tech">Search Tech (Reference)</option>
       </select>
     </div>
 
@@ -362,7 +335,6 @@
       <a class="chip" href="#products">Products</a>
       <a class="chip" href="#shipping">Shipping</a>
       <a class="chip" href="#support">Support</a>
-      <a class="chip" href="#search-tech">Search Tech</a>
     </div>
 
     <!-- PRODUCTS -->
@@ -470,56 +442,6 @@
         </details>
       </div>
     </section>
-
-    <!-- SEARCH TECH (REFERENCE) -->
-    <section class="faq-section" id="search-tech">
-      <h2>Search Tech (Reference)</h2>
-      <p class="section-note">A short reference section about AI features in search and how to think about SEO vs “AEO/GEO”.</p>
-
-      <div class="faq-list" aria-label="Search Tech FAQ">
-        <details class="faq-item" data-cat="tech">
-          <summary class="faq-header">
-            <span class="faq-category">Search Tech</span>
-            <span class="faq-question">Do I need AEO as a separate strategy in 2025?</span>
-            <span class="faq-toggle" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            Google states there are <strong>no additional requirements</strong> to appear in AI features (AI Overviews / AI Mode).
-            If your page is <strong>indexed</strong> and eligible to appear in Google Search with a snippet, it can be eligible as a supporting link in these AI experiences.
-            Focus on <strong>foundational SEO</strong> and <strong>helpful, reliable content</strong>.
-          </div>
-        </details>
-
-        <details class="faq-item" data-cat="tech">
-          <summary class="faq-header">
-            <span class="faq-category">Search Tech</span>
-            <span class="faq-question">How do I optimize for AI Overviews / AI Mode?</span>
-            <span class="faq-toggle" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            Optimize as you would for Google Search:
-            <ul>
-              <li>Allow crawling (robots.txt / infrastructure)</li>
-              <li>Ensure index eligibility and a snippet can be shown</li>
-              <li>Make important content textual and easy to find via internal links</li>
-              <li>Use structured data only when it matches visible content</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="faq-item" data-cat="tech">
-          <summary class="faq-header">
-            <span class="faq-category">AI</span>
-            <span class="faq-question">Does GEO matter and how should I think about it?</span>
-            <span class="faq-toggle" aria-hidden="true">+</span>
-          </summary>
-          <div class="faq-answer">
-            <strong>GEO</strong> is an industry term. For Google AI features, Google states there are no additional requirements beyond being eligible in Search.
-            For other generative assistants, keep your brand and product information consistent, easy to access, and supported by clear on-page context and reliable references.
-          </div>
-        </details>
-      </div>
-    </section>
   </main>
 
   <footer>
@@ -574,7 +496,7 @@
       if (cat === 'products') location.hash = '#products';
       if (cat === 'shipping') location.hash = '#shipping';
       if (cat === 'support') location.hash = '#support';
-      if (cat === 'tech') location.hash = '#search-tech';
+      if (cat === 'all') history.replaceState(null, "", " ");
     }
 
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
