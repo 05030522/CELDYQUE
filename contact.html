@@ -47,13 +47,16 @@
 
         .authorized-seller{margin-top:3rem;padding-top:3rem;border-top:1px solid var(--border)}
         .authorized-seller h2{font-size:1.2rem;font-weight:600;margin-bottom:1.5rem}
+        
+        /* 판매처 그리드: 2열로 배치하여 4개를 깔끔하게 보여줌 */
         .seller-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-        .seller-card{background:var(--white);padding:1.5rem;border-radius:12px;text-align:center}
+        .seller-card{background:var(--white);padding:1.5rem;border-radius:12px;text-align:center;transition:transform 0.2s;}
+        .seller-card:hover{transform:translateY(-2px);}
         .seller-card h4{font-size:1rem;font-weight:500;margin-bottom:0.5rem}
         .seller-card a{font-size:0.85rem;color:var(--text-light)}
 
         .contact-map{background:#e0e0e0;border-radius:16px;overflow:hidden;min-height:500px}
-        .contact-map iframe{width:100%;height:100%;min-height:500px;border:none;} /* grayscale 필터 제거하여 지도 색상 원래대로 */
+        .contact-map iframe{width:100%;height:100%;min-height:500px;border:none;}
 
         footer{padding:60px 5% 30px;background:var(--text);color:var(--white);margin-top:80px}
         .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
@@ -118,7 +121,7 @@
 
                 <div class="info-section">
                     <h3>Email</h3>
-                    <p><a href="mailto:team@credithink.com">team@credithink.com</a></p>
+                    <p><a href="mailto:team@celdyque.com">team@celdyque.com</a></p>
                 </div>
 
                 <div class="info-section">
@@ -131,11 +134,19 @@
                     <div class="seller-grid">
                         <div class="seller-card">
                             <h4>Amazon</h4>
-                            <a href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank">Visit Store →</a>
+                            <a href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" rel="noopener">Visit Store →</a>
+                        </div>
+                        <div class="seller-card">
+                            <h4>TikTok Shop</h4>
+                            <a href="https://www.tiktok.com/@celdyque" target="_blank" rel="noopener">Visit Store →</a>
                         </div>
                         <div class="seller-card">
                             <h4>YesStyle</h4>
-                            <a href="#">Coming Soon</a>
+                            <a href="https://www.yesstyle.com/en/celdyque/list.html/bpt.299_bid.331400" target="_blank" rel="noopener">Visit Store →</a>
+                        </div>
+                        <div class="seller-card">
+                            <h4>Stylevana</h4>
+                            <a href="https://www.stylevana.com/en_US/brands/celdyque.html" target="_blank" rel="noopener">Visit Store →</a>
                         </div>
                     </div>
                 </div>

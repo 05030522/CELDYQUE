@@ -1,181 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>FAQ | CELDYQUE</title>
-    <meta name="description" content="Frequently asked questions about CELDYQUE skincare products.">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the product's shelf life?","acceptedAnswer":{"@type":"Answer","text":"Check the date on the bottom of each product. Use within one year of opening."}},{"@type":"Question","name":"How do I use Volufiline 100%?","acceptedAnswer":{"@type":"Answer","text":"Apply 2-3 drops to target areas after cleansing. Use morning and night."}}]}
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--bg:#f5f5f5;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;--font:'Inter',-apple-system,sans-serif;--tap:48px}
-        body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
-        a{text-decoration:none;color:inherit}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
-        header{position:fixed;top:20px;left:20px;right:20px;z-index:1000;background:var(--bg);border-radius:50px;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
-        .header-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
-        .logo{font-size:1.3rem;font-weight:600;letter-spacing:0.05em}
-        .desktop-nav{display:flex;gap:2.5rem}
-        .nav-item{position:relative}
-        .nav-item>a{font-size:0.9rem;min-height:var(--tap);display:flex;align-items:center;padding:0 0.5rem}
-        .mega-menu{position:absolute;top:100%;left:-20px;background:var(--white);border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);padding:1.5rem;min-width:200px;opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s}
-        .nav-item:hover .mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
-        .mega-menu a{display:block;padding:0.6rem 0;font-size:0.85rem;color:var(--text-light)}
-        .header-right{display:flex;align-items:center;gap:1rem}
-        .search-btn{display:flex;align-items:center;gap:0.5rem;background:none;border:none;font-size:0.9rem;cursor:pointer;min-width:var(--tap);min-height:var(--tap)}
-        .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;min-width:var(--tap);min-height:var(--tap);padding:12px}
-        .hamburger{width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between}
-        .hamburger span{display:block;width:100%;height:2px;background:var(--text);transition:all 0.3s}
+  <title>FAQ | CELDYQUE</title>
+  <meta name="description" content="CELDYQUE FAQ: product shelf life, how to use Volufiline 100% concentrate, Niacinamide layering, pregnancy-safe routines, international shipping, and support." />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
-        .mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
-        .mobile-menu-overlay.active{display:block}
-        .mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:400px;height:100dvh;background:var(--white);z-index:1001;transition:right 0.3s;padding:100px 2rem 2rem}
-        .mobile-menu.active{right:0}
-        .mobile-menu-nav a{display:block;font-size:1.3rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border)}
+  <!-- Replace with your real canonical URL -->
+  <link rel="canonical" href="https://www.celdyque.com/faq.html" />
 
-        .page-content{padding:140px 5% 80px;max-width:1200px;margin:0 auto}
-        .page-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
-        .page-header-left .label{font-size:0.85rem;color:var(--text-light);margin-bottom:0.3rem}
-        .page-header-left h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:600}
-        .filter-select{padding:0.8rem 1.5rem;background:var(--white);border:none;border-radius:8px;font-size:0.85rem;min-height:44px}
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CELDYQUE" />
+  <meta property="og:title" content="FAQ | CELDYQUE" />
+  <meta property="og:description" content="Answers about shelf life, Volufiline 100% concentrate usage, Niacinamide layering, pregnancy routines, international shipping, and support." />
+  <meta property="og:url" content="https://www.celdyque.com/faq.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#ffffff" />
 
-        .faq-list{border-top:1px solid var(--border)}
-        .faq-item{border-bottom:1px solid var(--border)}
-        .faq-header{display:grid;grid-template-columns:120px 1fr 100px;gap:1rem;padding:1.5rem 0;cursor:pointer;align-items:start;min-height:var(--tap)}
-        .faq-category{font-size:0.85rem;color:var(--text-light)}
-        .faq-question{font-weight:600}
-        .faq-author{font-size:0.85rem;color:var(--text-light);text-align:right}
-        .faq-answer{display:none;padding:0 0 1.5rem 120px;color:var(--text-light);line-height:1.8}
-        .faq-item.open .faq-answer{display:block}
-
-        footer{padding:60px 5% 30px;background:var(--text);color:var(--white);margin-top:80px}
-        .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
-        .footer-col h4{font-size:0.8rem;font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.1em}
-        .footer-col ul{list-style:none}
-        .footer-col li{margin-bottom:0.5rem}
-        .footer-col a{font-size:0.85rem;opacity:0.7}
-        .footer-bottom{max-width:1400px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.5}
-
-        @media(max-width:1024px){.footer-inner{grid-template-columns:repeat(3,1fr)}.faq-header{grid-template-columns:1fr}.faq-category{margin-bottom:0.3rem}.faq-author{display:none}.faq-answer{padding-left:0}}
-        @media(max-width:768px){header{top:10px;left:10px;right:10px;border-radius:30px}.header-inner{padding:0.8rem 1.2rem}.desktop-nav{display:none}.mobile-menu-btn{display:flex;align-items:center;justify-content:center}.footer-inner{grid-template-columns:1fr 1fr}}
-    </style>
-</head>
-<body>
-    <header>
-        <div class="header-inner">
-            <a href="index.html" class="logo">CELDYQUE</a>
-            <nav class="desktop-nav">
-                <div class="nav-item"><a href="shop.html">Shop</a><div class="mega-menu"><a href="shop.html">All</a><a href="shop.html?cat=serum">Serum</a><a href="shop.html?cat=cream">Cream</a><a href="shop.html?cat=cleanser">Cleanser</a></div></div>
-                <div class="nav-item"><a href="about.html">About</a><div class="mega-menu"><a href="about.html">Brand Story</a><a href="coming-soon.html">Coming Soon</a><a href="contact.html">Contact</a></div></div>
-                <div class="nav-item"><a href="store.html">Store</a></div>
-                <div class="nav-item"><a href="faq.html">FAQ</a></div>
-            </nav>
-            <div class="header-right">
-                <button class="search-btn" aria-label="Search">Search <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><div class="hamburger"><span></span><span></span><span></span></div></button>
-            </div>
-        </div>
-    </header>
-
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu"><nav class="mobile-menu-nav"><a href="shop.html">Shop</a><a href="about.html">About</a><a href="store.html">Store</a><a href="faq.html">FAQ</a></nav></div>
-
-    <main class="page-content">
-        <div class="page-header">
-            <div class="page-header-left">
-                <p class="label">FAQ</p>
-                <h1>Commonly Asked Questions</h1>
-            </div>
-            <select class="filter-select" onchange="filterFAQ(this.value)">
-                <option value="all">All</option>
-                <option value="products">Products</option>
-                <option value="shipping">Shipping</option>
-            </select>
-        </div>
-
-        <div class="faq-list">
-            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
-                <div class="faq-header">
-                    <span class="faq-category">Products</span>
-                    <h3 class="faq-question">What is the product's shelf life?</h3>
-                    <span class="faq-author">Administrator</span>
-                </div>
-                <div class="faq-answer">You can check the date on the bottom of each product (up to MM/DD/YYYY). We recommend using each product within one year of opening for optimal efficacy.</div>
-            </article>
-
-            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
-                <div class="faq-header">
-                    <span class="faq-category">Products</span>
-                    <h3 class="faq-question">How do I use Volufiline 100%?</h3>
-                    <span class="faq-author">Administrator</span>
-                </div>
-                <div class="faq-answer">Apply 2-3 drops to target areas (cheeks, nasolabial folds, under eyes) after cleansing and toning. Gently pat until absorbed. Use morning and night. Can be mixed with moisturizer.</div>
-            </article>
-
-            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
-                <div class="faq-header">
-                    <span class="faq-category">Products</span>
-                    <h3 class="faq-question">Can I use Niacinamide 20% with other actives?</h3>
-                    <span class="faq-author">Administrator</span>
-                </div>
-                <div class="faq-answer">Yes, Niacinamide 20% is compatible with most ingredients. Avoid using with Vitamin C simultaneously. Use Vitamin C in the morning and Niacinamide at night.</div>
-            </article>
-
-            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
-                <div class="faq-header">
-                    <span class="faq-category">Products</span>
-                    <h3 class="faq-question">Is Bakuchiol safe during pregnancy?</h3>
-                    <span class="faq-author">Administrator</span>
-                </div>
-                <div class="faq-answer">Bakuchiol is plant-based and generally considered safe during pregnancy. However, consult your healthcare provider before introducing new skincare products.</div>
-            </article>
-
-            <article class="faq-item" data-cat="shipping" onclick="this.classList.toggle('open')">
-                <div class="faq-header">
-                    <span class="faq-category">Shipping</span>
-                    <h3 class="faq-question">Do you ship internationally?</h3>
-                    <span class="faq-author">Administrator</span>
-                </div>
-                <div class="faq-answer">Yes, CELDYQUE ships worldwide through Amazon, YesStyle, iHerb, and other K-beauty platforms. Shipping times vary by retailer.</div>
-            </article>
-
-            <article class="faq-item" data-cat="products" onclick="this.classList.toggle('open')">
-                <div class="faq-header">
-                    <span class="faq-category">Products</span>
-                    <h3 class="faq-question">Hello. This is CELDYQUE.</h3>
-                    <span class="faq-author">Administrator</span>
-                </div>
-                <div class="faq-answer">Hello. This is CELDYQUE. Please leave us a message if you have any questions. Contact: team@credithink.com</div>
-            </article>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-col"><h4>Shop</h4><ul><li><a href="shop.html">All</a></li><li><a href="shop.html?cat=serum">Serum</a></li></ul></div>
-            <div class="footer-col"><h4>About</h4><ul><li><a href="about.html">Brand Story</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-            <div class="footer-col"><h4>Store</h4><ul><li><a href="store.html">Where to Buy</a></li></ul></div>
-            <div class="footer-col"><h4>Community</h4><ul><li><a href="faq.html">FAQ</a></li></ul></div>
-            <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:team@credithink.com">team@credithink.com</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>© 2024 CELDYQUE. All Rights Reserved.</p></div>
-    </footer>
-
-    <script>
-        function filterFAQ(cat) {
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
-            });
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://www.celdyque.com/#organization",
+        "name":"CELDYQUE",
+        "url":"https://www.celdyque.com/",
+        "email":"team@celdyque.com"
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://www.celdyque.com/#website",
+        "url":"https://www.celdyque.com/",
+        "name":"CELDYQUE",
+        "publisher":{"@id":"https://www.celdyque.com/#organization"},
+        "inLanguage":"en",
+        "potentialAction":{
+          "@type":"SearchAction",
+          "target":"https://www.celdyque.com/search?q={search_term_string}",
+          "query-input":"required name=search_term_string"
         }
-        const mobileMenuBtn=document.getElementById('mobileMenuBtn'),mobileMenu=document.getElementById('mobileMenu'),mobileMenuOverlay=document.getElementById('mobileMenuOverlay');
-        function toggleMenu(){mobileMenuBtn.classList.toggle('active');mobileMenu.classList.toggle('active');mobileMenuOverlay.classList.toggle('active')}
-        mobileMenuBtn.addEventListener('click',toggleMenu);mobileMenuOverlay.addEventListener('click',toggleMenu);
-    </script>
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://www.celdyque.com/faq.html#breadcrumbs",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.celdyque.com/"},
+          {"@type":"ListItem","position":2,"name":"FAQ","item":"https://www.celdyque.com/faq.html"}
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "@id":"https://www.celdyque.com/faq.html#faq",
+        "url":"https://www.celdyque.com/faq.html",
+        "name":"FAQ | CELDYQUE",
+        "inLanguage":"en",
+        "isPartOf":{"@id":"https://www.celdyque.com/#website"},
+        "about":{"@id":"https://www.celdyque.com/#organization"},
+        "dateModified":"2026-02-06",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"What is the shelf life of CELDYQUE products?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Unopened products typically last 36 months. Once opened, please use within 12 months. Check the bottom of the bottle for the specific expiration date."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"How do I use Volufiline 100% concentrate?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Volufiline 100% is a concentrate. Mix 1–3 drops into your moisturizer/cream/serum in your palm, then apply to target areas (cheeks, nasolabial folds, under eyes). Start once daily, then increase to morning and night if your skin feels comfortable."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Can I use Niacinamide with Vitamin C?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Yes, but to reduce the chance of sensitivity, use Vitamin C in the morning and Niacinamide in the evening. Always apply sunscreen during the day."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Is Bakuchiol safe during pregnancy?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Bakuchiol is commonly used as a gentle alternative to retinoids. During pregnancy or breastfeeding, keep your routine simple and patch test new products first."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Do you ship internationally?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Yes. CELDYQUE is available internationally through selected retailers (e.g., Amazon, YesStyle, iHerb, and other K-beauty platforms). Delivery times and availability depend on the retailer and destination."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Where can I buy authentic CELDYQUE products?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"For authenticity, purchase from CELDYQUE official storefronts and authorized retailers. You can also check our Where to Buy page."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"How can I contact CELDYQUE support?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Email team@celdyque.com. Include your order number (if available) and the product name for faster support."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Do I need AEO as a separate strategy in 2025?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Google states there are no additional requirements to appear in AI features (AI Overviews / AI Mode). If your page is indexed and eligible to appear in Google Search with a snippet, it can be eligible as a supporting link in these AI experiences. Focus on foundational SEO and helpful, reliable content."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"How do I optimize for AI Overviews / AI Mode?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Optimize as you would for Google Search: allow crawling (robots.txt / infrastructure), ensure index eligibility and a snippet can be shown, make important content textual and easy to find via internal links, and use structured data only when it matches visible content."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Does GEO matter and how should I think about it?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"GEO is an industry term. For Google AI features, Google states there are no additional requirements beyond being eligible in Search. For other generative assistants, keep your brand and product information consistent, easy to access, and supported by clear on-page context and reliable references."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --bg:#f5f5f5;
+      --white:#fff;
+      --text:#1a1a1a;
+      --text-light:#666;
+      --border:#e5e5e5;
+      --font:'Inter',-apple-system,sans-serif;
+      --tap:48px;
+      --accent:#3b82f6;
+    }
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+
+    .skip-link{position:absolute;left:-999px;top:0;background:#fff;padding:10px 14px;border-radius:8px;z-index:2000;border:1px solid var(--border)}
+    .skip-link:focus{left:12px;top:12px}
+
+    header{position:fixed;top:20px;left:20px;right:20px;z-index:1000;background:var(--bg);border-radius:50px;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+    .header-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
+    .logo{font-size:1.3rem;font-weight:600;letter-spacing:0.05em}
+    .desktop-nav{display:flex;gap:2.5rem}
+    .nav-item{position:relative}
+    .nav-item>a{font-size:0.9rem;min-height:var(--tap);display:flex;align-items:center;padding:0 0.5rem}
+    .mega-menu{position:absolute;top:100%;left:-20px;background:var(--white);border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);padding:1.5rem;min-width:200px;opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s}
+    .nav-item:hover .mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
+    .mega-menu a{display:block;padding:0.6rem 0;font-size:0.85rem;color:var(--text-light)}
+
+    .header-right{display:flex;align-items:center;gap:1rem}
+    .search-btn{display:flex;align-items:center;gap:0.5rem;background:none;border:none;font-size:0.9rem;cursor:pointer;min-width:var(--tap);min-height:var(--tap)}
+    .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;min-width:var(--tap);min-height:var(--tap);padding:12px}
+    .hamburger{width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between}
+    .hamburger span{display:block;width:100%;height:2px;background:var(--text);transition:all 0.3s}
+
+    .mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
+    .mobile-menu-overlay.active{display:block}
+    .mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:400px;height:100dvh;background:var(--white);z-index:1001;transition:right 0.3s;padding:100px 2rem 2rem}
+    .mobile-menu.active{right:0}
+    .mobile-menu-nav a{display:block;font-size:1.3rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border)}
+
+    .page-content{padding:140px 5% 80px;max-width:1200px;margin:0 auto}
+    .breadcrumbs{margin:0.5rem 0 1.5rem;color:var(--text-light);font-size:0.85rem}
+    .breadcrumbs a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+    .breadcrumbs span{opacity:0.8}
+
+    .page-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+    .page-header-left .label{font-size:0.85rem;color:var(--accent);margin-bottom:0.3rem;font-weight:600}
+    .page-header-left h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:600}
+    .page-subcopy{max-width:75ch;color:var(--text-light);margin-top:0.75rem}
+    .filter-select{padding:0.8rem 1.5rem;background:var(--white);border:none;border-radius:8px;font-size:0.85rem;min-height:44px;cursor:pointer}
+
+    .faq-chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin:1.25rem 0 2rem}
+    .chip{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:var(--white);border:1px solid var(--border);font-size:0.85rem;color:var(--text-light)}
+    .chip:hover{color:var(--text)}
+
+    .faq-section{margin-top:2.5rem}
+    .faq-section h2{font-size:1.25rem;margin-bottom:0.5rem}
+    .faq-section .section-note{color:var(--text-light);font-size:0.9rem;margin-bottom:1rem}
+
+    .faq-list{border-top:1px solid var(--border)}
+    details.faq-item{border-bottom:1px solid var(--border);background:transparent}
+    details.faq-item[hidden]{display:none !important}
+
+    summary.faq-header{
+      list-style:none;
+      display:grid;
+      grid-template-columns:140px 1fr 40px;
+      gap:1rem;
+      padding:1.35rem 0;
+      cursor:pointer;
+      align-items:start;
+      min-height:var(--tap);
+      transition:background-color 0.2s;
+    }
+    summary.faq-header:hover{background-color:rgba(0,0,0,0.02)}
+    summary::-webkit-details-marker{display:none}
+
+    .faq-category{
+      font-size:0.75rem;
+      color:var(--accent);
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.05em;
+      background:rgba(59,130,246,0.1);
+      padding:4px 8px;
+      border-radius:6px;
+      justify-self:start;
+      height:fit-content;
+      margin-top:2px;
+    }
+    .faq-question{font-weight:600;font-size:1.05rem;line-height:1.4}
+    .faq-toggle{font-size:1.2rem;color:var(--text-light);justify-self:end;line-height:1;margin-top:2px;transition:transform 0.15s}
+
+    .faq-answer{
+      padding:0 0 1.75rem 156px;
+      color:var(--text-light);
+      line-height:1.8;
+      max-width:880px;
+    }
+    .faq-answer strong{color:var(--text);font-weight:600}
+    .faq-answer ul{margin:0.5rem 0 0.25rem 1.2rem}
+    .faq-answer li{margin:0.25rem 0}
+    .faq-answer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+    details[open] .faq-toggle{transform:rotate(45deg)}
+
+    footer{padding:60px 5% 30px;background:var(--text);color:var(--white);margin-top:80px}
+    .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
+    .footer-col h4{font-size:0.8rem;font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.1em}
+    .footer-col ul{list-style:none}
+    .footer-col li{margin-bottom:0.5rem}
+    .footer-col a{font-size:0.85rem;opacity:0.7}
+    .footer-bottom{max-width:1400px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.5}
+
+    @media(max-width:1024px){
+      .footer-inner{grid-template-columns:repeat(3,1fr)}
+      summary.faq-header{grid-template-columns:1fr}
+      .faq-answer{padding-left:0}
+      .faq-toggle{display:none}
+    }
+    @media(max-width:768px){
+      header{top:10px;left:10px;right:10px;border-radius:30px}
+      .header-inner{padding:0.8rem 1.2rem}
+      .desktop-nav{display:none}
+      .mobile-menu-btn{display:flex;align-items:center;justify-content:center}
+      .footer-inner{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="CELDYQUE Home">CELDYQUE</a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <div class="nav-item">
+          <a href="shop.html">Shop</a>
+          <div class="mega-menu" aria-label="Shop submenu">
+            <a href="shop.html">All</a>
+            <a href="shop.html?cat=serum">Serum</a>
+            <a href="shop.html?cat=cream">Cream</a>
+            <a href="shop.html?cat=cleanser">Cleanser</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="about.html">About</a>
+          <div class="mega-menu" aria-label="About submenu">
+            <a href="about.html">Brand Story</a>
+            <a href="coming-soon.html">Coming Soon</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="store.html">Store</a></div>
+        <div class="nav-item"><a href="faq.html" aria-current="page">FAQ</a></div>
+      </nav>
+
+      <div class="header-right">
+        <button class="search-btn" aria-label="Search">
+          Search
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
+          <div class="hamburger" aria-hidden="true"><span></span><span></span><span></span></div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <nav class="mobile-menu-nav">
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="store.html">Store</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+    </nav>
+  </div>
+
+  <main class="page-content" id="main-content">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a> <span>›</span> <span aria-current="page">FAQ</span>
+    </nav>
+
+    <div class="page-header">
+      <div class="page-header-left">
+        <p class="label">FAQ</p>
+        <h1>Frequently Asked Questions</h1>
+        <p class="page-subcopy">
+          Quick answers about CELDYQUE products and support: shelf life & PAO, how to use Volufiline 100% concentrate, Niacinamide layering, pregnancy routines, international shipping, and contact.
+        </p>
+      </div>
+
+      <select class="filter-select" onchange="filterFAQ(this.value)" aria-label="Filter FAQs">
+        <option value="all">All Topics</option>
+        <option value="products">Products & Usage</option>
+        <option value="shipping">Shipping</option>
+        <option value="support">Support</option>
+        <option value="tech">Search Tech (Reference)</option>
+      </select>
+    </div>
+
+    <div class="faq-chips" aria-label="FAQ sections">
+      <a class="chip" href="#products">Products</a>
+      <a class="chip" href="#shipping">Shipping</a>
+      <a class="chip" href="#support">Support</a>
+      <a class="chip" href="#search-tech">Search Tech</a>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section class="faq-section" id="products">
+      <h2>Products</h2>
+      <p class="section-note">Shelf life, usage, and ingredient layering basics.</p>
+
+      <div class="faq-list" aria-label="Products FAQ">
+        <details class="faq-item" data-cat="products">
+          <summary class="faq-header">
+            <span class="faq-category">Product</span>
+            <span class="faq-question">What is the shelf life of CELDYQUE products?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            Unopened products typically last <strong>36 months</strong>. Once opened, please use within <strong>12 months</strong>. Check the bottom of the bottle for the specific expiration date.
+          </div>
+        </details>
+
+        <details class="faq-item" data-cat="products">
+          <summary class="faq-header">
+            <span class="faq-category">Product</span>
+            <span class="faq-question">How do I use Volufiline 100% concentrate?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            Volufiline 100% is a <strong>concentrate</strong>.
+            <ul>
+              <li>Mix <strong>1–3 drops</strong> into your moisturizer/cream/serum in your palm.</li>
+              <li>Apply to target areas (cheeks, nasolabial folds, under eyes).</li>
+              <li>Start <strong>once daily</strong>, then increase to <strong>morning and night</strong> if your skin feels comfortable.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="faq-item" data-cat="products">
+          <summary class="faq-header">
+            <span class="faq-category">Routine</span>
+            <span class="faq-question">Can I use Niacinamide with Vitamin C?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            Yes, but to reduce the chance of sensitivity, use <strong>Vitamin C in the morning</strong> and <strong>Niacinamide in the evening</strong>. Always apply sunscreen during the day.
+          </div>
+        </details>
+
+        <details class="faq-item" data-cat="products">
+          <summary class="faq-header">
+            <span class="faq-category">Routine</span>
+            <span class="faq-question">Is Bakuchiol safe during pregnancy?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            Bakuchiol is commonly used as a gentle alternative to retinoids. During pregnancy or breastfeeding, keep your routine simple and patch test new products first.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SHIPPING -->
+    <section class="faq-section" id="shipping">
+      <h2>Shipping</h2>
+      <p class="section-note">Availability varies by retailer and destination.</p>
+
+      <div class="faq-list" aria-label="Shipping FAQ">
+        <details class="faq-item" data-cat="shipping">
+          <summary class="faq-header">
+            <span class="faq-category">Shipping</span>
+            <span class="faq-question">Do you ship internationally?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            Yes. CELDYQUE is available internationally through selected retailers (e.g., Amazon, YesStyle, iHerb, and other K-beauty platforms). Delivery times and availability depend on the retailer and destination.
+          </div>
+        </details>
+
+        <details class="faq-item" data-cat="shipping">
+          <summary class="faq-header">
+            <span class="faq-category">Authenticity</span>
+            <span class="faq-question">Where can I buy authentic CELDYQUE products?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            For authenticity, purchase from CELDYQUE official storefronts and authorized retailers. You can also check our <a href="store.html">Where to Buy</a> page.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="faq-section" id="support">
+      <h2>Support</h2>
+      <p class="section-note">Fast ways to get help.</p>
+
+      <div class="faq-list" aria-label="Support FAQ">
+        <details class="faq-item" data-cat="support">
+          <summary class="faq-header">
+            <span class="faq-category">Support</span>
+            <span class="faq-question">How can I contact CELDYQUE support?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            Email <a href="mailto:team@celdyque.com">team@celdyque.com</a>. Include your order number (if available) and the product name for faster support.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SEARCH TECH (REFERENCE) -->
+    <section class="faq-section" id="search-tech">
+      <h2>Search Tech (Reference)</h2>
+      <p class="section-note">A short reference section about AI features in search and how to think about SEO vs “AEO/GEO”.</p>
+
+      <div class="faq-list" aria-label="Search Tech FAQ">
+        <details class="faq-item" data-cat="tech">
+          <summary class="faq-header">
+            <span class="faq-category">Search Tech</span>
+            <span class="faq-question">Do I need AEO as a separate strategy in 2025?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            Google states there are <strong>no additional requirements</strong> to appear in AI features (AI Overviews / AI Mode).
+            If your page is <strong>indexed</strong> and eligible to appear in Google Search with a snippet, it can be eligible as a supporting link in these AI experiences.
+            Focus on <strong>foundational SEO</strong> and <strong>helpful, reliable content</strong>.
+          </div>
+        </details>
+
+        <details class="faq-item" data-cat="tech">
+          <summary class="faq-header">
+            <span class="faq-category">Search Tech</span>
+            <span class="faq-question">How do I optimize for AI Overviews / AI Mode?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            Optimize as you would for Google Search:
+            <ul>
+              <li>Allow crawling (robots.txt / infrastructure)</li>
+              <li>Ensure index eligibility and a snippet can be shown</li>
+              <li>Make important content textual and easy to find via internal links</li>
+              <li>Use structured data only when it matches visible content</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="faq-item" data-cat="tech">
+          <summary class="faq-header">
+            <span class="faq-category">AI</span>
+            <span class="faq-question">Does GEO matter and how should I think about it?</span>
+            <span class="faq-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <strong>GEO</strong> is an industry term. For Google AI features, Google states there are no additional requirements beyond being eligible in Search.
+            For other generative assistants, keep your brand and product information consistent, easy to access, and supported by clear on-page context and reliable references.
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html">All</a></li>
+          <li><a href="shop.html?cat=serum">Serum</a></li>
+          <li><a href="shop.html?cat=cream">Cream</a></li>
+          <li><a href="shop.html?cat=cleanser">Cleanser</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">Brand Story</a></li>
+          <li><a href="coming-soon.html">Coming Soon</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Store</h4>
+        <ul>
+          <li><a href="store.html">Where to Buy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="faq.html" aria-current="page">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:team@celdyque.com">team@celdyque.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CELDYQUE. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function filterFAQ(cat) {
+      document.querySelectorAll('details.faq-item').forEach(item => {
+        const show = (cat === 'all' || item.dataset.cat === cat);
+        item.hidden = !show;
+      });
+      if (cat === 'products') location.hash = '#products';
+      if (cat === 'shipping') location.hash = '#shipping';
+      if (cat === 'support') location.hash = '#support';
+      if (cat === 'tech') location.hash = '#search-tech';
+    }
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+    function toggleMenu() {
+      const isOpen = mobileMenu.classList.toggle('active');
+      mobileMenuOverlay.classList.toggle('active');
+      mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    mobileMenuOverlay.addEventListener('click', toggleMenu);
+  </script>
 </body>
 </html>
