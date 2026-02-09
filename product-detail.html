@@ -1,183 +1,1013 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Volufiline 100% | CELDYQUE</title>
-    <meta name="description" content="CELDYQUE Volufiline 100% Pure Concentrate. Skin firming and volumizing effects with clinically proven ingredients.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{--bg:#f5f5f5;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;--font:'Inter',-apple-system,sans-serif;--tap:48px}
-        body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
-        body.menu-open{overflow:hidden;position:fixed;width:100%}
-        a{text-decoration:none;color:inherit}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Volufiline 100% | CELDYQUE</title>
+  <meta name="description" content="CELDYQUE Volufiline 100% Pure Concentrate. Minimal formula, focused results. Firming & volumizing care." />
 
-        header{position:fixed;top:20px;left:20px;right:20px;z-index:1000;background:var(--bg);border-radius:50px;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
-        .header-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
-        .logo{font-size:1.3rem;font-weight:600;letter-spacing:0.05em}
-        .desktop-nav{display:flex;gap:2.5rem}
-        .nav-item{position:relative}
-        .nav-item>a{font-size:0.9rem;min-height:var(--tap);display:flex;align-items:center;padding:0 0.5rem}
-        .mega-menu{position:absolute;top:100%;left:-20px;background:var(--white);border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);padding:1.5rem;min-width:200px;opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s}
-        .nav-item:hover .mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
-        .mega-menu a{display:block;padding:0.6rem 0;font-size:0.85rem;color:var(--text-light)}
-        .header-right{display:flex;align-items:center;gap:1rem}
-        .search-btn{display:flex;align-items:center;gap:0.5rem;background:none;border:none;font-size:0.9rem;cursor:pointer;min-width:var(--tap);min-height:var(--tap)}
-        .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;min-width:var(--tap);min-height:var(--tap);padding:12px}
-        .hamburger{width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between}
-        .hamburger span{display:block;width:100%;height:2px;background:var(--text);transition:all 0.3s}
+  <!-- Open Graph -->
+  <meta property="og:title" content="Volufiline 100% | CELDYQUE" />
+  <meta property="og:description" content="Minimal formula, focused results. Firming & volumizing care." />
+  <meta property="og:type" content="product" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200&h=630&fit=crop" />
 
-        .mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
-        .mobile-menu-overlay.active{display:block}
-        .mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:400px;height:100dvh;background:var(--white);z-index:1001;transition:right 0.3s;padding:100px 2rem 2rem}
-        .mobile-menu.active{right:0}
-        .mobile-menu-nav a{display:block;font-size:1.3rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border)}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-        .product-detail{padding:140px 5% 80px;max-width:1400px;margin:0 auto}
-        .product-main{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:4rem}
-        .product-gallery img{width:100%;height:600px;object-fit:cover;border-radius:16px}
-        .product-info{padding:2rem 0}
-        .product-info .label{font-size:0.85rem;color:var(--text-light);margin-bottom:0.5rem}
-        .product-info h1{font-size:2.5rem;font-weight:600;margin-bottom:1rem}
-        .product-info .price{font-size:1.5rem;font-weight:600;margin-bottom:2rem}
-        .product-info .desc{color:var(--text-light);line-height:1.8;margin-bottom:2rem}
-        .buy-btn{display:inline-flex;align-items:center;justify-content:center;padding:1rem 3rem;background:var(--text);color:var(--white);border-radius:50px;font-size:0.95rem;font-weight:500;min-height:var(--tap);transition:opacity 0.3s}
-        .buy-btn:hover{opacity:0.8}
+  <style>
+    /* ---------------------------
+      CELDYQUE — B.LAB-like refinement
+      - tone: quiet, minimal, premium
+      - focus: typography, spacing, subtle borders
+    ---------------------------- */
 
-        /* Ingredients & How to Use */
-        .product-sections{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
-        .product-section{background:var(--white);padding:3rem;border-radius:16px}
-        .product-section h2{font-size:1.3rem;font-weight:600;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
-        .product-section h2 .num{width:28px;height:28px;background:var(--text);color:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem}
-        .product-section p{color:var(--text-light);line-height:1.9;margin-bottom:1rem}
-        .ingredient-list{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
-        .ingredient-item{display:flex;justify-content:space-between;padding:0.8rem 0;border-bottom:1px solid var(--border)}
-        .ingredient-item:last-child{border-bottom:none}
-        .ingredient-name{font-weight:500}
-        .ingredient-value{color:var(--text-light)}
-        .highlight{background:#f0f7ff;padding:1rem;border-radius:8px;font-size:0.85rem;margin-top:1rem}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    :root{
+      --bg: #f4f4f3;
+      --panel: #ffffff;
+      --text: #141414;
+      --muted: #6b6b6b;
+      --muted2:#8a8a8a;
+      --border:#e7e6e4;
+      --border2:#f0efed;
+      --shadow: 0 12px 40px rgba(0,0,0,0.06);
+      --shadow2: 0 8px 20px rgba(0,0,0,0.05);
 
-        footer{padding:60px 5% 30px;background:var(--text);color:var(--white);margin-top:80px}
-        .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
-        .footer-col h4{font-size:0.8rem;font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.1em}
-        .footer-col ul{list-style:none}
-        .footer-col li{margin-bottom:0.5rem}
-        .footer-col a{font-size:0.85rem;opacity:0.7}
-        .footer-bottom{max-width:1400px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.5}
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --tap: 48px;
 
-        @media(max-width:1024px){.product-main,.product-sections{grid-template-columns:1fr}.footer-inner{grid-template-columns:repeat(3,1fr)}}
-        @media(max-width:768px){
-            header{top:10px;left:10px;right:10px;border-radius:30px}
-            .header-inner{padding:0.8rem 1.2rem}
-            .desktop-nav{display:none}
-            .mobile-menu-btn{display:flex;align-items:center;justify-content:center}
-            .product-gallery img{height:400px}
-            .product-info h1{font-size:2rem}
-            .footer-inner{grid-template-columns:1fr 1fr}
-        }
-    </style>
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --container: 1160px;
+      --gutter: clamp(16px, 4vw, 40px);
+
+      --h1: clamp(30px, 3.2vw, 44px);
+      --h2: clamp(18px, 1.6vw, 22px);
+      --body: clamp(14px, 1.15vw, 16px);
+      --small: 13px;
+
+      --btn: #141414;
+      --btnText: #ffffff;
+      --btnHover: #2a2a2a;
+      --chip: #f7f6f4;
+      --chipBorder: #eceae6;
+      --accent: #141414;
+    }
+
+    body{
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: var(--body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body.menu-open{
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
+
+    a{ text-decoration: none; color: inherit; }
+    img{ display:block; max-width:100%; }
+
+    /* ---------------------------
+      Header
+    ---------------------------- */
+    header{
+      position: fixed;
+      top: 16px;
+      left: var(--gutter);
+      right: var(--gutter);
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--bg) 82%, white 18%);
+      border: 1px solid color-mix(in srgb, var(--border) 75%, white 25%);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .header-inner{
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo{
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0 8px;
+      min-height: var(--tap);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .desktop-nav{
+      display:flex;
+      gap: 22px;
+      align-items:center;
+    }
+
+    .nav-item{
+      position: relative;
+    }
+    .nav-item > a{
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      min-height: var(--tap);
+      display:flex;
+      align-items:center;
+      padding: 0 10px;
+      border-radius: 999px;
+      transition: background .2s ease, color .2s ease;
+    }
+    .nav-item > a:hover{
+      background: rgba(255,255,255,0.65);
+      color: var(--text);
+    }
+
+    .mega-menu{
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 210px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow2);
+      padding: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all .22s ease;
+    }
+    .nav-item:hover .mega-menu,
+    .nav-item:focus-within .mega-menu{
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .mega-menu a{
+      display:block;
+      padding: 10px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      border-radius: 10px;
+      transition: background .18s ease, color .18s ease;
+    }
+    .mega-menu a:hover{
+      background: var(--chip);
+      color: var(--text);
+    }
+
+    .header-right{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+    }
+
+    .icon-btn{
+      min-width: var(--tap);
+      min-height: var(--tap);
+      border: 1px solid transparent;
+      background: transparent;
+      border-radius: 999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--muted);
+      transition: background .2s ease, border-color .2s ease, color .2s ease;
+      padding: 0 12px;
+    }
+    .icon-btn:hover{
+      background: rgba(255,255,255,0.65);
+      border-color: var(--border);
+      color: var(--text);
+    }
+    .icon-btn .label{
+      font-size: 13px;
+      letter-spacing: .01em;
+    }
+
+    .mobile-menu-btn{ display:none; }
+
+    /* ---------------------------
+      Mobile menu
+    ---------------------------- */
+    .mobile-menu-overlay{
+      display:none;
+      position: fixed;
+      inset:0;
+      background: rgba(0,0,0,0.35);
+      z-index: 999;
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+    .mobile-menu-overlay.active{
+      display:block;
+      opacity: 1;
+    }
+
+    .mobile-menu{
+      position: fixed;
+      top: 0;
+      right: -110%;
+      width: min(420px, 86%);
+      height: 100dvh;
+      background: var(--panel);
+      z-index: 1001;
+      transition: right .28s ease;
+      padding: 92px 18px 18px;
+      border-left: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .mobile-menu.active{ right: 0; }
+    .mobile-menu-nav a{
+      display:block;
+      padding: 14px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      transition: background .18s ease, border-color .18s ease;
+    }
+    .mobile-menu-nav a:hover{
+      background: var(--chip);
+      border-color: var(--chipBorder);
+    }
+
+    /* ---------------------------
+      Layout
+    ---------------------------- */
+    .page{
+      padding-top: 96px; /* header space */
+    }
+
+    .container{
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    .product-detail{
+      padding: 42px 0 78px;
+    }
+
+    .breadcrumb{
+      display:flex;
+      gap: 8px;
+      align-items:center;
+      color: var(--muted2);
+      font-size: 12px;
+      letter-spacing: .02em;
+      margin: 10px 0 18px;
+    }
+    .breadcrumb a{ color: var(--muted2); }
+    .breadcrumb span{ opacity: .6; }
+
+    .product-main{
+      display:grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: clamp(22px, 4vw, 48px);
+      align-items:start;
+    }
+
+    /* Gallery */
+    .gallery{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+    .gallery img{
+      width: 100%;
+      height: min(560px, 62vh);
+      object-fit: cover;
+    }
+    .gallery-meta{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 14px 16px 16px;
+      border-top: 1px solid var(--border2);
+      background: linear-gradient(to bottom, #fff, #fff);
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--chipBorder);
+      background: var(--chip);
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .01em;
+    }
+    .chip svg{ opacity: .85; }
+
+    /* Info */
+    .product-info{
+      padding: 8px 0;
+    }
+
+    .kicker{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .kicker .dot{
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--text);
+      opacity: .9;
+    }
+
+    h1{
+      font-size: var(--h1);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .subtitle{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+      margin-bottom: 18px;
+      max-width: 52ch;
+    }
+
+    .price-row{
+      display:flex;
+      align-items:baseline;
+      gap: 10px;
+      margin: 12px 0 20px;
+    }
+    .price{
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .tax-note{
+      color: var(--muted2);
+      font-size: 12px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0 12px;
+    }
+
+    .btn{
+      min-height: var(--tap);
+      border-radius: 999px;
+      padding: 12px 18px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      font-size: 13px;
+      letter-spacing: .01em;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.8);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .12s ease, background .2s ease, border-color .2s ease;
+      user-select: none;
+    }
+    .btn:hover{
+      background: #fff;
+      border-color: #dcdad6;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary{
+      background: var(--btn);
+      color: var(--btnText);
+      border-color: var(--btn);
+      padding: 12px 22px;
+    }
+    .btn-primary:hover{
+      background: var(--btnHover);
+      border-color: var(--btnHover);
+    }
+
+    .divider{
+      height: 1px;
+      background: var(--border);
+      margin: 22px 0;
+    }
+
+    .microcopy{
+      color: var(--muted2);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* ---------------------------
+      Sections
+    ---------------------------- */
+    .sections{
+      margin-top: 34px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .section{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    .section-head{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-size: var(--h2);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .badge{
+      width: 30px; height: 30px;
+      border-radius: 999px;
+      background: var(--text);
+      color: #fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 12px;
+      font-weight: 600;
+      flex: 0 0 auto;
+    }
+
+    .section p{
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 10px;
+    }
+
+    .list{
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border2);
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .row{
+      display:flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 12px;
+      border: 1px solid var(--border2);
+      background: #fff;
+      border-radius: 12px;
+    }
+    .row strong{
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .row span{
+      color: var(--muted2);
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .callout{
+      margin-top: 14px;
+      padding: 14px 14px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .callout strong{ color: var(--text); font-weight: 600; }
+
+    /* Steps */
+    .steps{
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .step{
+      display:flex;
+      gap: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border2);
+      background: #fff;
+    }
+    .step .n{
+      width: 28px; height: 28px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 12px;
+      color: var(--muted);
+      flex: 0 0 auto;
+    }
+    .step .t{
+      display:flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .step .t b{
+      font-weight: 600;
+      color: var(--text);
+      font-size: 13px;
+    }
+    .step .t small{
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    /* ---------------------------
+      Footer
+    ---------------------------- */
+    footer{
+      margin-top: 72px;
+      background: #141414;
+      color: #ffffff;
+      padding: 54px var(--gutter) 26px;
+    }
+    .footer-inner{
+      max-width: var(--container);
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+    .footer-col h4{
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: .9;
+    }
+    .footer-col ul{ list-style: none; }
+    .footer-col a{
+      display:inline-block;
+      font-size: 13px;
+      opacity: .65;
+      padding: 6px 0;
+      transition: opacity .18s ease;
+    }
+    .footer-col a:hover{ opacity: .92; }
+    .footer-bottom{
+      max-width: var(--container);
+      margin: 18px auto 0;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 12px;
+      opacity: .55;
+    }
+
+    /* ---------------------------
+      Mobile Sticky Buy Bar
+    ---------------------------- */
+    .sticky-buy{
+      display:none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 998;
+      padding: 10px 12px;
+      background: color-mix(in srgb, var(--panel) 85%, transparent 15%);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .sticky-buy .inner{
+      max-width: var(--container);
+      margin: 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .sticky-buy .meta{
+      display:flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .sticky-buy .meta b{
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sticky-buy .meta small{
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sticky-buy a{
+      white-space: nowrap;
+      padding: 12px 16px;
+      min-height: var(--tap);
+    }
+
+    /* ---------------------------
+      Responsive
+    ---------------------------- */
+    @media (max-width: 1024px){
+      .product-main{ grid-template-columns: 1fr; }
+      .sections{ grid-template-columns: 1fr; }
+      .footer-inner{ grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 820px){
+      header{ top: 10px; left: 10px; right: 10px; }
+      .header-inner{ padding: 10px 12px; }
+      .desktop-nav{ display:none; }
+      .mobile-menu-btn{ display:inline-flex; }
+      .gallery img{ height: 420px; }
+      .sticky-buy{ display:block; }
+      footer{ padding-bottom: 86px; } /* sticky bar space */
+    }
+
+    @media (max-width: 520px){
+      .footer-inner{ grid-template-columns: 1fr 1fr; }
+      .gallery img{ height: 360px; }
+    }
+
+    /* Focus ring */
+    :focus-visible{
+      outline: 2px solid rgba(20,20,20,0.6);
+      outline-offset: 2px;
+      border-radius: 10px;
+    }
+  </style>
+
+  <!-- Product Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Volufiline 100%",
+    "brand": { "@type": "Brand", "name": "CELDYQUE" },
+    "description": "Volufiline 100% pure concentrate for firming and volumizing care.",
+    "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200&h=1200&fit=crop",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "28.00",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252"
+    }
+  }
+  </script>
 </head>
+
 <body>
-    <header>
-        <div class="header-inner">
-            <a href="index.html" class="logo">CELDYQUE</a>
-            <nav class="desktop-nav">
-                <div class="nav-item"><a href="shop.html">Shop</a><div class="mega-menu"><a href="shop.html">All</a><a href="shop.html?cat=serum">Serum</a><a href="shop.html?cat=cream">Cream</a><a href="shop.html?cat=cleanser">Cleanser</a></div></div>
-                <div class="nav-item"><a href="about.html">About</a><div class="mega-menu"><a href="about.html">Brand Story</a><a href="coming-soon.html">Coming Soon</a><a href="contact.html">Contact</a></div></div>
-                <div class="nav-item"><a href="store.html">Store</a></div>
-                <div class="nav-item"><a href="faq.html">FAQ</a></div>
-            </nav>
-            <div class="header-right">
-                <button class="search-btn" aria-label="Search">Search <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><div class="hamburger"><span></span><span></span><span></span></div></button>
-            </div>
-        </div>
-    </header>
+  <header>
+    <div class="header-inner">
+      <a href="home.html" class="logo" aria-label="CELDYQUE Home">CELDYQUE</a>
 
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-        <nav class="mobile-menu-nav">
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="store.html">Store</a>
-            <a href="faq.html">FAQ</a>
-        </nav>
+      <nav class="desktop-nav" aria-label="Primary">
+        <div class="nav-item">
+          <a href="shop.html">Shop</a>
+          <div class="mega-menu" role="menu" aria-label="Shop submenu">
+            <a href="shop.html">All</a>
+            <a href="shop.html?cat=serum">Serum</a>
+            <a href="shop.html?cat=cream">Cream</a>
+            <a href="shop.html?cat=cleanser">Cleanser</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="about.html">About</a>
+          <div class="mega-menu" role="menu" aria-label="About submenu">
+            <a href="about.html">Brand Story</a>
+            <a href="coming-soon.html">Coming Soon</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <div class="nav-item"><a href="store.html">Store</a></div>
+        <div class="nav-item"><a href="faq.html">FAQ</a></div>
+      </nav>
+
+      <div class="header-right">
+        <button class="icon-btn" type="button" aria-label="Search (demo)">
+          <span class="label">Search</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+
+        <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
+  </header>
 
-    <main class="product-detail">
-        <div class="product-main">
-            <div class="product-gallery">
-                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&h=600&fit=crop" alt="Volufiline 100%">
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
+
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Mobile menu">
+    <nav class="mobile-menu-nav">
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="store.html">Store</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </aside>
+
+  <div class="page">
+    <main class="container product-detail">
+      <div class="breadcrumb" aria-label="Breadcrumb">
+        <a href="shop.html">Shop</a><span> / </span><a href="shop.html?cat=serum">Serum</a><span> / </span><span>Volufiline 100%</span>
+      </div>
+
+      <section class="product-main" aria-label="Product detail">
+        <div class="gallery">
+          <img
+            src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1200&h=900&fit=crop"
+            alt="Volufiline 100% by CELDYQUE"
+            loading="eager"
+          />
+          <div class="gallery-meta" aria-label="Highlights">
+            <div class="chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5"></path>
+              </svg>
+              Minimal formula
             </div>
-            <div class="product-info">
-                <p class="label">Serum</p>
-                <h1>Volufiline 100%</h1>
-                <p class="price">$28.00</p>
-                <p class="desc">We tested numerous ingredient combinations during product development to find the ratio that provides the most moisturizing experience without irritation. A pure Volufiline concentrate from Sederma, France for exceptional skin firming and volumizing effects.</p>
-                <a href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" class="buy-btn">Buy Now →</a>
+            <div class="chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 2v6"></path><path d="M12 16v6"></path><path d="M4.93 4.93l4.24 4.24"></path><path d="M14.83 14.83l4.24 4.24"></path><path d="M2 12h6"></path><path d="M16 12h6"></path><path d="M4.93 19.07l4.24-4.24"></path><path d="M14.83 9.17l4.24-4.24"></path>
+              </svg>
+              Targeted care
             </div>
+            <div class="chip">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 21s8-4 8-10V5l-8-3-8 3v6c0 6 8 10 8 10z"></path>
+              </svg>
+              Gentle routine
+            </div>
+          </div>
         </div>
 
-        <div class="product-sections">
-            <div class="product-section">
-                <h2><span class="num">①</span> Key Ingredients</h2>
-                <p>We tested numerous ingredient combinations during product development to find the perfect ratio that provides maximum efficacy without irritation.</p>
-                <div class="ingredient-list">
-                    <div class="ingredient-item">
-                        <span class="ingredient-name">Volufiline™</span>
-                        <span class="ingredient-value">100%</span>
-                    </div>
-                    <div class="ingredient-item">
-                        <span class="ingredient-name">Squalane</span>
-                        <span class="ingredient-value">High</span>
-                    </div>
-                </div>
-                <div class="highlight">
-                    <strong>Volufiline™</strong> is a patented ingredient from Sederma, France. Clinically proven to boost collagen synthesis and improve skin firmness.
-                </div>
-            </div>
+        <div class="product-info">
+          <div class="kicker"><span class="dot"></span><span>Serum</span></div>
+          <h1>Volufiline 100%</h1>
 
-            <div class="product-section">
-                <h2><span class="num">②</span> How to Use</h2>
-                <p>We tested numerous usage methods during product development to find the application that provides the most effective results.</p>
-                <p><strong>Step 1:</strong> After cleansing and toning, apply 2-3 drops to target areas.</p>
-                <p><strong>Step 2:</strong> Focus on cheeks, nasolabial folds, and under-eye area.</p>
-                <p><strong>Step 3:</strong> Gently pat until fully absorbed.</p>
-                <p><strong>Step 4:</strong> Follow with moisturizer. Use morning and night.</p>
-                <div class="highlight">
-                    <strong>Tip:</strong> Can be mixed with your moisturizer for easier application. Each drop goes a long way - a small amount is enough for visible results.
-                </div>
-            </div>
+          <p class="subtitle">
+            We refined the formula through repeated testing to maximize a rich, moisturizing feel while keeping the routine simple.
+            A focused Volufiline concentrate inspired by minimal skincare.
+          </p>
+
+          <div class="price-row">
+            <div class="price">$28.00</div>
+            <div class="tax-note">Taxes calculated at checkout</div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" rel="noopener">
+              Buy Now
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path>
+              </svg>
+            </a>
+            <a class="btn" href="#how-to-use">
+              How to Use
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="divider"></div>
+
+          <p class="microcopy">
+            Tip: If you prefer a lighter feel, blend 1–2 drops into your moisturizer in your palm. A small amount goes a long way.
+          </p>
         </div>
+      </section>
+
+      <section class="sections" aria-label="Product sections">
+        <article class="section" aria-label="Key ingredients">
+          <div class="section-head">
+            <div class="section-title"><span class="badge">①</span><span>Key Ingredients</span></div>
+          </div>
+
+          <p>
+            A minimal, focused approach — we reduce distractions and prioritize what the skin can comfortably accept.
+          </p>
+
+          <div class="list" role="list">
+            <div class="row" role="listitem">
+              <strong>Volufiline™</strong>
+              <span>Focused concentrate</span>
+            </div>
+            <div class="row" role="listitem">
+              <strong>Texture</strong>
+              <span>Rich, moisturizing slip</span>
+            </div>
+          </div>
+
+          <div class="callout">
+            <strong>Volufiline™</strong> is commonly referenced as a Sederma-origin ingredient. Keep your claims consistent with your verified documentation and labeling.
+          </div>
+        </article>
+
+        <article class="section" id="how-to-use" aria-label="How to use">
+          <div class="section-head">
+            <div class="section-title"><span class="badge">②</span><span>How to Use</span></div>
+          </div>
+
+          <p>
+            Designed for simple, repeatable routines. Use consistently for best results.
+          </p>
+
+          <div class="steps" aria-label="Steps">
+            <div class="step">
+              <div class="n">1</div>
+              <div class="t">
+                <b>Apply</b>
+                <small>After cleansing & toning, apply 2–3 drops to target areas.</small>
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">2</div>
+              <div class="t">
+                <b>Focus</b>
+                <small>Cheeks, nasolabial folds, and under-eye area.</small>
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">3</div>
+              <div class="t">
+                <b>Press in</b>
+                <small>Gently pat until it feels absorbed.</small>
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">4</div>
+              <div class="t">
+                <b>Seal</b>
+                <small>Finish with moisturizer. Use morning & night.</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout">
+            <strong>Mixing tip:</strong> Blend 1–2 drops with moisturizer for a smoother spread on dry days.
+          </div>
+        </article>
+      </section>
     </main>
 
     <footer>
-        <div class="footer-inner">
-            <div class="footer-col"><h4>Shop</h4><ul><li><a href="shop.html">All</a></li><li><a href="shop.html?cat=serum">Serum</a></li><li><a href="shop.html?cat=cream">Cream</a></li></ul></div>
-            <div class="footer-col"><h4>About</h4><ul><li><a href="about.html">Brand Story</a></li><li><a href="coming-soon.html">Coming Soon</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-            <div class="footer-col"><h4>Store</h4><ul><li><a href="store.html">Where to Buy</a></li></ul></div>
-            <div class="footer-col"><h4>Community</h4><ul><li><a href="faq.html">FAQ</a></li></ul></div>
-            <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:team@celdyque.com">team@celdyque.com</a></li></ul></div>
+      <div class="footer-inner">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All</a></li>
+            <li><a href="shop.html?cat=serum">Serum</a></li>
+            <li><a href="shop.html?cat=cream">Cream</a></li>
+          </ul>
         </div>
-        <div class="footer-bottom"><p>© 2024 CELDYQUE. All Rights Reserved.</p></div>
-    </footer>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="about.html">Brand Story</a></li>
+            <li><a href="coming-soon.html">Coming Soon</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Store</h4>
+          <ul>
+            <li><a href="store.html">Where to Buy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:team@celdyque.com">team@celdyque.com</a></li>
+          </ul>
+        </div>
+      </div>
 
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        function toggleMenu() {
-            mobileMenuBtn.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            mobileMenuOverlay.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        }
-        mobileMenuBtn.addEventListener('click', toggleMenu);
-        mobileMenuOverlay.addEventListener('click', toggleMenu);
-    </script>
+      <div class="footer-bottom">
+        <p>© 2024 CELDYQUE. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Mobile sticky buy bar -->
+  <div class="sticky-buy" aria-label="Quick buy bar">
+    <div class="inner">
+      <div class="meta">
+        <b>Volufiline 100%</b>
+        <small>$28.00 · Buy on Amazon</small>
+      </div>
+      <a class="btn btn-primary" href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" rel="noopener">
+        Buy
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14"></path><path d="m13 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+    function openMenu(){
+      mobileMenu.classList.add('active');
+      mobileMenuOverlay.classList.add('active');
+      document.body.classList.add('menu-open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      mobileMenuBtn.setAttribute('aria-label', 'Close menu');
+    }
+
+    function closeMenu(){
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn.setAttribute('aria-label', 'Open menu');
+    }
+
+    function toggleMenu(){
+      if(mobileMenu.classList.contains('active')) closeMenu();
+      else openMenu();
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+    mobileMenuOverlay.addEventListener('click', closeMenu);
+
+    // ESC to close
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMenu();
+    });
+
+    // Prevent accidental scroll jump when body fixed (optional improvement)
+    // If you want perfect restoration, store scrollY before locking and restore on unlock.
+  </script>
 </body>
 </html>
