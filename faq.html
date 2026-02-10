@@ -287,11 +287,172 @@
     .footer-col a:hover{opacity:1}
     .footer-bottom{max-width:1400px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.6}
 
+    /* =========================
+      Global Product Search Modal
+    ========================== */
+    body.menu-open{overflow:hidden;position:fixed;width:100%}
+    .search-modal{
+      position:fixed;inset:0;z-index:2200;
+      display:none;align-items:center;justify-content:center;
+      background:rgba(0,0,0,0.40);
+      backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+      padding:18px;
+    }
+    .search-modal.active{display:flex}
+    .search-shell{
+      width:min(980px,96vw);
+      border-radius:18px;
+      background:rgba(245,245,245,0.92);
+      border:1px solid rgba(229,229,229,0.9);
+      box-shadow:0 22px 70px rgba(0,0,0,0.18);
+      overflow:hidden;
+    }
+    .search-top{
+      display:flex;align-items:center;gap:10px;
+      padding:14px 14px;
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      background:rgba(255,255,255,0.65);
+    }
+    .search-ico{
+      width:40px;height:40px;border-radius:12px;
+      border:1px solid rgba(0,0,0,0.08);
+      background:rgba(255,255,255,0.65);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 auto;color:var(--text-light);
+    }
+    .search-input{
+      flex:1;background:transparent;border:none;outline:none;
+      font-size:14px;color:var(--text);
+      padding:12px 8px;min-height:44px;
+    }
+    .search-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+    .pill{
+      border:1px solid rgba(0,0,0,0.10);
+      background:rgba(255,255,255,0.75);
+      color:var(--text-light);
+      border-radius:999px;
+      padding:10px 12px;
+      font-size:12px;
+      cursor:pointer;
+      transition:background .15s ease,color .15s ease,border-color .15s ease;
+      min-height:38px;
+    }
+    .pill:hover{background:rgba(255,255,255,0.95);color:var(--text);border-color:rgba(0,0,0,0.16)}
+
+    .search-hintbar{
+      display:flex;justify-content:space-between;gap:12px;
+      padding:10px 14px 12px;
+      font-size:12px;color:var(--text-light);
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      background:rgba(255,255,255,0.45);
+    }
+    .hint-keys{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+    .key{
+      border:1px solid rgba(0,0,0,0.10);
+      background:rgba(255,255,255,0.70);
+      border-radius:999px;
+      padding:2px 8px;
+      font-size:11px;color:var(--text-light);
+    }
+
+    .search-body{
+      display:grid;
+      grid-template-columns:0.92fr 1.08fr;
+      min-height:360px;
+    }
+    .search-left{padding:14px;border-right:1px solid rgba(0,0,0,0.06);background:rgba(255,255,255,0.30)}
+    .search-right{padding:14px;background:rgba(255,255,255,0.22)}
+
+    .panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+    .panel-head h3{
+      font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--text-light);font-weight:600
+    }
+    .linkish{
+      font-size:12px;color:var(--text-light);
+      cursor:pointer;text-decoration:underline;text-underline-offset:3px;opacity:.9
+    }
+    .linkish:hover{color:var(--text)}
+
+    .chips2{display:flex;flex-wrap:wrap;gap:8px;padding:4px 0 14px;min-height:44px}
+    .chip2{
+      display:inline-flex;align-items:center;gap:8px;
+      border-radius:999px;border:1px solid rgba(0,0,0,0.10);
+      background:rgba(255,255,255,0.80);
+      padding:8px 10px;font-size:12px;color:var(--text);
+      cursor:pointer;transition:background .15s ease,border-color .15s ease;
+      max-width:100%;
+    }
+    .chip2:hover{background:rgba(255,255,255,0.98);border-color:rgba(0,0,0,0.16)}
+    .chip2 .x{
+      width:18px;height:18px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid rgba(0,0,0,0.10);
+      background:rgba(255,255,255,0.85);
+      color:var(--text-light);font-size:12px;line-height:1;
+    }
+
+    .results-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px;margin-bottom:10px;color:var(--text-light);font-size:12px}
+    .suggestions{display:flex;flex-direction:column;gap:8px;max-height:230px;overflow:auto;padding-right:6px}
+    .s-item{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding:10px 10px;border-radius:14px;
+      border:1px solid rgba(0,0,0,0.06);
+      background:rgba(255,255,255,0.72);
+      cursor:pointer;
+      transition:background .15s ease,border-color .15s ease,transform .08s ease;
+    }
+    .s-item:hover{background:rgba(255,255,255,0.95);border-color:rgba(0,0,0,0.12);transform:translateY(-1px)}
+    .s-item.active{background:rgba(255,255,255,0.98);border-color:rgba(0,0,0,0.18)}
+    .s-title{display:flex;flex-direction:column;gap:2px;min-width:0}
+    .s-title b{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .s-title small{font-size:12px;color:var(--text-light);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .s-price{font-size:12px;color:var(--text-light);white-space:nowrap}
+
+    .rec-grid{display:flex;flex-direction:column;gap:10px;padding-top:2px}
+    .rec-card{
+      display:flex;gap:12px;align-items:center;
+      padding:12px;border-radius:16px;
+      border:1px solid rgba(0,0,0,0.06);
+      background:rgba(255,255,255,0.75);
+      cursor:pointer;
+      transition:background .15s ease,border-color .15s ease,transform .08s ease;
+    }
+    .rec-card:hover{background:rgba(255,255,255,0.97);border-color:rgba(0,0,0,0.12);transform:translateY(-1px)}
+    .rec-thumb{width:54px;height:54px;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,0.08);background:rgba(255,255,255,0.8);flex:0 0 auto}
+    .rec-thumb img{width:100%;height:100%;object-fit:cover}
+    .rec-info{display:flex;flex-direction:column;gap:2px;min-width:0}
+    .rec-name{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .rec-meta{font-size:12px;color:var(--text-light);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+    .search-footer{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding:12px 14px;border-top:1px solid rgba(0,0,0,0.06);
+      background:rgba(255,255,255,0.55);
+    }
+    .footer-left{font-size:12px;color:var(--text-light)}
+    .footer-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .btn-mini{
+      min-height:40px;border-radius:999px;padding:10px 14px;font-size:12px;
+      border:1px solid rgba(0,0,0,0.12);
+      background:rgba(255,255,255,0.85);
+      color:var(--text);
+      cursor:pointer;
+      transition:background .15s ease,border-color .15s ease,transform .08s ease;
+    }
+    .btn-mini:hover{background:rgba(255,255,255,0.98);border-color:rgba(0,0,0,0.18);transform:translateY(-1px)}
+    .btn-mini.primary{background:var(--text);color:var(--white);border-color:var(--text)}
+    .btn-mini.primary:hover{background:#000;border-color:#000}
+
     @media(max-width:1024px){
       .footer-inner{grid-template-columns:repeat(3,1fr)}
       summary.faq-header{grid-template-columns:1fr}
       .faq-answer{padding-left:0}
       .faq-toggle{display:none}
+
+      .search-body{grid-template-columns:1fr}
+      .search-left{border-right:none;border-bottom:1px solid rgba(0,0,0,0.06)}
+      .suggestions{max-height:180px}
     }
     @media(max-width:768px){
       header{top:10px;left:10px;right:10px;border-radius:30px}
@@ -338,7 +499,8 @@
       </nav>
 
       <div class="header-right">
-        <button class="search-btn" id="openSearch" aria-label="Search FAQs (focus the search box)">
+        <!-- Global product search (modal) -->
+        <button class="search-btn" id="searchOpenBtn" aria-label="Search products">
           Search
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <circle cx="11" cy="11" r="8"></circle>
@@ -361,6 +523,70 @@
       <a href="store.html">Store</a>
       <a href="faq.html" aria-current="page">FAQ</a>
     </nav>
+  </div>
+
+  <!-- Global Product Search Modal -->
+  <div class="search-modal" id="searchModal" aria-hidden="true">
+    <div class="search-shell" role="dialog" aria-modal="true" aria-label="Search products">
+      <div class="search-top">
+        <div class="search-ico" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </div>
+
+        <input class="search-input" id="searchInput" type="text" autocomplete="off"
+          placeholder="Search products (e.g., Volufiline, Niacinamide 20%)" />
+
+        <div class="search-actions">
+          <button class="pill" id="searchClearBtn" type="button">Clear</button>
+          <button class="pill" id="searchEscBtn" type="button">ESC</button>
+        </div>
+      </div>
+
+      <div class="search-hintbar">
+        <div>Enter to search · ↑↓ navigate · Esc to close</div>
+        <div class="hint-keys">
+          <span class="key">Enter</span>
+          <span class="key">↑</span>
+          <span class="key">↓</span>
+          <span class="key">Esc</span>
+        </div>
+      </div>
+
+      <div class="search-body">
+        <div class="search-left">
+          <div class="panel-head">
+            <h3>Recent</h3>
+            <span class="linkish" id="searchClearRecentBtn">Clear all</span>
+          </div>
+          <div class="chips2" id="recentChips"></div>
+
+          <div class="panel-head" style="margin-top:10px;">
+            <h3>Results</h3>
+            <span class="results-meta"><span id="resultsCount">0 items</span></span>
+          </div>
+          <div class="suggestions" id="suggestions"></div>
+        </div>
+
+        <div class="search-right">
+          <div class="panel-head">
+            <h3>Recommended</h3>
+            <span class="results-meta">Curated picks</span>
+          </div>
+          <div class="rec-grid" id="recommendGrid"></div>
+        </div>
+      </div>
+
+      <div class="search-footer">
+        <div class="footer-left" id="searchFooterHint">Type to search products.</div>
+        <div class="footer-actions">
+          <button class="btn-mini" id="goShopBtn" type="button">Go to Shop</button>
+          <button class="btn-mini primary" id="searchGoBtn" type="button">Search</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <main class="page-content" id="main-content">
@@ -564,23 +790,17 @@
     const $ = (sel, root=document) => root.querySelector(sel);
     const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
+    // ===== FAQ Search/Filter (existing) =====
     const body = document.body;
     const faqFilter = $('#faqFilter');
     const faqSearch = $('#faqSearch');
     const noResults = $('#noResults');
     const noResultsTerm = $('#noResultsTerm');
-
     const faqItems = $$('details.faq-item');
 
-    // Keep a single "state" so filter + search work together cleanly
-    const state = {
-      cat: 'all',
-      q: ''
-    };
+    const state = { cat: 'all', q: '' };
 
-    function normalize(s){
-      return (s || '').toLowerCase().replace(/\s+/g,' ').trim();
-    }
+    function normalize(s){ return (s || '').toLowerCase().replace(/\s+/g,' ').trim(); }
 
     function matchesSearch(item, q){
       if (!q) return true;
@@ -599,12 +819,11 @@
 
       faqItems.forEach(item => {
         const show = matchesCat(item, state.cat) && matchesSearch(item, q);
-        if (!show) item.removeAttribute('open'); // avoid hidden-open weirdness
+        if (!show) item.removeAttribute('open');
         item.hidden = !show;
         if (show) shownCount++;
       });
 
-      // No-results message
       if (q && shownCount === 0){
         noResults.style.display = 'block';
         noResultsTerm.textContent = state.q;
@@ -612,12 +831,10 @@
         noResults.style.display = 'none';
       }
 
-      // Navigation behavior (only for category changes, not for searches)
       if (state.cat === 'products') location.hash = '#products';
       if (state.cat === 'shipping') location.hash = '#shipping';
       if (state.cat === 'support') location.hash = '#support';
       if (state.cat === 'all' && !location.hash) {
-        // keep URL stable
         history.replaceState(null, '', '/faq.html');
       }
     }
@@ -632,23 +849,25 @@
       applyFAQ();
     });
 
-    // Ctrl/Cmd + K focuses the search box
     document.addEventListener('keydown', (e) => {
       const isMac = navigator.platform.toUpperCase().includes('MAC');
       const mod = isMac ? e.metaKey : e.ctrlKey;
+
+      // Ctrl/Cmd + K focuses the FAQ search box
       if (mod && e.key.toLowerCase() === 'k'){
         e.preventDefault();
         faqSearch.focus();
+        return;
+      }
+
+      // ESC closes global modal and mobile menu
+      if (e.key === 'Escape'){
+        if (elModal && elModal.classList.contains('active')) closeProductSearch();
+        if (mobileMenu.classList.contains('active')) closeMenu();
       }
     });
 
-    // Header "Search" button focuses FAQ search
-    $('#openSearch').addEventListener('click', () => {
-      faqSearch.focus();
-      faqSearch.scrollIntoView({behavior:'smooth', block:'center'});
-    });
-
-    // ===== Mobile Menu (ESC close + focus trap + scroll lock) =====
+    // ===== Mobile Menu (existing) =====
     const mobileMenuBtn = $('#mobileMenuBtn');
     const mobileMenu = $('#mobileMenu');
     const mobileMenuOverlay = $('#mobileMenuOverlay');
@@ -656,8 +875,7 @@
     let lastFocus = null;
 
     function lockScroll(lock){
-      body.style.overflow = lock ? 'hidden' : '';
-      body.style.touchAction = lock ? 'none' : '';
+      body.classList.toggle('menu-open', lock);
     }
 
     function getFocusable(root){
@@ -671,7 +889,6 @@
       mobileMenuOverlay.classList.add('active');
       mobileMenuBtn.setAttribute('aria-expanded', 'true');
       lockScroll(true);
-      // focus first link
       const focusables = getFocusable(mobileMenu);
       (focusables[0] || mobileMenu).focus();
     }
@@ -685,8 +902,7 @@
     }
 
     function toggleMenu(){
-      const isOpen = mobileMenu.classList.contains('active');
-      isOpen ? closeMenu() : openMenu();
+      mobileMenu.classList.contains('active') ? closeMenu() : openMenu();
     }
 
     mobileMenuBtn.addEventListener('click', toggleMenu);
@@ -704,7 +920,6 @@
         return;
       }
 
-      // focus trap
       if (e.key === 'Tab'){
         const focusables = getFocusable(mobileMenu);
         if (focusables.length === 0) return;
@@ -722,8 +937,7 @@
       }
     });
 
-    // ===== Initialize =====
-    // If user lands with a hash, set filter accordingly
+    // ===== Init FAQ state from hash (existing) =====
     (function initFromHash(){
       const hash = (location.hash || '').toLowerCase();
       if (hash === '#products') state.cat = 'products';
@@ -732,6 +946,350 @@
       faqFilter.value = state.cat;
       applyFAQ();
     })();
+
+    // ============================
+    // Global Product Search (NEW)
+    // ============================
+    const PRODUCT_CATALOG = [
+      { id: 1, name: "Volufiline 100%", subtitle: "Pure concentrate · Firming & volumizing", price: 28.00, image: "images/test2.png", url: "product-detail.html?id=1" },
+      { id: 2, name: "Niacinamide 20%", subtitle: "Barrier repair serum · Tone & texture", price: 24.00, image: "images/t3.png", url: "product-detail.html?id=2" },
+      { id: 3, name: "Bakuchiol 30,000ppm", subtitle: "Natural retinol alternative · Elasticity care", price: 32.00, image: "images/t2.png", url: "product-detail.html?id=3" },
+      { id: 4, name: "Vitamin C 20%", subtitle: "Brightening serum · Radiance care", price: 26.00, image: "images/t4.png", url: "product-detail.html?id=4" },
+      { id: 5, name: "Peptide Firming Cream", subtitle: "Multi-peptide cream · Firming moisture", price: 42.00, image: "images/t5.png", url: "product-detail.html?id=5" },
+      { id: 6, name: "Ceramide Barrier Cream", subtitle: "Intensive moisture · Barrier support", price: 38.00, image: "images/t6.png", url: "product-detail.html?id=6" },
+      { id: 7, name: "Centella Foam Cleanser", subtitle: "Gentle daily cleanser · Calm & cleanse", price: 18.00, image: "images/t9.png", url: "product-detail.html?id=7" },
+      { id: 8, name: "Low pH Gel Cleanser", subtitle: "Balanced cleansing · Soft finish", price: 16.00, image: "images/t7.png", url: "product-detail.html?id=8" }
+    ];
+
+    const RECOMMENDED_IDS = [1, 3, 2];
+    const RECENT_KEY = "celdyque_recent_searches_v1";
+    const MAX_RECENTS = 8;
+
+    const elSearchOpenBtn = document.getElementById("searchOpenBtn");
+    const elModal = document.getElementById("searchModal");
+    const elShell = document.querySelector(".search-shell");
+    const elInput = document.getElementById("searchInput");
+    const elSuggestions = document.getElementById("suggestions");
+    const elResultsCount = document.getElementById("resultsCount");
+    const elRecentChips = document.getElementById("recentChips");
+    const elRecommendGrid = document.getElementById("recommendGrid");
+    const elClearBtn = document.getElementById("searchClearBtn");
+    const elEscBtn2 = document.getElementById("searchEscBtn");
+    const elClearRecentBtn = document.getElementById("searchClearRecentBtn");
+    const elGoShopBtn = document.getElementById("goShopBtn");
+    const elSearchGoBtn = document.getElementById("searchGoBtn");
+
+    let currentResults = [];
+    let activeIndex = -1;
+    let modalLastFocus = null;
+
+    function safeJsonParse(raw){
+      try{ return JSON.parse(raw); }catch(_){ return null; }
+    }
+
+    function getRecents(){
+      const raw = localStorage.getItem(RECENT_KEY);
+      const arr = safeJsonParse(raw) || [];
+      return Array.isArray(arr) ? arr.filter(Boolean) : [];
+    }
+
+    function setRecents(arr){
+      try{ localStorage.setItem(RECENT_KEY, JSON.stringify(arr.slice(0, MAX_RECENTS))); }catch(_){}
+    }
+
+    function addRecent(q){
+      const query = String(q||"").trim();
+      if(!query) return;
+      const prev = getRecents();
+      const next = [query, ...prev.filter(x => x.toLowerCase() !== query.toLowerCase())];
+      setRecents(next);
+      renderRecent();
+    }
+
+    function removeRecent(q){
+      const query = String(q||"").trim();
+      if(!query) return;
+      const prev = getRecents();
+      setRecents(prev.filter(x => x.toLowerCase() !== query.toLowerCase()));
+      renderRecent();
+    }
+
+    function clearRecent(){
+      setRecents([]);
+      renderRecent();
+    }
+
+    function escapeHtml(str){
+      return String(str||"")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+    function escapeAttr(str){ return escapeHtml(str); }
+
+    function highlight(text, q){
+      const t=String(text||"");
+      const qq=String(q||"").trim();
+      if(!qq) return escapeHtml(t);
+      const re = new RegExp(qq.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"), "ig");
+      return escapeHtml(t).replace(re, (m)=>`<span style="text-decoration:underline;text-underline-offset:3px">${escapeHtml(m)}</span>`);
+    }
+
+    function searchProducts(q){
+      const query = String(q||"").trim().toLowerCase();
+      if(!query) return [];
+      const terms = query.split(/\s+/).filter(Boolean);
+
+      const scored = PRODUCT_CATALOG.map(p=>{
+        const hay = (p.name + " " + p.subtitle).toLowerCase();
+        let score = 0;
+        for(const t of terms){
+          if(hay.includes(t)) score += 2;
+          if(p.name.toLowerCase().includes(t)) score += 2;
+        }
+        if(p.name.toLowerCase().startsWith(query)) score += 3;
+        if(p.name.toLowerCase() === query) score += 6;
+        return { p, score };
+      }).filter(x=>x.score>0);
+
+      scored.sort((a,b)=> b.score - a.score || a.p.price - b.p.price);
+      return scored.slice(0, 10).map(x=>x.p);
+    }
+
+    function setActive(idx){
+      activeIndex = idx;
+      const items = [...elSuggestions.querySelectorAll(".s-item")];
+      items.forEach((el,i)=> el.classList.toggle("active", i===idx));
+      const active = items[idx];
+      if(active) active.scrollIntoView({ block: "nearest" });
+    }
+
+    function openActive(){
+      const q = elInput.value || "";
+      if(activeIndex >= 0 && currentResults[activeIndex]){
+        addRecent(q);
+        window.location.href = currentResults[activeIndex].url;
+        return;
+      }
+      if(currentResults.length > 0){
+        addRecent(q);
+        window.location.href = currentResults[0].url;
+        return;
+      }
+      const qq = String(q||"").trim();
+      if(qq){
+        addRecent(qq);
+        window.location.href = "shop.html?q=" + encodeURIComponent(qq);
+      }else{
+        window.location.href = "shop.html";
+      }
+    }
+
+    function viewAllSearch(){
+      const q = String(elInput.value||"").trim();
+      if(q){
+        addRecent(q);
+        window.location.href = "shop.html?q=" + encodeURIComponent(q);
+      }else{
+        window.location.href = "shop.html";
+      }
+    }
+
+    function renderSuggestions(list, q){
+      currentResults = list;
+      activeIndex = list.length ? 0 : -1;
+
+      elResultsCount.textContent = `${list.length} items`;
+      elSuggestions.innerHTML = "";
+
+      if(!q.trim()){
+        elResultsCount.textContent = "0 items";
+        return;
+      }
+
+      if(list.length === 0){
+        const empty = document.createElement("div");
+        empty.style.padding = "10px 10px";
+        empty.style.color = "var(--text-light)";
+        empty.style.fontSize = "12px";
+        empty.textContent = "No matches. Try a different keyword.";
+        elSuggestions.appendChild(empty);
+        return;
+      }
+
+      list.forEach((p, idx)=>{
+        const item = document.createElement("div");
+        item.className = "s-item";
+        item.innerHTML = `
+          <div class="s-title">
+            <b>${highlight(p.name, q)}</b>
+            <small>${highlight(p.subtitle, q)}</small>
+          </div>
+          <div class="s-price">$${p.price.toFixed(2)}</div>
+        `;
+        item.addEventListener("mouseenter", ()=> setActive(idx));
+        item.addEventListener("click", ()=>{
+          addRecent(q);
+          window.location.href = p.url;
+        });
+        elSuggestions.appendChild(item);
+      });
+
+      setActive(activeIndex);
+    }
+
+    function renderRecent(){
+      const items = getRecents();
+      elRecentChips.innerHTML = "";
+
+      if(items.length === 0){
+        const ghost = document.createElement("div");
+        ghost.style.color = "var(--text-light)";
+        ghost.style.fontSize = "12px";
+        ghost.style.padding = "6px 2px";
+        ghost.textContent = "No recent searches.";
+        elRecentChips.appendChild(ghost);
+        return;
+      }
+
+      items.forEach(q=>{
+        const chip = document.createElement("div");
+        chip.className = "chip2";
+        chip.innerHTML = `<span style="min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px;">${escapeHtml(q)}</span><span class="x" title="Remove">×</span>`;
+        chip.addEventListener("click", (e)=>{
+          if(e.target && e.target.classList.contains("x")){
+            e.stopPropagation();
+            removeRecent(q);
+            return;
+          }
+          elInput.value = q;
+          onQueryChange();
+          elInput.focus();
+        });
+        elRecentChips.appendChild(chip);
+      });
+    }
+
+    function renderRecommended(){
+      const picks = RECOMMENDED_IDS
+        .map(id => PRODUCT_CATALOG.find(p=>p.id===id))
+        .filter(Boolean);
+
+      elRecommendGrid.innerHTML = "";
+      picks.forEach(p=>{
+        const card = document.createElement("div");
+        card.className = "rec-card";
+        card.innerHTML = `
+          <div class="rec-thumb"><img src="${escapeAttr(p.image)}" alt="${escapeAttr(p.name)}" loading="lazy"></div>
+          <div class="rec-info">
+            <div class="rec-name">${escapeHtml(p.name)}</div>
+            <div class="rec-meta">${escapeHtml(p.subtitle)} · $${p.price.toFixed(2)}</div>
+          </div>
+        `;
+        card.addEventListener("click", ()=> window.location.href = p.url);
+        elRecommendGrid.appendChild(card);
+      });
+    }
+
+    function onQueryChange(){
+      const q = elInput.value || "";
+      const list = searchProducts(q);
+      renderSuggestions(list, q);
+      elClearBtn.style.opacity = q.trim() ? "1" : "0.55";
+    }
+
+    function openProductSearch(){
+      modalLastFocus = document.activeElement;
+      elModal.classList.add("active");
+      elModal.setAttribute("aria-hidden","false");
+      lockScroll(true);
+      renderRecent();
+      renderRecommended();
+      onQueryChange();
+      setTimeout(()=>elInput.focus(), 0);
+    }
+
+    function closeProductSearch(){
+      elModal.classList.remove("active");
+      elModal.setAttribute("aria-hidden","true");
+      activeIndex = -1;
+      lockScroll(false);
+      if(modalLastFocus && typeof modalLastFocus.focus === "function") modalLastFocus.focus();
+    }
+
+    // open button
+    elSearchOpenBtn.addEventListener("click", openProductSearch);
+    // close buttons
+    elEscBtn2.addEventListener("click", closeProductSearch);
+    elClearBtn.addEventListener("click", ()=>{
+      elInput.value = "";
+      onQueryChange();
+      elInput.focus();
+    });
+    elClearRecentBtn.addEventListener("click", clearRecent);
+    elGoShopBtn.addEventListener("click", ()=> window.location.href="shop.html");
+    elSearchGoBtn.addEventListener("click", ()=>{
+      if(activeIndex>=0 && currentResults[activeIndex]){
+        addRecent(elInput.value);
+        window.location.href = currentResults[activeIndex].url;
+      }else{
+        viewAllSearch();
+      }
+    });
+
+    // click outside to close
+    elModal.addEventListener("click", (e)=>{
+      if(e.target === elModal) closeProductSearch();
+    });
+    if(elShell){
+      elShell.addEventListener("click", (e)=> e.stopPropagation());
+    }
+
+    // typing
+    elInput.addEventListener("input", onQueryChange);
+
+    // keyboard control within modal
+    elInput.addEventListener("keydown", (e)=>{
+      const items = currentResults.length;
+      if(e.key === "ArrowDown"){
+        if(items===0) return;
+        e.preventDefault();
+        setActive(Math.min(items-1, activeIndex+1));
+        return;
+      }
+      if(e.key === "ArrowUp"){
+        if(items===0) return;
+        e.preventDefault();
+        setActive(Math.max(0, activeIndex-1));
+        return;
+      }
+      if(e.key === "Enter"){
+        e.preventDefault();
+        openActive();
+        return;
+      }
+      if(e.key === "Escape"){
+        e.preventDefault();
+        closeProductSearch();
+        return;
+      }
+    });
+
+    // "/" hotkey opens product search (avoid while typing in inputs)
+    document.addEventListener("keydown", (e)=>{
+      if(e.key === "/" && !elModal.classList.contains("active")){
+        const tag = (document.activeElement && document.activeElement.tagName) || "";
+        if(tag === "INPUT" || tag === "TEXTAREA") return;
+        e.preventDefault();
+        openProductSearch();
+      }
+    });
+
+    // initial render safe
+    renderRecommended();
+    renderRecent();
   </script>
 </body>
 </html>
