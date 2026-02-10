@@ -12,9 +12,22 @@
     <style>
         /* --- 기본 설정 --- */
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--bg:#f9f9f9;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;--font:'Inter',-apple-system,sans-serif;--tap:48px}
+        :root{
+            --bg:#f9f9f9;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;--font:'Inter',-apple-system,sans-serif;--tap:48px;
+
+            /* ✅ SEARCH MODAL (HOME 구조 동일) */
+            --safe-bottom:env(safe-area-inset-bottom,0);
+            --shadow:0 18px 60px rgba(0,0,0,0.14);
+            --shadow-soft:0 10px 30px rgba(0,0,0,0.10);
+            --radius:18px;
+            --glass: rgba(255,255,255,0.86);
+            --glass-2: rgba(245,245,245,0.60);
+        }
         body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
         a{text-decoration:none;color:inherit}
+
+        /* ✅ SEARCH MODAL scroll lock */
+        body.menu-open{overflow:hidden;position:fixed;width:100%}
 
         /* --- 헤더 --- */
         header{position:fixed;top:20px;left:20px;right:20px;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-radius:50px;box-shadow:0 2px 20px rgba(0,0,0,0.04);border:1px solid rgba(255,255,255,0.5)}
@@ -90,12 +103,10 @@
 
         /* 아마존 링크가 있는 카드만 선택해서 이미지 키우기 */
         .store-card[href*="amazon"] .card-image img {
-            transform: scale(1.4); /* 1.4배 확대 (원하는 만큼 숫자 조절 가능) */
-            transform-origin: center; /* 중앙을 기준으로 커짐 */
+            transform: scale(1.4);
+            transform-origin: center;
         }
 
-        /* 아마존 카드 전용 호버 효과 */
-        /* 평소(1.4배)보다 마우스를 올렸을 때(1.5배) 더 커지게 설정 */
         .store-card[href*="amazon"]:hover .card-image img {
             transform: scale(1.5); 
         }
@@ -103,13 +114,12 @@
         .card-image img {
             max-width: 90%;
             max-height: 100%;
-            object-fit: contain; /* 로고 비율 유지 */
+            object-fit: contain;
             filter: grayscale(100%);
             opacity: 0.6;
             transition: all 0.4s ease;
         }
 
-        /* 호버 시 이미지 컬러 복원 */
         .store-card:hover .card-image img {
             filter: grayscale(0%);
             opacity: 1;
@@ -169,6 +179,207 @@
             .footer-inner{grid-template-columns:1fr 1fr; gap: 3rem 1rem;}
             .page-content{padding-top: 120px;}
         }
+
+        /* ================================
+           ✅ SEARCH MODAL (HOME 구조 그대로)
+        ================================= */
+        .search-modal{
+          display:none;position:fixed;inset:0;z-index:2000;
+          background:rgba(0,0,0,0.50);
+          align-items:flex-start;justify-content:center;
+          padding:110px 16px calc(16px + var(--safe-bottom));
+        }
+        .search-modal.active{display:flex}
+
+        .search-shell{
+          width:100%;max-width:760px;
+          background:var(--glass);
+          backdrop-filter: blur(14px);
+          border:1px solid rgba(255,255,255,0.65);
+          border-radius: var(--radius);
+          box-shadow: var(--shadow);
+          overflow:hidden;
+        }
+
+        .search-top{
+          padding:18px 18px 14px;
+          border-bottom:1px solid rgba(0,0,0,0.06);
+          display:flex;gap:12px;align-items:center;
+        }
+        .search-icon{
+          width:40px;height:40px;border-radius:12px;
+          display:flex;align-items:center;justify-content:center;
+          background:rgba(26,26,26,0.06);
+          flex:0 0 auto;
+        }
+        .search-input-wrap{flex:1;min-width:0}
+        .search-input{
+          width:100%;
+          font-size:1.05rem;
+          border:none;outline:none;background:transparent;
+          padding:10px 2px;color:var(--text);
+        }
+        .search-input::placeholder{color:rgba(26,26,26,0.45)}
+        .search-actions{display:flex;gap:8px;align-items:center;flex:0 0 auto}
+        .search-pill{
+          height:40px;min-width:40px;padding:0 14px;border-radius:999px;
+          border:1px solid rgba(0,0,0,0.10);
+          background:rgba(255,255,255,0.60);
+          display:inline-flex;align-items:center;justify-content:center;
+          font-size:0.9rem;cursor:pointer;
+          transition:transform .12s ease, opacity .12s ease;
+          user-select:none;
+        }
+        .search-pill:active{transform:scale(0.98)}
+        .search-pill.ghost{background:transparent}
+
+        .search-hint{
+          padding:10px 18px 12px;
+          font-size:0.86rem;
+          color:rgba(26,26,26,0.55);
+          display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+        }
+        .kbd{
+          font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+          font-size:0.78rem;
+          padding:2px 8px;border-radius:8px;
+          border:1px solid rgba(0,0,0,0.12);
+          background:rgba(255,255,255,0.55);
+          color:rgba(26,26,26,0.65);
+        }
+
+        .search-body{
+          display:grid;
+          grid-template-columns: 1fr 1fr;
+          gap:0;
+          min-height: 360px;
+        }
+        .search-pane{padding:16px 18px}
+        .search-pane + .search-pane{
+          border-left:1px solid rgba(0,0,0,0.06);
+          background:var(--glass-2);
+        }
+
+        .pane-title{
+          display:flex;justify-content:space-between;align-items:center;
+          margin-bottom:10px;
+        }
+        .pane-title h3{
+          font-size:0.85rem;text-transform:uppercase;letter-spacing:0.12em;
+          color:rgba(26,26,26,0.55);font-weight:600;
+        }
+        .pane-title button{
+          border:none;background:none;cursor:pointer;
+          font-size:0.85rem;color:rgba(26,26,26,0.55);
+          text-decoration:underline;padding:6px 0;
+        }
+
+        .chips{display:flex;flex-wrap:wrap;gap:10px}
+        .chip{
+          display:inline-flex;align-items:center;gap:8px;
+          padding:10px 12px;border-radius:999px;
+          border:1px solid rgba(0,0,0,0.10);
+          background:rgba(255,255,255,0.70);
+          cursor:pointer;
+          transition:opacity .12s ease, transform .12s ease;
+          max-width:100%;
+        }
+        .chip:hover{opacity:0.9}
+        .chip:active{transform:scale(0.98)}
+        .chip span{
+          max-width:220px;
+          overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+          font-size:0.92rem;
+        }
+        .chip .x{
+          width:18px;height:18px;border-radius:6px;
+          display:flex;align-items:center;justify-content:center;
+          border:1px solid rgba(0,0,0,0.12);
+          font-size:0.85rem;opacity:0.55;
+        }
+        .chip .x:hover{opacity:0.9}
+
+        .suggestions{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+        .suggestion{
+          display:flex;align-items:center;justify-content:space-between;
+          padding:12px 12px;border-radius:14px;
+          cursor:pointer;
+          transition:background .12s ease;
+          border:1px solid transparent;
+        }
+        .suggestion:hover{background:rgba(26,26,26,0.05)}
+        .suggestion.active{
+          background:rgba(26,26,26,0.06);
+          border-color:rgba(26,26,26,0.10);
+        }
+        .s-left{display:flex;flex-direction:column;gap:2px;min-width:0}
+        .s-title{
+          font-size:0.96rem;font-weight:600;line-height:1.25;
+          overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+        }
+        .s-sub{
+          font-size:0.85rem;color:rgba(26,26,26,0.55);
+          overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+        }
+        .s-price{
+          font-size:0.92rem;font-weight:600;color:rgba(26,26,26,0.75);
+          margin-left:10px;white-space:nowrap;
+        }
+
+        .rec-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:8px}
+        .rec-card{
+          display:grid;grid-template-columns:64px 1fr;gap:12px;
+          padding:12px;border-radius:16px;
+          background:rgba(255,255,255,0.65);
+          border:1px solid rgba(0,0,0,0.08);
+          box-shadow: var(--shadow-soft);
+          cursor:pointer;
+          transition:transform .12s ease, opacity .12s ease;
+        }
+        .rec-card:hover{opacity:0.95}
+        .rec-card:active{transform:scale(0.99)}
+        .rec-thumb{width:64px;height:64px;border-radius:14px;overflow:hidden;background:rgba(26,26,26,0.06)}
+        .rec-thumb img{width:100%;height:100%;object-fit:cover}
+        .rec-info{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px}
+        .rec-name{
+          font-weight:700;font-size:0.95rem;line-height:1.25;
+          overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+        }
+        .rec-meta{
+          font-size:0.84rem;color:rgba(26,26,26,0.55);
+          overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+        }
+
+        .search-bottom{
+          padding:14px 18px;
+          border-top:1px solid rgba(0,0,0,0.06);
+          display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+          background:rgba(255,255,255,0.65);
+        }
+        .search-bottom .left{font-size:0.88rem;color:rgba(26,26,26,0.60)}
+        .primary-btn{
+          display:inline-flex;align-items:center;justify-content:center;
+          height:44px;padding:0 18px;border-radius:999px;
+          border:1px solid rgba(0,0,0,0.10);
+          background:rgba(26,26,26,0.92);
+          color:#fff;cursor:pointer;font-size:0.92rem;
+          transition:opacity .12s ease, transform .12s ease;
+        }
+        .primary-btn:hover{opacity:0.92}
+        .primary-btn:active{transform:scale(0.99)}
+        .muted-btn{
+          display:inline-flex;align-items:center;justify-content:center;
+          height:44px;padding:0 16px;border-radius:999px;
+          border:1px solid rgba(0,0,0,0.10);
+          background:rgba(255,255,255,0.60);
+          cursor:pointer;font-size:0.92rem;
+        }
+
+        @media(max-width:820px){
+          .search-modal{padding:90px 12px calc(12px + var(--safe-bottom))}
+          .search-body{grid-template-columns:1fr}
+          .search-pane + .search-pane{border-left:none;border-top:1px solid rgba(0,0,0,0.06)}
+        }
     </style>
 </head>
 <body>
@@ -182,7 +393,13 @@
                 <div class="nav-item"><a href="faq.html">FAQ</a></div>
             </nav>
             <div class="header-right">
-                <button class="search-btn" aria-label="Search">Search <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+                <!-- ✅ SEARCH 버튼: HOME 구조 동일 -->
+                <button class="search-btn" aria-label="Search" onclick="openSearch()">
+                    Search
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><div class="hamburger"><span></span><span></span><span></span></div></button>
             </div>
         </div>
@@ -190,6 +407,74 @@
 
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu"><nav class="mobile-menu-nav"><a href="shop.html">Shop</a><a href="about.html">About</a><a href="store.html">Store</a><a href="faq.html">FAQ</a></nav></div>
+
+    <!-- ✅ SEARCH MODAL (HOME 구조 그대로) -->
+    <div class="search-modal" id="searchModal" onclick="closeSearch(event)" aria-hidden="true">
+      <div class="search-shell" role="dialog" aria-modal="true" aria-label="Search">
+        <div class="search-top">
+          <div class="search-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+
+          <div class="search-input-wrap">
+            <input
+              type="search"
+              class="search-input"
+              placeholder="Search products (e.g., Volufiline, Niacinamide 20%)"
+              id="searchInput"
+              autocomplete="off"
+              aria-autocomplete="list"
+              aria-controls="suggestionList"
+            />
+          </div>
+
+          <div class="search-actions">
+            <div class="search-pill ghost" id="clearBtn" title="Clear">Clear</div>
+            <div class="search-pill" onclick="closeSearchForce()" title="Close">ESC</div>
+          </div>
+        </div>
+
+        <div class="search-hint">
+          <div>Enter to search · ↑↓ navigate · Esc to close</div>
+          <div><span class="kbd">Enter</span> <span class="kbd">↑</span> <span class="kbd">↓</span> <span class="kbd">Esc</span></div>
+        </div>
+
+        <div class="search-body">
+          <div class="search-pane">
+            <div class="pane-title">
+              <h3>Recent</h3>
+              <button id="clearRecentBtn" type="button">Clear all</button>
+            </div>
+            <div class="chips" id="recentChips"></div>
+
+            <div class="pane-title" style="margin-top:18px">
+              <h3>Results</h3>
+              <span style="font-size:.85rem;color:rgba(26,26,26,0.55)" id="resultCount">0 items</span>
+            </div>
+            <div class="suggestions" id="suggestionList" role="listbox" aria-label="Suggestions"></div>
+          </div>
+
+          <div class="search-pane">
+            <div class="pane-title">
+              <h3>Recommended</h3>
+              <span style="font-size:.85rem;color:rgba(26,26,26,0.55)">Curated picks</span>
+            </div>
+            <div class="rec-grid" id="recommendGrid"></div>
+          </div>
+        </div>
+
+        <div class="search-bottom">
+          <div class="left" id="searchStatus">Type to search products.</div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <button class="muted-btn" type="button" onclick="goShop()">Go to Shop</button>
+            <button class="primary-btn" type="button" id="viewAllBtn">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <main class="page-content">
         <div class="page-header">
@@ -256,6 +541,303 @@
         const mobileMenuBtn=document.getElementById('mobileMenuBtn'),mobileMenu=document.getElementById('mobileMenu'),mobileMenuOverlay=document.getElementById('mobileMenuOverlay');
         function toggleMenu(){mobileMenuBtn.classList.toggle('active');mobileMenu.classList.toggle('active');mobileMenuOverlay.classList.toggle('active')}
         mobileMenuBtn.addEventListener('click',toggleMenu);mobileMenuOverlay.addEventListener('click',toggleMenu);
+
+        /* ===============================
+          ✅ SEARCH MODAL JS (HOME 구조 그대로)
+        =============================== */
+        const PRODUCT_CATALOG = [
+          { id:"volufiline-100", name:"Volufiline 100%", subtitle:"Pure concentrate · Firming & volumizing", price:28.00, url:"product-detail.html?sku=volufiline-100", image:"images/test2.png", tags:["volufiline","firming","volume","concentrate"] },
+          { id:"niacinamide-20", name:"Niacinamide 20%", subtitle:"High-strength · Tone & texture", price:24.00, url:"product-detail.html?sku=niacinamide-20", image:"images/t3.png", tags:["niacinamide","vitamin b3","texture","pores","serum"] },
+          { id:"bakuchiol-30000", name:"Bakuchiol 30,000ppm", subtitle:"Retinol-alternative · Elasticity care", price:32.00, url:"product-detail.html?sku=bakuchiol-30000", image:"images/t2.png", tags:["bakuchiol","retinol alternative","elasticity","anti-aging"] },
+          { id:"vitamin-c-20", name:"Vitamin C 20%", subtitle:"Brightening · Antioxidant", price:26.00, url:"product-detail.html?sku=vitamin-c-20", image:"images/t4.png", tags:["vitamin c","ascorbic","glow","antioxidant"] },
+          { id:"peptide-cream", name:"Peptide Firming Cream", subtitle:"Multi-peptide · Firm moisture", price:42.00, url:"product-detail.html?sku=peptide-cream", image:"images/t5.png", tags:["peptide","cream","firming"] },
+          { id:"ceramide-cream", name:"Ceramide Barrier Cream", subtitle:"Barrier repair · Deep hydration", price:38.00, url:"product-detail.html?sku=ceramide-cream", image:"images/t6.png", tags:["ceramide","barrier","hydration","cream"] },
+          { id:"centella-foam", name:"Centella Foam Cleanser", subtitle:"Gentle daily cleanser", price:18.00, url:"product-detail.html?sku=centella-foam", image:"images/t9.png", tags:["centella","cleanser","foam","gentle"] },
+          { id:"lowph-gel", name:"Low pH Gel Cleanser", subtitle:"Balanced cleansing", price:16.00, url:"product-detail.html?sku=lowph-gel", image:"images/t7.png", tags:["low ph","gel","cleanser","balanced"] }
+        ];
+        const RECOMMENDED_IDS=["volufiline-100","bakuchiol-30000","niacinamide-20"];
+
+        const RECENT_KEY="celdyque_recent_searches_v1";
+        const RECENT_MAX=10;
+
+        function loadRecent(){
+          try{
+            const raw=localStorage.getItem(RECENT_KEY);
+            const arr=raw?JSON.parse(raw):[];
+            return Array.isArray(arr)?arr:[];
+          }catch(_){return[]}
+        }
+        function saveRecent(arr){localStorage.setItem(RECENT_KEY, JSON.stringify(arr.slice(0,RECENT_MAX)))}
+        function addRecent(query){
+          const q=(query||"").trim();
+          if(!q) return;
+          const prev=loadRecent();
+          const next=[q, ...prev.filter(x=>x.toLowerCase()!==q.toLowerCase())];
+          saveRecent(next);
+          renderRecent();
+        }
+        function removeRecent(query){
+          const prev=loadRecent();
+          const next=prev.filter(x=>x!==query);
+          saveRecent(next);
+          renderRecent();
+        }
+        function clearRecent(){saveRecent([]);renderRecent()}
+
+        const elModal=document.getElementById("searchModal");
+        const elInput=document.getElementById("searchInput");
+        const elSuggestionList=document.getElementById("suggestionList");
+        const elRecentChips=document.getElementById("recentChips");
+        const elResultCount=document.getElementById("resultCount");
+        const elStatus=document.getElementById("searchStatus");
+        const elRecommendGrid=document.getElementById("recommendGrid");
+        const elClearBtn=document.getElementById("clearBtn");
+        const elClearRecentBtn=document.getElementById("clearRecentBtn");
+        const elViewAllBtn=document.getElementById("viewAllBtn");
+
+        let currentResults=[];
+        let activeIndex=-1;
+
+        function normalize(str){return (str||"").toLowerCase().replace(/\s+/g," ").trim()}
+
+        function scoreProduct(p, qNorm){
+          const name=normalize(p.name);
+          const sub=normalize(p.subtitle);
+          const tags=(p.tags||[]).map(normalize).join(" ");
+          let score=0;
+          if(!qNorm) return 0;
+          if(name===qNorm) score+=100;
+          if(name.startsWith(qNorm)) score+=70;
+          if(name.includes(qNorm)) score+=45;
+          if(sub.includes(qNorm)) score+=15;
+          if(tags.includes(qNorm)) score+=12;
+
+          const tokens=qNorm.split(" ").filter(Boolean);
+          for(const t of tokens){
+            if(t.length<2) continue;
+            if(name.includes(t)) score+=10;
+            if(tags.includes(t)) score+=6;
+            if(sub.includes(t)) score+=4;
+          }
+          return score;
+        }
+
+        function searchProducts(query){
+          const qNorm=normalize(query);
+          if(!qNorm) return [];
+          return PRODUCT_CATALOG
+            .map(p=>({p, s:scoreProduct(p,qNorm)}))
+            .filter(x=>x.s>0)
+            .sort((a,b)=>b.s-a.s)
+            .map(x=>x.p)
+            .slice(0,8);
+        }
+
+        function setActive(index){
+          activeIndex=index;
+          const items=[...elSuggestionList.querySelectorAll(".suggestion")];
+          items.forEach((node,i)=>node.classList.toggle("active", i===activeIndex));
+        }
+
+        function openActive(){
+          if(activeIndex>=0 && currentResults[activeIndex]){
+            const p=currentResults[activeIndex];
+            addRecent(elInput.value);
+            window.location.href=p.url;
+            return;
+          }
+          viewAllSearch();
+        }
+
+        function viewAllSearch(){
+          const q=(elInput.value||"").trim();
+          if(!q) return;
+          addRecent(q);
+          window.location.href="shop.html?q="+encodeURIComponent(q);
+        }
+
+        function renderSuggestions(list, query){
+          elSuggestionList.innerHTML="";
+          currentResults=list;
+          activeIndex=-1;
+
+          elResultCount.textContent = `${list.length} item${list.length===1?"":"s"}`;
+
+          if(!query.trim()){
+            elStatus.textContent="Type to search products.";
+            return;
+          }
+
+          if(list.length===0){
+            elStatus.textContent="No matches. Try another keyword.";
+            elSuggestionList.innerHTML = `
+              <div style="padding:14px 12px;color:rgba(26,26,26,0.55);font-size:0.92rem">
+                No results for "<strong>${escapeHtml(query)}</strong>"
+              </div>`;
+            return;
+          }
+
+          elStatus.textContent="Use ↑↓ to navigate, Enter to open.";
+
+          list.forEach((p, idx)=>{
+            const el=document.createElement("div");
+            el.className="suggestion";
+            el.setAttribute("role","option");
+            el.innerHTML=`
+              <div class="s-left">
+                <div class="s-title">${highlight(p.name, query)}</div>
+                <div class="s-sub">${escapeHtml(p.subtitle)}</div>
+              </div>
+              <div class="s-price">$${p.price.toFixed(2)}</div>
+            `;
+            el.addEventListener("mouseenter", ()=>setActive(idx));
+            el.addEventListener("mouseleave", ()=>setActive(-1));
+            el.addEventListener("click", ()=>{
+              addRecent(query);
+              window.location.href=p.url;
+            });
+            elSuggestionList.appendChild(el);
+          });
+        }
+
+        function renderRecent(){
+          const recents=loadRecent();
+          elRecentChips.innerHTML="";
+          if(recents.length===0){
+            elRecentChips.innerHTML = `
+              <div style="color:rgba(26,26,26,0.55);font-size:0.92rem;line-height:1.7">
+                No recent searches yet.
+              </div>`;
+            return;
+          }
+          recents.forEach(q=>{
+            const chip=document.createElement("div");
+            chip.className="chip";
+            chip.innerHTML=`<span>${escapeHtml(q)}</span><div class="x" title="Remove">×</div>`;
+            chip.addEventListener("click",(e)=>{
+              if(e.target && e.target.classList.contains("x")){
+                e.stopPropagation();
+                removeRecent(q);
+                return;
+              }
+              elInput.value=q;
+              handleInput();
+              elInput.focus();
+            });
+            elRecentChips.appendChild(chip);
+          });
+        }
+
+        function renderRecommended(){
+          elRecommendGrid.innerHTML="";
+          const items=RECOMMENDED_IDS.map(id=>PRODUCT_CATALOG.find(p=>p.id===id)).filter(Boolean);
+          items.forEach(p=>{
+            const card=document.createElement("div");
+            card.className="rec-card";
+            card.innerHTML=`
+              <div class="rec-thumb"><img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy"></div>
+              <div class="rec-info">
+                <div class="rec-name">${escapeHtml(p.name)}</div>
+                <div class="rec-meta">${escapeHtml(p.subtitle)} · $${p.price.toFixed(2)}</div>
+              </div>
+            `;
+            card.addEventListener("click",()=>window.location.href=p.url);
+            elRecommendGrid.appendChild(card);
+          });
+        }
+
+        function handleInput(){
+          const q=elInput.value||"";
+          elClearBtn.style.opacity = q.trim() ? "1" : "0.6";
+          const results=searchProducts(q);
+          renderSuggestions(results, q);
+        }
+
+        // body scroll lock (reuse menu-open)
+        let scrollY=0;
+        function lockBody(){
+          scrollY = window.scrollY || 0;
+          document.body.style.top = `-${scrollY}px`;
+          document.body.classList.add("menu-open");
+        }
+        function unlockBody(){
+          document.body.classList.remove("menu-open");
+          const y = Math.abs(parseInt(document.body.style.top || "0", 10)) || scrollY;
+          document.body.style.top = "";
+          window.scrollTo(0, y);
+        }
+
+        function openSearch(){
+          elModal.classList.add("active");
+          elModal.setAttribute("aria-hidden","false");
+          lockBody();
+          renderRecent();
+          renderRecommended();
+          handleInput();
+          setTimeout(()=>elInput.focus(), 30);
+        }
+        function closeSearch(e){
+          if(e && e.target && e.target.id !== "searchModal") return;
+          elModal.classList.remove("active");
+          elModal.setAttribute("aria-hidden","true");
+          unlockBody();
+        }
+        function closeSearchForce(){
+          elModal.classList.remove("active");
+          elModal.setAttribute("aria-hidden","true");
+          unlockBody();
+        }
+        function goShop(){window.location.href="shop.html"}
+
+        elInput.addEventListener("input", handleInput);
+        elInput.addEventListener("keydown",(e)=>{
+          const items=currentResults||[];
+          if(e.key==="ArrowDown"){
+            e.preventDefault(); if(!items.length) return;
+            setActive(Math.min(activeIndex+1, items.length-1));
+          }else if(e.key==="ArrowUp"){
+            e.preventDefault(); if(!items.length) return;
+            setActive(Math.max(activeIndex-1, 0));
+          }else if(e.key==="Enter"){
+            e.preventDefault(); openActive();
+          }else if(e.key==="Escape"){
+            closeSearchForce();
+          }
+        });
+
+        document.addEventListener("keydown",(e)=>{
+          if(e.key==="Escape" && elModal.classList.contains("active")) closeSearchForce();
+          if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==="k"){
+            e.preventDefault();
+            if(!elModal.classList.contains("active")) openSearch();
+          }
+        });
+
+        elClearBtn.addEventListener("click",()=>{
+          elInput.value=""; handleInput(); elInput.focus();
+        });
+        elClearRecentBtn.addEventListener("click",()=>clearRecent());
+        elViewAllBtn.addEventListener("click",()=>viewAllSearch());
+
+        function escapeHtml(str){
+          return String(str)
+            .replaceAll("&","&amp;")
+            .replaceAll("<","&lt;")
+            .replaceAll(">","&gt;")
+            .replaceAll('"',"&quot;")
+            .replaceAll("'","&#039;");
+        }
+        function highlight(text, query){
+          const t=String(text);
+          const q=String(query||"").trim();
+          if(!q) return escapeHtml(t);
+          const idx=t.toLowerCase().indexOf(q.toLowerCase());
+          if(idx<0) return escapeHtml(t);
+          const before=escapeHtml(t.slice(0,idx));
+          const mid=escapeHtml(t.slice(idx, idx+q.length));
+          const after=escapeHtml(t.slice(idx+q.length));
+          return `${before}<span style="text-decoration:underline; text-underline-offset:3px">${mid}</span>${after}`;
+        }
     </script>
 </body>
 </html>
