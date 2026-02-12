@@ -265,7 +265,7 @@ a{text-decoration:none;color:inherit}
 }
 
 /* ===== Footer ===== */
-.site-footer{padding:60px var(--page-pad) calc(30px + var(--safe-bottom));background:var(--text);color:var(--white)}
+.site-footer{padding:10px var(--page-pad) calc(30px + var(--safe-bottom));background:var(--text);color:var(--white)}
 .footer-top{max-width:var(--page-max);margin:0 auto 3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.1)}
 .footer-top p{font-size:0.95rem;opacity:0.8;max-width:700px;line-height:1.8}
 .footer-inner{max-width:var(--page-max);margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
