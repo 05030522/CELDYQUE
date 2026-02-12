@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>CELDYQUE</title>
+
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="images/pa2.jpg">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/pa2.jpg">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/pa2.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pa2.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pa2.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pa2.jpg">
+
   <meta name="description" content="CELDYQUE offers high-concentration Korean skincare with clinically proven ingredients. Volufiline 100%, Niacinamide 20%, Bakuchiol serums." />
   <meta name="theme-color" content="#1a1a1a" />
   <link rel="canonical" href="https://www.celdyque.com/" />
@@ -20,1073 +22,607 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
 
+  <!-- ✅ 공통 CSS -->
+  <link rel="stylesheet" href="/assets/site.css">
+
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --bg:#f5f5f5;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;
-      --font:'Inter',-apple-system,sans-serif;--tap:48px;--safe-bottom:env(safe-area-inset-bottom,0);
-      --shadow:0 18px 60px rgba(0,0,0,0.14);
-      --shadow-soft:0 10px 30px rgba(0,0,0,0.10);
-      --radius:18px;
-      --glass: rgba(255,255,255,0.86);
-      --glass-2: rgba(245,245,245,0.60);
-    }
-    html{scroll-behavior:smooth}
-    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-    body.menu-open{overflow:hidden;position:fixed;width:100%}
-    a{text-decoration:none;color:inherit}
+    /* =========================
+      HOME (스크린샷1/2/3 반영)
+      - 기존 색감 변수(var(--bg) 등) 유지
+    ========================= */
 
-    /* --- Video Hero Section --- */
-    .video-hero-section{
-      position:relative;width:100%;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;
-      background-color:#1a1a1a;
-    }
-    .video-hero-section video{
-      position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-      min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;z-index:0;
-    }
-    .video-overlay-content{
-      position:relative;z-index:1;text-align:center;color:#fff;animation:fadeIn 2s ease-out;padding:0 20px;
-    }
-    .video-overlay-content h1{
-      font-family:'Playfair Display',serif;font-size:4rem;font-weight:400;margin-bottom:1rem;
-      text-shadow:0 2px 10px rgba(0,0,0,0.3);line-height:1.2;
-    }
-    .video-overlay-content p{
-      font-size:1.2rem;opacity:0.9;letter-spacing:0.1em;text-transform:uppercase;
-    }
-    .scroll-indicator{
-      position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
-      color:#fff;font-size:2rem;z-index:2;animation:bounce 2s infinite;cursor:pointer;
-    }
-    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes bounce{
-      0%,20%,50%,80%,100%{transform:translate(-50%,0)}
-      40%{transform:translate(-50%,-10px)}
-      60%{transform:translate(-50%,-5px)}
-    }
-    @media(max-width:768px){
-      .video-overlay-content h1{font-size:2.5rem}
+    body.home{
+      background: var(--bg);
+      color: var(--text);
     }
 
-    /* Header */
-    header{
-      position:fixed;top:20px;left:20px;right:20px;z-index:1000;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(10px);
-      border-radius:50px;
-      box-shadow:0 2px 20px rgba(0,0,0,0.08);
-      transition:all 0.3s ease;
-    }
-    .header-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
-    .logo{font-size:1.6rem;font-weight:700;letter-spacing:0.05em;min-height:var(--tap);display:flex;align-items:center}
-
-    .desktop-nav{display:flex;gap:3.5rem;position:relative}
-    .nav-item{position:relative}
-    .nav-item>a{font-size:1.15rem;font-weight:500;min-height:var(--tap);display:flex;align-items:center;padding:0 0.5rem;transition:opacity 0.3s}
-    .nav-item>a:hover{opacity:0.6}
-
-    .mega-menu{
-      position:absolute;top:100%;left:-20px;background:var(--white);border-radius:12px;
-      box-shadow:0 10px 40px rgba(0,0,0,0.1);padding:1.5rem;min-width:200px;
-      opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s;
-    }
-    .nav-item:hover .mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
-    .mega-menu a{display:block;padding:0.75rem 0;font-size:1.05rem;color:var(--text-light);transition:all 0.2s;font-weight:400}
-    .mega-menu a:hover{color:var(--text)}
-
-    .header-right{display:flex;align-items:center;gap:1rem}
-    .search-btn{
-      display:flex;align-items:center;gap:0.5rem;background:none;border:none;
-      font-size:1.15rem;font-weight:500;cursor:pointer;min-width:var(--tap);min-height:var(--tap)
+    /* ✅ 1) 헤더가 왼쪽으로 붙는 문제 해결 핵심:
+       - header 자체를 건드리지 말고, header를 담는 #siteHeader 컨테이너를
+         top-frame 안에서 "정상 폭 + 중앙"으로 잡아준다.
+       - 그리고 주입되는 header가 absolute여도 기준이 top-frame이 되게 한다.
+    */
+    body.home #siteHeader{
+      position:absolute;
+      width:auto;
+      max-width:none;
+      margin:0;
+      z-index:60;
+      pointer-events:auto;
     }
 
-    /* Mobile Menu */
-    .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;min-width:var(--tap);min-height:var(--tap);padding:12px;z-index:1002}
-    .hamburger{width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between}
-    .hamburger span{display:block;width:100%;height:2px;background:var(--text);transition:all 0.3s}
-    .mobile-menu-btn.active .hamburger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-    .mobile-menu-btn.active .hamburger span:nth-child(2){opacity:0}
-    .mobile-menu-btn.active .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-    .mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
-    .mobile-menu-overlay.active{display:block}
-    .mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:400px;height:100dvh;background:var(--white);z-index:1001;transition:right 0.3s;padding:100px 2rem 2rem;overflow-y:auto}
-    .mobile-menu.active{right:0}
-    .mobile-menu-nav a{display:block;font-size:1.3rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border)}
-    .mobile-menu-sub{padding-left:1rem}
-    .mobile-menu-sub a{font-size:1rem;font-weight:400;color:var(--text-light)}
-
-    /* Hero Grid - 4 Cards */
-    .hero-grid{display:grid;grid-template-columns:repeat(4,1fr);min-height:100vh;padding-top:100px;background:var(--white)}
-    .hero-card{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;min-height:500px}
-    .hero-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
-    .hero-card:hover img{transform:scale(1.05)}
-    .hero-card-content{position:relative;z-index:1;color:var(--white)}
-    .hero-card-label{font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
-    .hero-card h2{font-size:1.5rem;font-weight:600;margin-bottom:1rem}
-    .hero-card-link{font-size:0.85rem;display:inline-flex;align-items:center;gap:0.5rem;opacity:0.8;transition:opacity 0.3s}
-    .hero-card:hover .hero-card-link{opacity:1}
-    .hero-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);z-index:1}
-
-    /* Philosophy Slider */
-    .philosophy{padding:100px 5%;background:var(--white)}
-    .philosophy-slider{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-    .philosophy-nav{display:flex;gap:2rem;margin-bottom:3rem}
-    .philosophy-nav button{background:none;border:none;font-size:2rem;font-weight:300;color:var(--border);cursor:pointer;transition:color 0.3s}
-    .philosophy-nav button.active{color:var(--text)}
-    .philosophy-content h3{font-size:1.5rem;font-weight:500;margin-bottom:1.5rem;line-height:1.5}
-    .philosophy-content p{color:var(--text-light);margin-bottom:1.5rem;line-height:1.8}
-    .philosophy-content a{font-size:0.9rem;text-decoration:underline}
-    .philosophy-image img{width:100%;height:450px;object-fit:cover;border-radius:12px}
-
-    /* Recommend Products */
-    .recommend{padding:100px 5%}
-    .section-header{max-width:1400px;margin:0 auto 3rem;display:flex;justify-content:space-between;align-items:flex-end}
-    .section-header h2{font-size:2rem;font-weight:600}
-    .section-header p{color:var(--text-light);font-size:0.95rem}
-    .products-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-    .product-card{background:var(--white);border-radius:12px;overflow:hidden;transition:transform 0.3s}
-    .product-card:hover{transform:translateY(-5px)}
-    .product-card img{width:100%;height:300px;object-fit:cover}
-    .product-card-info{padding:1.5rem}
-    .product-card h3{font-size:1rem;font-weight:500;margin-bottom:0.3rem}
-    .product-card p{font-size:0.9rem;color:var(--text-light)}
-
-    /* Article */
-    .article{padding:100px 5%;background:var(--white)}
-    .article-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
-    .article-card{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-radius:12px;overflow:hidden}
-    .article-card img{width:100%;height:300px;object-fit:cover}
-    .article-card-content{padding:2rem;display:flex;flex-direction:column;justify-content:center}
-    .article-card h3{font-size:1.3rem;font-weight:600;margin-bottom:1rem}
-    .article-card p{font-size:0.9rem;color:var(--text-light);line-height:1.7}
-
-    /* Footer */
-    footer{padding:60px 5% calc(30px + var(--safe-bottom));background:var(--text);color:var(--white)}
-    .footer-top{max-width:1400px;margin:0 auto 3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.1)}
-    .footer-top p{font-size:0.95rem;opacity:0.8;max-width:600px;line-height:1.8}
-    .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
-    .footer-col h4{font-size:0.8rem;font-weight:600;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.1em}
-    .footer-col ul{list-style:none}
-    .footer-col li{margin-bottom:0.6rem}
-    .footer-col a{font-size:0.85rem;opacity:0.7;transition:opacity 0.3s}
-    .footer-col a:hover{opacity:1}
-    .footer-bottom{max-width:1400px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.5}
-    .footer-bottom p{margin-bottom:0.3rem}
-
-    /* ================================
-       SEARCH MODAL (UPGRADED)
-    ================================= */
-    .search-modal{
-      display:none;position:fixed;inset:0;z-index:2000;
-      background:rgba(0,0,0,0.50);
-      align-items:flex-start;justify-content:center;
-      padding:110px 16px calc(16px + var(--safe-bottom));
+    /* 공통 컨테이너 */
+    .home-wrap{
+      padding: 18px 16px 0;
     }
-    .search-modal.active{display:flex}
+    .home-container{
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
 
-    .search-shell{
-      width:100%;max-width:760px;
-      background:var(--glass);
-      backdrop-filter: blur(14px);
-      border:1px solid rgba(255,255,255,0.65);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    /* -----------------------------------------
+      (1) TOP COLLAGE (스크린샷1)
+      - video-hero-section 제거 후 대체
+    ----------------------------------------- */
+
+    .top-frame{
+      position: relative;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 14px 44px rgba(0,0,0,0.12);
+      padding: 12px; /* 콜라주 외곽 여백 */
       overflow:hidden;
     }
 
-    .search-top{
-      padding:18px 18px 14px;
-      border-bottom:1px solid rgba(0,0,0,0.06);
-      display:flex;gap:12px;align-items:center;
+    .top-collage{
+      border-radius: 18px;
+      overflow: hidden;
+      margin-top: 68px; /* ✅ 헤더 공간 확보 */
     }
-    .search-icon{
-      width:40px;height:40px;border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
-      background:rgba(26,26,26,0.06);
-      flex:0 0 auto;
+
+    .collage{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
     }
-    .search-input-wrap{flex:1;min-width:0}
-    .search-input{
+
+    .collage-item{
+      position: relative;
+      height: clamp(260px, 38vw, 520px);
+      background: #ddd;
+      overflow: hidden;
+    }
+    .collage-item img{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      filter: saturate(0.98) contrast(0.98);
+    }
+
+    .collage-item::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,0.34), rgba(0,0,0,0.06), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    .collage-copy{
+      position:absolute;
+      left: 26px;
+      bottom: 26px;
+      z-index: 2;
+      color: rgba(255,255,255,0.92);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.12;
+      font-size: 0.95rem;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.26);
+      max-width: 70%;
+    }
+    .collage-copy.center{
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 28px;
+      max-width: 62%;
+    }
+
+    /* -----------------------------------------
+      (2) HERO GRID (스크린샷2)
+      - 텍스트를 흰 배경(bottom)에서 분리하고
+      - 이미지 위에 바로 오버레이로 표시
+    ----------------------------------------- */
+
+    .hero-grid{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 16px 0 0;
+      background: transparent;
+      min-height: auto;
+    }
+
+    .hero-card{
+      background: var(--white);
+      border: 2px solid rgba(0,0,0,0.55);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      min-height: 420px; /* ✅ 스샷2처럼 세로 */
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .hero-card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+    }
+
+    .hero-topbar{
+      height: 36px;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      flex: 0 0 auto;
+    }
+
+    .hero-topbar .open{
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(0,0,0,0.10);
+      color: rgba(0, 0, 0, 0.55);      /* ✅ 연한 회색 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card:hover .hero-topbar .open{
+      color: rgba(0,0,0,0.58);
+      border-color: rgba(0,0,0,0.14);
+    }
+
+    .hero-topbar .open svg{
+      display:block;
+    }
+
+    .hero-media{
+      position: relative;
+      flex: 1;
+      min-height: 280px;
+      overflow: hidden;
+      background: #f1f1f1;
+    }
+    .hero-media img{
+      position:absolute;
+      inset:0;
       width:100%;
-      font-size:1.05rem;
-      border:none;outline:none;background:transparent;
-      padding:10px 2px;color:var(--text);
-    }
-    .search-input::placeholder{color:rgba(26,26,26,0.45)}
-    .search-actions{display:flex;gap:8px;align-items:center;flex:0 0 auto}
-    .search-pill{
-      height:40px;min-width:40px;padding:0 14px;border-radius:999px;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(255,255,255,0.60);
-      display:inline-flex;align-items:center;justify-content:center;
-      font-size:0.9rem;cursor:pointer;
-      transition:transform .12s ease, opacity .12s ease;
-      user-select:none;
-    }
-    .search-pill:active{transform:scale(0.98)}
-    .search-pill.ghost{background:transparent}
-
-    .search-hint{
-      padding:10px 18px 12px;
-      font-size:0.86rem;
-      color:rgba(26,26,26,0.55);
-      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
-    }
-    .kbd{
-      font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size:0.78rem;
-      padding:2px 8px;border-radius:8px;
-      border:1px solid rgba(0,0,0,0.12);
-      background:rgba(255,255,255,0.55);
-      color:rgba(26,26,26,0.65);
+      height:100%;
+      object-fit: cover;
     }
 
-    .search-body{
+    /* ✅ 텍스트가 이미지 위에 잘 보이도록 하단 그라데이션 */
+    .hero-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to top, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.35) 40%, rgba(255,255,255,0) 70%);
+      pointer-events:none;
+    }
+
+    /* ✅ 2) hero-bottom을 "이미지 위 오버레이"로 변경 */
+    .hero-bottom{
+      position:absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 2;
+      padding: 0;
+      background: transparent;     /* ✅ 흰 배경 제거 */
+    }
+
+    .hero-kicker{
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      font-weight: 900;
+      margin-bottom: 4px;
+      color: rgba(0,0,0,0.75);
+    }
+    .hero-title{
+      font-size: 1.08rem;
+      font-weight: 900;
+      line-height: 1.15;
+      color: rgba(0,0,0,0.88);
+      text-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    /* Philosophy / Recommend / Article: 기존 유지(필요한 것만 여기 남김) */
+    .philosophy{padding: 34px 0 0; background: transparent;}
+    .philosophy-slider{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;align-items:center}
+    .philosophy-nav{display:flex;gap:1rem;margin-bottom:1.2rem}
+    .philosophy-nav button{background:none;border:none;font-size:1.2rem;font-weight:500;color:rgba(0,0,0,0.22);cursor:pointer;transition:color 0.2s}
+    .philosophy-nav button.active{color:var(--text)}
+    .philosophy-content h3{font-size:1.2rem;font-weight:700;margin-bottom:0.9rem;line-height:1.4}
+    .philosophy-content p{color:var(--text-light);margin-bottom:0.9rem;line-height:1.8;font-size:0.95rem}
+    .philosophy-content a{font-size:0.9rem;text-decoration:underline}
+    .philosophy-image img{width:100%;height:320px;object-fit:cover;border-radius:14px}
+
+    .recommend{padding: 34px 0 0;}
+    .section-header{max-width:1400px;margin:0 auto 14px;display:flex;justify-content:space-between;align-items:flex-end}
+    .section-header h2{font-size:1.35rem;font-weight:900}
+    .section-header p{color:var(--text-light);font-size:0.9rem}
+
+    .products-grid{
+      max-width:1400px;
+      margin:0 auto;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:0;
-      min-height: 360px;
-    }
-    .search-pane{padding:16px 18px}
-    .search-pane + .search-pane{
-      border-left:1px solid rgba(0,0,0,0.06);
-      background:var(--glass-2);
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
     }
 
-    .pane-title{
-      display:flex;justify-content:space-between;align-items:center;
-      margin-bottom:10px;
+    .product-card{
+      position: relative;
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid rgba(0,0,0,0.55);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction: column;
+      min-height: 440px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
-    .pane-title h3{
-      font-size:0.85rem;text-transform:uppercase;letter-spacing:0.12em;
-      color:rgba(26,26,26,0.55);font-weight:600;
-    }
-    .pane-title button{
-      border:none;background:none;cursor:pointer;
-      font-size:0.85rem;color:rgba(26,26,26,0.55);
-      text-decoration:underline;padding:6px 0;
-    }
-
-    .chips{display:flex;flex-wrap:wrap;gap:10px}
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 12px;border-radius:999px;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(255,255,255,0.70);
-      cursor:pointer;
-      transition:opacity .12s ease, transform .12s ease;
-      max-width:100%;
-    }
-    .chip:hover{opacity:0.9}
-    .chip:active{transform:scale(0.98)}
-    .chip span{
-      max-width:220px;
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-      font-size:0.92rem;
-    }
-    .chip .x{
-      width:18px;height:18px;border-radius:6px;
-      display:flex;align-items:center;justify-content:center;
-      border:1px solid rgba(0,0,0,0.12);
-      font-size:0.85rem;opacity:0.55;
-    }
-    .chip .x:hover{opacity:0.9}
-
-    .suggestions{display:flex;flex-direction:column;gap:6px;margin-top:14px}
-    .suggestion{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:12px 12px;border-radius:14px;
-      cursor:pointer;
-      transition:background .12s ease;
-      border:1px solid transparent;
-    }
-    .suggestion:hover{background:rgba(26,26,26,0.05)}
-    .suggestion.active{
-      background:rgba(26,26,26,0.06);
-      border-color:rgba(26,26,26,0.10);
-    }
-    .s-left{display:flex;flex-direction:column;gap:2px;min-width:0}
-    .s-title{
-      font-size:0.96rem;font-weight:600;line-height:1.25;
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    }
-    .s-sub{
-      font-size:0.85rem;color:rgba(26,26,26,0.55);
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    }
-    .s-price{
-      font-size:0.92rem;font-weight:600;color:rgba(26,26,26,0.75);
-      margin-left:10px;white-space:nowrap;
+    .product-card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
     }
 
-    .rec-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:8px}
-    .rec-card{
-      display:grid;grid-template-columns:64px 1fr;gap:12px;
-      padding:12px;border-radius:16px;
-      background:rgba(255,255,255,0.65);
-      border:1px solid rgba(0,0,0,0.08);
-      box-shadow: var(--shadow-soft);
-      cursor:pointer;
-      transition:transform .12s ease, opacity .12s ease;
-    }
-    .rec-card:hover{opacity:0.95}
-    .rec-card:active{transform:scale(0.99)}
-    .rec-thumb{width:64px;height:64px;border-radius:14px;overflow:hidden;background:rgba(26,26,26,0.06)}
-    .rec-thumb img{width:100%;height:100%;object-fit:cover}
-    .rec-info{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px}
-    .rec-name{
-      font-weight:700;font-size:0.95rem;line-height:1.25;
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    }
-    .rec-meta{
-      font-size:0.84rem;color:rgba(26,26,26,0.55);
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    .product-card::after{
+      content:"+";
+      position:absolute;
+      top: 10px;
+      right: 10px;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(255,255,255,0.96);
+      border: 2px solid rgba(0,0,0,0.65);
+      font-weight: 900;
+      z-index: 2;
+      line-height: 1;
     }
 
-    .search-bottom{
-      padding:14px 18px;
-      border-top:1px solid rgba(0,0,0,0.06);
-      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-      background:rgba(255,255,255,0.65);
+    .product-card img{
+      width:100%;
+      height: 300px;
+      object-fit: contain;
+      background: rgba(255,255,255,0.96);
+      padding: 18px;
+      display:block;
     }
-    .search-bottom .left{font-size:0.88rem;color:rgba(26,26,26,0.60)}
-    .primary-btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      height:44px;padding:0 18px;border-radius:999px;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(26,26,26,0.92);
-      color:#fff;cursor:pointer;font-size:0.92rem;
-      transition:opacity .12s ease, transform .12s ease;
+
+    .product-card-info{
+      margin-top: auto;
+      padding: 12px 12px 14px;
+      background: rgba(0,0,0,0.55);
+      color: rgba(255,255,255,0.92);
+      border-top: 1px solid rgba(255,255,255,0.24);
     }
-    .primary-btn:hover{opacity:0.92}
-    .primary-btn:active{transform:scale(0.99)}
-    .muted-btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      height:44px;padding:0 16px;border-radius:999px;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(255,255,255,0.60);
-      cursor:pointer;font-size:0.92rem;
+    .product-card-info h3{
+      font-size: 0.95rem;
+      font-weight: 900;
+      margin-bottom: 6px;
+      line-height: 1.2;
     }
+    .product-card-info p{
+      font-size: 0.75rem;
+      line-height: 1.45;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    .article{padding: 28px 0 0; background: transparent;}
+    .article-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .article-card{display:grid;grid-template-columns:1.15fr 1fr;background:var(--white);border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,0.10);box-shadow:0 10px 26px rgba(0,0,0,0.05)}
+    .article-card img{width:100%;height:100%;object-fit:cover}
+    .article-card-content{padding:18px;display:flex;flex-direction:column;justify-content:center}
+    .article-card h3{font-size:1.05rem;font-weight:900;margin-bottom:8px}
+    .article-card p{font-size:0.88rem;color:var(--text-light);line-height:1.6}
 
     /* Responsive */
-    @media(max-width:1200px){
-      .hero-grid{grid-template-columns:repeat(2,1fr)}
-      .products-grid{grid-template-columns:repeat(2,1fr)}
+    @media (max-width: 1100px){
+      .hero-grid{grid-template-columns: repeat(2, 1fr);}
+      .products-grid{grid-template-columns: repeat(2, 1fr);}
+      .philosophy-slider{grid-template-columns: 1fr;}
+      .article-grid{grid-template-columns: 1fr;}
+      .article-card{grid-template-columns: 1fr;}
+      .article-card img{height: 220px;}
     }
-    @media(max-width:1024px){
-      .philosophy-slider{grid-template-columns:1fr}
-      .article-grid{grid-template-columns:1fr}
-      .footer-inner{grid-template-columns:repeat(3,1fr)}
+
+    @media (max-width: 740px){
+      .top-frame{padding: 10px;}
+      .top-collage{margin-top: 62px;}
+      .collage{grid-template-columns: 1fr;}
+      .collage-item{height: 260px;}
+      .hero-grid{grid-template-columns: 1fr;}
+      .products-grid{grid-template-columns: 1fr;}
     }
-    @media(max-width:820px){
-      .search-modal{padding:90px 12px calc(12px + var(--safe-bottom))}
-      .search-body{grid-template-columns:1fr}
-      .search-pane + .search-pane{border-left:none;border-top:1px solid rgba(0,0,0,0.06)}
-    }
-    @media(max-width:768px){
-      header{top:10px;left:10px;right:10px;border-radius:30px}
-      .header-inner{padding:0.8rem 1.2rem}
-      .desktop-nav{display:none}
-      .mobile-menu-btn{display:flex;align-items:center;justify-content:center}
-      .hero-grid{grid-template-columns:1fr;padding-top:70px}
-      .hero-card{min-height:350px}
-      .products-grid{grid-template-columns:1fr}
-      .article-card{grid-template-columns:1fr}
-      .footer-inner{grid-template-columns:1fr 1fr}
-      .section-header{flex-direction:column;align-items:flex-start;gap:0.5rem}
-    }
-    @media(max-width:480px){
-      .footer-inner{grid-template-columns:1fr}
+
+    .article{
+      padding-bottom: clamp(40px, 6vw, 110px);
     }
   </style>
 </head>
-<body>
 
-  <section class="video-hero-section">
-    <video autoplay muted loop playsinline poster="">
-      <source src="videos/video1.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+<body class="home">
+  <div class="home-wrap">
+    <div class="home-container">
 
-    <div class="video-overlay-content">
-      <h1>The Essence of Purity</h1>
-      <p>High-Concentration Skincare</p>
-    </div>
+      <!-- ✅ (1) 3장 콜라주 -->
+      <section class="top-frame">
+        <!-- ✅ 공통 헤더 주입 자리 -->
+        <div id="siteHeader"></div>
 
-    <div class="scroll-indicator" onclick="window.scrollBy({top: window.innerHeight, behavior: 'smooth'})">↓</div>
-  </section>
+        <div class="top-collage">
+          <div class="collage">
+            <div class="collage-item">
+              <img src="/images/2.jpg" alt="Skincare Collection" loading="eager" />
+              <div class="collage-copy">SKINCARE<br/>COLLECTION</div>
+            </div>
 
-  <header>
-    <div class="header-inner">
-      <a href="home.html" class="logo">CELDYQUE</a>
-      <nav class="desktop-nav">
-        <div class="nav-item">
-          <a href="shop.html">Shop</a>
-          <div class="mega-menu">
-            <a href="shop.html">All</a>
-            <a href="shop.html?cat=serum">Serum</a>
-            <a href="shop.html?cat=cream">Cream</a>
-            <a href="shop.html?cat=cleanser">Cleanser</a>
+            <div class="collage-item">
+              <img src="/images/1.jpg" alt="Exclusive Collection" loading="eager" />
+              <div class="collage-copy center">
+                ENHANCE<br/>YOUR<br/>BEAUTY AND<br/>SKINCARE<br/>CONTENT<br/>WITH THIS<br/>EXCLUSIVE<br/>COLLECTION
+              </div>
+            </div>
+
+            <div class="collage-item">
+              <img src="/images/7.jpg" alt="Texture" loading="eager" />
+            </div>
           </div>
         </div>
-        <div class="nav-item">
-          <a href="about.html">About</a>
-          <div class="mega-menu">
-            <a href="about.html">Brand Story</a>
-            <a href="coming-soon.html">Coming Soon</a>
-            <a href="contact.html">Contact</a>
+      </section>
+
+      <!-- ✅ (2) hero-grid: 텍스트가 이미지 위로 -->
+      <section class="hero-grid">
+        <a href="/shop.html" class="hero-card">
+          <div class="hero-topbar">
+            <span>Shop Now</span>
+            <span class="open" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7"></path>
+                <path d="M10 7h7v7"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="hero-media">
+            <img src="/images/5.jpg" alt="New Product" loading="eager" />
+            <div class="hero-bottom">
+              <div class="hero-kicker">SHOP</div>
+              <div class="hero-title">New Product</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/about.html" class="hero-card">
+          <div class="hero-topbar">
+            <span>See More</span>
+            <span class="open" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7"></path>
+                <path d="M10 7h7v7"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="hero-media">
+            <img src="/images/4.jpg" alt="Brand Story" loading="lazy" />
+            <div class="hero-bottom">
+              <div class="hero-kicker">OUR STORY</div>
+              <div class="hero-title">Brand Story</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/coming-soon.html" class="hero-card">
+          <div class="hero-topbar">
+            <span>See More</span>
+            <span class="open" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7"></path>
+                <path d="M10 7h7v7"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="hero-media">
+            <img src="/images/3.jpg" alt="Archive" loading="lazy" />
+            <div class="hero-bottom">
+              <div class="hero-kicker">ARCHIVE</div>
+              <div class="hero-title">New Season</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="/shop.html" class="hero-card">
+          <div class="hero-topbar">
+            <span>See More</span>
+            <span class="open" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7"></path>
+                <path d="M10 7h7v7"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="hero-media">
+            <img src="/images/6.jpg" alt="Best Sellers" loading="lazy" />
+            <div class="hero-bottom">
+              <div class="hero-kicker">PRODUCT</div>
+              <div class="hero-title">Best Sellers</div>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <!-- Philosophy -->
+      <section class="philosophy">
+        <div class="philosophy-slider">
+          <div class="philosophy-text">
+            <div class="philosophy-nav">
+              <button class="active" data-slide="0">①</button>
+              <button data-slide="1">②</button>
+              <button data-slide="2">③</button>
+              <button data-slide="3">④</button>
+            </div>
+            <div class="philosophy-content" id="philosophyContent">
+              <h3>We aim to find and provide ingredients with proven efficacy through research and clinical studies.</h3>
+              <p>새로운 연구자료와 논문 등을 통해 입증된 효능 원료를 찾아 제공하고자 합니다.</p>
+              <a href="/about.html">Read more</a>
+            </div>
+          </div>
+
+          <div class="philosophy-image">
+            <img src="/images/10.jpg" alt="Philosophy" id="philosophyImage" loading="lazy" />
           </div>
         </div>
-        <div class="nav-item"><a href="store.html">Store</a></div>
-        <div class="nav-item"><a href="faq.html">FAQ</a></div>
-      </nav>
-      <div class="header-right">
-        <button class="search-btn" onclick="openSearch()" aria-label="Search">
-          Search
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-        </button>
+      </section>
 
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-          <div class="hamburger"><span></span><span></span><span></span></div>
-        </button>
-      </div>
+      <!-- Recommend -->
+      <section class="recommend">
+        <div class="section-header">
+          <div>
+            <h2>Recommend Product</h2>
+            <p>Offer The Perfect Product You've Been Looking For.</p>
+          </div>
+        </div>
+
+        <div class="products-grid">
+          <a href="/product-detail.html?sku=volufiline-100" class="product-card">
+            <img src="/images/t2.png" alt="100% Volufiline Concentrate" loading="lazy" />
+            <div class="product-card-info">
+              <h3>100%Volufiline Concentrate</h3>
+              <p>Volume &nbsp;|&nbsp; 10ml</p>
+              <p>100% Volufiline – Boosts lipid synthesis to enhance skin volume and firmness.</p>
+            </div>
+          </a>
+
+          <a href="/product-detail.html?sku=bakuchiol-30000" class="product-card">
+            <img src="/images/t3.png" alt="Bakuchiol 30,000ppm Serum" loading="lazy" />
+            <div class="product-card-info">
+              <h3>Bakuchiol 30,000ppm Serum</h3>
+              <p>Volume &nbsp;|&nbsp; 10ml</p>
+              <p>Comfortable retinol-alternative for elasticity & texture care.</p>
+            </div>
+          </a>
+
+          <a href="/product-detail.html?sku=pdrn-25" class="product-card">
+            <img src="/images/t4.png" alt="PDRN 25% Concentrate" loading="lazy" />
+            <div class="product-card-info">
+              <h3>PDRN 25% Concentrate</h3>
+              <p>Volume &nbsp;|&nbsp; 10ml</p>
+              <p>Focused skin repair and elasticity care for stressed skin.</p>
+            </div>
+          </a>
+
+          <a href="/product-detail.html?sku=pdrn-12-egf" class="product-card">
+            <img src="/images/t5.png" alt="PDRN 12% + EGF Peptide Serum" loading="lazy" />
+            <div class="product-card-info">
+              <h3>PDRN 12% + EGF Peptide Serum</h3>
+              <p>Volume &nbsp;|&nbsp; 10ml</p>
+              <p>Synergy formula for visible texture refinement and bounce.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Article -->
+      <section class="article">
+        <div class="section-header">
+          <div>
+            <h2>Article</h2>
+            <p>Our journey to find the perfect formula.</p>
+          </div>
+        </div>
+
+        <div class="article-grid">
+          <div class="article-card">
+            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=900&h=600&fit=crop" alt="Article" loading="lazy" />
+            <div class="article-card-content">
+              <h3>CELDYQUE : Colon</h3>
+              <p>There is a punctuation mark called the colon. It is used to indicate and explain differences. Each person may have different skin concerns...</p>
+            </div>
+          </div>
+
+          <div class="article-card">
+            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=900&h=600&fit=crop" alt="Coming Soon" loading="lazy" />
+            <div class="article-card-content">
+              <h3>Coming Soon</h3>
+              <p>New article coming soon. Stay tuned for more insights into skincare science and ingredient research.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ✅ 공통 푸터 -->
+      <div id="siteFooter"></div>
+
     </div>
-  </header>
-
-  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <nav class="mobile-menu-nav">
-      <a href="shop.html">Shop</a>
-      <div class="mobile-menu-sub">
-        <a href="shop.html">All</a>
-        <a href="shop.html?cat=serum">Serum</a>
-        <a href="shop.html?cat=cream">Cream</a>
-        <a href="shop.html?cat=cleanser">Cleanser</a>
-      </div>
-      <a href="about.html">About</a>
-      <div class="mobile-menu-sub">
-        <a href="about.html">Brand Story</a>
-        <a href="coming-soon.html">Coming Soon</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <a href="store.html">Store</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
   </div>
 
-  <!-- =========================
-       SEARCH MODAL (UPGRADED)
-  ========================== -->
-  <div class="search-modal" id="searchModal" onclick="closeSearch(event)" aria-hidden="true">
-    <div class="search-shell" role="dialog" aria-modal="true" aria-label="Search">
-      <div class="search-top">
-        <div class="search-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-        </div>
-
-        <div class="search-input-wrap">
-          <input
-            type="search"
-            class="search-input"
-            placeholder="Search products (e.g., Volufiline, Niacinamide 20%)"
-            id="searchInput"
-            autocomplete="off"
-            aria-autocomplete="list"
-            aria-controls="suggestionList"
-          />
-        </div>
-
-        <div class="search-actions">
-          <div class="search-pill ghost" id="clearBtn" title="Clear">Clear</div>
-          <div class="search-pill" onclick="closeSearchForce()" title="Close">ESC</div>
-        </div>
-      </div>
-
-      <div class="search-hint">
-        <div>Enter to search · ↑↓ navigate · Esc to close</div>
-        <div><span class="kbd">Enter</span> <span class="kbd">↑</span> <span class="kbd">↓</span> <span class="kbd">Esc</span></div>
-      </div>
-
-      <div class="search-body">
-        <div class="search-pane">
-          <div class="pane-title">
-            <h3>Recent</h3>
-            <button id="clearRecentBtn" type="button">Clear all</button>
-          </div>
-          <div class="chips" id="recentChips"></div>
-
-          <div class="pane-title" style="margin-top:18px">
-            <h3>Results</h3>
-            <span style="font-size:.85rem;color:rgba(26,26,26,0.55)" id="resultCount">0 items</span>
-          </div>
-          <div class="suggestions" id="suggestionList" role="listbox" aria-label="Suggestions"></div>
-        </div>
-
-        <div class="search-pane">
-          <div class="pane-title">
-            <h3>Recommended</h3>
-            <span style="font-size:.85rem;color:rgba(26,26,26,0.55)">Curated picks</span>
-          </div>
-          <div class="rec-grid" id="recommendGrid"></div>
-        </div>
-      </div>
-
-      <div class="search-bottom">
-        <div class="left" id="searchStatus">Type to search products.</div>
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <button class="muted-btn" type="button" onclick="goShop()">Go to Shop</button>
-          <button class="primary-btn" type="button" id="viewAllBtn">Search</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="hero-grid">
-    <a href="shop.html" class="hero-card">
-      <img src="/images/5.jpg" alt="New Products" loading="eager" />
-      <div class="hero-card-content">
-        <p class="hero-card-label">Shop</p>
-        <h2>New Product</h2>
-        <span class="hero-card-link">Shop Now →</span>
-      </div>
-    </a>
-    <a href="about.html" class="hero-card">
-      <img src="/images/4.jpg" alt="Our Story" loading="eager" />
-      <div class="hero-card-content">
-        <p class="hero-card-label">Our Story</p>
-        <h2>Brand Story</h2>
-        <span class="hero-card-link">See More →</span>
-      </div>
-    </a>
-    <a href="coming-soon.html" class="hero-card">
-      <img src="/images/3.jpg" alt="Coming Soon" loading="lazy" />
-      <div class="hero-card-content">
-        <p class="hero-card-label">Archive</p>
-        <h2>New Season</h2>
-        <span class="hero-card-link">See More →</span>
-      </div>
-    </a>
-    <a href="shop.html" class="hero-card">
-      <img src="/images/6.jpg" alt="Best Sellers" loading="lazy" />
-      <div class="hero-card-content">
-        <p class="hero-card-label">Product</p>
-        <h2>Best Sellers</h2>
-        <span class="hero-card-link">Shop Now →</span>
-      </div>
-    </a>
-  </section>
-
-  <section class="philosophy">
-    <div class="philosophy-slider">
-      <div class="philosophy-text">
-        <div class="philosophy-nav">
-          <button class="active" data-slide="0">①</button>
-          <button data-slide="1">②</button>
-          <button data-slide="2">③</button>
-          <button data-slide="3">④</button>
-        </div>
-        <div class="philosophy-content" id="philosophyContent">
-          <h3>We aim to find and provide ingredients with proven efficacy through research and clinical studies.</h3>
-          <p>새로운 연구자료와 논문 등을 통해 입증된 효능 원료를 찾아 제공하고자 합니다.</p>
-          <a href="about.html">Read more</a>
-        </div>
-      </div>
-      <div class="philosophy-image">
-        <img
-          src="images/10.jpg"
-          alt="Philosophy"
-          id="philosophyImage"
-          loading="lazy"
-        />
-      </div>
-    </div>
-  </section>
-
-  <section class="recommend">
-    <div class="section-header">
-      <div>
-        <h2>Recommend Product</h2>
-        <p>Offer The Perfect Product You've Been Looking For.</p>
-      </div>
-    </div>
-    <div class="products-grid">
-      <a href="product-detail.html" class="product-card">
-        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=450&fit=crop" alt="Volufiline 100%" loading="lazy" />
-        <div class="product-card-info">
-          <h3>Volufiline 100%</h3>
-          <!-- <p>$28.00</p> -->
-        </div>
-      </a>
-      <a href="product-detail.html" class="product-card">
-        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=450&fit=crop" alt="Niacinamide 20%" loading="lazy" />
-        <div class="product-card-info">
-          <h3>Niacinamide 20%</h3>
-        </div>
-      </a>
-      <a href="product-detail.html" class="product-card">
-        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=450&fit=crop" alt="Bakuchiol 30,000ppm" loading="lazy" />
-        <div class="product-card-info">
-          <h3>Bakuchiol 30,000ppm</h3>
-        </div>
-      </a>
-      <a href="product-detail.html" class="product-card">
-        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=450&fit=crop" alt="Vitamin C 20%" loading="lazy" />
-        <div class="product-card-info">
-          <h3>Vitamin C 20%</h3>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="article">
-    <div class="section-header">
-      <div>
-        <h2>Article</h2>
-        <p>Our journey to find the perfect formula.</p>
-      </div>
-    </div>
-    <div class="article-grid">
-      <div class="article-card">
-        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=450&fit=crop" alt="Article" loading="lazy" />
-        <div class="article-card-content">
-          <h3>CELDYQUE : Colon</h3>
-          <p>There is a punctuation mark called the colon. It is used to indicate and explain differences. Each person may have different skin concerns...</p>
-        </div>
-      </div>
-      <div class="article-card">
-        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=450&fit=crop" alt="Coming Soon" loading="lazy" />
-        <div class="article-card-content">
-          <h3>Coming Soon</h3>
-          <p>New article coming soon. Stay tuned for more insights into skincare science and ingredient research.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-top">
-      <p>CELDYQUE constantly researches optimal concentrations and true efficacy so that your skin can always remain in its perfect state.</p>
-    </div>
-    <div class="footer-inner">
-      <div class="footer-col">
-        <h4>Shop</h4>
-        <ul>
-          <li><a href="shop.html">All</a></li>
-          <li><a href="shop.html?cat=serum">Serum</a></li>
-          <li><a href="shop.html?cat=cream">Cream</a></li>
-          <li><a href="shop.html?cat=cleanser">Cleanser</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>About</h4>
-        <ul>
-          <li><a href="about.html">Brand Story</a></li>
-          <li><a href="coming-soon.html">Coming Soon</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Store</h4>
-        <ul>
-          <li><a href="store.html">Stores</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Community</h4>
-        <ul>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:team@celdyque.com">team@celdyque.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>CS Center: AM 10 - PM 17</p>
-      <p>© 2024 CELDYQUE. All Rights Reserved.</p>
-    </div>
-  </footer>
-
+  <!-- Philosophy Slider JS -->
   <script>
-    // Philosophy Slider Data
-    const slides = [
-      {
-        title: "We aim to find and provide ingredients with proven efficacy through research and clinical studies.",
-        desc: "새로운 연구자료와 논문 등을 통해 입증된 효능 원료를 찾아 제공하고자 합니다.",
-        img: "images/10.jpg"
-      },
-      {
-        title: "Maximum efficacy while providing comfortable use from the customer's perspective.",
-        desc: "최고의 효능을 유지하는 동시에 고객의 입장에서 편안한 사용감을 제공합니다.",
-        img: "images/7.jpg"
-      },
-      {
-        title: "We do not develop products recklessly to expand meaningless product lines.",
-        desc: "의미없는 제품라인의 확장을 위해 무분별한 제품을 개발하지 않습니다.",
-        img: "images/1.jpg"
-      },
-      {
-        title: "Find yourself regaining confidence with visibly transformed skin.",
-        desc: "눈에 보이는 변화를 통해 자신감을 되찾은 나를 발견할 수 있습니다.",
-        img: "images/14.jpg"
-      }
-    ];
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = [
+        { title: "We aim to find and provide ingredients with proven efficacy through research and clinical studies.",
+          desc: "새로운 연구자료와 논문 등을 통해 입증된 효능 원료를 찾아 제공하고자 합니다.",
+          img: "/images/10.jpg"
+        },
+        { title: "Maximum efficacy while providing comfortable use from the customer's perspective.",
+          desc: "최고의 효능을 유지하는 동시에 고객의 입장에서 편안한 사용감을 제공합니다.",
+          img: "/images/7.jpg"
+        },
+        { title: "We do not develop products recklessly to expand meaningless product lines.",
+          desc: "의미없는 제품라인의 확장을 위해 무분별한 제품을 개발하지 않습니다.",
+          img: "/images/1.jpg"
+        },
+        { title: "Find yourself regaining confidence with visibly transformed skin.",
+          desc: "눈에 보이는 변화를 통해 자신감을 되찾은 나를 발견할 수 있습니다.",
+          img: "/images/14.jpg"
+        }
+      ];
 
-    document.querySelectorAll('.philosophy-nav button').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        const idx=parseInt(btn.dataset.slide,10);
-        document.querySelectorAll('.philosophy-nav button').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('philosophyContent').innerHTML =
-          `<h3>${slides[idx].title}</h3><p>${slides[idx].desc}</p><a href="about.html">Read more</a>`;
-        document.getElementById('philosophyImage').src = slides[idx].img;
-      });
-    });
+      document.querySelectorAll('.philosophy-nav button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = parseInt(btn.dataset.slide, 10);
+          document.querySelectorAll('.philosophy-nav button').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
 
-    // Mobile Menu
-    const mobileMenuBtn=document.getElementById('mobileMenuBtn');
-    const mobileMenu=document.getElementById('mobileMenu');
-    const mobileMenuOverlay=document.getElementById('mobileMenuOverlay');
-    function toggleMenu(){
-      mobileMenuBtn.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      mobileMenuOverlay.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    }
-    mobileMenuBtn.addEventListener('click',toggleMenu);
-    mobileMenuOverlay.addEventListener('click',toggleMenu);
+          const content = document.getElementById('philosophyContent');
+          const img = document.getElementById('philosophyImage');
 
-    /* ===============================
-      SEARCH MODAL (UPGRADED)
-    =============================== */
-
-    const PRODUCT_CATALOG = [
-      {
-        id:"volufiline-100",
-        name:"Volufiline 100%",
-        subtitle:"Pure concentrate · Firming & volumizing",
-        url:"product-detail.html?sku=volufiline-100",
-        image:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop",
-        tags:["volufiline","firming","volume","sederma","concentrate"]
-      },
-      {
-        id:"niacinamide-20",
-        name:"Niacinamide 20%",
-        subtitle:"High-strength · Tone & texture",
-        url:"product-detail.html?sku=niacinamide-20",
-        image:"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop",
-        tags:["niacinamide","vitamin b3","texture","pores","serum"]
-      },
-      {
-        id:"bakuchiol-30000",
-        name:"Bakuchiol 30,000ppm",
-        subtitle:"Retinol-alternative · Elasticity care",
-        url:"product-detail.html?sku=bakuchiol-30000",
-        image:"https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=400&fit=crop",
-        tags:["bakuchiol","retinol alternative","elasticity","anti-aging"]
-      },
-      {
-        id:"test",
-        name:"test",
-        subtitle:"Brightening · Antioxidant",
-        url:"product-detail.html?sku=vitamin-c-20",
-        image:"https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?w=400&h=400&fit=crop",
-        tags:["vitamin c","ascorbic","glow","antioxidant"]
-      }
-    ];
-    const RECOMMENDED_IDS=["volufiline-100","bakuchiol-30000","niacinamide-20"];
-
-    const RECENT_KEY="celdyque_recent_searches_v1";
-    const RECENT_MAX=10;
-
-    function loadRecent(){
-      try{
-        const raw=localStorage.getItem(RECENT_KEY);
-        const arr=raw?JSON.parse(raw):[];
-        return Array.isArray(arr)?arr:[];
-      }catch(_){return[]}
-    }
-    function saveRecent(arr){localStorage.setItem(RECENT_KEY, JSON.stringify(arr.slice(0,RECENT_MAX)))}
-    function addRecent(query){
-      const q=(query||"").trim();
-      if(!q) return;
-      const prev=loadRecent();
-      const next=[q, ...prev.filter(x=>x.toLowerCase()!==q.toLowerCase())];
-      saveRecent(next);
-      renderRecent();
-    }
-    function removeRecent(query){
-      const prev=loadRecent();
-      const next=prev.filter(x=>x!==query);
-      saveRecent(next);
-      renderRecent();
-    }
-    function clearRecent(){saveRecent([]);renderRecent()}
-
-    const elModal=document.getElementById("searchModal");
-    const elInput=document.getElementById("searchInput");
-    const elSuggestionList=document.getElementById("suggestionList");
-    const elRecentChips=document.getElementById("recentChips");
-    const elResultCount=document.getElementById("resultCount");
-    const elStatus=document.getElementById("searchStatus");
-    const elRecommendGrid=document.getElementById("recommendGrid");
-    const elClearBtn=document.getElementById("clearBtn");
-    const elClearRecentBtn=document.getElementById("clearRecentBtn");
-    const elViewAllBtn=document.getElementById("viewAllBtn");
-
-    let currentResults=[];
-    let activeIndex=-1;
-
-    function normalize(str){return (str||"").toLowerCase().replace(/\s+/g," ").trim()}
-
-    function scoreProduct(p, qNorm){
-      const name=normalize(p.name);
-      const sub=normalize(p.subtitle);
-      const tags=(p.tags||[]).map(normalize).join(" ");
-      let score=0;
-      if(!qNorm) return 0;
-      if(name===qNorm) score+=100;
-      if(name.startsWith(qNorm)) score+=70;
-      if(name.includes(qNorm)) score+=45;
-      if(sub.includes(qNorm)) score+=15;
-      if(tags.includes(qNorm)) score+=12;
-
-      const tokens=qNorm.split(" ").filter(Boolean);
-      for(const t of tokens){
-        if(t.length<2) continue;
-        if(name.includes(t)) score+=10;
-        if(tags.includes(t)) score+=6;
-        if(sub.includes(t)) score+=4;
-      }
-      return score;
-    }
-
-    function searchProducts(query){
-      const qNorm=normalize(query);
-      if(!qNorm) return [];
-      return PRODUCT_CATALOG
-        .map(p=>({p, s:scoreProduct(p,qNorm)}))
-        .filter(x=>x.s>0)
-        .sort((a,b)=>b.s-a.s)
-        .map(x=>x.p)
-        .slice(0,8);
-    }
-
-    function setActive(index){
-      activeIndex=index;
-      const items=[...elSuggestionList.querySelectorAll(".suggestion")];
-      items.forEach((node,i)=>node.classList.toggle("active", i===activeIndex));
-    }
-
-    function openActive(){
-      if(activeIndex>=0 && currentResults[activeIndex]){
-        const p=currentResults[activeIndex];
-        addRecent(elInput.value);
-        window.location.href=p.url;
-        return;
-      }
-      viewAllSearch();
-    }
-
-    function viewAllSearch(){
-      const q=(elInput.value||"").trim();
-      if(!q) return;
-      addRecent(q);
-      window.location.href="shop.html?q="+encodeURIComponent(q);
-    }
-
-    function renderSuggestions(list, query){
-      elSuggestionList.innerHTML="";
-      currentResults=list;
-      activeIndex=-1;
-
-      elResultCount.textContent = `${list.length} item${list.length===1?"":"s"}`;
-
-      if(!query.trim()){
-        elStatus.textContent="Type to search products.";
-        return;
-      }
-
-      if(list.length===0){
-        elStatus.textContent="No matches. Try another keyword.";
-        elSuggestionList.innerHTML = `
-          <div style="padding:14px 12px;color:rgba(26,26,26,0.55);font-size:0.92rem">
-            No results for "<strong>${escapeHtml(query)}</strong>"
-          </div>`;
-        return;
-      }
-
-      elStatus.textContent="Use ↑↓ to navigate, Enter to open.";
-
-      list.forEach((p, idx)=>{
-        const el=document.createElement("div");
-        el.className="suggestion";
-        el.setAttribute("role","option");
-        el.innerHTML=`
-          <div class="s-left">
-            <div class="s-title">${highlight(p.name, query)}</div>
-            <div class="s-sub">${escapeHtml(p.subtitle)}</div>
-          </div>
-          <div class="s-price">$${p.price.toFixed(2)}</div>
-        `;
-        el.addEventListener("mouseenter", ()=>setActive(idx));
-        el.addEventListener("mouseleave", ()=>setActive(-1));
-        el.addEventListener("click", ()=>{
-          addRecent(query);
-          window.location.href=p.url;
+          content.innerHTML = `<h3>${slides[idx].title}</h3><p>${slides[idx].desc}</p><a href="/about.html">Read more</a>`;
+          img.src = slides[idx].img;
         });
-        elSuggestionList.appendChild(el);
       });
-    }
-
-    function renderRecent(){
-      const recents=loadRecent();
-      elRecentChips.innerHTML="";
-      if(recents.length===0){
-        elRecentChips.innerHTML = `
-          <div style="color:rgba(26,26,26,0.55);font-size:0.92rem;line-height:1.7">
-            No recent searches yet.
-          </div>`;
-        return;
-      }
-      recents.forEach(q=>{
-        const chip=document.createElement("div");
-        chip.className="chip";
-        chip.innerHTML=`<span>${escapeHtml(q)}</span><div class="x" title="Remove">×</div>`;
-        chip.addEventListener("click",(e)=>{
-          if(e.target && e.target.classList.contains("x")){
-            e.stopPropagation();
-            removeRecent(q);
-            return;
-          }
-          elInput.value=q;
-          handleInput();
-          elInput.focus();
-        });
-        elRecentChips.appendChild(chip);
-      });
-    }
-
-    function renderRecommended(){
-      elRecommendGrid.innerHTML="";
-      const items=RECOMMENDED_IDS.map(id=>PRODUCT_CATALOG.find(p=>p.id===id)).filter(Boolean);
-      items.forEach(p=>{
-        const card=document.createElement("div");
-        card.className="rec-card";
-        card.innerHTML=`
-          <div class="rec-thumb"><img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy"></div>
-          <div class="rec-info">
-            <div class="rec-name">${escapeHtml(p.name)}</div>
-            <div class="rec-meta">${escapeHtml(p.subtitle)} · $${p.price.toFixed(2)}</div>
-          </div>
-        `;
-        card.addEventListener("click",()=>window.location.href=p.url);
-        elRecommendGrid.appendChild(card);
-      });
-    }
-
-    function handleInput(){
-      const q=elInput.value||"";
-      elClearBtn.style.opacity = q.trim() ? "1" : "0.6";
-      const results=searchProducts(q);
-      renderSuggestions(results, q);
-    }
-
-    // body scroll lock for modal (reuse menu-open)
-    let scrollY=0;
-    function lockBody(){
-      scrollY = window.scrollY || 0;
-      document.body.style.top = `-${scrollY}px`;
-      document.body.classList.add("menu-open");
-    }
-    function unlockBody(){
-      document.body.classList.remove("menu-open");
-      const y = Math.abs(parseInt(document.body.style.top || "0", 10)) || scrollY;
-      document.body.style.top = "";
-      window.scrollTo(0, y);
-    }
-
-    function openSearch(){
-      elModal.classList.add("active");
-      elModal.setAttribute("aria-hidden","false");
-      lockBody();
-      renderRecent();
-      renderRecommended();
-      handleInput();
-      setTimeout(()=>elInput.focus(), 30);
-    }
-    function closeSearch(e){
-      if(e && e.target && e.target.id !== "searchModal") return;
-      elModal.classList.remove("active");
-      elModal.setAttribute("aria-hidden","true");
-      unlockBody();
-    }
-    function closeSearchForce(){
-      elModal.classList.remove("active");
-      elModal.setAttribute("aria-hidden","true");
-      unlockBody();
-    }
-    function goShop(){window.location.href="shop.html"}
-
-    elInput.addEventListener("input", handleInput);
-    elInput.addEventListener("keydown",(e)=>{
-      const items=currentResults||[];
-      if(e.key==="ArrowDown"){
-        e.preventDefault(); if(!items.length) return;
-        setActive(Math.min(activeIndex+1, items.length-1));
-      }else if(e.key==="ArrowUp"){
-        e.preventDefault(); if(!items.length) return;
-        setActive(Math.max(activeIndex-1, 0));
-      }else if(e.key==="Enter"){
-        e.preventDefault(); openActive();
-      }else if(e.key==="Escape"){
-        closeSearchForce();
-      }
     });
-
-    document.addEventListener("keydown",(e)=>{
-      if(e.key==="Escape" && elModal.classList.contains("active")) closeSearchForce();
-      if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==="k"){
-        e.preventDefault();
-        if(!elModal.classList.contains("active")) openSearch();
-      }
-    });
-
-    elClearBtn.addEventListener("click",()=>{
-      elInput.value=""; handleInput(); elInput.focus();
-    });
-    elClearRecentBtn.addEventListener("click",()=>clearRecent());
-    elViewAllBtn.addEventListener("click",()=>viewAllSearch());
-
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
-    function highlight(text, query){
-      const t=String(text);
-      const q=String(query||"").trim();
-      if(!q) return escapeHtml(t);
-      const idx=t.toLowerCase().indexOf(q.toLowerCase());
-      if(idx<0) return escapeHtml(t);
-      const before=escapeHtml(t.slice(0,idx));
-      const mid=escapeHtml(t.slice(idx, idx+q.length));
-      const after=escapeHtml(t.slice(idx+q.length));
-      return `${before}<span style="text-decoration:underline; text-underline-offset:3px">${mid}</span>${after}`;
-    }
   </script>
+
+  <!-- ✅ 공통 JS -->
+  <script defer src="/assets/site.js"></script>
 </body>
 </html>
