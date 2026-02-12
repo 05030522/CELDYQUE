@@ -36,11 +36,7 @@
       color: var(--text);
     }
 
-    /* ✅ 1) 헤더가 왼쪽으로 붙는 문제 해결 핵심:
-       - header 자체를 건드리지 말고, header를 담는 #siteHeader 컨테이너를
-         top-frame 안에서 "정상 폭 + 중앙"으로 잡아준다.
-       - 그리고 주입되는 header가 absolute여도 기준이 top-frame이 되게 한다.
-    */
+
     body.home #siteHeader{
       position:absolute;
       width:auto;
@@ -52,18 +48,20 @@
 
     /* 공통 컨테이너 */
     .home-wrap{
-      padding: 18px 16px 0;
+      padding: 0px 100px 0;
     }
     .home-container{
       width: 100%;
-      max-width: 1180px;
+      max-width: var(--page-max);
       margin: 0 auto;
     }
 
-    /* -----------------------------------------
-      (1) TOP COLLAGE (스크린샷1)
-      - video-hero-section 제거 후 대체
-    ----------------------------------------- */
+    .top-frame.full-bleed{
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+
 
     .top-frame{
       position: relative;
@@ -367,6 +365,79 @@
     .article{
       padding-bottom: clamp(40px, 6vw, 110px);
     }
+
+    .top-frame{
+      position: relative;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 14px 44px rgba(0,0,0,0.12);
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    /* 헤더 공간 확보 (비디오 위에 겹치므로) */
+    .video-hero{
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+
+      /* ✅ 기존: margin-top:68px;  ← 삭제 */
+      margin-top: 0;
+
+      /* ✅ 헤더가 겹쳐도 메뉴가 안 가려지게 '안전 여백'만 확보 */
+      padding-top: calc(72px + var(--safe-top));
+
+      height: clamp(360px, 48vw, 680px); /* 비디오 더 크게 (원하면 숫자만 조절) */
+      background: #ddd;
+    }
+
+    /* 비디오 꽉 채우기 */
+    .video-hero video{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 비디오 위 가독성 오버레이 */
+    .video-hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.38) 0%,
+        rgba(0,0,0,0.10) 40%,
+        rgba(0,0,0,0.00) 70%
+      );
+      pointer-events:none;
+    }
+
+    /* 비디오 위 텍스트 (원하면 삭제 가능) */
+    .video-hero-copy{
+      position:absolute;
+      left: 26px;
+      bottom: 26px;
+      z-index: 2;
+      color: rgba(255,255,255,0.92);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.12;
+      font-size: 0.95rem;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.26);
+      max-width: 70%;
+    }
+
+    /* 모바일에서 높이 조금 줄이기 */
+    @media (max-width: 740px){
+      .video-hero{
+        margin-top: 62px;
+        height: 320px;
+      }
+    }
   </style>
 </head>
 
@@ -375,29 +446,28 @@
     <div class="home-container">
 
       <!-- ✅ (1) 3장 콜라주 -->
-      <section class="top-frame">
+      <section class="top-frame full-bleed">
         <!-- ✅ 공통 헤더 주입 자리 -->
         <div id="siteHeader"></div>
+        
+        <div class="video-hero">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/images/hero-poster.jpg"
+          >
+            <source src="/videos/video1.mp4" type="video/mp4" />
+          </video>
 
-        <div class="top-collage">
-          <div class="collage">
-            <div class="collage-item">
-              <img src="/images/2.jpg" alt="Skincare Collection" loading="eager" />
-              <div class="collage-copy">SKINCARE<br/>COLLECTION</div>
-            </div>
-
-            <div class="collage-item">
-              <img src="/images/1.jpg" alt="Exclusive Collection" loading="eager" />
-              <div class="collage-copy center">
-                ENHANCE<br/>YOUR<br/>BEAUTY AND<br/>SKINCARE<br/>CONTENT<br/>WITH THIS<br/>EXCLUSIVE<br/>COLLECTION
-              </div>
-            </div>
-
-            <div class="collage-item">
-              <img src="/images/7.jpg" alt="Texture" loading="eager" />
-            </div>
+          <!-- (선택) 비디오 위 텍스트 -->
+          <div class="video-hero-copy">
+            SKINCARE<br/>COLLECTION
           </div>
         </div>
+        
       </section>
 
       <!-- ✅ (2) hero-grid: 텍스트가 이미지 위로 -->
@@ -513,7 +583,7 @@
 
         <div class="products-grid">
           <a href="/product-detail.html?sku=volufiline-100" class="product-card">
-            <img src="/images/t2.png" alt="100% Volufiline Concentrate" loading="lazy" />
+            <img src="/images/J1.png" alt="100% Volufiline Concentrate" loading="lazy" />
             <div class="product-card-info">
               <h3>100%Volufiline Concentrate</h3>
               <p>Volume &nbsp;|&nbsp; 10ml</p>
@@ -522,7 +592,7 @@
           </a>
 
           <a href="/product-detail.html?sku=bakuchiol-30000" class="product-card">
-            <img src="/images/t3.png" alt="Bakuchiol 30,000ppm Serum" loading="lazy" />
+            <img src="/images/J2.png" alt="Bakuchiol 30,000ppm Serum" loading="lazy" />
             <div class="product-card-info">
               <h3>Bakuchiol 30,000ppm Serum</h3>
               <p>Volume &nbsp;|&nbsp; 10ml</p>
