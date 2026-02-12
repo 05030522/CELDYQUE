@@ -21,7 +21,7 @@ a{text-decoration:none;color:inherit}
 /* ===== Header (pill, one-bar) ===== */
 .site-header{
   position:fixed;
-  top: calc(12px + var(--safe-top));
+  top: calc(8px + var(--safe-top));
   left:50%;
   transform:translateX(-50%);
   width: min(var(--page-max), calc(100% - (var(--page-pad) * 2)));
