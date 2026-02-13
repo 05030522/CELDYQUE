@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CELDYQUE | Valentine's Renewal Opening</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f9f8f6;
+            --text: #1a1a1a;
+            --accent: #8a8a8a;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg);
+            color: var(--text);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        /* 왼쪽: 브랜드 이미지 영역 (이미지 5aecda.jpg 느낌 반영) */
+        .image-section {
+            flex: 1.2;
+            background: url('https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&q=80&w=1200') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .image-section { display: block; }
+        }
+
+        .content-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10% 8%;
+            background: var(--bg);
+            position: relative;
+        }
+
+        .brand-logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            position: absolute;
+            top: 60px;
+            left: 8%;
+        }
+
+        .status-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--accent);
+            max-width: 450px;
+            margin-bottom: 4rem;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 2rem;
+        }
+
+        .time-unit { display: flex; flex-direction: column; }
+
+        .time-value {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 400;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .time-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-top: 0.5rem;
+        }
+
+        .footer-info {
+            position: absolute;
+            bottom: 60px;
+            left: 8%;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .countdown-grid { gap: 1rem; }
+            .content-section { padding: 60px 10%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-section"></div>
+
+    <main class="content-section">
+        <div class="brand-logo">CELDYQUE</div>
+        
+        <div class="main-text">
+            <span class="status-tag">Valentine's Special Launch</span>
+            <h1>A Gift for <br>Your True Skin</h1>
+            <p>We are meticulously refining our digital experience for a more romantic encounter with your skin. Returning this Valentine's Day.</p>
+        </div>
+
+        <div class="countdown-grid">
+            <div class="time-unit">
+                <span class="time-value" id="days">00</span>
+                <span class="time-label">Days</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-value" id="hours">00</span>
+                <span class="time-label">Hours</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-value" id="minutes">00</span>
+                <span class="time-label">Mins</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-value" id="seconds">00</span>
+                <span class="time-label">Secs</span>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            Coming: Feb 14, 2026, 18:00 KST
+        </div>
+    </main>
+
+    <script>
+        // 날짜 수정: 2026년 2월 14일 18:00 (KST)
+        const targetDate = new Date("Feb 14, 2026 18:00:00 GMT+0900").getTime();
+
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.querySelector('.main-text').innerHTML = "<h1>Happy Valentine's Day</h1><p>CELDYQUE is now open.</p>";
+                return;
+            }
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(d).padStart(2, '0');
+            document.getElementById("hours").innerText = String(h).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(m).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(s).padStart(2, '0');
+        };
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
