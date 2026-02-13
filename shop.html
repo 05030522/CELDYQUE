@@ -4,986 +4,518 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Shop | CELDYQUE</title>
-  <meta name="description" content="Shop CELDYQUE high-concentration skincare. Serums, creams, cleansers with clinically proven ingredients." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/pa2.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/pa2.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pa2.jpg">
+
+  <meta name="description" content="Shop CELDYQUE high-concentration skincare. Serums, creams, cleansers with clinically proven ingredients.">
+  <meta name="theme-color" content="#1a1a1a" />
+  <link rel="canonical" href="https://www.celdyque.com/shop.html" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+
+  <!-- ✅ 공통 CSS -->
+  <link rel="stylesheet" href="/assets/site.css">
 
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --bg:#f5f5f5;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;--font:'Inter',-apple-system,sans-serif;--tap:48px;
-
-      /* ✅ HOME 검색모달 변수 */
-      --safe-bottom:env(safe-area-inset-bottom,0);
-      --shadow:0 18px 60px rgba(0,0,0,0.14);
-      --shadow-soft:0 10px 30px rgba(0,0,0,0.10);
-      --radius:18px;
-      --glass: rgba(255,255,255,0.86);
-      --glass-2: rgba(245,245,245,0.60);
-    }
-    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
-    body.menu-open{overflow:hidden;position:fixed;width:100%}
-    a{text-decoration:none;color:inherit}
-
-    header{position:fixed;top:20px;left:20px;right:20px;z-index:1000;background:var(--bg);border-radius:50px;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
-    .header-inner{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}
-    .logo{font-size:1.3rem;font-weight:600;letter-spacing:0.05em}
-    .desktop-nav{display:flex;gap:2.5rem}
-    .nav-item{position:relative}
-    .nav-item>a{font-size:0.9rem;min-height:var(--tap);display:flex;align-items:center;padding:0 0.5rem}
-    .mega-menu{position:absolute;top:100%;left:-20px;background:var(--white);border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.1);padding:1.5rem;min-width:200px;opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s}
-    .nav-item:hover .mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
-    .mega-menu a{display:block;padding:0.6rem 0;font-size:0.85rem;color:var(--text-light)}
-    .mega-menu a:hover{color:var(--text)}
-    .header-right{display:flex;align-items:center;gap:1rem}
-    .search-btn{display:flex;align-items:center;gap:0.5rem;background:none;border:none;font-size:0.9rem;cursor:pointer;min-width:var(--tap);min-height:var(--tap)}
-    .mobile-menu-btn{display:none;background:none;border:none;cursor:pointer;min-width:var(--tap);min-height:var(--tap);padding:12px}
-    .hamburger{width:24px;height:18px;display:flex;flex-direction:column;justify-content:space-between}
-    .hamburger span{display:block;width:100%;height:2px;background:var(--text);transition:all 0.3s}
-    .mobile-menu-btn.active .hamburger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-    .mobile-menu-btn.active .hamburger span:nth-child(2){opacity:0}
-    .mobile-menu-btn.active .hamburger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-
-    .mobile-menu-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999}
-    .mobile-menu-overlay.active{display:block}
-    .mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:400px;height:100dvh;background:var(--white);z-index:1001;transition:right 0.3s;padding:100px 2rem 2rem;overflow-y:auto}
-    .mobile-menu.active{right:0}
-    .mobile-menu-nav a{display:block;font-size:1.3rem;font-weight:500;padding:1rem 0;border-bottom:1px solid var(--border)}
-    .mobile-menu-sub{padding-left:1rem}
-    .mobile-menu-sub a{font-size:1rem;font-weight:400;color:var(--text-light)}
-
-    .page-content{padding:140px 5% 80px;max-width:1600px;margin:0 auto}
-    .page-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
-    .page-header-left .label{font-size:0.85rem;color:var(--text-light);margin-bottom:0.3rem}
-    .page-header-left h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600}
-
-    /* Filter */
-    .filter-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
-    .filter-tabs{display:flex;gap:0.5rem}
-    .filter-tabs button{padding:0.7rem 1.5rem;background:var(--white);border:none;border-radius:50px;font-size:0.85rem;cursor:pointer;transition:all 0.3s;min-height:44px}
-    .filter-tabs button.active{background:var(--text);color:var(--white)}
-    .sort-select{padding:0.7rem 1.5rem;background:var(--white);border:none;border-radius:8px;font-size:0.85rem;min-height:44px}
-
-    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-    .product-card{background:var(--white);border-radius:12px;overflow:hidden;transition:transform 0.3s}
-    .product-card:hover{transform:translateY(-5px)}
-    .product-card-info{padding:1.5rem}
-    .product-card h3{font-size:1rem;font-weight:500;margin-bottom:0.3rem}
-    .product-card .desc{font-size:0.85rem;color:var(--text-light);margin-bottom:0.5rem}
-    .product-card .price{font-weight:600}
-
-    /* ✅ 썸네일 프레임 + 제품별 튜닝(x/y/zoom/pos) */
-    .product-card .thumb{
-      height:350px;
-      overflow:hidden;
-      background:#f3f3f3;
-    }
-    .product-card .thumb img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position: var(--pos, 50% 50%);
-      transform: translate(var(--x, 0px), var(--y, 0px)) scale(var(--zoom, 1));
-      transform-origin:center;
-      transition: transform .15s ease, object-position .15s ease;
-      display:block;
-    }
-    /* ✅ 튜닝 모드 선택 표시 */
-    .product-card.tuning{
-      outline:2px solid rgba(26,26,26,0.35);
-      outline-offset:4px;
-      border-radius:14px;
+    body.shop{
+      background: var(--bg);
+      color: var(--text);
     }
 
-    footer{padding:60px 5% 30px;background:var(--text);color:var(--white)}
-    .footer-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:2rem}
-    .footer-col h4{font-size:0.8rem;font-weight:600;margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.1em}
-    .footer-col ul{list-style:none}
-    .footer-col li{margin-bottom:0.5rem}
-    .footer-col a{font-size:0.85rem;opacity:0.7}
-    .footer-bottom{max-width:1400px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;opacity:0.5}
-
-    @media(max-width:1200px){.products-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:1024px){.products-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:768px){
-      header{top:10px;left:10px;right:10px;border-radius:30px}
-      .header-inner{padding:0.8rem 1.2rem}
-      .desktop-nav{display:none}
-      .mobile-menu-btn{display:flex;align-items:center;justify-content:center}
-      .products-grid{grid-template-columns:1fr}
-      .product-card .thumb{height:280px} /* ✅ 모바일 썸네일 높이 */
-      .footer-inner{grid-template-columns:1fr 1fr}
-      .filter-tabs{flex-wrap:wrap}
+    /* home.html과 동일: 헤더는 상단 프레임 위에 겹치도록 */
+    body.shop #siteHeader{
+      position:absolute;
+      width:auto;
+      max-width:none;
+      margin:0;
+      z-index:60;
+      pointer-events:auto;
     }
 
-    /* ================================
-       ✅ HOME 검색 모달 CSS (그대로)
-    ================================= */
-    .search-modal{
-      display:none;position:fixed;inset:0;z-index:2000;
-      background:rgba(0,0,0,0.50);
-      align-items:flex-start;justify-content:center;
-      padding:110px 16px calc(16px + var(--safe-bottom));
+    .page-wrap{
+      padding: 0px 30px 0;
     }
-    .search-modal.active{display:flex}
+    .page-container{
+      width: 100%;
+      max-width: var(--page-max);
+      margin: 0 auto;
+    }
 
-    .search-shell{
-      width:100%;max-width:760px;
-      background:var(--glass);
-      backdrop-filter: blur(14px);
-      border:1px solid rgba(255,255,255,0.65);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    /* full-bleed 상단 프레임(스크린샷 shop1 느낌) */
+    .top-frame.full-bleed{
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+    .top-frame{
+      position: relative;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 14px 44px rgba(0,0,0,0.12);
+      padding: 12px;
       overflow:hidden;
     }
 
-    .search-top{
-      padding:18px 18px 14px;
-      border-bottom:1px solid rgba(0,0,0,0.06);
-      display:flex;gap:12px;align-items:center;
+    /* ✅ shop1 상단 큰 비주얼 */
+    .shop-hero{
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+
+      /* 헤더가 겹치므로 안전 여백 확보 */
+      padding-top: calc(72px + var(--safe-top));
+      height: clamp(260px, 28vw, 420px);
+      background: #d9d9d9;
     }
-    .search-icon{
-      width:40px;height:40px;border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
-      background:rgba(26,26,26,0.06);
-      flex:0 0 auto;
-    }
-    .search-input-wrap{flex:1;min-width:0}
-    .search-input{
+    .shop-hero img{
+      position:absolute;
+      left:0; right:0;
+      top: calc(-72px - var(--safe-top));
+      bottom:0;
       width:100%;
-      font-size:1.05rem;
-      border:none;outline:none;background:transparent;
-      padding:10px 2px;color:var(--text);
-    }
-    .search-input::placeholder{color:rgba(26,26,26,0.45)}
-    .search-actions{display:flex;gap:8px;align-items:center;flex:0 0 auto}
-    .search-pill{
-      height:40px;min-width:40px;padding:0 14px;border-radius:999px;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(255,255,255,0.60);
-      display:inline-flex;align-items:center;justify-content:center;
-      font-size:0.9rem;cursor:pointer;
-      transition:transform .12s ease, opacity .12s ease;
-      user-select:none;
-    }
-    .search-pill:active{transform:scale(0.98)}
-    .search-pill.ghost{background:transparent}
-
-    .search-hint{
-      padding:10px 18px 12px;
-      font-size:0.86rem;
-      color:rgba(26,26,26,0.55);
-      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
-    }
-    .kbd{
-      font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size:0.78rem;
-      padding:2px 8px;border-radius:8px;
-      border:1px solid rgba(0,0,0,0.12);
-      background:rgba(255,255,255,0.55);
-      color:rgba(26,26,26,0.65);
+      height: calc(100% + 72px + var(--safe-top));
+      object-fit: cover;
+      filter: saturate(0.98) contrast(0.98);
     }
 
-    .search-body{
+    /* ✅ 본문 레이아웃: 좌측 카테고리 + 우측 그리드 */
+    .shop-section{
+      padding: 80px 0 0;
+    }
+
+    .shop-layout{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:0;
-      min-height: 360px;
-    }
-    .search-pane{padding:16px 18px}
-    .search-pane + .search-pane{
-      border-left:1px solid rgba(0,0,0,0.06);
-      background:var(--glass-2);
+      grid-template-columns: 180px 1fr;
+      gap: 26px;
+      align-items:start;
     }
 
-    .pane-title{
-      display:flex;justify-content:space-between;align-items:center;
-      margin-bottom:10px;
+    .shop-title{
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 4px 0 0;
     }
-    .pane-title h3{
-      font-size:0.85rem;text-transform:uppercase;letter-spacing:0.12em;
-      color:rgba(26,26,26,0.55);font-weight:600;
-    }
-    .pane-title button{
-      border:none;background:none;cursor:pointer;
-      font-size:0.85rem;color:rgba(26,26,26,0.55);
-      text-decoration:underline;padding:6px 0;
+    .shop-breadcrumb{
+      font-size: 0.9rem;
+      color: rgba(0,0,0,0.55);
+      margin-bottom: 10px;
+      font-weight: 600;
     }
 
-    .chips{display:flex;flex-wrap:wrap;gap:10px}
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 12px;border-radius:999px;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(255,255,255,0.70);
+    /* 좌측 카테고리(스크린샷처럼 심플 텍스트) */
+    .shop-side{
+      padding-top: 58px;
+    }
+    .filter-list{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .filter-btn{
+      appearance:none;
+      border:0;
+      background: transparent;
+      text-align:left;
+      padding: 8px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+      color: rgba(0,0,0,0.62);
       cursor:pointer;
-      transition:opacity .12s ease, transform .12s ease;
-      max-width:100%;
+      transition: background 0.15s ease, color 0.15s ease;
     }
-    .chip:hover{opacity:0.9}
-    .chip:active{transform:scale(0.98)}
-    .chip span{
-      max-width:220px;
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-      font-size:0.92rem;
+    .filter-btn:hover{
+      background: rgba(0,0,0,0.04);
+      color: rgba(0,0,0,0.78);
     }
-    .chip .x{
-      width:18px;height:18px;border-radius:6px;
-      display:flex;align-items:center;justify-content:center;
-      border:1px solid rgba(0,0,0,0.12);
-      font-size:0.85rem;opacity:0.55;
-    }
-    .chip .x:hover{opacity:0.9}
-
-    .suggestions{display:flex;flex-direction:column;gap:6px;margin-top:14px}
-    .suggestion{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:12px 12px;border-radius:14px;
-      cursor:pointer;
-      transition:background .12s ease;
-      border:1px solid transparent;
-    }
-    .suggestion:hover{background:rgba(26,26,26,0.05)}
-    .suggestion.active{
-      background:rgba(26,26,26,0.06);
-      border-color:rgba(26,26,26,0.10);
-    }
-    .s-left{display:flex;flex-direction:column;gap:2px;min-width:0}
-    .s-title{
-      font-size:0.96rem;font-weight:600;line-height:1.25;
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    }
-    .s-sub{
-      font-size:0.85rem;color:rgba(26,26,26,0.55);
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    }
-    .s-price{
-      font-size:0.92rem;font-weight:600;color:rgba(26,26,26,0.75);
-      margin-left:10px;white-space:nowrap;
+    .filter-btn.active{
+      background: rgba(0,0,0,0.06);
+      color: rgba(0,0,0,0.88);
     }
 
-    .rec-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:8px}
-    .rec-card{
-      display:grid;grid-template-columns:64px 1fr;gap:12px;
-      padding:12px;border-radius:16px;
-      background:rgba(255,255,255,0.65);
-      border:1px solid rgba(0,0,0,0.08);
-      box-shadow: var(--shadow-soft);
-      cursor:pointer;
-      transition:transform .12s ease, opacity .12s ease;
+    /* 우측 카드 그리드 */
+    .shop-main{
+      padding-top: 30px;
     }
-    .rec-card:hover{opacity:0.95}
-    .rec-card:active{transform:scale(0.99)}
-    .rec-thumb{width:64px;height:64px;border-radius:14px;overflow:hidden;background:rgba(26,26,26,0.06)}
-    .rec-thumb img{width:100%;height:100%;object-fit:cover}
-    .rec-info{min-width:0;display:flex;flex-direction:column;justify-content:center;gap:2px}
-    .rec-name{
-      font-weight:700;font-size:0.95rem;line-height:1.25;
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    }
-    .rec-meta{
-      font-size:0.84rem;color:rgba(26,26,26,0.55);
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    .products-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
-    .search-bottom{
-      padding:14px 18px;
-      border-top:1px solid rgba(0,0,0,0.06);
-      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-      background:rgba(255,255,255,0.65);
+    /* shop1 느낌: 카드 테두리 얇고, 이미지 박스는 톤 다운 */
+    .p-card{
+      display:flex;
+      flex-direction:column;
+      text-decoration:none;
+      color: inherit;
     }
-    .search-bottom .left{font-size:0.88rem;color:rgba(26,26,26,0.60)}
-    .primary-btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      height:44px;padding:0 18px;border-radius:999px;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(26,26,26,0.92);
-      color:#fff;cursor:pointer;font-size:0.92rem;
-      transition:opacity .12s ease, transform .12s ease;
+    .p-img{
+      border-radius: 10px;
+      background: rgba(0,0,0,0.08);
+      overflow:hidden;
+      aspect-ratio: 1 / 1.25;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-    .primary-btn:hover{opacity:0.92}
-    .primary-btn:active{transform:scale(0.99)}
-    .muted-btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      height:44px;padding:0 16px;border-radius:999px;
-      border:1px solid rgba(0,0,0,0.10);
-      background:rgba(255,255,255,0.60);
-      cursor:pointer;font-size:0.92rem;
+    .p-img img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 18px;
+      background: transparent;
+      display:block;
+      transform: translateZ(0);
     }
 
-    @media(max-width:820px){
-      .search-modal{padding:90px 12px calc(12px + var(--safe-bottom))}
-      .search-body{grid-template-columns:1fr}
-      .search-pane + .search-pane{border-left:none;border-top:1px solid rgba(0,0,0,0.06)}
+    .p-info{
+      padding: 10px 2px 0;
+    }
+    .p-name{
+      font-weight: 900;
+      font-size: 0.96rem;
+      line-height: 1.15;
+      margin: 10px 0 6px;
+    }
+
+    .p-divider{
+      height: 2px;
+      background: rgba(0,0,0,0.85);
+      margin: 8px 0 8px;
+      border-radius: 999px;
+    }
+
+    .p-meta{
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.55);
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      padding-bottom: 0;
+      border-bottom: 0;     /* ✅ 제거 */
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .p-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 6px;
+    }
+    .tag{
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.30);
+      color: rgba(0,0,0,0.72);
+      background: rgba(255,255,255,0.75);
+      white-space:nowrap;
+    }
+
+    #siteFooter{
+      margin-top: 140px;
+    }
+
+    .p-divider-soft{
+      height: 2px;                      /* 더 얇게 */
+      background: rgba(0,0,0,0.40);     /* 더 옅게 */
+      margin: 10px 0 10px;              /* 위아래 간격 */
+      border-radius: 999px;
+    }
+
+    /* 반응형 */
+    @media (max-width: 1100px){
+      .shop-layout{grid-template-columns: 160px 1fr;}
+      .products-grid{grid-template-columns: repeat(2, 1fr);}
+    }
+    @media (max-width: 740px){
+      .page-wrap{padding: 0px 16px 0;}
+      .shop-layout{grid-template-columns: 1fr;}
+      .shop-side{padding-top: 0;}
+      .products-grid{grid-template-columns: 1fr;}
+      .shop-section{padding-top: 50px;}
     }
   </style>
 </head>
 
-<body>
-  <header>
-    <div class="header-inner">
-      <a href="home.html" class="logo">CELDYQUE</a>
-      <nav class="desktop-nav">
-        <div class="nav-item">
-          <a href="shop.html">Shop</a>
-          <div class="mega-menu">
-            <a href="shop.html">All</a>
-            <a href="shop.html?cat=serum">Serum</a>
-            <a href="shop.html?cat=cream">Cream</a>
-            <a href="shop.html?cat=cleanser">Cleanser</a>
-          </div>
-        </div>
-        <div class="nav-item">
-          <a href="about.html">About</a>
-          <div class="mega-menu">
-            <a href="about.html">Brand Story</a>
-            <a href="coming-soon.html">Coming Soon</a>
-            <a href="contact.html">Contact</a>
-          </div>
-        </div>
-        <div class="nav-item"><a href="store.html">Store</a></div>
-        <div class="nav-item"><a href="faq.html">FAQ</a></div>
-      </nav>
-      <div class="header-right">
-        <button class="search-btn" aria-label="Search" onclick="openSearch()">
-          Search
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-        </button>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-          <div class="hamburger"><span></span><span></span><span></span></div>
-        </button>
-      </div>
-    </div>
-  </header>
+<body class="shop">
+  <div class="page-wrap">
+    <div class="page-container">
 
-  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <nav class="mobile-menu-nav">
-      <a href="shop.html">Shop</a>
-      <div class="mobile-menu-sub">
-        <a href="shop.html">All</a><a href="shop.html?cat=serum">Serum</a><a href="shop.html?cat=cream">Cream</a><a href="shop.html?cat=cleanser">Cleanser</a>
-      </div>
-      <a href="about.html">About</a>
-      <a href="store.html">Store</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
+      <!-- ✅ 상단 프레임 + 헤더 주입 -->
+      <section class="top-frame full-bleed">
+        <div id="siteHeader"></div>
+
+        <!-- shop1 느낌: 상단 큰 이미지 -->
+        <div class="shop-hero" aria-label="Shop hero">
+          <!-- 형님이 원하는 비주얼로 교체 -->
+          <img src="/images/shop-hero.jpg" alt="CELDYQUE Shop Hero" loading="eager">
+        </div>
+      </section>
+
+      <!-- ✅ 본문 -->
+      <section class="shop-section">
+        <div class="shop-layout">
+
+          <!-- Left: Category -->
+          <aside class="shop-side">
+            <div class="shop-breadcrumb">Shop</div>
+            <div class="shop-title">All Products</div>
+
+            <div style="height:18px;"></div>
+
+            <div class="filter-list" role="tablist" aria-label="Product category filter">
+              <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+              <button class="filter-btn" data-filter="serum" role="tab" aria-selected="false">Serum</button>
+              <button class="filter-btn" data-filter="cream" role="tab" aria-selected="false">Cream</button>
+              <button class="filter-btn" data-filter="cleanser" role="tab" aria-selected="false">Cleanser</button>
+            </div>
+          </aside>
+
+          <!-- Right: Grid -->
+          <main class="shop-main">
+            <div class="products-grid" id="productsGrid">
+
+              <!-- ✅ 카드 예시들: data-cat로 필터 -->
+              <a class="p-card" href="/product-detail.html?sku=volufiline-100" data-cat="serum">
+                <div class="p-img">
+                  <img src="/images/J1.png" alt="100% Volufiline Concentrate" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">100% Volufiline<br/>Concentrate</div>
+                  <div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>10ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">Volufiline</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=bakuchiol-30000" data-cat="serum">
+                <div class="p-img">
+                  <img src="/images/J2.png" alt="Bakuchiol 30,000ppm Serum" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">Bakuchiol<br/>30,000ppm Serum</div>
+                  <div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>30ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">Bakuchiol</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=pdrn-25" data-cat="serum">
+                <div class="p-img">
+                  <img src="/images/t4.png" alt="PDRN 25% Concentrate" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">PDRN 25%<br/>Concentrate</div>
+                  <div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>30ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">PDRN</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=pdrn-12-egf" data-cat="serum">
+                <div class="p-img">
+                  <img src="/images/t5.png" alt="PDRN 12% + EGF Peptide Serum" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">PDRN 12% +<br/>EGF Peptide Serum</div><div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>30ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">PDRN</span>
+                    <span class="tag">EGF Peptide</span>
+                    <span class="tag">Volufiline</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=pdrn-12-egf-cream" data-cat="cream">
+                <div class="p-img">
+                  <img src="/images/cream1.png" alt="PDRN 12% + EGF Peptide Cream" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">PDRN 12% +<br/>EGF Peptide Cream</div><div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>50ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">PDRN</span>
+                    <span class="tag">EGF Peptide</span>
+                    <span class="tag">Volufiline</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=arbutxa-glow-cream" data-cat="cream">
+                <div class="p-img">
+                  <img src="/images/cream2.png" alt="ArbutXA Glow Cream" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">ArbutXA<br/>Glow Cream</div><div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>50ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">Arbutin</span>
+                    <span class="tag">TXA</span>
+                    <span class="tag">Niacinamide</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=gentle-cleanser" data-cat="cleanser">
+                <div class="p-img">
+                  <img src="/images/cleanser1.png" alt="Gentle Cleanser" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">Gentle Cleanser<br/>Purifying Touch</div><div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>150ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">Centella</span>
+                    <span class="tag">Green tea</span>
+                    <span class="tag">Tea tree</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=cleansing-oil" data-cat="cleanser">
+                <div class="p-img">
+                  <img src="/images/oil1.png" alt="Cleansing Oil" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">Pore Purifying<br/>Cleansing Oil</div><div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>200ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">Heartleaf</span>
+                    <span class="tag">Centella</span>
+                    <span class="tag">Mugwort</span>
+                    <span class="tag">Tea tree</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=glutathione-30000" data-cat="serum">
+                <div class="p-img">
+                  <img src="/images/glutathione.png" alt="Glutathione 30,000ppm Serum" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">Glutathione<br/>30,000ppm Serum</div>
+                  <div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>30ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">Glutathione</span>
+                    <span class="tag">Niacinamide</span>
+                    <span class="tag">Adenosine</span>
+                    <span class="tag">Ceramide</span>
+                    <span class="tag">5-Hyaluronic Acid Complex</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=azelaic-12" data-cat="serum">
+                <div class="p-img">
+                  <img src="/images/azelaic12.png" alt="Azelaic Acid 12% Serum" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">Azelaic Acid<br/> 12% Serum</div>
+                  <div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>30ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">Azelaic Acid</span>
+                    <span class="tag">Tranexamic Acid</span>
+                    <span class="tag">Salicylic Acid</span>
+                    <span class="tag">Centella Asiatica Extract</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=niacinamide-20-advanced" data-cat="serum">
+                <div class="p-img">
+                  <img src="/images/niacinamide20-advanced.png" alt="Niacinamide 20% Advanced Serum" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">Niacinamide 20%<br/>Advanced Serum</div>
+                  <div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>30ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">Niacinamide</span>
+                    <span class="tag">Hyaluronic Acid</span>
+                    <span class="tag">Green Tea Extract</span>
+                    <span class="tag">Beta-Glucan</span>
+                  </div>
+                </div>
+              </a>
+
+              <a class="p-card" href="/product-detail.html?sku=pore-purifying-cleansing-oil-20" data-cat="cleanser">
+                <div class="p-img">
+                  <img src="/images/pore-cleansing-oil-20ml.png" alt="Pore Purifying Cleansing Oil" loading="lazy">
+                </div>
+                <div class="p-info">
+                  <div class="p-name">Pore Purifying<br/>Cleansing Oil</div>
+                  <div class="p-divider"></div>
+                  <div class="p-meta"><span>Volume</span><span>|</span><span>20ml</span></div><div class="p-divider-soft"></div>
+                  <div class="p-tags">
+                    <span class="tag">Retinal</span>
+                    <span class="tag">Niacinamide</span>
+                    <span class="tag">Centella Asiatica Extract</span>
+                  </div>
+                </div>
+              </a>
+
+            </div>
+          </main>
+
+        </div>
+      </section>
+
+      <!-- ✅ 푸터 주입 -->
+      <div id="siteFooter"></div>
+
+    </div>
   </div>
 
-  <!-- ✅ HOME 검색 모달 -->
-  <div class="search-modal" id="searchModal" onclick="closeSearch(event)" aria-hidden="true">
-    <div class="search-shell" role="dialog" aria-modal="true" aria-label="Search">
-      <div class="search-top">
-        <div class="search-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-        </div>
-
-        <div class="search-input-wrap">
-          <input type="search" class="search-input" placeholder="Search products (e.g., Volufiline, Niacinamide 20%)"
-            id="searchInput" autocomplete="off" aria-autocomplete="list" aria-controls="suggestionList" />
-        </div>
-
-        <div class="search-actions">
-          <div class="search-pill ghost" id="clearBtn" title="Clear">Clear</div>
-          <div class="search-pill" onclick="closeSearchForce()" title="Close">ESC</div>
-        </div>
-      </div>
-
-      <div class="search-hint">
-        <div>Enter to search · ↑↓ navigate · Esc to close</div>
-        <div><span class="kbd">Enter</span> <span class="kbd">↑</span> <span class="kbd">↓</span> <span class="kbd">Esc</span></div>
-      </div>
-
-      <div class="search-body">
-        <div class="search-pane">
-          <div class="pane-title">
-            <h3>Recent</h3>
-            <button id="clearRecentBtn" type="button">Clear all</button>
-          </div>
-          <div class="chips" id="recentChips"></div>
-
-          <div class="pane-title" style="margin-top:18px">
-            <h3>Results</h3>
-            <span style="font-size:.85rem;color:rgba(26,26,26,0.55)" id="resultCount">0 items</span>
-          </div>
-          <div class="suggestions" id="suggestionList" role="listbox" aria-label="Suggestions"></div>
-        </div>
-
-        <div class="search-pane">
-          <div class="pane-title">
-            <h3>Recommended</h3>
-            <span style="font-size:.85rem;color:rgba(26,26,26,0.55)">Curated picks</span>
-          </div>
-          <div class="rec-grid" id="recommendGrid"></div>
-        </div>
-      </div>
-
-      <div class="search-bottom">
-        <div class="left" id="searchStatus">Type to search products.</div>
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <button class="muted-btn" type="button" onclick="goShop()">Go to Shop</button>
-          <button class="primary-btn" type="button" id="viewAllBtn">Search</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <main class="page-content">
-    <div class="page-header">
-      <div class="page-header-left">
-        <p class="label">Shop</p>
-        <h1 id="categoryTitle">All Products</h1>
-      </div>
-    </div>
-
-    <div class="filter-bar">
-      <div class="filter-tabs">
-        <button class="active" data-cat="all">All</button>
-        <button data-cat="serum">Serum</button>
-        <button data-cat="cream">Cream</button>
-        <button data-cat="cleanser">Cleanser</button>
-      </div>
-      <select class="sort-select" onchange="sortProducts(this.value)">
-        <option value="newest">Newest</option>
-        <option value="price-low">Price: Low to High</option>
-        <option value="price-high">Price: High to Low</option>
-      </select>
-    </div>
-
-    <div class="products-grid" id="productsGrid"></div>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-col"><h4>Shop</h4><ul><li><a href="shop.html">All</a></li><li><a href="shop.html?cat=serum">Serum</a></li><li><a href="shop.html?cat=cream">Cream</a></li><a href="shop.html?cat=cleanser">Cleanser</a></ul></div>
-      <div class="footer-col"><h4>About</h4><ul><li><a href="about.html">Brand Story</a></li><li><a href="coming-soon.html">Coming Soon</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h4>Store</h4><ul><li><a href="store.html">Stores</a></li></ul></div>
-      <div class="footer-col"><h4>Community</h4><ul><li><a href="faq.html">FAQ</a></li></ul></div>
-      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:team@celdyque.com">team@celdyque.com</a></li></ul></div>
-    </div>
-    <div class="footer-bottom"><p>© 2024 CELDYQUE. All Rights Reserved.</p></div>
-  </footer>
-
+  <!-- ✅ 필터 동작 (짧고 안전하게) -->
   <script>
-    /* ===============================
-      ✅ SHOP PRODUCTS (Grid)
-      - 여기서 x/y/zoom/pos로 제품별 튜닝
-    =============================== */
-    const products = [
-      {id:1,  name:'Volufiline 100%',              desc:'Pure firming concentrate',       cat:'serum',    price:0, img:"images/votest.jpg", x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:2,  name:'Niacinamide 20%',              desc:'Barrier repair serum',           cat:'serum',    price:0, img:'images/홈페이지 제품이미지-09.jpg',     x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:3,  name:'Bakuchiol 30,000ppm',          desc:'Natural retinol alternative',    cat:'serum',    price:0, img:'images/홈페이지 제품이미지-10.jpg',     x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:4,  name:'Arbutin 20,000ppm',            desc:'Brightening serum',              cat:'cream',    price:0, img:'images/홈페이지 제품이미지-07.jpg',     x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:5,  name:'PDRN 250,000ppm',              desc:'Multi-peptide cream',            cat:'serum',    price:0, img:'images/홈페이지 제품이미지-04.jpg',     x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:6,  name:'Azelaic Topical Acid 12%',     desc:'Intensive moisture',             cat:'serum',    price:0, img:'images/홈페이지 제품이미지-05.jpg',     x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:7,  name:'Pure Glutathione 30,000ppm',   desc:'Gentle daily cleanser',          cat:'serum',    price:0, img:'images/홈페이지 제품이미지-03.jpg',     x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:8,  name:'LHA-Cica Purifying Cleansing Oil', desc:'Balanced cleansing',          cat:'cleanser', price:0, img:'images/홈페이지 제품이미지-11.jpg',     x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:9,  name:'PDRN 12,000ppm Serum',         desc:'test',                            cat:'serum',    price:0, img:'images/홈페이지 제품이미지-02.jpg',   x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:10, name:'PDRN 12,000ppm Cream',         desc:'test',                            cat:'cream',    price:0, img:'images/홈페이지 제품이미지-08.jpg',    x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:11, name:'Retinol Pro Serum',            desc:'test',                            cat:'serum',    price:0, img:'images/홈페이지 제품이미지-01.jpg',    x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-      {id:12, name:'Gentle Purifying Cleanser',    desc:'test',                            cat:'cleanser', price:0, img:'images/홈페이지 제품이미지-12.jpg',    x:0,  y:0,  zoom:1,    pos:'50% 50%'},
-    ];
+    document.addEventListener("DOMContentLoaded", () => {
+      const btns = Array.from(document.querySelectorAll(".filter-btn"));
+      const cards = Array.from(document.querySelectorAll("#productsGrid .p-card"));
 
-    let currentCat = 'all';
-    const titles = {all:'All Products', serum:'Serums', cream:'Creams', cleanser:'Cleansers'};
-
-    function render(list) {
-      document.getElementById('productsGrid').innerHTML = list.map(p => `
-        <a href="product-detail.html?id=${p.id}" class="product-card">
-          <div class="thumb">
-            <img
-              data-pid="${p.id}"
-              src="${p.img}"
-              alt="${p.name}"
-              loading="lazy"
-              style="
-                --x:${p.x ?? 0}px;
-                --y:${p.y ?? 0}px;
-                --zoom:${p.zoom ?? 1};
-                --pos:${p.pos ?? '50% 50%'};
-              "
-            >
-          </div>
-          <div class="product-card-info">
-            <h3>${p.name}</h3>
-            <p class="desc">${p.desc}</p>
-          </div>
-        </a>
-      `).join('');
-    }
-
-    function filter(cat) {
-      currentCat = cat;
-      document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
-      document.getElementById('categoryTitle').textContent = titles[cat];
-      render(cat === 'all' ? products : products.filter(p => p.cat === cat));
-    }
-
-    function sortProducts(by) {
-      let list = currentCat === 'all' ? [...products] : products.filter(p => p.cat === currentCat);
-      if (by === 'price-low') list.sort((a,b) => a.price - b.price);
-      else if (by === 'price-high') list.sort((a,b) => b.price - a.price);
-      render(list);
-    }
-
-    document.querySelectorAll('.filter-tabs button').forEach(b => b.addEventListener('click', () => filter(b.dataset.cat)));
-
-    // URL param
-    const urlCat = new URLSearchParams(window.location.search).get('cat');
-    filter(urlCat || 'all');
-
-    // Mobile menu
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-    function toggleMenu() {
-      mobileMenuBtn.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      mobileMenuOverlay.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    }
-    mobileMenuBtn.addEventListener('click', toggleMenu);
-    mobileMenuOverlay.addEventListener('click', toggleMenu);
-
-    /* ===============================
-      ✅ HOME 검색 모달 JS (그대로)
-    =============================== */
-    const PRODUCT_CATALOG = [
-      { id:"volufiline-100", name:"Volufiline 100%", subtitle:"Pure concentrate · Firming & volumizing", price:28.00, url:"product-detail.html?sku=volufiline-100", image:"images/test2.png", tags:["volufiline","firming","volume","concentrate"] },
-      { id:"niacinamide-20", name:"Niacinamide 20%", subtitle:"High-strength · Tone & texture", price:24.00, url:"product-detail.html?sku=niacinamide-20", image:"images/t3.png", tags:["niacinamide","vitamin b3","texture","pores","serum"] },
-      { id:"bakuchiol-30000", name:"Bakuchiol 30,000ppm", subtitle:"Retinol-alternative · Elasticity care", price:32.00, url:"product-detail.html?sku=bakuchiol-30000", image:"images/t2.png", tags:["bakuchiol","retinol alternative","elasticity","anti-aging"] },
-      { id:"vitamin-c-20", name:"Vitamin C 20%", subtitle:"Brightening · Antioxidant", price:26.00, url:"product-detail.html?sku=vitamin-c-20", image:"images/t4.png", tags:["vitamin c","ascorbic","glow","antioxidant"] },
-      { id:"peptide-cream", name:"Peptide Firming Cream", subtitle:"Multi-peptide · Firm moisture", price:42.00, url:"product-detail.html?sku=peptide-cream", image:"images/t5.png", tags:["peptide","cream","firming"] },
-      { id:"ceramide-cream", name:"Ceramide Barrier Cream", subtitle:"Barrier repair · Deep hydration", price:38.00, url:"product-detail.html?sku=ceramide-cream", image:"images/t6.png", tags:["ceramide","barrier","hydration","cream"] },
-      { id:"centella-foam", name:"Centella Foam Cleanser", subtitle:"Gentle daily cleanser", price:18.00, url:"product-detail.html?sku=centella-foam", image:"images/t9.png", tags:["centella","cleanser","foam","gentle"] },
-      { id:"lowph-gel", name:"Low pH Gel Cleanser", subtitle:"Balanced cleansing", price:16.00, url:"product-detail.html?sku=lowph-gel", image:"images/t7.png", tags:["low ph","gel","cleanser","balanced"] },
-
-      /* ✅ (추가) 9~12 모달 검색용 */
-      { id:"pdrn-12000-serum", name:"PDRN 12,000ppm Serum", subtitle:"Skin repair · Elasticity care", price:0.00, url:"product-detail.html?sku=pdrn-12000-serum", image:"images/t9-1.png", tags:["pdrn","serum","repair","elasticity","k-beauty"] },
-      { id:"pdrn-12000-cream", name:"PDRN 12,000ppm Cream", subtitle:"Barrier support · Deep moisture", price:0.00, url:"product-detail.html?sku=pdrn-12000-cream", image:"images/t10.png", tags:["pdrn","cream","barrier","moisture","soothing"] },
-      { id:"retinol-pro-serum", name:"Retinol Pro Serum", subtitle:"Texture care · Smoother-looking skin", price:0.00, url:"product-detail.html?sku=retinol-pro-serum", image:"images/t11.png", tags:["retinol","serum","texture","anti-aging","wrinkle"] },
-      { id:"gentle-purifying-cleanser", name:"Gentle Purifying Cleanser", subtitle:"Daily cleanse · Comfortable finish", price:0.00, url:"product-detail.html?sku=gentle-purifying-cleanser", image:"images/t12.png", tags:["cleanser","gentle","purifying","daily","low irritation"] },
-    ];
-    const RECOMMENDED_IDS=["volufiline-100","bakuchiol-30000","niacinamide-20"];
-
-    const RECENT_KEY="celdyque_recent_searches_v1";
-    const RECENT_MAX=10;
-
-    function loadRecent(){
-      try{
-        const raw=localStorage.getItem(RECENT_KEY);
-        const arr=raw?JSON.parse(raw):[];
-        return Array.isArray(arr)?arr:[];
-      }catch(_){return[]}
-    }
-    function saveRecent(arr){localStorage.setItem(RECENT_KEY, JSON.stringify(arr.slice(0,RECENT_MAX)))}
-    function addRecent(query){
-      const q=(query||"").trim();
-      if(!q) return;
-      const prev=loadRecent();
-      const next=[q, ...prev.filter(x=>x.toLowerCase()!==q.toLowerCase())];
-      saveRecent(next);
-      renderRecent();
-    }
-    function removeRecent(query){
-      const prev=loadRecent();
-      const next=prev.filter(x=>x!==query);
-      saveRecent(next);
-      renderRecent();
-    }
-    function clearRecent(){saveRecent([]);renderRecent()}
-
-    const elModal=document.getElementById("searchModal");
-    const elInput=document.getElementById("searchInput");
-    const elSuggestionList=document.getElementById("suggestionList");
-    const elRecentChips=document.getElementById("recentChips");
-    const elResultCount=document.getElementById("resultCount");
-    const elStatus=document.getElementById("searchStatus");
-    const elRecommendGrid=document.getElementById("recommendGrid");
-    const elClearBtn=document.getElementById("clearBtn");
-    const elClearRecentBtn=document.getElementById("clearRecentBtn");
-    const elViewAllBtn=document.getElementById("viewAllBtn");
-
-    let currentResults=[];
-    let activeIndex=-1;
-
-    function normalize(str){return (str||"").toLowerCase().replace(/\s+/g," ").trim()}
-
-    function scoreProduct(p, qNorm){
-      const name=normalize(p.name);
-      const sub=normalize(p.subtitle);
-      const tags=(p.tags||[]).map(normalize).join(" ");
-      let score=0;
-      if(!qNorm) return 0;
-      if(name===qNorm) score+=100;
-      if(name.startsWith(qNorm)) score+=70;
-      if(name.includes(qNorm)) score+=45;
-      if(sub.includes(qNorm)) score+=15;
-      if(tags.includes(qNorm)) score+=12;
-
-      const tokens=qNorm.split(" ").filter(Boolean);
-      for(const t of tokens){
-        if(t.length<2) continue;
-        if(name.includes(t)) score+=10;
-        if(tags.includes(t)) score+=6;
-        if(sub.includes(t)) score+=4;
-      }
-      return score;
-    }
-
-    function searchProducts(query){
-      const qNorm=normalize(query);
-      if(!qNorm) return [];
-      return PRODUCT_CATALOG
-        .map(p=>({p, s:scoreProduct(p,qNorm)}))
-        .filter(x=>x.s>0)
-        .sort((a,b)=>b.s-a.s)
-        .map(x=>x.p)
-        .slice(0,8);
-    }
-
-    function setActive(index){
-      activeIndex=index;
-      const items=[...elSuggestionList.querySelectorAll(".suggestion")];
-      items.forEach((node,i)=>node.classList.toggle("active", i===activeIndex));
-    }
-
-    function openActive(){
-      if(activeIndex>=0 && currentResults[activeIndex]){
-        const p=currentResults[activeIndex];
-        addRecent(elInput.value);
-        window.location.href=p.url;
-        return;
-      }
-      viewAllSearch();
-    }
-
-    function viewAllSearch(){
-      const q=(elInput.value||"").trim();
-      if(!q) return;
-      addRecent(q);
-      window.location.href="shop.html?q="+encodeURIComponent(q);
-    }
-
-    function renderSuggestions(list, query){
-      elSuggestionList.innerHTML="";
-      currentResults=list;
-      activeIndex=-1;
-
-      elResultCount.textContent = `${list.length} item${list.length===1?"":"s"}`;
-
-      if(!query.trim()){
-        elStatus.textContent="Type to search products.";
-        return;
-      }
-
-      if(list.length===0){
-        elStatus.textContent="No matches. Try another keyword.";
-        elSuggestionList.innerHTML = `
-          <div style="padding:14px 12px;color:rgba(26,26,26,0.55);font-size:0.92rem">
-            No results for "<strong>${escapeHtml(query)}</strong>"
-          </div>`;
-        return;
-      }
-
-      elStatus.textContent="Use ↑↓ to navigate, Enter to open.";
-
-      list.forEach((p, idx)=>{
-        const el=document.createElement("div");
-        el.className="suggestion";
-        el.setAttribute("role","option");
-        el.innerHTML=`
-          <div class="s-left">
-            <div class="s-title">${highlight(p.name, query)}</div>
-            <div class="s-sub">${escapeHtml(p.subtitle)}</div>
-          </div>
-          <div class="s-price">$${p.price.toFixed(2)}</div>
-        `;
-        el.addEventListener("mouseenter", ()=>setActive(idx));
-        el.addEventListener("mouseleave", ()=>setActive(-1));
-        el.addEventListener("click", ()=>{
-          addRecent(query);
-          window.location.href=p.url;
+      function setActive(btn){
+        btns.forEach(b => {
+          const on = b === btn;
+          b.classList.toggle("active", on);
+          b.setAttribute("aria-selected", on ? "true" : "false");
         });
-        elSuggestionList.appendChild(el);
-      });
-    }
-
-    function renderRecent(){
-      const recents=loadRecent();
-      elRecentChips.innerHTML="";
-      if(recents.length===0){
-        elRecentChips.innerHTML = `
-          <div style="color:rgba(26,26,26,0.55);font-size:0.92rem;line-height:1.7">
-            No recent searches yet.
-          </div>`;
-        return;
       }
-      recents.forEach(q=>{
-        const chip=document.createElement("div");
-        chip.className="chip";
-        chip.innerHTML=`<span>${escapeHtml(q)}</span><div class="x" title="Remove">×</div>`;
-        chip.addEventListener("click",(e)=>{
-          if(e.target && e.target.classList.contains("x")){
-            e.stopPropagation();
-            removeRecent(q);
-            return;
-          }
-          elInput.value=q;
-          handleInput();
-          elInput.focus();
+
+      function applyFilter(key){
+        cards.forEach(card => {
+          const cat = card.getAttribute("data-cat") || "all";
+          const show = (key === "all") || (cat === key);
+          card.style.display = show ? "" : "none";
         });
-        elRecentChips.appendChild(chip);
+      }
+
+      btns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const key = btn.getAttribute("data-filter") || "all";
+          setActive(btn);
+          applyFilter(key);
+        });
       });
-    }
-
-    function renderRecommended(){
-      elRecommendGrid.innerHTML="";
-      const items=RECOMMENDED_IDS.map(id=>PRODUCT_CATALOG.find(p=>p.id===id)).filter(Boolean);
-      items.forEach(p=>{
-        const card=document.createElement("div");
-        card.className="rec-card";
-        card.innerHTML=`
-          <div class="rec-thumb"><img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy"></div>
-          <div class="rec-info">
-            <div class="rec-name">${escapeHtml(p.name)}</div>
-            <div class="rec-meta">${escapeHtml(p.subtitle)} · $${p.price.toFixed(2)}</div>
-          </div>
-        `;
-        card.addEventListener("click",()=>window.location.href=p.url);
-        elRecommendGrid.appendChild(card);
-      });
-    }
-
-    function handleInput(){
-      const q=elInput.value||"";
-      elClearBtn.style.opacity = q.trim() ? "1" : "0.6";
-      const results=searchProducts(q);
-      renderSuggestions(results, q);
-    }
-
-    // body scroll lock for modal (reuse menu-open)
-    let scrollY=0;
-    function lockBody(){
-      scrollY = window.scrollY || 0;
-      document.body.style.top = `-${scrollY}px`;
-      document.body.classList.add("menu-open");
-    }
-    function unlockBody(){
-      document.body.classList.remove("menu-open");
-      const y = Math.abs(parseInt(document.body.style.top || "0", 10)) || scrollY;
-      document.body.style.top = "";
-      window.scrollTo(0, y);
-    }
-
-    function openSearch(){
-      elModal.classList.add("active");
-      elModal.setAttribute("aria-hidden","false");
-      lockBody();
-      renderRecent();
-      renderRecommended();
-      handleInput();
-      setTimeout(()=>elInput.focus(), 30);
-    }
-    function closeSearch(e){
-      if(e && e.target && e.target.id !== "searchModal") return;
-      elModal.classList.remove("active");
-      elModal.setAttribute("aria-hidden","true");
-      unlockBody();
-    }
-    function closeSearchForce(){
-      elModal.classList.remove("active");
-      elModal.setAttribute("aria-hidden","true");
-      unlockBody();
-    }
-    function goShop(){window.location.href="shop.html"}
-
-    elInput.addEventListener("input", handleInput);
-    elInput.addEventListener("keydown",(e)=>{
-      const items=currentResults||[];
-      if(e.key==="ArrowDown"){
-        e.preventDefault(); if(!items.length) return;
-        setActive(Math.min(activeIndex+1, items.length-1));
-      }else if(e.key==="ArrowUp"){
-        e.preventDefault(); if(!items.length) return;
-        setActive(Math.max(activeIndex-1, 0));
-      }else if(e.key==="Enter"){
-        e.preventDefault(); openActive();
-      }else if(e.key==="Escape"){
-        closeSearchForce();
-      }
-    });
-
-    document.addEventListener("keydown",(e)=>{
-      if(e.key==="Escape" && elModal.classList.contains("active")) closeSearchForce();
-      if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==="k"){
-        e.preventDefault();
-        if(!elModal.classList.contains("active")) openSearch();
-      }
-    });
-
-    elClearBtn.addEventListener("click",()=>{
-      elInput.value=""; handleInput(); elInput.focus();
-    });
-    elClearRecentBtn.addEventListener("click",()=>clearRecent());
-    elViewAllBtn.addEventListener("click",()=>viewAllSearch());
-
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
-    function highlight(text, query){
-      const t=String(text);
-      const q=String(query||"").trim();
-      if(!q) return escapeHtml(t);
-      const idx=t.toLowerCase().indexOf(q.toLowerCase());
-      if(idx<0) return escapeHtml(t);
-      const before=escapeHtml(t.slice(0,idx));
-      const mid=escapeHtml(t.slice(idx, idx+q.length));
-      const after=escapeHtml(t.slice(idx+q.length));
-      return `${before}<span style="text-decoration:underline; text-underline-offset:3px">${mid}</span>${after}`;
-    }
-
-    /* ===============================
-      ✅ TUNING MODE (dev helper)
-      - Click image to select
-      - Arrow: move (x/y) | Shift+Arrow: bigger
-      - +/- : zoom
-      - [ ] : object-position Y
-      - P : print current
-      - Enter : print ALL
-      - Esc : clear selection
-    =============================== */
-
-    let tuningOn = true;     // ✅ 배포 시 false 추천
-    let tunedMap = {};       // pid -> {x,y,zoom,pos}
-    let activePid = null;
-
-    function getCardByPid(pid){
-      const img = document.querySelector(`img[data-pid="${pid}"]`);
-      if(!img) return null;
-      return img.closest(".product-card");
-    }
-    function getImgByPid(pid){
-      return document.querySelector(`img[data-pid="${pid}"]`);
-    }
-    function readVars(img){
-      const x = parseFloat(getComputedStyle(img).getPropertyValue("--x")) || 0;
-      const y = parseFloat(getComputedStyle(img).getPropertyValue("--y")) || 0;
-      const zoom = parseFloat(getComputedStyle(img).getPropertyValue("--zoom")) || 1;
-      const pos = (getComputedStyle(img).getPropertyValue("--pos") || "50% 50%").trim();
-      return {x,y,zoom,pos};
-    }
-    function applyVars(pid, vars){
-      const img = getImgByPid(pid);
-      if(!img) return;
-      const cur = readVars(img);
-      const next = {...cur, ...vars};
-
-      img.style.setProperty("--x", `${Math.round(next.x)}px`);
-      img.style.setProperty("--y", `${Math.round(next.y)}px`);
-      img.style.setProperty("--zoom", `${Number(next.zoom).toFixed(3)}`);
-      img.style.setProperty("--pos", next.pos);
-
-      tunedMap[pid] = {
-        x: Math.round(next.x),
-        y: Math.round(next.y),
-        zoom: Number(next.zoom.toFixed(3)),
-        pos: next.pos
-      };
-    }
-    function setActiveTuning(pid){
-      document.querySelectorAll(".product-card.tuning").forEach(el=>el.classList.remove("tuning"));
-      activePid = pid;
-      const card = getCardByPid(pid);
-      if(card) card.classList.add("tuning");
-      const img = getImgByPid(pid);
-      if(img){
-        const v = readVars(img);
-        applyVars(pid, v);
-        console.log(`[TUNING] Selected pid=${pid}`, tunedMap[pid]);
-      }
-    }
-
-    // 클릭해서 선택 (튜닝 중에는 링크 이동 막기)
-    document.addEventListener("click", (e)=>{
-      if(!tuningOn) return;
-      const img = e.target.closest("img[data-pid]");
-      if(!img) return;
-      e.preventDefault();
-      const pid = img.getAttribute("data-pid");
-      setActiveTuning(pid);
-    });
-
-    // 키보드로 조절
-    document.addEventListener("keydown", (e)=>{
-      if(!tuningOn) return;
-      if(!activePid) return;
-
-      // 검색 input에 포커스면 튜닝키 비활성
-      const tag = (document.activeElement && document.activeElement.tagName || "").toLowerCase();
-      if(tag === "input" || tag === "textarea") return;
-
-      const img = getImgByPid(activePid);
-      if(!img) return;
-      const cur = readVars(img);
-
-      const step = e.shiftKey ? 8 : 2;
-      const zoomStep = e.shiftKey ? 0.03 : 0.01;
-
-      let handled = true;
-
-      if(e.key === "ArrowLeft") applyVars(activePid, {x: cur.x - step});
-      else if(e.key === "ArrowRight") applyVars(activePid, {x: cur.x + step});
-      else if(e.key === "ArrowUp") applyVars(activePid, {y: cur.y - step});
-      else if(e.key === "ArrowDown") applyVars(activePid, {y: cur.y + step});
-
-      else if(e.key === "+" || e.key === "=") applyVars(activePid, {zoom: Math.min(cur.zoom + zoomStep, 2)});
-      else if(e.key === "-" || e.key === "_") applyVars(activePid, {zoom: Math.max(cur.zoom - zoomStep, 0.5)});
-
-      else if(e.key === "["){
-        const parts = cur.pos.split(" ");
-        const xPos = parts[0] || "50%";
-        const yRaw = (parts[1] || "50%").replace("%","");
-        const yVal = (parseFloat(yRaw) || 50) - (e.shiftKey ? 5 : 2);
-        applyVars(activePid, {pos: `${xPos} ${Math.max(0, Math.min(100, yVal))}%`});
-      }
-      else if(e.key === "]"){
-        const parts = cur.pos.split(" ");
-        const xPos = parts[0] || "50%";
-        const yRaw = (parts[1] || "50%").replace("%","");
-        const yVal = (parseFloat(yRaw) || 50) + (e.shiftKey ? 5 : 2);
-        applyVars(activePid, {pos: `${xPos} ${Math.max(0, Math.min(100, yVal))}%`});
-      }
-
-      else if(e.key.toLowerCase() === "p"){
-        console.log(`[TUNING] pid=${activePid} ->`, tunedMap[activePid]);
-      }
-      else if(e.key === "Enter"){
-        const out = Object.entries(tunedMap)
-          .map(([pid,v]) => `// id:${pid}\n{x:${v.x}, y:${v.y}, zoom:${v.zoom}, pos:"${v.pos}"}`)
-          .join(",\n\n");
-        console.log("===== TUNING EXPORT START =====\n" + out + "\n===== TUNING EXPORT END =====");
-      }
-      else if(e.key === "Escape"){
-        document.querySelectorAll(".product-card.tuning").forEach(el=>el.classList.remove("tuning"));
-        activePid = null;
-        console.log("[TUNING] Exit (selection cleared)");
-      }
-      else handled = false;
-
-      if(handled) e.preventDefault();
     });
   </script>
+
+  <!-- ✅ 공통 JS (헤더/푸터 주입) -->
+  <script defer src="/assets/site.js"></script>
 </body>
 </html>
