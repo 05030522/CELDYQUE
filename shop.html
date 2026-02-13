@@ -67,21 +67,20 @@
       position: relative;
       border-radius: 18px;
       overflow: hidden;
-
-      /* 헤더가 겹치므로 안전 여백 확보 */
-      padding-top: calc(72px + var(--safe-top));
-      height: clamp(260px, 28vw, 420px);
+      padding-top: calc(56px + var(--safe-top));
+      height: clamp(180px, 18vw, 260px);
       background: #d9d9d9;
     }
+
     .shop-hero img{
       position:absolute;
-      left:0; right:0;
-      top: calc(-72px - var(--safe-top));
-      bottom:0;
+      inset: 0;
       width:100%;
-      height: calc(100% + 72px + var(--safe-top));
+      height:100%;
       object-fit: cover;
+      object-position: center;
       filter: saturate(0.98) contrast(0.98);
+      transform: none;
     }
 
     /* ✅ 본문 레이아웃: 좌측 카테고리 + 우측 그리드 */
@@ -257,7 +256,7 @@
         <!-- shop1 느낌: 상단 큰 이미지 -->
         <div class="shop-hero" aria-label="Shop hero">
           <!-- 형님이 원하는 비주얼로 교체 -->
-          <img src="/images/shop-hero.jpg" alt="CELDYQUE Shop Hero" loading="eager">
+          <img src="/images/up.jpg" alt="CELDYQUE Shop Hero" loading="eager">
         </div>
       </section>
 
