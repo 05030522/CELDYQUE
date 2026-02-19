@@ -37,6 +37,16 @@
         /* Mission */
         .mission{padding:100px 5%;background:var(--white)}
         .mission-inner{max-width:1000px;margin:0 auto;text-align:center}
+        
+        /* ✅ 수정된 브랜딩 로고 스타일: 더 크고 중앙에 배치 */
+        .mission-logo {
+            display: block;
+            margin: 0 auto 3rem auto; /* 가운데 정렬 및 아래쪽 여백 증가 */
+            max-width: 1000px; /* 로고 최대 크기를 대폭 증가 (스크린샷 참조) */
+            width: 100%; /* 부모 요소 너비에 맞게 반응형으로 조절 */
+            height: auto;
+        }
+
         .mission h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;line-height:1.5;margin-bottom:2rem}
         .mission p{color:var(--text-light);line-height:1.9}
 
@@ -62,6 +72,7 @@
         }
         @media(max-width:768px){
           .brand-hero-image{height:50vh} /* 모바일에서 비디오 높이 확보 */
+          .mission-logo { max-width: 80%; } /* 모바일에서도 로고가 충분히 크도록 설정 */
         }
     </style>
 </head>
@@ -85,6 +96,8 @@
 
     <section class="mission">
         <div class="mission-inner">
+            <img src="images/브랜딩로고.jpg" alt="CELDYQUE Logo" class="mission-logo">
+            
             <h2>We strive to find the perfect balance for each product to achieve optimal efficacy.</h2>
             <p>We aim to find and provide raw materials with proven efficacy through new research data and papers. Our research involves diligently studying clinical data to identify the exact concentration at which each active ingredient performs best.</p>
         </div>
