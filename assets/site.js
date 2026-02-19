@@ -29,369 +29,206 @@ function unlockBody() {
   window.scrollTo(0, y);
 }
 
-/* ===== Search Catalog (기본값) =====
-   페이지별로 다르게 쓰고 싶으면, 각 페이지에서 site.js 로드 전에
-   window.PRODUCT_CATALOG = [...] / window.RECOMMENDED_IDS = [...]
-   이렇게 덮어쓰면 됩니다.
-*/
+/* ===== Search Catalog (전체 제품 데이터) ===== */
 const DEFAULT_CATALOG = [
-  { id:"volufiline-100", name:"Volufiline 100%", subtitle:"Pure concentrate · Firming & volumizing", url:"/product-volufiline-100.html", image:"/images/제품/Mask group-1.png", tags:["volufiline","serum","10ml"] },
-  { id:"bakuchiol-30000", name:"Bakuchiol 30,000ppm", subtitle:"Retinol-alternative · Elasticity care", url:"/product-bakuchiol-30000.html", image:"/images/제품/Mask group-4.png", tags:["bakuchiol","serum","30ml"] },
-  { id:"pdrn-25", name:"PDRN 25%", subtitle:"High-strength concentrate · Skin vitality", url:"/product-pdrn-25.html", image:"/images/제품/Mask group-3.png", tags:["pdrn","serum","30ml"] },
-  { id:"pdrn-12-egf", name:"PDRN 12% + EGF Peptide", subtitle:"Rejuvenating serum · Peptide support", url:"/product-pdrn-12-egf.html", image:"/images/제품/Mask group.png", tags:["pdrn","egf peptide","volufiline","serum","30ml"] },
-  { id:"pdrn-12-egf-cream", name:"PDRN 12% + EGF Peptide Cream", subtitle:"Barrier comfort · Firming moisture", url:"/product-pdrn-12-egf-cream.html", image:"/images/제품/Mask group-6.png", tags:["pdrn","egf peptide","volufiline","cream","50ml"] },
-  { id:"arbutxa-glow-cream", name:"ArbutXA Glow Cream", subtitle:"Glow cream · Tone & radiance", url:"/product-arbutxa-glow-cream.html", image:"/images/제품/Mask group-5.png", tags:["arbutin","txa","niacinamide","cream","50ml"] },
-  { id:"gentle-cleanser", name:"Gentle Cleanser", subtitle:"Daily cleanser · Calm & cleanse", url:"/product-gentle-cleanser.html", image:"/images/제품/Mask group-11.png", tags:["centella","green tea","tea tree","cleanser","150ml"] },
-  { id:"cleansing-oil", name:"Pore Purifying Cleansing Oil", subtitle:"Oil cleanse · Soft finish", url:"/product-cleansing-oil.html", image:"/images/제품/Mask group-9.png", tags:["heartleaf","centella","mugwort","tea tree","cleanser","200ml"] },
+  { id:"volufiline-100", name:"Volufiline 100% Concentrate", subtitle:"Firming & Volumizing", url:"/product-volufiline-100.html", image:"/images/제품/Mask group-1.png", tags:["volufiline","serum","10ml"] },
+  { id:"bakuchiol-30000", name:"Bakuchiol 30,000ppm Serum", subtitle:"Retinol-alternative", url:"/product-bakuchiol-30000.html", image:"/images/제품/Mask group-4.png", tags:["bakuchiol","serum","30ml"] },
+  { id:"pdrn-25", name:"PDRN 25% Concentrate", subtitle:"Skin Regeneration", url:"/product-pdrn-25.html", image:"/images/제품/Mask group-3.png", tags:["pdrn","serum","30ml"] },
+  { id:"pdrn-12-egf", name:"PDRN 12% + EGF Peptide Serum", subtitle:"Total Anti-aging", url:"/product-pdrn-12-egf.html", image:"/images/제품/Mask group.png", tags:["pdrn","egf peptide","volufiline","serum","30ml"] },
+  { id:"pdrn-12-egf-cream", name:"PDRN 12% + EGF Peptide Cream", subtitle:"Deep Moisturizing", url:"/product-pdrn-12-egf-cream.html", image:"/images/제품/Mask group-6.png", tags:["pdrn","egf peptide","volufiline","cream","50ml"] },
+  { id:"arbutxa-glow-cream", name:"ArbutXA Glow Cream", subtitle:"Brightening", url:"/product-arbutxa-glow-cream.html", image:"/images/제품/Mask group-5.png", tags:["arbutin","txa","niacinamide","cream","50ml"] },
+  { id:"gentle-cleanser", name:"Gentle Cleanser", subtitle:"Purifying Touch", url:"/product-gentle-cleanser.html", image:"/images/제품/Mask group-11.png", tags:["centella","green tea","tea tree","cleanser","150ml"] },
+  { id:"cleansing-oil", name:"Pore Purifying Cleansing Oil", subtitle:"Deep Clean", url:"/product-cleansing-oil.html", image:"/images/제품/Mask group-12.png", tags:["heartleaf","centella","tea tree","cleanser","200ml"] },
   { id:"glutathione-30000", name:"Glutathione 30,000ppm", subtitle:"Antioxidant serum · Glow support", url:"/product-glutathione-30000.html", image:"/images/제품/Mask group-2.png", tags:["glutathione","niacinamide","adenosine","ceramide","serum","30ml"] },
   { id:"azelaic-12", name:"Azelaic Acid 12%", subtitle:"Clarity serum · Tone & texture", url:"/product-azelaic-12.html", image:"/images/제품/Mask group-7.png", tags:["azelaic acid","tranexamic acid","salicylic acid","serum","30ml"] },
   { id:"niacinamide-20-advanced", name:"Niacinamide 20% Advanced", subtitle:"High-strength · Tone & texture", url:"/product-niacinamide-20-advanced.html", image:"/images/제품/Mask group-8.png", tags:["niacinamide","hyaluronic acid","beta-glucan","serum","30ml"] },
-  { id:"advanced-retinol-pro-retinal-serum-0-5", name:"Retinal Serum 0.5", subtitle:"Retinal complex · Elasticity care", url:"/product-advanced-retinol-pro-retinal-serum-0-5.html", image:"/images/제품/Mask group-10.png", tags:["retinal complex","centella 66%","niacinamide","serum","20ml"] },
+  { id:"advanced-retinol-pro-retinal-serum-0-5", name:"Retinal Serum 0.5", subtitle:"Retinal complex · Elasticity care", url:"/product-advanced-retinol-pro-retinal-serum-0-5.html", image:"/images/제품/Mask group-10.png", tags:["retinal complex","centella 66%","niacinamide","serum","20ml"] }
 ];
 
 function getCatalog() {
   return Array.isArray(window.PRODUCT_CATALOG) ? window.PRODUCT_CATALOG : DEFAULT_CATALOG;
 }
-function getRecommendedIds() {
-  return Array.isArray(window.RECOMMENDED_IDS) ? window.RECOMMENDED_IDS : ["volufiline-100","bakuchiol-30000","niacinamide-20"];
-}
 
-/* ===== Search helpers ===== */
-const RECENT_KEY="celdyque_recent_searches_v1";
-const RECENT_MAX=10;
-
-function normalize(str){return (str||"").toLowerCase().replace(/\s+/g," ").trim()}
-
-function escapeHtml(str){
+/* ===== String Highlight Helper ===== */
+function escapeHtml(str) {
   return String(str)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
-function highlight(text, query){
-  const t=String(text);
-  const q=String(query||"").trim();
-  if(!q) return escapeHtml(t);
-  const idx=t.toLowerCase().indexOf(q.toLowerCase());
-  if(idx<0) return escapeHtml(t);
-  const before=escapeHtml(t.slice(0,idx));
-  const mid=escapeHtml(t.slice(idx, idx+q.length));
-  const after=escapeHtml(t.slice(idx+q.length));
+function highlight(text, query) {
+  const t = String(text);
+  const q = String(query || "").trim();
+  if (!q) return escapeHtml(t);
+  const idx = t.toLowerCase().indexOf(q.toLowerCase());
+  if (idx < 0) return escapeHtml(t);
+  const before = escapeHtml(t.slice(0, idx));
+  const mid = escapeHtml(t.slice(idx, idx + q.length));
+  const after = escapeHtml(t.slice(idx + q.length));
   return `${before}<span style="text-decoration:underline; text-underline-offset:3px">${mid}</span>${after}`;
 }
 
-function loadRecent(){
-  try{
-    const raw=localStorage.getItem(RECENT_KEY);
-    const arr=raw?JSON.parse(raw):[];
-    return Array.isArray(arr)?arr:[];
-  }catch(_){return[]}
-}
-function saveRecent(arr){localStorage.setItem(RECENT_KEY, JSON.stringify(arr.slice(0,RECENT_MAX)))}
-function addRecent(query){
-  const q=(query||"").trim();
-  if(!q) return;
-  const prev=loadRecent();
-  const next=[q, ...prev.filter(x=>x.toLowerCase()!==q.toLowerCase())];
-  saveRecent(next);
-}
-function removeRecent(query){
-  const prev=loadRecent();
-  const next=prev.filter(x=>x!==query);
-  saveRecent(next);
-}
-function clearRecent(){saveRecent([])}
 
-/* ===== Search scoring ===== */
-function scoreProduct(p, qNorm){
-  const name=normalize(p.name);
-  const sub=normalize(p.subtitle);
-  const tags=(p.tags||[]).map(normalize).join(" ");
-  let score=0;
-  if(!qNorm) return 0;
-  if(name===qNorm) score+=100;
-  if(name.startsWith(qNorm)) score+=70;
-  if(name.includes(qNorm)) score+=45;
-  if(sub.includes(qNorm)) score+=15;
-  if(tags.includes(qNorm)) score+=12;
-
-  const tokens=qNorm.split(" ").filter(Boolean);
-  for(const t of tokens){
-    if(t.length<2) continue;
-    if(name.includes(t)) score+=10;
-    if(tags.includes(t)) score+=6;
-    if(sub.includes(t)) score+=4;
-  }
-  return score;
-}
-
-function searchProducts(query){
-  const qNorm=normalize(query);
-  if(!qNorm) return [];
-  const catalog = getCatalog();
-  return catalog
-    .map(p=>({p, s:scoreProduct(p,qNorm)}))
-    .filter(x=>x.s>0)
-    .sort((a,b)=>b.s-a.s)
-    .map(x=>x.p)
-    .slice(0,8);
-}
-
-/* ===== Init common UI (after injection) ===== */
+/* ===== UI Initialization (Mobile Menu & Search Modal) ===== */
 function initCommonUI() {
-  // Mobile Menu
-  const mobileMenuBtn=document.getElementById('mobileMenuBtn');
-  const mobileMenu=document.getElementById('mobileMenu');
-  const mobileMenuOverlay=document.getElementById('mobileMenuOverlay');
+  // --- 1. Mobile Menu Logic ---
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
 
-  function openMenu(){
+  function openMenu() {
     mobileMenuBtn?.classList.add('active');
     mobileMenu?.classList.add('active');
     mobileMenuOverlay?.classList.add('active');
     lockBody();
   }
-  function closeMenu(){
+  function closeMenu() {
     mobileMenuBtn?.classList.remove('active');
     mobileMenu?.classList.remove('active');
     mobileMenuOverlay?.classList.remove('active');
     unlockBody();
   }
-  function toggleMenu(){
-    if(mobileMenu?.classList.contains('active')) closeMenu();
+  function toggleMenu() {
+    if (mobileMenu?.classList.contains('active')) closeMenu();
     else openMenu();
   }
 
   mobileMenuBtn?.addEventListener('click', toggleMenu);
   mobileMenuOverlay?.addEventListener('click', closeMenu);
 
-  // Search Modal
-  const elModal=document.getElementById("searchModal");
-  const elShell = elModal?.querySelector(".search-shell");
-  const elInput=document.getElementById("searchInput");
-  const elSuggestionList=document.getElementById("suggestionList");
-  const elRecentChips=document.getElementById("recentChips");
-  const elResultCount=document.getElementById("resultCount");
-  const elStatus=document.getElementById("searchStatus");
-  const elRecommendGrid=document.getElementById("recommendGrid");
-  const elClearBtn=document.getElementById("clearBtn");
-  const elClearRecentBtn=document.getElementById("clearRecentBtn");
-  const elViewAllBtn=document.getElementById("viewAllBtn");
-  const elCloseBtn=document.getElementById("closeBtn");
-  const elGoShopBtn=document.getElementById("goShopBtn");
-
-  let currentResults=[];
-  let activeIndex=-1;
-
-  function setActive(index){
-    activeIndex=index;
-    const items=[...(elSuggestionList?.querySelectorAll(".suggestion")||[])];
-    items.forEach((node,i)=>node.classList.toggle("active", i===activeIndex));
-  }
-
-  function renderRecent(){
-    if(!elRecentChips) return;
-    const recents=loadRecent();
-    elRecentChips.innerHTML="";
-    if(recents.length===0){
-      elRecentChips.innerHTML = `<div style="color:rgba(26,26,26,0.55);font-size:0.92rem;line-height:1.7">No recent searches yet.</div>`;
-      return;
-    }
-    recents.forEach(q=>{
-      const chip=document.createElement("div");
-      chip.className="chip";
-      chip.innerHTML=`<span>${escapeHtml(q)}</span><div class="x" title="Remove">×</div>`;
-      chip.addEventListener("click",(e)=>{
-        if(e.target && e.target.classList.contains("x")){
-          e.stopPropagation();
-          removeRecent(q);
-          renderRecent();
-          return;
-        }
-        elInput.value=q;
-        handleInput();
-        elInput.focus();
-      });
-      elRecentChips.appendChild(chip);
-    });
-  }
-
-  function renderRecommended(){
-    if(!elRecommendGrid) return;
-    elRecommendGrid.innerHTML="";
-    const catalog = getCatalog();
-    const ids = getRecommendedIds();
-    const items=ids.map(id=>catalog.find(p=>p.id===id)).filter(Boolean);
-    items.forEach(p=>{
-      const card=document.createElement("div");
-      card.className="rec-card";
-      card.innerHTML=`
-        <div class="rec-thumb"><img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy"></div>
-        <div class="rec-info">
-          <div class="rec-name">${escapeHtml(p.name)}</div>
-          <div class="rec-meta">${escapeHtml(p.subtitle)}</div>
+  // --- 2. Global Search Modal Injection & Logic ---
+  // 만약 이미 모달이 없다면 HTML을 동적으로 삽입합니다.
+  if (!document.getElementById('globalSearchModal')) {
+    const searchModalHTML = `
+      <div class="search-modal" id="globalSearchModal" aria-hidden="true">
+        <div class="search-shell" role="dialog" aria-modal="true" aria-label="Search">
+          <div class="search-top">
+            <div class="search-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </div>
+            <div class="search-input-wrap">
+              <input type="search" class="search-input" placeholder="Search products..." id="globalSearchInput" autocomplete="off">
+            </div>
+            <div class="search-actions">
+              <button type="button" class="header-search-btn" id="globalSearchCloseBtn">ESC</button>
+            </div>
+          </div>
+          <div class="search-hint">
+            <div>Type to search</div>
+            <div><span class="kbd">Esc</span> to close</div>
+          </div>
+          <div class="search-body">
+            <div class="search-pane">
+              <div class="pane-title">
+                <h3>Results</h3>
+                <span id="globalResultCount" style="font-size:0.85rem; color:#888;">0 items</span>
+              </div>
+              <div class="suggestions" id="globalSuggestionList" role="listbox"></div>
+            </div>
+          </div>
         </div>
-      `;
-      card.addEventListener("click",()=>window.location.href=p.url);
-      elRecommendGrid.appendChild(card);
-    });
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', searchModalHTML);
   }
 
-  function renderSuggestions(list, query){
-    if(!elSuggestionList || !elResultCount || !elStatus) return;
-    elSuggestionList.innerHTML="";
-    currentResults=list;
-    activeIndex=-1;
+  // 모달 요소 연결
+  const modal = document.getElementById('globalSearchModal');
+  const input = document.getElementById('globalSearchInput');
+  const list = document.getElementById('globalSuggestionList');
+  const count = document.getElementById('globalResultCount');
+  const closeBtn = document.getElementById('globalSearchCloseBtn');
 
-    elResultCount.textContent = `${list.length} item${list.length===1?"":"s"}`;
-
-    if(!query.trim()){
-      elStatus.textContent="Type to search products.";
-      return;
+  // data-open-search 속성이 있는 버튼(헤더 돋보기 등) 클릭 시 모달 열기
+  document.addEventListener('click', (e) => {
+    const searchTrigger = e.target.closest('[data-open-search]');
+    if (searchTrigger) {
+      e.preventDefault();
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      lockBody();
+      input.value = '';
+      renderResults([]);
+      setTimeout(() => input.focus(), 100);
     }
+  });
 
-    if(list.length===0){
-      elStatus.textContent="No matches. Try another keyword.";
-      elSuggestionList.innerHTML = `
-        <div style="padding:14px 12px;color:rgba(26,26,26,0.55);font-size:0.92rem">
-          No results for "<strong>${escapeHtml(query)}</strong>"
-        </div>`;
-      return;
-    }
-
-    elStatus.textContent="Use ↑↓ to navigate, Enter to open.";
-
-    list.forEach((p, idx)=>{
-      const el=document.createElement("div");
-      el.className="suggestion";
-      el.setAttribute("role","option");
-
-      const priceHtml = (typeof p.price === "number")
-        ? `<div class="s-price">$${p.price.toFixed(2)}</div>`
-        : "";
-
-      el.innerHTML=`
-        <div class="s-left">
-          <div class="s-title">${highlight(p.name, query)}</div>
-          <div class="s-sub">${escapeHtml(p.subtitle)}</div>
-        </div>
-        <div class="s-right">
-          ${priceHtml}
-          <div class="s-go">↗</div>
-        </div>
-      `;
-      el.addEventListener("mouseenter", ()=>setActive(idx));
-      el.addEventListener("mouseleave", ()=>setActive(-1));
-      el.addEventListener("click", ()=>{
-        addRecent(query);
-        window.location.href=p.url;
-      });
-      elSuggestionList.appendChild(el);
-    });
-  }
-
-  function handleInput(){
-    if(!elInput || !elClearBtn) return;
-    const q=elInput.value||"";
-    elClearBtn.style.opacity = q.trim() ? "1" : "0.6";
-    const results=searchProducts(q);
-    renderSuggestions(results, q);
-  }
-
-  function viewAllSearch(){
-    const q=(elInput?.value||"").trim();
-    if(!q) return;
-    addRecent(q);
-    window.location.href="/shop.html?q="+encodeURIComponent(q);
-  }
-
-  function openActive(){
-    if(activeIndex>=0 && currentResults[activeIndex]){
-      const p=currentResults[activeIndex];
-      addRecent(elInput.value);
-      window.location.href=p.url;
-      return;
-    }
-    viewAllSearch();
-  }
-
-  function openSearch(){
-    if(!elModal) return;
-    elModal.classList.add("active");
-    elModal.setAttribute("aria-hidden","false");
-    lockBody();
-    renderRecent();
-    renderRecommended();
-    handleInput();
-    setTimeout(()=>elInput?.focus(), 30);
-  }
-
-  function closeSearchForce(){
-    if(!elModal) return;
-    elModal.classList.remove("active");
-    elModal.setAttribute("aria-hidden","true");
+  function closeSearch() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
     unlockBody();
   }
 
-  // open 버튼(헤더 안)
-  document.querySelectorAll("[data-open-search]").forEach(btn=>{
-    btn.addEventListener("click", openSearch);
-  });
-
-  // 바깥 클릭 닫기: modal 배경 클릭 시
-  elModal?.addEventListener("click",(e)=>{
-    if(e.target && e.target.id === "searchModal") closeSearchForce();
-  });
-
-  // shell 클릭은 전파 방지
-  elShell?.addEventListener("click",(e)=>e.stopPropagation());
-
-  elInput?.addEventListener("input", handleInput);
-
-  elInput?.addEventListener("keydown",(e)=>{
-    const items=currentResults||[];
-    if(e.key==="ArrowDown"){
-      e.preventDefault(); if(!items.length) return;
-      setActive(Math.min(activeIndex+1, items.length-1));
-    }else if(e.key==="ArrowUp"){
-      e.preventDefault(); if(!items.length) return;
-      setActive(Math.max(activeIndex-1, 0));
-    }else if(e.key==="Enter"){
-      e.preventDefault(); openActive();
-    }else if(e.key==="Escape"){
-      closeSearchForce();
-    }
-  });
-
-  document.addEventListener("keydown",(e)=>{
-    if(e.key==="Escape" && elModal?.classList.contains("active")) closeSearchForce();
-    if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==="k"){
+  closeBtn?.addEventListener('click', closeSearch);
+  modal?.addEventListener('click', (e) => { if (e.target === modal) closeSearch(); });
+  document.addEventListener('keydown', (e) => { 
+    if (e.key === 'Escape' && modal?.classList.contains('open')) closeSearch(); 
+    // Ctrl+K 단축키로 모달 열기
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
       e.preventDefault();
-      if(!elModal?.classList.contains("active")) openSearch();
+      if (!modal?.classList.contains("open")) {
+        document.querySelector('[data-open-search]')?.click();
+      }
     }
   });
 
-  const clickLike = (el, fn) => {
-    if(!el) return;
-    el.addEventListener("click", fn);
-    el.addEventListener("keydown",(e)=>{ if(e.key==="Enter"||e.key===" ") fn(); });
-  };
+  // 실시간 검색 필터링 로직
+  input?.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    if (!query) {
+      renderResults([]);
+      return;
+    }
+    const catalog = getCatalog();
+    const matches = catalog.filter(p => 
+      p.name.toLowerCase().includes(query) || 
+      p.subtitle.toLowerCase().includes(query) ||
+      p.tags.some(t => t.toLowerCase().includes(query))
+    );
+    renderResults(matches, query);
+  });
 
-  clickLike(elClearBtn, ()=>{ elInput.value=""; handleInput(); elInput.focus(); });
-  elClearRecentBtn?.addEventListener("click", ()=>{ clearRecent(); renderRecent(); });
-  elViewAllBtn?.addEventListener("click", viewAllSearch);
-  clickLike(elCloseBtn, closeSearchForce);
-  elGoShopBtn?.addEventListener("click", ()=>window.location.href="/shop.html");
+  // 검색 결과 렌더링
+  function renderResults(items, query = "") {
+    if (!count || !list) return;
+    count.innerText = `${items.length} items`;
+    list.innerHTML = '';
+    
+    if (items.length === 0 && input.value.trim() !== '') {
+        list.innerHTML = '<div style="padding:20px; text-align:center; color:#888;">No products found.</div>';
+        return;
+    }
+    
+    items.forEach(item => {
+      const el = document.createElement('a');
+      el.className = 'suggestion-item';
+      el.href = item.url;
+      el.innerHTML = `
+        <div class="s-img"><img src="${item.image}" alt=""></div>
+        <div class="s-info">
+          <div class="s-name">${highlight(item.name, query)}</div>
+          <div class="s-sub">${escapeHtml(item.subtitle)}</div>
+        </div>
+      `;
+      list.appendChild(el);
+    });
+  }
 }
 
 /* ===== Bootstrap ===== */
 document.addEventListener("DOMContentLoaded", async () => {
+  // 헤더와 푸터 HTML 주입
   await Promise.all([
     inject("#siteHeader", "/partials/header.html"),
     inject("#siteFooter", "/partials/footer.html"),
   ]);
 
+  // 주입이 끝난 후 공통 UI(모바일 메뉴 및 검색 모달) 초기화
   initCommonUI();
 });
