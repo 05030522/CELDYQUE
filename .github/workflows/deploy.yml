@@ -100,23 +100,46 @@ jobs:
       - name: Internal Link Check
         run: |
           echo "🔗 내부 링크 검사..."
-          
-          # HTML 파일에서 href 추출 후 존재 확인
+
           for file in *.html; do
-            # 내부 .html 링크만 추출
-            LINKS=$(grep -oP 'href="[^"#]*\.html' "$file" | sed 's/href="//' | sort -u)
+            # href="...html" 형태만 추출
+            LINKS=$(grep -oP 'href="\K[^"]+\.html[^"]*' "$file" | sort -u || true)
+
             for link in $LINKS; do
               # 외부 링크 제외
-              if [[ ! "$link" =~ ^http ]]; then
-                if [ ! -f "$link" ]; then
-                  echo "❌ $file → $link (파일 없음)"
-                  exit 1
-                fi
+              if [[ "$link" =~ ^https?:// ]]; then
+                continue
+              fi
+
+              # mailto/tel/javascript 등 제외
+              if [[ "$link" =~ ^(mailto:|tel:|javascript:) ]]; then
+                continue
+              fi
+
+              # 쿼리/해시 제거
+              clean="${link%%\#*}"
+              clean="${clean%%\?*}"
+
+              # 앞의 / 제거 (GitHub Pages 프로젝트 경로 고려)
+              clean="${clean#/}"
+
+              # ./ 제거
+              clean="${clean#./}"
+
+              # 빈 값이면 스킵
+              if [ -z "$clean" ]; then
+                continue
+              fi
+
+              if [ ! -f "$clean" ]; then
+                echo "❌ $file → $link (찾는 파일: $clean) 없음"
+                exit 1
               fi
             done
           done
-          echo "✅ 내부 링크 검사 완료"
 
+          echo "✅ 내부 링크 검사 완료"
+          
       # ===== 5. 이미지 alt 태그 검사 =====
       - name: Image Accessibility Check
         run: |
