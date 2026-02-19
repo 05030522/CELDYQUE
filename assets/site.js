@@ -38,7 +38,7 @@ const DEFAULT_CATALOG = [
   { id:"volufiline-100", name:"Volufiline 100%", subtitle:"Pure concentrate · Firming & volumizing", url:"/product-detail.html?sku=volufiline-100", image:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=400&fit=crop", tags:["volufiline","firming","volume","sederma","concentrate"] },
   { id:"niacinamide-20", name:"Niacinamide 20%", subtitle:"High-strength · Tone & texture", url:"/product-detail.html?sku=niacinamide-20", image:"https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop", tags:["niacinamide","vitamin b3","texture","pores","serum"] },
   { id:"bakuchiol-30000", name:"Bakuchiol 30,000ppm", subtitle:"Retinol-alternative · Elasticity care", url:"/product-detail.html?sku=bakuchiol-30000", image:"https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=400&fit=crop", tags:["bakuchiol","retinol alternative","elasticity","anti-aging"] },
-  { id:"vitamin-c-20", name:"Vitamin C 20%", subtitle:"Brightening · Antioxidant", url:"/product-detail.html?sku=vitamin-c-20", image:"https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?w=400&h=400&fit=crop", tags:["vitamin c","ascorbic","glow","antioxidant"] }
+  // { id:"vitamin-c-20", name:"Vitamin C 20%", subtitle:"Brightening · Antioxidant", url:"/product-detail.html?sku=vitamin-c-20", image:"https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?w=400&h=400&fit=crop", tags:["vitamin c","ascorbic","glow","antioxidant"] }
 ];
 
 function getCatalog() {
