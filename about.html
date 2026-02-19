@@ -47,8 +47,23 @@
             height: auto;
         }
 
-        .mission h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;line-height:1.5;margin-bottom:2rem}
-        .mission p{color:var(--text-light);line-height:1.9}
+        /* 제목 (h2) 수정 */
+        .mission h2 {
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 500;
+            line-height: 1.5;
+            margin: 0 auto 2rem auto; /* 가운데 정렬 유지하며 아래 여백 */
+            max-width: 650px; /* 👈 너비를 제한해서 자연스럽게 2줄이 되도록 유도 */
+            text-wrap: balance; /* 👈 윗줄과 아랫줄의 텍스트 양을 비슷하게 맞춰주는 꿀팁 속성 */
+        }
+
+        /* 본문 (p) 수정 */
+        .mission p {
+            color: var(--text-light);
+            line-height: 1.9;
+            margin: 0 auto; /* 가운데 정렬 */
+            max-width: 850px; /* 👈 본문도 너무 길게 퍼지지 않도록 너비 제한 */
+        }
 
         /* Philosophy */
         .philosophy{padding:100px 5%}
