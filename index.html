@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>CELDYQUE</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/pa2.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/pa2.jpg">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/pa2.jpg">
@@ -22,7 +21,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
 
-  <!-- ✅ 공통 CSS -->
   <link rel="stylesheet" href="/assets/site.css">
 
   <style>
@@ -35,7 +33,6 @@
       background: var(--bg);
       color: var(--text);
     }
-
 
     body.home #siteHeader{
       position:absolute;
@@ -61,7 +58,6 @@
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
     }
-
 
     .top-frame{
       position: relative;
@@ -211,12 +207,9 @@
       object-fit: cover;
     }
 
-    /* ✅ 텍스트가 이미지 위에 잘 보이도록 하단 그라데이션 */
     .hero-media::after{
       content:none;
     }
-
-    /* ✅ 2) hero-bottom을 "이미지 위 오버레이"로 변경 */
 
     .hero-kicker{
       font-size: 0.72rem;
@@ -235,7 +228,7 @@
       text-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
-    /* Philosophy / Recommend / Article: 기존 유지(필요한 것만 여기 남김) */
+    /* Philosophy / Recommend / Article */
     .philosophy{padding: 140px 0 0; background: transparent;}
     .philosophy-slider{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;align-items:center}
     .philosophy-nav{display:flex;gap:1rem;margin-bottom:1.2rem}
@@ -270,6 +263,8 @@
       flex-direction: column;
       min-height: 570px;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
+      text-decoration: none; /* 추가 */
+      color: inherit; /* 추가 */
     }
     .product-card:hover{
       transform: translateY(-3px);
@@ -297,8 +292,8 @@
     .product-media img{
       width: 100%;
       height: 100%;
-      object-fit: cover;          /* 핵심: 꽉 채움 */
-      object-position: center;    /* 필요 시 center top 등으로 변경 */
+      object-fit: cover;
+      object-position: center;
       display: block;
       transform: scale(1.02);
     }
@@ -309,7 +304,6 @@
       background: rgba(0,0,0,0.55);
       color: rgba(255,255,255,0.92);
       border-top: 1px solid rgba(255,255,255,0.24);
-      
     }
 
     .product-card-info h3{
@@ -367,38 +361,27 @@
       overflow: hidden;
     }
 
-    /* 헤더 공간 확보 (비디오 위에 겹치므로) */
     .video-hero{
       position: relative;
       border-radius: 18px;
       overflow: hidden;
-
-      /* ✅ 기존: margin-top:68px;  ← 삭제 */
       margin-top: 0;
-
-      /* ✅ 헤더가 겹쳐도 메뉴가 안 가려지게 '안전 여백'만 확보 */
       padding-top: calc(72px + var(--safe-top));
-
-      height: clamp(360px, 48vw, 680px); /* 비디오 더 크게 (원하면 숫자만 조절) */
+      height: clamp(360px, 48vw, 680px);
       background: #ddd;
     }
 
-    /* 비디오 꽉 채우기 */
     .video-hero video{
       position: absolute;
       left: 0;
       right: 0;
-
-      /* ✅ 기존 inset:0 대신, 위로 당겨서 헤더 밑 빈공간 제거 */
       top: calc(-72px - var(--safe-top));
       bottom: 0;
-
       width: 100%;
       height: calc(100% + 72px + var(--safe-top));
       object-fit: cover;
     }
 
-    /* 비디오 위 가독성 오버레이 */
     .video-hero::after{
       content:"";
       position:absolute;
@@ -412,7 +395,6 @@
       pointer-events:none;
     }
 
-    /* 비디오 위 텍스트 (원하면 삭제 가능) */
     .video-hero-copy{
       position:absolute;
       left: 26px;
@@ -428,7 +410,6 @@
       max-width: 70%;
     }
 
-    /* 모바일에서 높이 조금 줄이기 */
     @media (max-width: 740px){
       .video-hero{
         margin-top: 62px;
@@ -439,28 +420,23 @@
     .hero-blur{
       position:absolute;
       left:0; right:0; bottom:0;
-      height: 92px;                  /* 블러 높이: 80~120px에서 취향대로 */
+      height: 92px;
       z-index:1;
-
-      background: rgba(255,255,255,0.22);  /* 유리톤 */
+      background: rgba(255,255,255,0.22);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-
-      /* 자연스럽게 위로 페이드 */
       -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
       mask-image: linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
     }
 
-    /* ✅ 글씨는 박스 없이, 블러 위에 얹기 */
     .hero-bottom{
       position:absolute;
       left: 14px;
       right: 14px;
       bottom: 14px;
       z-index: 2;
-
-      padding: 0;                 /* 박스 느낌 제거 */
-      background: transparent;     /* 박스 배경 제거 */
+      padding: 0;
+      background: transparent;
       border: 0;
       box-shadow: none;
     }
@@ -473,27 +449,68 @@
       object-fit: cover;
     }
 
-    
     .hero-media .hero-img-blur{
       filter: blur(5px);
-      transform: scale(1.06); /* blur 가장자리 하얀 테두리 방지 */
-      clip-path: inset(calc(100% - 95px) 0 0 0); /* 아래 95px만 보이게 */
+      transform: scale(1.06); 
+      clip-path: inset(calc(100% - 95px) 0 0 0); 
       opacity: 1;
-    }
-
-    /* 텍스트는 항상 위 */
-    .hero-bottom{
-      position:absolute;
-      left:14px;
-      right:14px;
-      bottom:14px;
-      z-index: 2;
-      background: transparent;
     }
 
     #siteFooter{
       margin-top: 140px;
     }
+
+    /* -----------------------------------------------------------
+       ✅ [추가됨] 표준 SEARCH MODAL 스타일
+       ----------------------------------------------------------- */
+    .search-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);
+      display: none; align-items: flex-start; justify-content: center; padding-top: 6vh;
+      opacity: 0; transition: opacity 0.2s ease;
+    }
+    .search-modal.open { display: flex; opacity: 1; }
+    
+    .search-shell {
+      background: #fff; width: 100%; max-width: 640px; border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden; display: flex; flex-direction: column;
+      margin: 0 16px; max-height: 80vh; 
+    }
+    
+    .search-top {
+      display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid rgba(0,0,0,0.06); gap: 14px;
+    }
+    .search-input-wrap { flex: 1; }
+    .search-input {
+      width: 100%; border: none; font-size: 1.1rem; font-weight: 500; outline: none; color: #1a1a1a;
+    }
+    .search-input::placeholder { color: rgba(0,0,0,0.4); }
+    
+    .header-search-btn {
+      background: #000; color: #fff; border: none; padding: 8px 16px; 
+      border-radius: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .header-search-btn:hover { opacity: 0.8; }
+    
+    .search-hint {
+      padding: 8px 20px; background: #fafafa; border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(0,0,0,0.5); font-weight: 500;
+    }
+    .kbd { background: #fff; border: 1px solid rgba(0,0,0,0.15); border-radius: 4px; padding: 1px 4px; font-family: monospace; }
+    
+    .search-body { padding: 0; overflow-y: auto; flex: 1; padding-bottom: 20px; }
+    .search-pane { padding: 20px; }
+    .pane-title { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+    .pane-title h3 { font-size: 0.85rem; font-weight: 700; color: rgba(0,0,0,0.8); margin: 0; text-transform: uppercase; }
+    
+    .suggestion-item { display: flex; gap: 12px; padding: 10px; border-radius: 8px; cursor: pointer; text-decoration: none; color: inherit; }
+    .suggestion-item:hover { background: rgba(0,0,0,0.04); }
+    .s-img { width: 40px; height: 40px; border-radius: 6px; overflow: hidden; background: #eee; flex-shrink: 0; }
+    .s-img img { width: 100%; height: 100%; object-fit: cover; }
+    .s-info { display: flex; flex-direction: column; justify-content: center; }
+    .s-name { font-size: 0.9rem; font-weight: 700; color: #1a1a1a; }
+    .s-sub { font-size: 0.75rem; color: rgba(0,0,0,0.5); }
   </style>
 </head>
 
@@ -501,48 +518,25 @@
   <div class="home-wrap">
     <div class="home-container">
 
-      <!-- ✅ (1) 3장 콜라주 -->
       <section class="top-frame full-bleed">
-        <!-- ✅ 공통 헤더 주입 자리 -->
         <div id="siteHeader"></div>
         
         <div class="video-hero">
-          <video
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="/images/hero-poster.jpg"
-          >
+          <video autoplay muted loop playsinline preload="metadata" poster="/images/hero-poster.jpg">
             <source src="/videos/홈페이지.mp4" type="video/mp4" />
           </video>
-
-          <!-- (선택) 비디오 위 텍스트 -->
-          <div class="video-hero-copy">
-            SKINCARE<br/>COLLECTION
-          </div>
+          <div class="video-hero-copy">SKINCARE<br/>COLLECTION</div>
         </div>
-        
       </section>
 
-      <!-- ✅ (2) hero-grid: 텍스트가 이미지 위로 -->
       <section class="hero-grid">
         <a href="/shop.html" class="hero-card">
           <div class="hero-topbar">
             <span>Shop Now</span>
-            <span class="open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 17L17 7"></path>
-                <path d="M10 7h7v7"></path>
-              </svg>
-            </span>
+            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
           </div>
           <div class="hero-media">
-            <!-- 원본 (선명) -->
             <img class="hero-img" src="/images/5.jpg" alt="New Product" loading="eager">
-
-            <!-- 아래 블러용 복제 (같은 사진) -->
             <img class="hero-img hero-img-blur" src="/images/5.jpg" alt="" aria-hidden="true">
             <div class="hero-bottom">
               <div class="hero-kicker">SHOP</div>
@@ -554,12 +548,7 @@
         <a href="/about.html" class="hero-card">
           <div class="hero-topbar">
             <span>See More</span>
-            <span class="open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 17L17 7"></path>
-                <path d="M10 7h7v7"></path>
-              </svg>
-            </span>
+            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
           </div>
           <div class="hero-media">
             <img src="/images/4.jpg" alt="Brand Story" loading="lazy" />
@@ -574,12 +563,7 @@
         <a href="/coming-soon.html" class="hero-card">
           <div class="hero-topbar">
             <span>See More</span>
-            <span class="open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 17L17 7"></path>
-                <path d="M10 7h7v7"></path>
-              </svg>
-            </span>
+            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
           </div>
           <div class="hero-media">
             <img src="/images/3.jpg" alt="Archive" loading="lazy" />
@@ -594,12 +578,7 @@
         <a href="/shop.html" class="hero-card">
           <div class="hero-topbar">
             <span>See More</span>
-            <span class="open" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 17L17 7"></path>
-                <path d="M10 7h7v7"></path>
-              </svg>
-            </span>
+            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
           </div>
           <div class="hero-media">
             <img src="/images/6.jpg" alt="Best Sellers" loading="lazy" />
@@ -612,7 +591,6 @@
         </a>
       </section>
 
-      <!-- Philosophy -->
       <section class="philosophy">
         <div class="philosophy-slider">
           <div class="philosophy-text">
@@ -628,14 +606,12 @@
               <a href="/about.html">Read more</a>
             </div>
           </div>
-
           <div class="philosophy-image">
             <img src="/images/10.jpg" alt="Philosophy" id="philosophyImage" loading="lazy" />
           </div>
         </div>
       </section>
 
-      <!-- Recommend -->
       <section class="recommend">
         <div class="section-header">
           <div>
@@ -658,7 +634,7 @@
 
           <a href="/product-detail.html?sku=bakuchiol-30000" class="product-card">
             <div class="product-media">
-              <img src="/images/제품/Mask group-4.png" alt="100% Volufiline Concentrate" loading="lazy" />
+              <img src="/images/제품/Mask group-4.png" alt="Bakuchiol 30,000ppm Serum" loading="lazy" />
             </div>
             <div class="product-card-info">
               <h3>Bakuchiol 30,000ppm Serum</h3>
@@ -669,7 +645,7 @@
 
           <a href="/product-detail.html?sku=pdrn-25" class="product-card">
             <div class="product-media">
-              <img src="/images/제품/Mask group-3.png" alt="100% Volufiline Concentrate" loading="lazy" />
+              <img src="/images/제품/Mask group-3.png" alt="PDRN 25% Concentrate" loading="lazy" />
             </div>
             <div class="product-card-info">
               <h3>PDRN 25% Concentrate</h3>
@@ -680,7 +656,7 @@
 
           <a href="/product-detail.html?sku=pdrn-12-egf" class="product-card">
             <div class="product-media">
-              <img src="/images/제품/Mask group.png" alt="100% Volufiline Concentrate" loading="lazy" />
+              <img src="/images/제품/Mask group.png" alt="PDRN 12% + EGF Peptide Serum" loading="lazy" />
             </div>
             <div class="product-card-info">
               <h3>PDRN 12% + EGF Peptide Serum</h3>
@@ -691,7 +667,6 @@
         </div>
       </section>
 
-      <!-- Article -->
       <section class="article">
         <div class="section-header">
           <div>
@@ -728,13 +703,49 @@
         </div>
       </section>
 
-      <!-- ✅ 공통 푸터 -->
       <div id="siteFooter"></div>
+      
+      <div class="search-modal" id="searchModal" aria-hidden="true">
+        <div class="search-shell" role="dialog" aria-modal="true" aria-label="Search">
+          <div class="search-top">
+            <div class="search-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </div>
+            <div class="search-input-wrap">
+              <input type="search" class="search-input" placeholder="Search products..." id="searchInput" autocomplete="off">
+            </div>
+            <div class="search-actions">
+              <button type="button" class="header-search-btn" id="topSearchBtn">Search</button>
+            </div>
+          </div>
+
+          <div class="search-hint">
+            <div>Type to search</div>
+            <div><span class="kbd">Esc</span> to close</div>
+          </div>
+
+          <div class="search-body">
+            <div class="search-pane">
+              <div class="pane-title">
+                <h3>Results</h3>
+                <span id="resultCount" style="font-size:0.85rem; color:#888;">0 items</span>
+              </div>
+              <div class="suggestions" id="suggestionList" role="listbox">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="mobileMenuOverlay"></div>
+      <div id="mobileMenu"></div>
 
     </div>
   </div>
 
-  <!-- Philosophy Slider JS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const slides = [
@@ -772,7 +783,98 @@
     });
   </script>
 
-  <!-- ✅ 공통 JS -->
+  <script>
+    // 전체 제품 데이터
+    window.PRODUCT_CATALOG = [
+      { id:"volufiline-100", name:"Volufiline 100% Concentrate", subtitle:"Firming & Volumizing", url:"/product-volufiline-100.html", image:"/images/제품/Mask group-1.png", tags:["volufiline","serum"] },
+      { id:"bakuchiol-30000", name:"Bakuchiol 30,000ppm Serum", subtitle:"Retinol-alternative", url:"/product-bakuchiol-30000.html", image:"/images/제품/Mask group-4.png", tags:["bakuchiol","serum"] },
+      { id:"pdrn-25", name:"PDRN 25% Concentrate", subtitle:"Skin Regeneration", url:"/product-pdrn-25.html", image:"/images/제품/Mask group-3.png", tags:["pdrn","serum"] },
+      { id:"pdrn-12-egf", name:"PDRN 12% + EGF Peptide Serum", subtitle:"Total Anti-aging", url:"/product-pdrn-12-egf.html", image:"/images/제품/Mask group.png", tags:["pdrn","egf","serum"] },
+      { id:"pdrn-12-cream", name:"PDRN 12% + EGF Peptide Cream", subtitle:"Deep Moisturizing", url:"/product-pdrn-12-egf-cream.html", image:"/images/제품/Mask group-6.png", tags:["pdrn","cream"] },
+      { id:"arbutxa", name:"ArbutXA Glow Cream", subtitle:"Brightening", url:"/product-arbutxa-glow-cream.html", image:"/images/제품/Mask group-5.png", tags:["arbutin","cream"] },
+      { id:"cleanser", name:"Gentle Cleanser", subtitle:"Purifying Touch", url:"/product-gentle-cleanser.html", image:"/images/제품/Mask group-11.png", tags:["cleanser"] },
+      { id:"oil", name:"Pore Purifying Cleansing Oil", subtitle:"Deep Clean", url:"/product-cleansing-oil.html", image:"/images/제품/Mask group-9.png", tags:["oil","cleanser"] }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById('searchModal');
+      const input = document.getElementById('searchInput');
+      const list = document.getElementById('suggestionList');
+      const count = document.getElementById('resultCount');
+      const topSearchBtn = document.getElementById('topSearchBtn');
+
+      // 헤더의 돋보기 버튼 클릭시 모달 열기
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('[data-open-search]')) {
+          e.preventDefault();
+          modal.classList.add('open');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+          input.value = '';
+          renderResults([]);
+          setTimeout(() => input.focus(), 100);
+        }
+      });
+
+      function closeSearch() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      // 우측 상단 Search 버튼 (아무것도 입력안했으면 다시 포커스)
+      topSearchBtn.addEventListener('click', () => {
+         if(input.value.trim() === "") input.focus();
+      });
+
+      // 배경 클릭 닫기
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeSearch();
+      });
+      // ESC 닫기
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeSearch();
+      });
+
+      // 실시간 검색 로직
+      input.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        if (!query) {
+          renderResults([]);
+          return;
+        }
+        const matches = window.PRODUCT_CATALOG.filter(p => 
+          p.name.toLowerCase().includes(query) || 
+          p.tags.some(t => t.includes(query))
+        );
+        renderResults(matches);
+      });
+
+      // 리스트 렌더링
+      function renderResults(items) {
+        count.innerText = `${items.length} items`;
+        list.innerHTML = '';
+        if (items.length === 0 && input.value.trim() !== '') {
+            list.innerHTML = '<div style="padding:20px; text-align:center; color:#888;">No products found.</div>';
+            return;
+        }
+        items.forEach(item => {
+          const el = document.createElement('a');
+          el.className = 'suggestion-item';
+          el.href = item.url;
+          el.innerHTML = `
+            <div class="s-img"><img src="${item.image}" alt=""></div>
+            <div class="s-info">
+              <div class="s-name">${item.name}</div>
+              <div class="s-sub">${item.subtitle}</div>
+            </div>
+          `;
+          list.appendChild(el);
+        });
+      }
+    });
+  </script>
+
   <script defer src="/assets/site.js"></script>
 </body>
 </html>
