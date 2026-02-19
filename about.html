@@ -18,14 +18,14 @@
         :root{--bg:#f5f5f5;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;--font:'Inter',-apple-system,sans-serif;--tap:48px;--accent:#3b82f6}
         body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
         
-        /* ✅ Hero 비디오 비율 및 움직임 수정 */
-        .brand-hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:80px}
-        .brand-hero-text{display:flex;flex-direction:column;justify-content:center;padding:5%}
+        /* ✅ Hero 비디오 상단 여백 제거하여 천장까지 닿게 수정 */
+        .brand-hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;}
+        .brand-hero-text{display:flex;flex-direction:column;justify-content:center;padding:5%; padding-top:100px;} /* 텍스트는 헤더에 안 가려지게 패딩 추가 */
         .brand-hero-text .label{font-size:0.85rem;color:var(--text-light);margin-bottom:1rem}
         .brand-hero-text h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600;line-height:1.1;margin-bottom:2rem}
         .brand-hero-text p{color:var(--text-light);line-height:1.9;margin-bottom:1rem}
         
-        .brand-hero-image{position:relative; background:#000; overflow:hidden;}
+        .brand-hero-image{position:relative; background:#000; overflow:hidden; height:100vh;} /* 뷰포트 높이에 꽉 차게 */
         /* 비디오가 박스에 꽉 차고 비율이 유지되도록 설정 */
         .brand-hero-image video {
             width: 100%;
@@ -38,12 +38,12 @@
         .mission{padding:100px 5%;background:var(--white)}
         .mission-inner{max-width:1000px;margin:0 auto;text-align:center}
         
-        /* ✅ 수정된 브랜딩 로고 스타일: 더 크고 중앙에 배치 */
+        /* 브랜딩 로고 스타일 */
         .mission-logo {
             display: block;
-            margin: 0 auto 3rem auto; /* 가운데 정렬 및 아래쪽 여백 증가 */
-            max-width: 1000px; /* 로고 최대 크기를 대폭 증가 (스크린샷 참조) */
-            width: 100%; /* 부모 요소 너비에 맞게 반응형으로 조절 */
+            margin: 0 auto 3rem auto; 
+            max-width: 1000px; 
+            width: 100%; 
             height: auto;
         }
 
@@ -52,17 +52,17 @@
             font-size: clamp(1.4rem, 3vw, 1.8rem);
             font-weight: 500;
             line-height: 1.5;
-            margin: 0 auto 2rem auto; /* 가운데 정렬 유지하며 아래 여백 */
-            max-width: 650px; /* 👈 너비를 제한해서 자연스럽게 2줄이 되도록 유도 */
-            text-wrap: balance; /* 👈 윗줄과 아랫줄의 텍스트 양을 비슷하게 맞춰주는 꿀팁 속성 */
+            margin: 0 auto 2rem auto; 
+            max-width: 650px; 
+            text-wrap: balance; 
         }
 
         /* 본문 (p) 수정 */
         .mission p {
             color: var(--text-light);
             line-height: 1.9;
-            margin: 0 auto; /* 가운데 정렬 */
-            max-width: 680px; /* 👈 본문도 너무 길게 퍼지지 않도록 너비 제한 */
+            margin: 0 auto; 
+            max-width: 680px; 
             text-wrap: balance;
         }
 
@@ -87,8 +87,8 @@
           .philosophy-card:nth-child(even){direction:ltr}
         }
         @media(max-width:768px){
-          .brand-hero-image{height:50vh} /* 모바일에서 비디오 높이 확보 */
-          .mission-logo { max-width: 80%; } /* 모바일에서도 로고가 충분히 크도록 설정 */
+          .brand-hero-image{height:50vh} 
+          .mission-logo { max-width: 80%; } 
         }
     </style>
 </head>
@@ -98,7 +98,7 @@
     <section class="brand-hero">
         <div class="brand-hero-text">
             <p class="label">Brand Story</p>
-            <h1>CELDYQUE from around the world</h1>
+            <h1>CELDYQUE <br> from around the world</h1>
             <p>We strive to find the perfect balance for each product to achieve optimal efficacy.</p>
             <p>CELDYQUE constantly researches optimal concentrations and true efficacy so that your skin can always remain in its perfect state. Our mission is not to chase trends, but to persistently research each ingredient to find the perfect formula.</p>
         </div>
