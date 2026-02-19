@@ -3,196 +3,213 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Gentle Cleanser | CELDYQUE</title>
-  <meta name="description" content="CELDYQUE Gentle Cleanser. Daily cleanser · Calm & cleanse." />
+  <title>Gentle Cleanser Purifying Touch | CELDYQUE</title>
+  <meta name="description" content="Gentle Cleanser Purifying Touch by CELDYQUE. AHA BHA PHA Exfoliating Face Wash with Centella, Tea Tree, and Green Tea for sensitive skin." />
 
-  <meta property="og:title" content="Gentle Cleanser | CELDYQUE" />
-  <meta property="og:description" content="Daily cleanser · Calm & cleanse" />
-  <meta property="og:type" content="product" />
-  <meta property="og:image" content="/images/제품/Mask group-11.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Common CSS -->
-  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="stylesheet" href="/assets/site.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <style>
-    body.product { background: var(--bg); color: var(--text); }
-    .page-wrap{ padding: 0 var(--page-pad); }
-    .container{ max-width: var(--page-max); margin: 0 auto; }
-    .hero-gap{ height: calc(84px + var(--safe-top)); }
-    .pd-wrap{ padding: 26px 0 90px; }
+    /* --- 기존 디자인 포맷 유지 --- */
+    body.product { padding-top: 80px; background: #fff; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px 120px; }
+    
+    .serif { font-family: 'Playfair Display', serif; }
+    
+    /* 1. Product Top */
+    .product-top { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; margin-bottom: 100px; align-items: center; }
+    .product-gallery { position: sticky; top: 100px; }
+    .product-gallery img { width:100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); background: #f4f4f4; }
 
-    .breadcrumb{ font-size: 0.9rem; color: rgba(0,0,0,0.55); font-weight: 650; margin: 10px 0 18px; }
-    .breadcrumb a{ opacity: .9; }
-    .breadcrumb span{ opacity: .6; margin: 0 6px; }
+    .product-info h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 500; margin-bottom: 10px; line-height: 1.15; }
+    .product-info .subtitle { font-size: 1.1rem; color: #666; margin-bottom: 24px; font-weight: 400; }
+    .product-info .price { font-size: 1.5rem; font-weight: 600; margin-bottom: 30px; display: block; }
+    
+    .desc-text { color: #444; line-height: 1.8; margin-bottom: 30px; font-size: 1.05rem; }
+    
+    .features-list { list-style: none; margin-bottom: 40px; padding: 0; }
+    .features-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #333; }
+    .features-list li::before { content:"✓"; color: #3b82f6; font-weight: bold; }
 
-    .product-main{ display:grid; grid-template-columns: 1.05fr .95fr; gap: clamp(18px, 4vw, 42px); align-items:start; }
-    .gallery{ background: rgba(255,255,255,0.78); border:1px solid rgba(0,0,0,0.08); border-radius: 18px; overflow:hidden; box-shadow: 0 14px 44px rgba(0,0,0,0.10); }
-    .gallery img{ width:100%; height: min(560px, 62vh); object-fit: cover; object-position:center; }
-    .gallery-meta{ padding: 14px; display:flex; flex-wrap:wrap; gap:10px; border-top:1px solid rgba(0,0,0,0.06); background: rgba(255,255,255,0.55); }
-    .chip{ display:inline-flex; align-items:center; gap:8px; padding: 8px 10px; border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.10); background: rgba(255,255,255,0.72); font-size: 0.86rem; color: rgba(0,0,0,0.65); font-weight: 650;
-    }
+    .action-group { display: flex; gap: 16px; }
+    .btn-buy { flex: 1; text-align: center; background: #1a1a1a; color: #fff; padding: 18px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+    .btn-buy:hover { background: #333; transform: translateY(-2px); }
 
-    .kicker{ display:flex; align-items:center; gap:10px; color: rgba(0,0,0,0.55); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: 0.8rem; }
-    .kicker .dot{ width:6px; height:6px; border-radius:999px; background: rgba(0,0,0,0.85); }
-    h1{ font-size: clamp(30px, 3.2vw, 44px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.12; margin: 10px 0 12px; }
-    .subtitle{ color: rgba(0,0,0,0.58); font-weight: 600; max-width: 56ch; }
-    .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 14px; }
-    .tag{ font-size: 0.78rem; font-weight: 850; padding: 6px 10px; border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.22); background: rgba(255,255,255,0.72); color: rgba(0,0,0,0.70);
-    }
+    /* 2. Banner */
+    .banner-section { position: relative; width: 100%; height: 500px; border-radius: 30px; overflow: hidden; margin-bottom: 100px; }
+    .banner-bg { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75); }
+    .banner-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; width: 90%; }
+    .banner-content h2 { font-size: 3rem; margin-bottom: 1rem; font-weight: 400; }
+    .banner-content p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
-    .cta-row{ display:flex; flex-wrap:wrap; gap:10px; margin: 18px 0 8px; }
-    .btn{ display:inline-flex; align-items:center; justify-content:center; height: 44px; padding: 0 18px; border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.10); background: rgba(255,255,255,0.70); cursor:pointer; font-weight: 800; font-size: 0.92rem;
-    }
-    .btn:hover{ background: rgba(255,255,255,0.95); }
-    .btn.primary{ background: rgba(26,26,26,0.92); color:#fff; border-color: rgba(26,26,26,0.92); }
-    .btn.primary:hover{ background: rgba(26,26,26,1); }
+    /* 3. Detail Grid */
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 120px; align-items: center; }
+    .detail-text h3 { font-size: 2rem; margin-bottom: 20px; }
+    .detail-text p { color: #666; line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem; }
+    .detail-img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .order-reverse .detail-text { order: 2; }
+    .order-reverse .detail-img { order: 1; }
 
-    .divider{ height:1px; background: rgba(0,0,0,0.10); margin: 18px 0; }
+    /* 4. Usage */
+    .usage-section { background: #f9f9f9; padding: 80px 40px; border-radius: 30px; margin-bottom: 100px; text-align: center; }
+    .usage-section h2 { margin-bottom: 50px; font-size: 2.2rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .step-card { background: #fff; padding: 40px 20px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: transform 0.3s; }
+    .step-card:hover { transform: translateY(-5px); }
+    .step-icon { width: 60px; height: 60px; background: #ebf2ff; color: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px; }
+    .step-card h4 { font-size: 1.1rem; margin-bottom: 10px; }
+    .step-card p { font-size: 0.95rem; color: #666; line-height: 1.6; }
 
-    .sections{ margin-top: 28px; display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .section{ background: rgba(255,255,255,0.78); border:1px solid rgba(0,0,0,0.08); border-radius: 18px;
-      padding: 20px; box-shadow: 0 14px 44px rgba(0,0,0,0.08);
-    }
-    .section h2{ font-size: 1.05rem; font-weight: 900; letter-spacing: -0.01em; margin-bottom: 10px; }
-    .section p{ color: rgba(0,0,0,0.58); font-weight: 600; line-height: 1.8; }
+    /* 5. Ingredients */
+    .ingredients-box { border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 60px 0; margin-bottom: 60px; }
+    .ingredients-box h3 { font-size: 1.5rem; margin-bottom: 20px; }
+    .ingredients-content { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+    .ing-list { color: #555; line-height: 1.8; }
 
-    .list{ margin-top: 12px; display:flex; flex-direction:column; gap:10px; }
-    .row{ display:flex; justify-content:space-between; gap: 14px; padding: 10px 12px; border-radius: 14px;
-      border: 1px solid rgba(0,0,0,0.06); background: rgba(255,255,255,0.70);
-    }
-    .row strong{ font-weight: 900; }
-    .row span{ color: rgba(0,0,0,0.55); font-weight: 650; text-align:right; }
-
-    .steps{ margin-top: 10px; display:flex; flex-direction:column; gap: 10px; }
-    .step{ display:flex; gap: 12px; padding: 12px; border-radius: 16px; border:1px solid rgba(0,0,0,0.06); background: rgba(255,255,255,0.70); }
-    .step .n{ width:28px; height:28px; border-radius:999px; border:1px solid rgba(0,0,0,0.12);
-      display:flex; align-items:center; justify-content:center; font-weight: 900; color: rgba(0,0,0,0.55); flex:0 0 auto; }
-    .step .t b{ display:block; font-weight: 900; }
-    .step .t small{ display:block; color: rgba(0,0,0,0.58); font-weight: 600; line-height:1.65; margin-top:2px; }
-
-    @media (max-width: 980px){
-      .product-main{ grid-template-columns: 1fr; }
-      .sections{ grid-template-columns: 1fr; }
+    @media(max-width: 900px) {
+      .product-top { grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
+      .product-gallery { position: static; }
+      .banner-content h2 { font-size: 2rem; }
+      .detail-grid { grid-template-columns: 1fr; gap: 40px; }
+      .order-reverse .detail-text { order: 1; }
+      .order-reverse .detail-img { order: 2; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .ingredients-content { grid-template-columns: 1fr; }
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org/",
-  "@type": "Product",
-  "name": "Gentle Cleanser",
-  "brand": {
-    "@type": "Brand",
-    "name": "CELDYQUE"
-  },
-  "description": "CELDYQUE Gentle Cleanser. Daily cleanser · Calm & cleanse.",
-  "image": "/images/제품/Mask group-11.png",
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
-    "url": "https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252?ingress=3"
-  }
-}
-  </script>
 </head>
 
 <body class="product">
-  <div class="page-wrap">
-    <div class="container">
-      <div id="siteHeader"></div>
-      <div class="hero-gap"></div>
 
-      <main class="pd-wrap">
-        <div class="breadcrumb">
-          <a href="/shop.html">Shop</a><span>/</span><a href="/shop.html?cat=cleanser">Cleanser</a><span>/</span><span>Gentle Cleanser</span>
-        </div>
+  <div id="siteHeader"></div>
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu"></div>
+  <div class="search-modal" id="searchModal"></div>
 
-        <section class="product-main">
-          <div class="gallery">
-            <img src="/images/제품/Mask group-11.png" alt="Gentle Cleanser Purifying Touch by CELDYQUE" loading="eager">
-            <div class="gallery-meta">
-              <div class="chip">Daily cleanse</div>
-<div class="chip">Gentle routine</div>
-<div class="chip">Comfort finish</div>
-            </div>
-          </div>
+  <div class="container">
 
-          <div class="info">
-            <div class="kicker"><span class="dot"></span><span>Cleanser</span></div>
-            <h1>Gentle Cleanser</h1>
-            <p class="subtitle">Daily cleanser · Calm & cleanse · 150ml</p>
-
-            <div class="tag-row">
-              <span class="tag">Centella</span>
-<span class="tag">Green tea</span>
-<span class="tag">Tea tree</span>
-            </div>
-
-            <div class="cta-row">
-              <a class="btn primary" href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252?ingress=3" target="_blank" rel="noopener">Buy on Amazon</a>
-              <a class="btn" href="#how-to-use">How to Use</a>
-            </div>
-
-            <div class="divider"></div>
-
-            <p class="subtitle" style="margin-top:10px;">
-              Minimal routine, focused care. Keep claims consistent with your verified documentation and labeling.
-            </p>
-          </div>
-        </section>
-
-        <section class="sections">
-          <article class="section">
-            <h2>Key Info</h2>
-            <p>Quick specs based on your Shop page.</p>
-            <div class="list">
-              <div class="row"><strong>Category</strong><span>Cleanser</span></div>
-<div class="row"><strong>Volume</strong><span>150ml</span></div>
-<div class="row"><strong>Tags</strong><span>Centella, Green tea, Tea tree</span></div>
-            </div>
-          </article>
-
-          <article class="section" id="how-to-use">
-            <h2>How to Use</h2>
-            <p>Simple, repeatable steps for everyday routines.</p>
-            <div class="steps">
-              
-      <div class="step">
-        <div class="n">1</div>
-        <div class="t"><b>Lather</b><small>Dispense a small amount and lather with water.</small></div>
-      </div>
-
-      <div class="step">
-        <div class="n">2</div>
-        <div class="t"><b>Cleanse</b><small>Massage gently for 20–30 seconds, avoiding harsh rubbing.</small></div>
-      </div>
-
-      <div class="step">
-        <div class="n">3</div>
-        <div class="t"><b>Rinse</b><small>Rinse thoroughly with lukewarm water.</small></div>
-      </div>
-
-      <div class="step">
-        <div class="n">4</div>
-        <div class="t"><b>Finish</b><small>Pat dry and continue with your routine.</small></div>
-      </div>
-            </div>
-          </article>
-        </section>
-      </main>
-
-      <div id="siteFooter"></div>
+    <div class="breadcrumb" style="margin-top:20px; color:#888;">
+      <a href="/shop.html">Shop</a> / Cleanser / Gentle Cleanser
     </div>
+
+    <div class="product-top">
+      <div class="product-gallery">
+        <img src="/images/제품/Mask group-11.png" alt="CELDYQUE Gentle Cleanser Purifying Touch">
+      </div>
+
+      <div class="product-info">
+        <h1 class="serif">Gentle Cleanser<br>Purifying Touch</h1>
+        <p class="subtitle">Centella, Tea Tree & Green Tea · AHA BHA PHA</p>
+        
+        <p class="desc-text">
+          A gentle yet effective exfoliating face wash designed for sensitive and acne-prone skin. 
+          Powered by a balanced Triple Acid Blend (AHA, BHA, PHA) and soothing botanicals, it clears pores and smooths texture without stripping moisture.
+        </p>
+
+        <ul class="features-list">
+          <li>Triple Acid Exfoliation (AHA, BHA, PHA)</li>
+          <li>Soothing Centella & Tea Tree Complex</li>
+          <li>Antioxidant Green Tea Protection</li>
+          <li>Hydrating, Barrier-Friendly Formula</li>
+          <li>Ideal for Sensitive & Acne-Prone Skin</li>
+        </ul>
+
+        <div class="action-group">
+          <a href="store.html" class="btn-buy">
+            Where to Buy &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="banner-section">
+      <img src="https://images.unsplash.com/photo-1491497895121-1334fc14d8c9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Purifying Water" class="banner-bg">
+      <div class="banner-content">
+        <h2 class="serif">Purify & Calm<br>Without Stripping</h2>
+        <p>
+          Daily exfoliation meets deep hydration.<br>
+          The perfect balance for troubled skin.
+        </p>
+      </div>
+    </section>
+
+    <section class="details-section">
+      
+      <div class="detail-grid">
+        <div class="detail-text">
+          <h3 class="serif">Triple Acid Polishing</h3>
+          <p>
+            Powered by a balanced blend of <strong>AHA, BHA, and PHA</strong>, this cleanser gently polishes away dead skin cells, excess sebum, and daily buildup.
+          </p>
+          <p>
+            It keeps pores clear and skin smooth while being gentle enough for daily use on sensitive skin, preventing future breakouts.
+          </p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&q=80&w=800" alt="Gentle Foam" class="detail-img">
+      </div>
+
+      <div class="detail-grid order-reverse">
+        <div class="detail-text">
+          <h3 class="serif">Green Calming Complex</h3>
+          <p>
+            Infused with <strong>Centella Asiatica, Tea Tree, and Green Tea</strong>, this formula is a sanctuary for irritated skin.
+          </p>
+          <p>
+            These natural ingredients work together to reduce redness, calm inflammation, and protect against environmental stressors, leaving your skin refreshed and balanced.
+          </p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=800" alt="Botanical Ingredients" class="detail-img">
+      </div>
+
+    </section>
+
+    <section class="usage-section">
+      <h2 class="serif">How to Use</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-icon">1</div>
+          <h4>Dispense</h4>
+          <p>Squeeze a pea-sized amount onto wet hands.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">2</div>
+          <h4>Lather</h4>
+          <p>Rub hands together to create a rich, creamy foam.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">3</div>
+          <h4>Massage</h4>
+          <p>Gently massage onto face in circular motions, then rinse thoroughly with lukewarm water.</p>
+        </div>
+      </div>
+      <p style="margin-top:30px; color:#888; font-size:0.9rem;">
+        * Suitable for daily morning and evening cleansing.
+      </p>
+    </section>
+
+    <div class="ingredients-box">
+      <div class="ingredients-content">
+        <div>
+          <h3 class="serif">Ingredients</h3>
+          <p style="color:#888; font-size:0.9rem;">Clean & Balanced</p>
+        </div>
+        <div class="ing-list">
+          <p><strong>Centella Asiatica Extract</strong>, Tea Tree Extract, Green Tea Leaf Powder, Sodium Cocoyl Isethionate, Glycerin, Sodium Hyaluronate, Hydrolyzed Collagen, Niacinamide, Allantoin.</p>
+          <p style="margin-top:20px; font-size:0.9rem; color:#666;">
+            <strong>Benefits:</strong> Pore Cleansing, Exfoliation, soothing, Hydration.
+          </p>
+          <p style="margin-top:10px; font-size:0.9rem; color:#666;">
+            <strong>Formula:</strong> Lightweight foaming wash that leaves no residue.
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
+  <div id="siteFooter"></div>
   <script defer src="/assets/site.js"></script>
+
 </body>
 </html>
