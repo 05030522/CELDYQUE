@@ -57,6 +57,10 @@
       width: 100vw;
       margin-left: calc(50% - 50vw);
       margin-right: calc(50% - 50vw);
+      padding: 0;             /* ✅ 내부 흰색 여백(12px) 제거 */
+      border: none;           /* ✅ 외곽 테두리 제거 */
+      border-radius: 0;       /* ✅ 모서리 곡률 제거 (천장에 딱 붙게 함) */
+      box-shadow: none;
     }
 
     .top-frame{
@@ -363,22 +367,25 @@
 
     .video-hero{
       position: relative;
-      border-radius: 18px;
+      border-radius: 0px;
       overflow: hidden;
       margin-top: 0;
-      padding-top: calc(72px + var(--safe-top));
-      height: clamp(360px, 48vw, 680px);
-      background: #ddd;
+      padding-top: 0;
+      /* padding-top: calc(72px + var(--safe-top)); */
+      height: 80vh;
+      background: #000;
     }
 
     .video-hero video{
       position: absolute;
       left: 0;
       right: 0;
-      top: calc(-72px - var(--safe-top));
+      top: 0;
+      /* top: calc(-72px - var(--safe-top)); */
       bottom: 0;
       width: 100%;
-      height: calc(100% + 72px + var(--safe-top));
+      height: 100%;
+      /* height: calc(100% + 72px + var(--safe-top)); */
       object-fit: cover;
     }
 
@@ -395,26 +402,26 @@
       pointer-events:none;
     }
 
-    .video-hero-copy{
-      position:absolute;
-      left: 26px;
-      bottom: 26px;
-      z-index: 2;
-      color: rgba(255,255,255,0.92);
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      line-height: 1.12;
-      font-size: 0.95rem;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.26);
-      max-width: 70%;
+    .video-hero-copy {
+        position: absolute;
+        left: 40px;             /* 여백 살짝 넓힘 */
+        bottom: 40px;
+        z-index: 2;
+        color: #fff;
+        font-size: clamp(1.1rem, 4vw, 1.8rem); /* 글자 크기 가독성 높임 */
+        font-weight: 800;
+        line-height: 1.1;
     }
 
-    @media (max-width: 740px){
-      .video-hero{
-        margin-top: 62px;
-        height: 320px;
+    @media (max-width: 740px) {
+      .video-hero {
+          margin-top: 0;      /* 모바일에서도 천장에 붙임 */
+          height: 60vh;       /* 모바일은 조금 낮게 조정 가능 */
       }
+  }
+
+    #siteHeader {
+        background: transparent !important;
     }
 
     .hero-blur{
@@ -536,8 +543,8 @@
             <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
           </div>
           <div class="hero-media">
-            <img class="hero-img" src="/images/5.jpg" alt="New Product" loading="eager">
-            <img class="hero-img hero-img-blur" src="/images/5.jpg" alt="" aria-hidden="true">
+            <img class="hero-img" src="/images/Group 10.png" alt="New Product" loading="eager">
+            <!-- <img class="hero-img hero-img-blur" src="/images/5.jpg" alt="" aria-hidden="true"> -->
             <div class="hero-bottom">
               <div class="hero-kicker">SHOP</div>
               <div class="hero-title">New Product</div>
@@ -551,8 +558,8 @@
             <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
           </div>
           <div class="hero-media">
-            <img src="/images/13.jpg" alt="Brand Story" loading="lazy" />
-            <img class="hero-img hero-img-blur" src="/images/13.jpg" alt="" aria-hidden="true">
+            <img src="/images/Group 9.png" alt="Brand Story" loading="lazy" />
+            <!-- <img class="hero-img hero-img-blur" src="/images/13.jpg" alt="" aria-hidden="true"> -->
             <div class="hero-bottom">
               <div class="hero-kicker">OUR STORY</div>
               <div class="hero-title">Brand Story</div>
@@ -566,8 +573,8 @@
             <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
           </div>
           <div class="hero-media">
-            <img src="/images/6.jpg" alt="Archive" loading="lazy" />
-            <img class="hero-img hero-img-blur" src="/images/6.jpg" alt="" aria-hidden="true">
+            <img src="/images/Group 8.png" alt="Archive" loading="lazy" />
+            <!-- <img class="hero-img hero-img-blur" src="/images/6.jpg" alt="" aria-hidden="true"> -->
             <div class="hero-bottom">
               <div class="hero-kicker">ARCHIVE</div>
               <div class="hero-title">New Season</div>
@@ -581,8 +588,8 @@
             <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
           </div>
           <div class="hero-media">
-            <img src="/images/1.jpg" alt="Best Sellers" loading="lazy" />
-            <img class="hero-img hero-img-blur" src="/images/1.jpg" alt="" aria-hidden="true">
+            <img src="/images/Group 7.png" alt="Best Sellers" loading="lazy" />
+            <!-- <img class="hero-img hero-img-blur" src="/images/1.jpg" alt="" aria-hidden="true"> -->
             <div class="hero-bottom">
               <div class="hero-kicker">PRODUCT</div>
               <div class="hero-title">Best Sellers</div>
