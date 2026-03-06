@@ -293,13 +293,25 @@
       line-height: 1;
     }
 
-    .product-media img{
+    .product-media {
+      position: relative;
+      flex: 1;             /* ✅ 추가: 카드의 남은 상단 공간을 모두 차지함 */
+      width: 100%;
+      overflow: hidden;
+      background: #f1f1f1; /* 이미지 로딩 전이나 미세한 틈 보정용 */
+    }
+
+    .product-media img {
+      position: absolute;  /* ✅ 추가: 컨테이너에 맞춰 강제 배치 */
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: cover;   /* ✅ 비율 유지하며 컨테이너 꽉 채움 (잘리는 부분 최소화) */
       object-position: center;
       display: block;
-      transform: scale(1.02);
+      transform: scale(1); /* 기존 스타일 유지 */
+      image-rendering: -webkit-optimize-contrast;
     }
 
     .product-card-info{
@@ -646,7 +658,7 @@
 
           <a href="/product-bakuchiol-30000.html" class="product-card">
             <div class="product-media">
-              <img src="/images/제품/Mask group-4.png" alt="Bakuchiol 30,000ppm Serum" loading="lazy" />
+              <img src="/images/제품/Mask group00.png" alt="Bakuchiol 30,000ppm Serum" loading="lazy" />
             </div>
             <div class="product-card-info">
               <h3>Bakuchiol 30,000ppm Serum</h3>
@@ -657,7 +669,7 @@
 
           <a href="/product-pdrn-25.html" class="product-card">
             <div class="product-media">
-              <img src="/images/제품/Mask group-3.png" alt="PDRN 25% Concentrate" loading="lazy" />
+              <img src="/images/제품/DSC07743.jpg" alt="PDRN 25% Concentrate" loading="lazy" />
             </div>
             <div class="product-card-info">
               <h3>PDRN 25% Concentrate</h3>
