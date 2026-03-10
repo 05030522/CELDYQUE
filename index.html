@@ -302,16 +302,21 @@
     }
 
     .product-media img {
-      position: absolute;  /* ✅ 추가: 컨테이너에 맞춰 강제 배치 */
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;   /* ✅ 비율 유지하며 컨테이너 꽉 채움 (잘리는 부분 최소화) */
-      object-position: center;
+      object-fit: cover;
+      object-position: center center;
       display: block;
-      transform: scale(1); /* 기존 스타일 유지 */
+      transform: scale(1.01);
       image-rendering: -webkit-optimize-contrast;
+      transition: transform 0.25s ease;
+    }
+
+    .product-card:hover .product-media img{
+      transform: scale(1.03);
     }
 
     .product-card-info{
@@ -360,12 +365,351 @@
     }
 
     @media (max-width: 740px){
-      .top-frame{padding: 10px;}
-      .top-collage{margin-top: 62px;}
-      .collage{grid-template-columns: 1fr;}
-      .collage-item{height: 260px;}
-      .hero-grid{grid-template-columns: 1fr;}
-      .products-grid{grid-template-columns: 1fr;}
+      .home-wrap{
+        padding: 0 14px 0;
+      }
+
+      .home-container{
+        width: 100%;
+      }
+
+      .top-frame{
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .top-collage{
+        margin-top: 56px;
+      }
+
+      .collage{
+        grid-template-columns: 1fr;
+      }
+
+      .collage-item{
+        height: 220px;
+      }
+
+      .collage-copy{
+        left: 16px;
+        bottom: 16px;
+        font-size: 0.82rem;
+        max-width: 82%;
+      }
+
+      .collage-copy.center{
+        bottom: 18px;
+        max-width: 78%;
+      }
+
+      .video-hero{
+        height: 58vh;
+        min-height: 420px;
+        border-radius: 0;
+      }
+
+      .video-hero-copy {
+        position: absolute;
+        left: 40px;
+        bottom: 40px;
+        z-index: 2;
+        color: #fff;
+        font-size: clamp(1.1rem, 4vw, 1.8rem);
+        font-weight: 800;
+        line-height: 1.1;
+        text-shadow: 0 10px 30px rgba(0,0,0,0.22);
+        max-width: 78%;
+      }
+
+      .hero-grid{
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 22px 0 0;
+        min-height: auto;
+        min-width: 0;
+      }
+
+      .hero-card{
+        min-height: 340px;
+        border-radius: 16px;
+      }
+
+      .hero-topbar{
+        height: 34px;
+        padding: 0 10px;
+        font-size: 0.78rem;
+      }
+
+      .hero-topbar .open{
+        width: 24px;
+        height: 24px;
+        border-radius: 7px;
+      }
+
+      .hero-media{
+        min-height: 300px;
+      }
+
+      .hero-bottom{
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .hero-kicker{
+        font-size: 0.66rem;
+        letter-spacing: 0.12em;
+        margin-bottom: 4px;
+      }
+
+      .hero-title{
+        font-size: 1rem;
+        line-height: 1.12;
+      }
+
+      .philosophy{
+        padding: 72px 0 0;
+      }
+
+      .philosophy-slider{
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .philosophy-nav{
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .philosophy-nav button{
+        font-size: 1rem;
+      }
+
+      .philosophy-content h3{
+        font-size: 1rem;
+        line-height: 1.45;
+        margin-bottom: 10px;
+      }
+
+      .philosophy-content p{
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      .philosophy-image img{
+        height: 240px;
+        border-radius: 14px;
+      }
+
+      .recommend{
+        padding: 72px 0 0;
+      }
+
+      .section-header{
+        margin: 0 auto 12px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .section-header h2{
+        font-size: 1.1rem;
+        line-height: 1.15;
+      }
+
+      .section-header p{
+        font-size: 0.84rem;
+        line-height: 1.5;
+      }
+
+      .products-grid{
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .product-card{
+        min-height: 470px;
+        border-radius: 16px;
+      }
+
+      .product-card::after{
+        top: 10px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        font-size: 0.95rem;
+      }
+
+      .product-media{
+        min-height: 360px;
+      }
+
+      .product-card-info{
+        padding: 12px 12px 14px;
+      }
+
+      .product-card-info h3{
+        font-size: 0.92rem;
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+
+      .product-card-info p{
+        font-size: 0.74rem;
+        line-height: 1.45;
+      }
+
+      .article{
+        padding: 72px 0 0;
+        padding-bottom: 0;
+      }
+
+      .article-grid{
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .article-card{
+        grid-template-columns: 1fr;
+        border-radius: 16px;
+      }
+
+      .article-card img{
+        height: 220px;
+      }
+
+      .article-card-content{
+        padding: 16px;
+      }
+
+      .article-card h3{
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+
+      .article-card p{
+        font-size: 0.86rem;
+        line-height: 1.65;
+      }
+
+      #siteFooter{
+        margin-top: 72px;
+      }
+
+      .search-modal{
+        padding-top: 3vh;
+      }
+
+      .search-shell{
+        margin: 0 10px;
+        border-radius: 14px;
+        max-height: 86vh;
+      }
+
+      .search-top{
+        padding: 14px 14px;
+        gap: 10px;
+      }
+
+      .search-input{
+        font-size: 1rem;
+      }
+
+      .header-search-btn{
+        padding: 8px 12px;
+        font-size: 0.8rem;
+      }
+
+      .search-hint{
+        padding: 8px 14px;
+        font-size: 0.72rem;
+      }
+
+      .search-pane{
+        padding: 14px;
+      }
+
+      .suggestion-item{
+        padding: 9px;
+        gap: 10px;
+      }
+
+      .s-img{
+        width: 44px;
+        height: 44px;
+      }
+
+      .s-name{
+        font-size: 0.86rem;
+        line-height: 1.25;
+      }
+
+      .s-sub{
+        font-size: 0.73rem;
+      }
+    }
+
+    @media (max-width: 430px){
+      .home-wrap{
+        padding: 0 12px 0;
+      }
+
+      .video-hero{
+        height: 54vh;
+        min-height: 380px;
+      }
+
+      .video-hero-copy{
+        left: 16px;
+        right: 16px;
+        bottom: 18px;
+        font-size: clamp(1.15rem, 8.2vw, 1.7rem);
+      }
+
+      .hero-card{
+        min-height: 320px;
+      }
+
+      .hero-media{
+        min-height: 280px;
+      }
+
+      .hero-title{
+        font-size: 0.94rem;
+      }
+
+      .philosophy-content h3{
+        font-size: 0.96rem;
+      }
+
+      .section-header h2{
+        font-size: 1.02rem;
+      }
+
+      .product-card{
+        min-height: 435px;
+      }
+
+      .product-media{
+        min-height: 325px;
+      }
+
+      .product-card-info h3{
+        font-size: 0.88rem;
+      }
+
+      .product-card-info p{
+        font-size: 0.72rem;
+      }
+
+      .article-card img{
+        height: 200px;
+      }
+
+      .article-card p{
+        font-size: 0.82rem;
+      }
     }
 
     .article{
