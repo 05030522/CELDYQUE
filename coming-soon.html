@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 
-  <title>The Silent Reveal | CELDYQUÉ </title>
+  <title>9-Peptide Scalp Care Serum | CELDYQUÉ</title>
   
   <link rel="stylesheet" href="/assets/site.css">
 
@@ -37,7 +37,6 @@
       align-items: center;
     }
 
-    /* ✅ 1. 왼쪽: 모자이크/블러 비주얼 */
     .visual-box {
       position: relative;
       aspect-ratio: 4 / 5;
@@ -48,15 +47,11 @@
       border: 1px solid var(--border);
     }
 
-    /* 실제 제품 이미지 대신 형태만 보이는 모자이크 효과 */
+    /* ✅ 블러 제거 */
     .mosaic-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      /* 형태만 남기고 강하게 블러 처리 */
-      filter: blur(45px) saturate(1.2);
-      transform: scale(1.1);
-      opacity: 0.8;
     }
 
     .visual-overlay {
@@ -64,8 +59,9 @@
       inset: 0;
       background: radial-gradient(circle at center, transparent, rgba(248,248,248,0.2));
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 16px;
     }
 
     .status-tag {
@@ -80,7 +76,6 @@
       font-weight: 600;
     }
 
-    /* ✅ 2. 오른쪽: 카테고리 & 성분 힌트 */
     .content-box {
       text-align: left;
     }
@@ -107,7 +102,6 @@
       color: var(--text-sub);
     }
 
-    /* 정보 섹션 */
     .info-section {
       margin-bottom: 2.5rem;
       padding-bottom: 2rem;
@@ -131,10 +125,10 @@
       border-radius: 50%;
     }
 
-    /* 카테고리 태그 */
     .category-group {
       display: flex;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .tag {
@@ -145,7 +139,6 @@
       color: #333;
     }
 
-    /* 성분 힌트 문구 */
     .ingredient-hint {
       font-size: 0.95rem;
       color: var(--text-sub);
@@ -175,36 +168,48 @@
   <main class="reveal-container">
     
     <div class="visual-box">
-      <img src="images/제품/Gemini_Generated_Image_fkcgzvfkcgzvfkcg.png" 
-           alt="Mysterious silhouette" class="mosaic-image">
+      <img src="images/제품/Ms-13임시.jpg" 
+           alt="9-Peptide Scalp Care Serum Roll-On" class="mosaic-image">
       <div class="visual-overlay">
-        <span class="status-tag">Under Development</span>
+        <span class="status-tag">Now Available</span>
       </div>
     </div>
 
     <div class="content-box">
-      <span class="label">Coming into focus</span>
+      <span class="label">Root-Focused Scalp Innovation</span>
       <h1 class="main-title">
-        A new standard <br>
-        of <em>Cellular Care.</em>
+        The serum your <br>
+        scalp has been <em>waiting for.</em>
       </h1>
 
       <div class="info-section">
         <div class="info-title">Product Category</div>
         <div class="category-group">
           <span class="tag">ADVANCED SCALP CARE</span>
-          <span class="tag">COMING SOON</span>
+          <span class="tag">ROLL-ON SERUM</span>
         </div>
       </div>
 
       <div class="info-section">
-        <div class="info-title">The Hint</div>
+        <div class="info-title">Key Actives</div>
+        <div class="category-group">
+          <span class="tag">Rosemary 2%</span>
+          <span class="tag">Caffeine 1%</span>
+          <span class="tag">PDRN & Spicule 300</span>
+          <span class="tag">9-Peptide Complex</span>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <div class="info-title">What It Does</div>
         <p class="ingredient-hint">
-          <strong>"The Next Energy Booster"</strong><br>
-          A groundbreaking micro-delivery system meets our most potent clinical complex yet. <br>
-          Designed to awaken the roots and restore the foundation of your confidence. <br><br>
-          CELDYQUÉ’s next-generation formula for a thicker, fuller tomorrow.<br>
-          Unveiling soon.
+          <strong>"Precision Meets Potency."</strong><br>
+          A 9-peptide complex and Spicule 3,000ppm micro-delivery system target
+          thinning-prone roots with clinical-grade actives — Rosemary 2%,
+          Caffeine 1%, and PDRN 1,000ppm — in a lightweight, roll-on formula
+          that works while you go about your day.<br><br>
+          Sulfate-free. Silicone-free. Paraben-free.<br>
+          For all scalp types. Women &amp; Men.
         </p>
       </div>
 
