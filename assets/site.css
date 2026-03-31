@@ -187,6 +187,7 @@ a{text-decoration:none;color:inherit}
 .search-input-wrap { flex: 1; }
 .search-input {
   width: 100%; border: none; font-size: 1.1rem; font-weight: 500; outline: none; color: #1a1a1a; background: transparent;
+  font-family: inherit;
 }
 .search-input::placeholder { color: rgba(0,0,0,0.4); }
 

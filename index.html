@@ -3,909 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>CELDYQUÉ</title>
+  <title>CELDYQUÉ — High-Concentration Korean Skincare</title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/pa2.jpg">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/pa2.jpg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" sizes="32x32" href="/images/pa2.webp">
+  <link rel="icon" type="image/webp" sizes="16x16" href="/images/pa2.webp">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/pa2.jpg">
 
+  <!-- SEO Meta -->
   <meta name="description" content="CELDYQUE offers high-concentration Korean skincare with clinically proven ingredients. Volufiline 100%, Niacinamide 20%, Bakuchiol serums." />
   <meta name="theme-color" content="#1a1a1a" />
   <link rel="canonical" href="https://www.celdyque.com/" />
 
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CELDYQUÉ — High-Concentration Korean Skincare" />
+  <meta property="og:description" content="Clinically proven ingredients at maximum concentration. Volufiline, PDRN, Bakuchiol serums." />
+  <meta property="og:url" content="https://www.celdyque.com/" />
+  <meta property="og:image" content="https://www.celdyque.com/images/pa2.jpg" />
+  <meta property="og:site_name" content="CELDYQUÉ" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CELDYQUÉ — High-Concentration Korean Skincare" />
+  <meta name="twitter:description" content="Clinically proven ingredients at maximum concentration." />
+  <meta name="twitter:image" content="https://www.celdyque.com/images/pa2.jpg" />
+
+  <!-- Structured Data -->
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"CELDYQUE","url":"https://www.celdyque.com","description":"High-concentration Korean skincare brand"}
+    {"@context":"https://schema.org","@type":"Organization","name":"CELDYQUE","url":"https://www.celdyque.com","description":"High-concentration Korean skincare brand","logo":"https://www.celdyque.com/images/pa2.jpg"}
   </script>
 
+  <!-- Fonts: preconnect + swap (경량화: 실사용 weight만) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
+  <!-- Preload critical hero image (WebP) -->
+  <link rel="preload" as="image" href="/images/Group 10.webp" type="image/webp" />
+
+  <!-- Stylesheets (cacheable external files) -->
   <link rel="stylesheet" href="/assets/site.css">
-
-  <style>
-    /* =========================
-      HOME (스크린샷1/2/3 반영)
-      - 기존 색감 변수(var(--bg) 등) 유지
-    ========================= */
-
-    body.home{
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    body.home #siteHeader{
-      position:absolute;
-      width:auto;
-      max-width:none;
-      margin:0;
-      z-index:60;
-      pointer-events:auto;
-    }
-
-    /* 공통 컨테이너 */
-    .home-wrap{
-      padding: 0px 30px 0;
-    }
-    .home-container{
-      width: 100%;
-      max-width: var(--page-max);
-      margin: 0 auto;
-    }
-
-    .top-frame.full-bleed{
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
-      padding: 0;             /* ✅ 내부 흰색 여백(12px) 제거 */
-      border: none;           /* ✅ 외곽 테두리 제거 */
-      border-radius: 0;       /* ✅ 모서리 곡률 제거 (천장에 딱 붙게 함) */
-      box-shadow: none;
-    }
-
-    .top-frame{
-      position: relative;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(0,0,0,0.08);
-      box-shadow: 0 14px 44px rgba(0,0,0,0.12);
-      padding: 12px 12px 12px 12px;
-      overflow:hidden;
-    }
-
-    .top-collage{
-      border-radius: 12px;
-      overflow: hidden;
-      margin-top: 68px; /* ✅ 헤더 공간 확보 */
-    }
-
-    .collage{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-    }
-
-    .collage-item{
-      position: relative;
-      height: clamp(260px, 38vw, 520px);
-      background: #ddd;
-      overflow: hidden;
-    }
-    .collage-item img{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.02);
-      filter: saturate(0.98) contrast(0.98);
-    }
-
-    .collage-item::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(to top, rgba(0,0,0,0.34), rgba(0,0,0,0.06), rgba(0,0,0,0));
-      pointer-events:none;
-    }
-
-    .collage-copy{
-      position:absolute;
-      left: 26px;
-      bottom: 26px;
-      z-index: 2;
-      color: rgba(255,255,255,0.92);
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      line-height: 1.12;
-      font-size: 0.95rem;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.26);
-      max-width: 70%;
-    }
-    .collage-copy.center{
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 28px;
-      max-width: 62%;
-    }
-
-    /* -----------------------------------------
-      (2) HERO GRID (스크린샷2)
-      - 텍스트를 흰 배경(bottom)에서 분리하고
-      - 이미지 위에 바로 오버레이로 표시
-    ----------------------------------------- */
-
-    .hero-grid{
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      padding: 140px 0 0px;
-      background: transparent;
-      min-height: 750px;
-      min-width: 400px;
-    }
-
-    .hero-card{
-      background: var(--white);
-      border: 2px solid rgba(0,0,0,0.55);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      min-height: 420px; /* ✅ 스샷2처럼 세로 */
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-    .hero-card:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
-    }
-
-    .hero-topbar{
-      height: 36px;
-      padding: 0 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(0,0,0,0.55);
-      color: #fff;
-      font-size: 0.82rem;
-      font-weight: 600;
-      flex: 0 0 auto;
-    }
-
-    .hero-topbar .open{
-      width: 26px;
-      height: 26px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.92);
-      border: 1px solid rgba(0,0,0,0.10);
-      color: rgba(0, 0, 0, 0.55);      /* ✅ 연한 회색 */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-card:hover .hero-topbar .open{
-      color: rgba(0,0,0,0.58);
-      border-color: rgba(0,0,0,0.14);
-    }
-
-    .hero-topbar .open svg{
-      display:block;
-    }
-
-    .hero-media{
-      position: relative;
-      flex: 1;
-      min-height: 280px;
-      overflow: hidden;
-      background: #f1f1f1;
-    }
-    .hero-media img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit: cover;
-    }
-
-    .hero-media::after{
-      content:none;
-    }
-
-    .hero-kicker{
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0.85;
-      font-weight: 900;
-      margin-bottom: 4px;
-      color: rgba(0,0,0,0.75);
-    }
-    .hero-title{
-      font-size: 1.08rem;
-      font-weight: 900;
-      line-height: 1.15;
-      color: rgba(0,0,0,0.88);
-      text-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    /* Philosophy / Recommend / Article */
-    .philosophy{padding: 140px 0 0; background: transparent;}
-    .philosophy-slider{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;align-items:center}
-    .philosophy-nav{display:flex;gap:1rem;margin-bottom:1.2rem}
-    .philosophy-nav button{background:none;border:none;font-size:1.2rem;font-weight:500;color:rgba(0,0,0,0.22);cursor:pointer;transition:color 0.2s}
-    .philosophy-nav button.active{color:var(--text)}
-    .philosophy-content h3{font-size:1.2rem;font-weight:700;margin-bottom:0.9rem;line-height:1.4}
-    .philosophy-content p{color:var(--text-light);margin-bottom:0.9rem;line-height:1.8;font-size:0.95rem}
-    .philosophy-content a{font-size:0.9rem;text-decoration:underline}
-    .philosophy-image img{width:100%;height:320px;object-fit:cover;border-radius:14px}
-
-    .recommend{padding: 140px 0 0;}
-    .section-header{max-width:1400px;margin:0 auto 14px;display:flex;justify-content:space-between;align-items:flex-end}
-    .section-header h2{font-size:1.35rem;font-weight:900}
-    .section-header p{color:var(--text-light);font-size:0.9rem}
-
-    .products-grid{
-      max-width:1400px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-    }
-
-    .product-card{
-      position: relative;
-      background: var(--white);
-      border-radius: 14px;
-      overflow: hidden;
-      border: 2px solid rgba(0,0,0,0.55);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-      display:flex;
-      flex-direction: column;
-      min-height: 570px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      text-decoration: none; /* 추가 */
-      color: inherit; /* 추가 */
-    }
-    .product-card:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
-    }
-
-    .product-card::after{
-      content:"+";
-      position:absolute;
-      top: 10px;
-      right: 10px;
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: rgba(255,255,255,0.96);
-      border: 2px solid rgba(0,0,0,0.65);
-      font-weight: 900;
-      z-index: 2;
-      line-height: 1;
-    }
-
-    .product-media {
-      position: relative;
-      flex: 1;             /* ✅ 추가: 카드의 남은 상단 공간을 모두 차지함 */
-      width: 100%;
-      overflow: hidden;
-      background: #f1f1f1; /* 이미지 로딩 전이나 미세한 틈 보정용 */
-    }
-
-    .product-media img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-      transform: scale(1.01);
-      image-rendering: -webkit-optimize-contrast;
-      transition: transform 0.25s ease;
-    }
-
-    .product-card:hover .product-media img{
-      transform: scale(1.03);
-    }
-
-    .product-card-info{
-      margin-top: auto;
-      padding: 12px 12px 14px;
-      background: rgba(0,0,0,0.55);
-      color: rgba(255,255,255,0.92);
-      border-top: 1px solid rgba(255,255,255,0.24);
-    }
-
-    .product-card-info h3{
-      font-size: 0.95rem;
-      font-weight: 900;
-      margin-bottom: 6px;
-      line-height: 1.2;
-    }
-
-    .product-card-info p{
-      font-size: 0.75rem;
-      line-height: 1.45;
-      opacity: 0.9;
-      margin: 0;
-    }
-
-    .article{padding: 140px 0 0; background: transparent;}
-    .article-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .article-card{display:grid;grid-template-columns:1.15fr 1fr;background:var(--white);border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,0.10);box-shadow:0 10px 26px rgba(0,0,0,0.05); text-decoration:none; color: inherit;  transition: transform 0.2s ease, box-shadow 0.2s ease;}
-    .article-card img{width:100%;height:100%;object-fit:cover}
-    .article-card-content{padding:18px;display:flex;flex-direction:column;justify-content:center}
-    .article-card h3{font-size:1.05rem;font-weight:900;margin-bottom:8px;color: #1a1a1a;}
-    .article-card p{font-size:0.88rem;color:var(--text-light);line-height:1.6}
-    .article-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 34px rgba(0,0,0,0.10);
-      border-color: rgba(0,0,0,0.20);
-    }
-
-    /* Responsive */
-    @media (max-width: 1100px){
-      .hero-grid{grid-template-columns: repeat(2, 1fr);}
-      .products-grid{grid-template-columns: repeat(2, 1fr);}
-      .philosophy-slider{grid-template-columns: 1fr;}
-      .article-grid{grid-template-columns: 1fr;}
-      .article-card{grid-template-columns: 1fr;}
-      .article-card img{height: 220px;}
-    }
-
-    @media (max-width: 740px){
-      .home-wrap{
-        padding: 0 14px 0;
-      }
-
-      .home-container{
-        width: 100%;
-      }
-
-      .top-frame{
-        padding: 0;
-        border-radius: 0;
-        box-shadow: none;
-      }
-
-      .top-collage{
-        margin-top: 56px;
-      }
-
-      .collage{
-        grid-template-columns: 1fr;
-      }
-
-      .collage-item{
-        height: 220px;
-      }
-
-      .collage-copy{
-        left: 16px;
-        bottom: 16px;
-        font-size: 0.82rem;
-        max-width: 82%;
-      }
-
-      .collage-copy.center{
-        bottom: 18px;
-        max-width: 78%;
-      }
-
-      .video-hero{
-        height: 58vh;
-        min-height: 420px;
-        border-radius: 0;
-      }
-
-      .video-hero-copy {
-        position: absolute;
-        left: 40px;
-        bottom: 40px;
-        z-index: 2;
-        color: #fff;
-        font-size: clamp(1.1rem, 4vw, 1.8rem);
-        font-weight: 800;
-        line-height: 1.1;
-        text-shadow: 0 10px 30px rgba(0,0,0,0.22);
-        max-width: 78%;
-      }
-
-      .hero-grid{
-        grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 22px 0 0;
-        min-height: auto;
-        min-width: 0;
-      }
-
-      .hero-card{
-        min-height: 340px;
-        border-radius: 16px;
-      }
-
-      .hero-topbar{
-        height: 34px;
-        padding: 0 10px;
-        font-size: 0.78rem;
-      }
-
-      .hero-topbar .open{
-        width: 24px;
-        height: 24px;
-        border-radius: 7px;
-      }
-
-      .hero-media{
-        min-height: 300px;
-      }
-
-      .hero-bottom{
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
-      }
-
-      .hero-kicker{
-        font-size: 0.66rem;
-        letter-spacing: 0.12em;
-        margin-bottom: 4px;
-      }
-
-      .hero-title{
-        font-size: 1rem;
-        line-height: 1.12;
-      }
-
-      .philosophy{
-        padding: 72px 0 0;
-      }
-
-      .philosophy-slider{
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .philosophy-nav{
-        gap: 10px;
-        margin-bottom: 14px;
-      }
-
-      .philosophy-nav button{
-        font-size: 1rem;
-      }
-
-      .philosophy-content h3{
-        font-size: 1rem;
-        line-height: 1.45;
-        margin-bottom: 10px;
-      }
-
-      .philosophy-content p{
-        font-size: 0.9rem;
-        line-height: 1.7;
-      }
-
-      .philosophy-image img{
-        height: 240px;
-        border-radius: 14px;
-      }
-
-      .recommend{
-        padding: 72px 0 0;
-      }
-
-      .section-header{
-        margin: 0 auto 12px;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .section-header h2{
-        font-size: 1.1rem;
-        line-height: 1.15;
-      }
-
-      .section-header p{
-        font-size: 0.84rem;
-        line-height: 1.5;
-      }
-
-      .products-grid{
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .product-card{
-        min-height: 470px;
-        border-radius: 16px;
-      }
-
-      .product-card::after{
-        top: 10px;
-        right: 10px;
-        width: 24px;
-        height: 24px;
-        font-size: 0.95rem;
-      }
-
-      .product-media{
-        min-height: 360px;
-      }
-
-      .product-card-info{
-        padding: 12px 12px 14px;
-      }
-
-      .product-card-info h3{
-        font-size: 0.92rem;
-        line-height: 1.2;
-        margin-bottom: 6px;
-      }
-
-      .product-card-info p{
-        font-size: 0.74rem;
-        line-height: 1.45;
-      }
-
-      .article{
-        padding: 72px 0 0;
-        padding-bottom: 0;
-      }
-
-      .article-grid{
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .article-card{
-        grid-template-columns: 1fr;
-        border-radius: 16px;
-      }
-
-      .article-card img{
-        height: 220px;
-      }
-
-      .article-card-content{
-        padding: 16px;
-      }
-
-      .article-card h3{
-        font-size: 1rem;
-        margin-bottom: 8px;
-      }
-
-      .article-card p{
-        font-size: 0.86rem;
-        line-height: 1.65;
-      }
-
-      #siteFooter{
-        margin-top: 72px;
-      }
-
-      .search-modal{
-        padding-top: 3vh;
-      }
-
-      .search-shell{
-        margin: 0 10px;
-        border-radius: 14px;
-        max-height: 86vh;
-      }
-
-      .search-top{
-        padding: 14px 14px;
-        gap: 10px;
-      }
-
-      .search-input{
-        font-size: 1rem;
-      }
-
-      .header-search-btn{
-        padding: 8px 12px;
-        font-size: 0.8rem;
-      }
-
-      .search-hint{
-        padding: 8px 14px;
-        font-size: 0.72rem;
-      }
-
-      .search-pane{
-        padding: 14px;
-      }
-
-      .suggestion-item{
-        padding: 9px;
-        gap: 10px;
-      }
-
-      .s-img{
-        width: 44px;
-        height: 44px;
-      }
-
-      .s-name{
-        font-size: 0.86rem;
-        line-height: 1.25;
-      }
-
-      .s-sub{
-        font-size: 0.73rem;
-      }
-    }
-
-    @media (max-width: 430px){
-      .home-wrap{
-        padding: 0 12px 0;
-      }
-
-      .video-hero{
-        height: 54vh;
-        min-height: 380px;
-      }
-
-      .video-hero-copy{
-        left: 16px;
-        right: 16px;
-        bottom: 18px;
-        font-size: clamp(1.15rem, 8.2vw, 1.7rem);
-      }
-
-      .hero-card{
-        min-height: 320px;
-      }
-
-      .hero-media{
-        min-height: 280px;
-      }
-
-      .hero-title{
-        font-size: 0.94rem;
-      }
-
-      .philosophy-content h3{
-        font-size: 0.96rem;
-      }
-
-      .section-header h2{
-        font-size: 1.02rem;
-      }
-
-      .product-card{
-        min-height: 435px;
-      }
-
-      .product-media{
-        min-height: 325px;
-      }
-
-      .product-card-info h3{
-        font-size: 0.88rem;
-      }
-
-      .product-card-info p{
-        font-size: 0.72rem;
-      }
-
-      .article-card img{
-        height: 200px;
-      }
-
-      .article-card p{
-        font-size: 0.82rem;
-      }
-    }
-
-    .article{
-      padding-bottom: clamp(40px, 6vw, 0px);
-    }
-
-    .top-frame{
-      position: relative;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(0,0,0,0.08);
-      box-shadow: 0 14px 44px rgba(0,0,0,0.12);
-      padding: 12px;
-      overflow: hidden;
-    }
-
-    .video-hero{
-      position: relative;
-      border-radius: 0px;
-      overflow: hidden;
-      margin-top: 0;
-      padding-top: 0;
-      /* padding-top: calc(72px + var(--safe-top)); */
-      height: 80vh;
-      background: #000;
-    }
-
-    .video-hero video{
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      /* top: calc(-72px - var(--safe-top)); */
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      /* height: calc(100% + 72px + var(--safe-top)); */
-      object-fit: cover;
-    }
-
-    .video-hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.38) 0%,
-        rgba(0,0,0,0.10) 40%,
-        rgba(0,0,0,0.00) 70%
-      );
-      pointer-events:none;
-    }
-
-    .video-hero-copy {
-        position: absolute;
-        left: 40px;             /* 여백 살짝 넓힘 */
-        bottom: 40px;
-        z-index: 2;
-        color: #fff;
-        font-size: clamp(1.1rem, 4vw, 1.8rem); /* 글자 크기 가독성 높임 */
-        font-weight: 800;
-        line-height: 1.1;
-    }
-
-    @media (max-width: 740px) {
-      .video-hero {
-          margin-top: 0;      /* 모바일에서도 천장에 붙임 */
-          height: 60vh;       /* 모바일은 조금 낮게 조정 가능 */
-      }
-  }
-
-    #siteHeader {
-        background: transparent !important;
-    }
-
-    .hero-blur{
-      position:absolute;
-      left:0; right:0; bottom:0;
-      height: 92px;
-      z-index:1;
-      background: rgba(255,255,255,0.22);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
-      mask-image: linear-gradient(to top, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
-    }
-
-    .hero-bottom{
-      position:absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      z-index: 2;
-      padding: 0;
-      background: transparent;
-      border: 0;
-      box-shadow: none;
-    }
-
-    .hero-media .hero-img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit: cover;
-    }
-
-    .hero-media .hero-img-blur{
-      filter: blur(5px);
-      transform: scale(1.06); 
-      clip-path: inset(calc(100% - 95px) 0 0 0); 
-      opacity: 1;
-    }
-
-    #siteFooter{
-      margin-top: 140px;
-    }
-
-    /* -----------------------------------------------------------
-       ✅ [추가됨] 표준 SEARCH MODAL 스타일
-       ----------------------------------------------------------- */
-    .search-modal {
-      position: fixed; inset: 0; z-index: 9999;
-      background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);
-      display: none; align-items: flex-start; justify-content: center; padding-top: 6vh;
-      opacity: 0; transition: opacity 0.2s ease;
-    }
-    .search-modal.open { display: flex; opacity: 1; }
-    
-    .search-shell {
-      background: #fff; width: 100%; max-width: 640px; border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden; display: flex; flex-direction: column;
-      margin: 0 16px; max-height: 80vh; 
-    }
-    
-    .search-top {
-      display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid rgba(0,0,0,0.06); gap: 14px;
-    }
-    .search-input-wrap { flex: 1; }
-    .search-input {
-      width: 100%; border: none; font-size: 1.1rem; font-weight: 500; outline: none; color: #1a1a1a;
-    }
-    .search-input::placeholder { color: rgba(0,0,0,0.4); }
-    
-    .header-search-btn {
-      background: #000; color: #fff; border: none; padding: 8px 16px; 
-      border-radius: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    .header-search-btn:hover { opacity: 0.8; }
-    
-    .search-hint {
-      padding: 8px 20px; background: #fafafa; border-bottom: 1px solid rgba(0,0,0,0.06);
-      display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(0,0,0,0.5); font-weight: 500;
-    }
-    .kbd { background: #fff; border: 1px solid rgba(0,0,0,0.15); border-radius: 4px; padding: 1px 4px; font-family: monospace; }
-    
-    .search-body { padding: 0; overflow-y: auto; flex: 1; padding-bottom: 20px; }
-    .search-pane { padding: 20px; }
-    .pane-title { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
-    .pane-title h3 { font-size: 0.85rem; font-weight: 700; color: rgba(0,0,0,0.8); margin: 0; text-transform: uppercase; }
-    
-    .suggestion-item { display: flex; gap: 12px; padding: 10px; border-radius: 8px; cursor: pointer; text-decoration: none; color: inherit; }
-    .suggestion-item:hover { background: rgba(0,0,0,0.04); }
-    .s-img { width: 40px; height: 40px; border-radius: 6px; overflow: hidden; background: #eee; flex-shrink: 0; }
-    .s-img img { width: 100%; height: 100%; object-fit: cover; }
-    .s-info { display: flex; flex-direction: column; justify-content: center; }
-    .s-name { font-size: 0.9rem; font-weight: 700; color: #1a1a1a; }
-    .s-sub { font-size: 0.75rem; color: rgba(0,0,0,0.5); }
-  </style>
+  <link rel="stylesheet" href="/assets/home.css">
 </head>
 
 <body class="home">
   <div class="home-wrap">
     <div class="home-container">
 
+      <!-- ===== VIDEO HERO ===== -->
       <section class="top-frame full-bleed">
         <div id="siteHeader"></div>
-        
+
         <div class="video-hero">
-          <video autoplay muted loop playsinline preload="metadata" poster="/images/hero-poster.jpg">
+          <video autoplay muted loop playsinline preload="metadata">
             <source src="/videos/홈페이지.mp4" type="video/mp4" />
           </video>
           <div class="video-hero-copy">SKINCARE<br/>COLLECTION</div>
         </div>
       </section>
 
+      <!-- ===== HERO GRID ===== -->
       <section class="hero-grid">
         <a href="/shop.html" class="hero-card">
           <div class="hero-topbar">
             <span>Shop Now</span>
-            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
+            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M10 7h7v7"/></svg></span>
           </div>
           <div class="hero-media">
-            <img class="hero-img" src="/images/Group 10.png" alt="New Product" loading="eager">
-            <!-- <img class="hero-img hero-img-blur" src="/images/5.jpg" alt="" aria-hidden="true"> -->
+            <picture>
+              <source srcset="/images/Group 10.webp" type="image/webp">
+              <img class="hero-img" src="/images/Group 10.png" alt="New Product" width="400" height="500" fetchpriority="high" decoding="async">
+            </picture>
             <div class="hero-bottom">
               <div class="hero-kicker">SHOP</div>
               <div class="hero-title">New Product</div>
@@ -916,11 +85,13 @@
         <a href="about.html" class="hero-card">
           <div class="hero-topbar">
             <span>See More</span>
-            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
+            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M10 7h7v7"/></svg></span>
           </div>
           <div class="hero-media">
-            <img src="/images/Group 9.png" alt="Brand Story" loading="lazy" />
-            <!-- <img class="hero-img hero-img-blur" src="/images/13.jpg" alt="" aria-hidden="true"> -->
+            <picture>
+              <source srcset="/images/Group 9.webp" type="image/webp">
+              <img src="/images/Group 9.png" alt="Brand Story" width="400" height="500" loading="lazy" decoding="async" />
+            </picture>
             <div class="hero-bottom">
               <div class="hero-kicker">OUR STORY</div>
               <div class="hero-title">Brand Story</div>
@@ -931,11 +102,13 @@
         <a href="/coming-soon.html" class="hero-card">
           <div class="hero-topbar">
             <span>See More</span>
-            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
+            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M10 7h7v7"/></svg></span>
           </div>
           <div class="hero-media">
-            <img src="/images/Group 8.png" alt="Archive" loading="lazy" />
-            <!-- <img class="hero-img hero-img-blur" src="/images/6.jpg" alt="" aria-hidden="true"> -->
+            <picture>
+              <source srcset="/images/Group 8.webp" type="image/webp">
+              <img src="/images/Group 8.png" alt="Archive" width="400" height="500" loading="lazy" decoding="async" />
+            </picture>
             <div class="hero-bottom">
               <div class="hero-kicker">ARCHIVE</div>
               <div class="hero-title">New Season</div>
@@ -946,11 +119,13 @@
         <a href="/shop.html" class="hero-card">
           <div class="hero-topbar">
             <span>See More</span>
-            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M10 7h7v7"></path></svg></span>
+            <span class="open" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M10 7h7v7"/></svg></span>
           </div>
           <div class="hero-media">
-            <img src="/images/Group 7.png" alt="Best Sellers" loading="lazy" />
-            <!-- <img class="hero-img hero-img-blur" src="/images/1.jpg" alt="" aria-hidden="true"> -->
+            <picture>
+              <source srcset="/images/Group 7.webp" type="image/webp">
+              <img src="/images/Group 7.png" alt="Best Sellers" width="400" height="500" loading="lazy" decoding="async" />
+            </picture>
             <div class="hero-bottom">
               <div class="hero-kicker">PRODUCT</div>
               <div class="hero-title">Best Sellers</div>
@@ -959,6 +134,7 @@
         </a>
       </section>
 
+      <!-- ===== PHILOSOPHY ===== -->
       <section class="philosophy">
         <div class="philosophy-slider">
           <div class="philosophy-text">
@@ -975,11 +151,15 @@
             </div>
           </div>
           <div class="philosophy-image">
-            <img src="/images/10.jpg" alt="Philosophy" id="philosophyImage" loading="lazy" />
+            <picture>
+              <source srcset="/images/10.webp" type="image/webp">
+              <img src="/images/10.jpg" alt="Philosophy" id="philosophyImage" width="700" height="320" loading="lazy" decoding="async" />
+            </picture>
           </div>
         </div>
       </section>
 
+      <!-- ===== RECOMMEND ===== -->
       <section class="recommend">
         <div class="section-header">
           <div>
@@ -991,7 +171,10 @@
         <div class="products-grid">
           <a href="/product-volufiline-100.html" class="product-card">
             <div class="product-media">
-              <img src="/images/제품/Mask group-1.png" alt="100% Volufiline Concentrate" loading="lazy" />
+              <picture>
+                <source srcset="/images/제품/Mask group-1.webp" type="image/webp">
+                <img src="/images/제품/Mask group-1.png" alt="100% Volufiline Concentrate" width="400" height="500" loading="lazy" decoding="async" />
+              </picture>
             </div>
             <div class="product-card-info">
               <h3>100%Volufiline Concentrate</h3>
@@ -1002,7 +185,10 @@
 
           <a href="/product-bakuchiol-30000.html" class="product-card">
             <div class="product-media">
-              <img src="/images/제품/Mask group-4.png" alt="Bakuchiol 30,000ppm Serum" loading="lazy" />
+              <picture>
+                <source srcset="/images/제품/Mask group-4.webp" type="image/webp">
+                <img src="/images/제품/Mask group-4.png" alt="Bakuchiol 30,000ppm Serum" width="400" height="500" loading="lazy" decoding="async" />
+              </picture>
             </div>
             <div class="product-card-info">
               <h3>Bakuchiol 30,000ppm Serum</h3>
@@ -1013,7 +199,10 @@
 
           <a href="/product-pdrn-25.html" class="product-card">
             <div class="product-media">
-              <img src="/images/제품/Mask group-3.png" alt="PDRN 25% Concentrate" loading="lazy" />
+              <picture>
+                <source srcset="/images/제품/Mask group-3.webp" type="image/webp">
+                <img src="/images/제품/Mask group-3.png" alt="PDRN 25% Concentrate" width="400" height="500" loading="lazy" decoding="async" />
+              </picture>
             </div>
             <div class="product-card-info">
               <h3>PDRN 25% Concentrate</h3>
@@ -1024,7 +213,10 @@
 
           <a href="/product-pdrn-12-egf.html" class="product-card">
             <div class="product-media">
-              <img src="/images/제품/Mask group.png" alt="PDRN 12% + EGF Peptide Serum" loading="lazy" />
+              <picture>
+                <source srcset="/images/제품/Mask group.webp" type="image/webp">
+                <img src="/images/제품/Mask group.png" alt="PDRN 12% + EGF Peptide Serum" width="400" height="500" loading="lazy" decoding="async" />
+              </picture>
             </div>
             <div class="product-card-info">
               <h3>PDRN 12% + EGF Peptide Serum</h3>
@@ -1035,17 +227,21 @@
         </div>
       </section>
 
+      <!-- ===== ARTICLES ===== -->
       <section class="article">
         <div class="section-header">
           <div>
             <h2>Inside CELDYQUÉ</h2>
-            <p>Brand notes, philosophy, and what we’re building next.</p>
+            <p>Brand notes, philosophy, and what we're building next.</p>
           </div>
         </div>
 
         <div class="article-grid">
           <a href="about.html" class="article-card">
-            <img src="images/8.jpg" alt="Brand Story" loading="lazy" />
+            <picture>
+              <source srcset="images/8.webp" type="image/webp">
+              <img src="images/8.jpg" alt="Brand Story" width="500" height="300" loading="lazy" decoding="async" />
+            </picture>
             <div class="article-card-content">
               <h3>Brand Story</h3>
               <p>
@@ -1057,83 +253,61 @@
           </a>
 
           <a href="/coming-soon.html" class="article-card">
-            <img src="images/9.jpg" alt="Coming Soon" loading="lazy" />
+            <picture>
+              <source srcset="images/9.webp" type="image/webp">
+              <img src="images/9.jpg" alt="Coming Soon" width="500" height="300" loading="lazy" decoding="async" />
+            </picture>
             <div class="article-card-content">
               <h3>Coming Soon</h3>
               <p>
                 A new chapter is on the way.
                 We are preparing our next innovation — thoughtfully developed, carefully tested,
                 and designed to elevate your skincare experience.
-                Stay tuned for what’s next.
+                Stay tuned for what's next.
               </p>
             </div>
           </a>
         </div>
       </section>
 
+      <!-- Footer (injected by site.js) -->
       <div id="siteFooter"></div>
-      
-      <div class="search-modal" id="searchModal" aria-hidden="true">
-        <div class="search-shell" role="dialog" aria-modal="true" aria-label="Search">
-          <div class="search-top">
-            <div class="search-icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-            </div>
-            <div class="search-input-wrap">
-              <input type="search" class="search-input" placeholder="Search products..." id="searchInput" autocomplete="off">
-            </div>
-            <div class="search-actions">
-              <button type="button" class="header-search-btn" id="topSearchBtn">Search</button>
-            </div>
-          </div>
 
-          <div class="search-hint">
-            <div>Type to search</div>
-            <div><span class="kbd">Esc</span> to close</div>
-          </div>
-
-          <div class="search-body">
-            <div class="search-pane">
-              <div class="pane-title">
-                <h3>Results</h3>
-                <span id="resultCount" style="font-size:0.85rem; color:#888;">0 items</span>
-              </div>
-              <div class="suggestions" id="suggestionList" role="listbox">
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+      <!-- Mobile menu containers (injected by header partial) -->
       <div id="mobileMenuOverlay"></div>
       <div id="mobileMenu"></div>
 
     </div>
   </div>
 
+  <!-- Philosophy slider (lightweight, page-specific) -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const slides = [
         { title: "We aim to find and provide ingredients with proven efficacy through research and clinical studies.",
           desc: "새로운 연구자료와 논문 등을 통해 입증된 효능 원료를 찾아 제공하고자 합니다.",
-          img: "/images/10.jpg"
+          img: "/images/10.webp",
+          fallback: "/images/10.jpg"
         },
         { title: "Maximum efficacy while providing comfortable use from the customer's perspective.",
           desc: "최고의 효능을 유지하는 동시에 고객의 입장에서 편안한 사용감을 제공합니다.",
-          img: "/images/7.jpg"
+          img: "/images/7.webp",
+          fallback: "/images/7.jpg"
         },
         { title: "We do not develop products recklessly to expand meaningless product lines.",
           desc: "의미없는 제품라인의 확장을 위해 무분별한 제품을 개발하지 않습니다.",
-          img: "/images/15.jpg"
+          img: "/images/15.webp",
+          fallback: "/images/15.jpg"
         },
         { title: "Find yourself regaining confidence with visibly transformed skin.",
           desc: "눈에 보이는 변화를 통해 자신감을 되찾은 나를 발견할 수 있습니다.",
-          img: "/images/14.jpg"
+          img: "/images/14.webp",
+          fallback: "/images/14.jpg"
         }
       ];
+
+      // WebP 지원 여부 체크
+      const supportsWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
 
       document.querySelectorAll('.philosophy-nav button').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1145,104 +319,21 @@
           const img = document.getElementById('philosophyImage');
 
           content.innerHTML = `<h3>${slides[idx].title}</h3><p>${slides[idx].desc}</p><a href="about.html">Read more</a>`;
-          img.src = slides[idx].img;
+          img.src = supportsWebP ? slides[idx].img : slides[idx].fallback;
         });
       });
-    });
-  </script>
-
-  <script>
-    // 전체 제품 데이터
-    window.PRODUCT_CATALOG = [
-      { id:"volufiline-100", name:"Volufiline 100% Concentrate", subtitle:"Firming & Volumizing", url:"/product-volufiline-100.html", image:"/images/제품/Mask group-1.png", tags:["volufiline","serum"] },
-      { id:"bakuchiol-30000", name:"Bakuchiol 30,000ppm Serum", subtitle:"Retinol-alternative", url:"/product-bakuchiol-30000.html", image:"/images/제품/Mask group-4.png", tags:["bakuchiol","serum"] },
-      { id:"pdrn-25", name:"PDRN 25% Concentrate", subtitle:"Skin Regeneration", url:"/product-pdrn-25.html", image:"/images/제품/Mask group-3.png", tags:["pdrn","serum"] },
-      { id:"pdrn-12-egf", name:"PDRN 12% + EGF Peptide Serum", subtitle:"Total Anti-aging", url:"/product-pdrn-12-egf.html", image:"/images/제품/Mask group.png", tags:["pdrn","egf","serum"] },
-      { id:"pdrn-12-cream", name:"PDRN 12% + EGF Peptide Cream", subtitle:"Deep Moisturizing", url:"/product-pdrn-12-egf-cream.html", image:"/images/제품/Mask group-6.png", tags:["pdrn","cream"] },
-      { id:"arbutxa", name:"ArbutXA Glow Cream", subtitle:"Brightening", url:"/product-arbutxa-glow-cream.html", image:"/images/제품/Mask group-5.png", tags:["arbutin","cream"] },
-      { id:"cleanser", name:"Gentle Cleanser", subtitle:"Purifying Touch", url:"/product-gentle-cleanser.html", image:"/images/제품/Mask group-11.png", tags:["cleanser"] },
-      { id:"oil", name:"Pore Purifying Cleansing Oil", subtitle:"Deep Clean", url:"/product-cleansing-oil.html", image:"/images/제품/Mask group-9.png", tags:["oil","cleanser"] }
-    ];
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const modal = document.getElementById('searchModal');
-      const input = document.getElementById('searchInput');
-      const list = document.getElementById('suggestionList');
-      const count = document.getElementById('resultCount');
-      const topSearchBtn = document.getElementById('topSearchBtn');
-
-      // 헤더의 돋보기 버튼 클릭시 모달 열기
-      document.addEventListener('click', (e) => {
-        if (e.target.closest('[data-open-search]')) {
-          e.preventDefault();
-          modal.classList.add('open');
-          modal.setAttribute('aria-hidden', 'false');
-          document.body.style.overflow = 'hidden';
-          input.value = '';
-          renderResults([]);
-          setTimeout(() => input.focus(), 100);
-        }
-      });
-
-      function closeSearch() {
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
-
-      // 우측 상단 Search 버튼 (아무것도 입력안했으면 다시 포커스)
-      topSearchBtn.addEventListener('click', () => {
-         if(input.value.trim() === "") input.focus();
-      });
-
-      // 배경 클릭 닫기
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeSearch();
-      });
-      // ESC 닫기
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('open')) closeSearch();
-      });
-
-      // 실시간 검색 로직
-      input.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-        if (!query) {
-          renderResults([]);
-          return;
-        }
-        const matches = window.PRODUCT_CATALOG.filter(p => 
-          p.name.toLowerCase().includes(query) || 
-          p.tags.some(t => t.includes(query))
-        );
-        renderResults(matches);
-      });
-
-      // 리스트 렌더링
-      function renderResults(items) {
-        count.innerText = `${items.length} items`;
-        list.innerHTML = '';
-        if (items.length === 0 && input.value.trim() !== '') {
-            list.innerHTML = '<div style="padding:20px; text-align:center; color:#888;">No products found.</div>';
-            return;
-        }
-        items.forEach(item => {
-          const el = document.createElement('a');
-          el.className = 'suggestion-item';
-          el.href = item.url;
-          el.innerHTML = `
-            <div class="s-img"><img src="${item.image}" alt=""></div>
-            <div class="s-info">
-              <div class="s-name">${item.name}</div>
-              <div class="s-sub">${item.subtitle}</div>
-            </div>
-          `;
-          list.appendChild(el);
-        });
-      }
     });
   </script>
 
   <script defer src="/assets/site.js"></script>
+
+  <!-- Service Worker: offline cache & speed boost -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>

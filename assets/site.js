@@ -3,7 +3,7 @@ async function inject(selector, url) {
   const host = document.querySelector(selector);
   if (!host) return;
 
-  const res = await fetch(url, { cache: "no-cache" });
+  const res = await fetch(url);
   const html = await res.text();
   host.innerHTML = html;
 }
@@ -31,19 +31,19 @@ function unlockBody() {
 
 /* ===== Search Catalog (전체 제품 데이터) ===== */
 const DEFAULT_CATALOG = [
-  { id:"volufiline-100", name:"Volufiline 100% Concentrate", subtitle:"Firming & Volumizing", url:"/product-volufiline-100.html", image:"/images/제품/Mask group-1.png", tags:["volufiline","serum","10ml"] },
-  { id:"bakuchiol-30000", name:"Bakuchiol 30,000ppm Serum", subtitle:"Retinol-alternative", url:"/product-bakuchiol-30000.html", image:"/images/제품/Mask group-4.png", tags:["bakuchiol","serum","30ml"] },
-  { id:"pdrn-25", name:"PDRN 25% Concentrate", subtitle:"Skin Regeneration", url:"/product-pdrn-25.html", image:"/images/제품/Mask group-3.png", tags:["pdrn","serum","30ml"] },
-  { id:"pdrn-12-egf", name:"PDRN 12% + EGF Peptide Serum", subtitle:"Total Anti-aging", url:"/product-pdrn-12-egf.html", image:"/images/제품/Mask group.png", tags:["pdrn","egf peptide","volufiline","serum","30ml"] },
-  { id:"pdrn-12-egf-cream", name:"PDRN 12% + EGF Peptide Cream", subtitle:"Deep Moisturizing", url:"/product-pdrn-12-egf-cream.html", image:"/images/제품/Mask group-6.png", tags:["pdrn","egf peptide","volufiline","cream","50ml"] },
-  { id:"arbutxa-glow-cream", name:"ArbutXA Glow Cream", subtitle:"Brightening", url:"/product-arbutxa-glow-cream.html", image:"/images/제품/Mask group-5.png", tags:["arbutin","txa","niacinamide","cream","50ml"] },
-  { id:"gentle-cleanser", name:"Gentle Cleanser", subtitle:"Purifying Touch", url:"/product-gentle-cleanser.html", image:"/images/제품/Mask group-11.png", tags:["centella","green tea","tea tree","cleanser","150ml"] },
-  { id:"cleansing-oil", name:"Pore Purifying Cleansing Oil", subtitle:"Deep Clean", url:"/product-cleansing-oil.html", image:"/images/제품/Mask group-9.png", tags:["heartleaf","centella","tea tree","cleanser","200ml"] },
-  { id:"glutathione-30000", name:"Glutathione 30,000ppm", subtitle:"Antioxidant serum · Glow support", url:"/product-glutathione-30000.html", image:"/images/제품/Mask group-2.png", tags:["glutathione","niacinamide","adenosine","ceramide","serum","30ml"] },
-  { id:"azelaic-12", name:"Azelaic Acid 12%", subtitle:"Clarity serum · Tone & texture", url:"/product-azelaic-12.html", image:"/images/제품/Mask group-7.png", tags:["azelaic acid","tranexamic acid","salicylic acid","serum","30ml"] },
-  { id:"niacinamide-20-advanced", name:"Niacinamide 20% Advanced", subtitle:"High-strength · Tone & texture", url:"/product-niacinamide-20-advanced.html", image:"/images/제품/Mask group-8.png", tags:["niacinamide","hyaluronic acid","beta-glucan","serum","30ml"] },
-  { id:"advanced-retinol-pro-retinal-serum-0-5", name:"Retinal Serum 0.5", subtitle:"Retinal complex · Elasticity care", url:"/product-advanced-retinol-pro-retinal-serum-0-5.html", image:"/images/제품/Mask group-10.png", tags:["retinal complex","centella 66%","niacinamide","serum","20ml"] },
-  { id:"9-peptide-scalp-care-serum", name:"9-Peptide Scalp Serum", subtitle:"Rosemary 2% · Caffeine 1% · PDRN & Spicule 300", url:"/product-9-peptide-scalp-serum.html", image:"/images/제품/scalp-serum-rolleon.png", tags:["9-peptide complex","rosemary 2%","caffeine 1%","pdrn","spicule 300","scalp serum","roll-on","hair growth"] },
+  { id:"volufiline-100", name:"Volufiline 100% Concentrate", subtitle:"Firming & Volumizing", url:"/product-volufiline-100.html", image:"/images/제품/Mask group-1.webp", tags:["volufiline","serum","10ml"] },
+  { id:"bakuchiol-30000", name:"Bakuchiol 30,000ppm Serum", subtitle:"Retinol-alternative", url:"/product-bakuchiol-30000.html", image:"/images/제품/Mask group-4.webp", tags:["bakuchiol","serum","30ml"] },
+  { id:"pdrn-25", name:"PDRN 25% Concentrate", subtitle:"Skin Regeneration", url:"/product-pdrn-25.html", image:"/images/제품/Mask group-3.webp", tags:["pdrn","serum","30ml"] },
+  { id:"pdrn-12-egf", name:"PDRN 12% + EGF Peptide Serum", subtitle:"Total Anti-aging", url:"/product-pdrn-12-egf.html", image:"/images/제품/Mask group.webp", tags:["pdrn","egf peptide","volufiline","serum","30ml"] },
+  { id:"pdrn-12-egf-cream", name:"PDRN 12% + EGF Peptide Cream", subtitle:"Deep Moisturizing", url:"/product-pdrn-12-egf-cream.html", image:"/images/제품/Mask group-6.webp", tags:["pdrn","egf peptide","volufiline","cream","50ml"] },
+  { id:"arbutxa-glow-cream", name:"ArbutXA Glow Cream", subtitle:"Brightening", url:"/product-arbutxa-glow-cream.html", image:"/images/제품/Mask group-5.webp", tags:["arbutin","txa","niacinamide","cream","50ml"] },
+  { id:"gentle-cleanser", name:"Gentle Cleanser", subtitle:"Purifying Touch", url:"/product-gentle-cleanser.html", image:"/images/제품/Mask group-11.webp", tags:["centella","green tea","tea tree","cleanser","150ml"] },
+  { id:"cleansing-oil", name:"Pore Purifying Cleansing Oil", subtitle:"Deep Clean", url:"/product-cleansing-oil.html", image:"/images/제품/Mask group-9.webp", tags:["heartleaf","centella","tea tree","cleanser","200ml"] },
+  { id:"glutathione-30000", name:"Glutathione 30,000ppm", subtitle:"Antioxidant serum · Glow support", url:"/product-glutathione-30000.html", image:"/images/제품/Mask group-2.webp", tags:["glutathione","niacinamide","adenosine","ceramide","serum","30ml"] },
+  { id:"azelaic-12", name:"Azelaic Acid 12%", subtitle:"Clarity serum · Tone & texture", url:"/product-azelaic-12.html", image:"/images/제품/Mask group-7.webp", tags:["azelaic acid","tranexamic acid","salicylic acid","serum","30ml"] },
+  { id:"niacinamide-20-advanced", name:"Niacinamide 20% Advanced", subtitle:"High-strength · Tone & texture", url:"/product-niacinamide-20-advanced.html", image:"/images/제품/Mask group-8.webp", tags:["niacinamide","hyaluronic acid","beta-glucan","serum","30ml"] },
+  { id:"advanced-retinol-pro-retinal-serum-0-5", name:"Retinal Serum 0.5", subtitle:"Retinal complex · Elasticity care", url:"/product-advanced-retinol-pro-retinal-serum-0-5.html", image:"/images/제품/Mask group-10.webp", tags:["retinal complex","centella 66%","niacinamide","serum","20ml"] },
+  { id:"9-peptide-scalp-care-serum", name:"9-Peptide Scalp Serum", subtitle:"Rosemary 2% · Caffeine 1% · PDRN & Spicule 300", url:"/product-9-peptide-scalp-serum.html", image:"/images/제품/scalp-serum-rolleon.webp", tags:["9-peptide complex","rosemary 2%","caffeine 1%","pdrn","spicule 300","scalp serum","roll-on","hair growth"] },
 ];
 
 function getCatalog() {
