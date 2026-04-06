@@ -43,7 +43,7 @@ const DEFAULT_CATALOG = [
   { id:"azelaic-12", name:"Azelaic Acid 12%", subtitle:"Clarity serum · Tone & texture", url:"/product-azelaic-12.html", image:"/images/제품/Mask group-7.webp", tags:["azelaic acid","tranexamic acid","salicylic acid","serum","30ml"] },
   { id:"niacinamide-20-advanced", name:"Niacinamide 20% Advanced", subtitle:"High-strength · Tone & texture", url:"/product-niacinamide-20-advanced.html", image:"/images/제품/Mask group-8.webp", tags:["niacinamide","hyaluronic acid","beta-glucan","serum","30ml"] },
   { id:"advanced-retinol-pro-retinal-serum-0-5", name:"Retinal Serum 0.5", subtitle:"Retinal complex · Elasticity care", url:"/product-advanced-retinol-pro-retinal-serum-0-5.html", image:"/images/제품/Mask group-10.webp", tags:["retinal complex","centella 66%","niacinamide","serum","20ml"] },
-  { id:"9-peptide-scalp-care-serum", name:"9-Peptide Scalp Serum", subtitle:"Rosemary 2% · Caffeine 1% · PDRN & Spicule 300", url:"/product-9-peptide-scalp-serum.html", image:"/images/제품/scalp-serum-rolleon.webp", tags:["9-peptide complex","rosemary 2%","caffeine 1%","pdrn","spicule 300","scalp serum","roll-on","hair growth"] },
+  { id:"9-peptide-scalp-care-serum", name:"9-Peptide Scalp Serum", subtitle:"Rosemary 2% · Caffeine 1% · PDRN & Spicule 300", url:"/product-9-peptide-scalp-serum.html", image:"/images/제품/ms13.jpg", tags:["9-peptide complex","rosemary 2%","caffeine 1%","pdrn","spicule 300","scalp serum","roll-on","hair growth"] },
 ];
 
 function getCatalog() {
