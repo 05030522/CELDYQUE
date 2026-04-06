@@ -751,3 +751,11 @@
     }
 
     faqSearch.addEventListener('input', applyFAQ);
+     document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); faqSearch.focus(); }
+    });
+  </script>
+
+  <script defer src="/assets/site.js"></script>
+</body>
+</html>
