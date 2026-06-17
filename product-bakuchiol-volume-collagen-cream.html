@@ -1,0 +1,227 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Bakuchiol Volume Collagen Cream | CELDYQUÉ</title>
+  <meta name="description" content="Bakuchiol Volume Collagen Cream by CELDYQUÉ. A lightweight Korean face moisturizer with Bakuchiol, Volufiline, EGF, low-molecular collagen, snail mucin, ceramides, and hyaluronic acid for a firm, hydrated, radiant-looking finish." />
+
+  <link rel="stylesheet" href="/assets/site.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- 기존 디자인 포맷 유지 --- */
+    body.product { padding-top: 80px; background: #fff; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px 120px; }
+    
+    .serif { font-family: 'Playfair Display', serif; }
+    
+    /* 1. Product Top */
+    .product-top { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; margin-bottom: 100px; align-items: center; }
+    .product-gallery { position: sticky; top: 100px; }
+    .product-gallery img { width:100%; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); background: #f4f4f4; }
+
+    .product-info h1 { font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 500; margin-bottom: 10px; line-height: 1.1; }
+    .product-info .subtitle { font-size: 1.1rem; color: #666; margin-bottom: 24px; font-weight: 400; }
+    .product-info .price { font-size: 1.5rem; font-weight: 600; margin-bottom: 30px; display: block; }
+    
+    .desc-text { color: #444; line-height: 1.8; margin-bottom: 30px; font-size: 1.05rem; }
+    
+    .features-list { list-style: none; margin-bottom: 40px; padding: 0; }
+    .features-list li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #333; }
+    .features-list li::before { content:"✓"; color: #3b82f6; font-weight: bold; }
+
+    .action-group { display: flex; gap: 16px; }
+    .btn-buy { flex: 1; text-align: center; background: #1a1a1a; color: #fff; padding: 18px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: transform 0.2s, background 0.2s; }
+    .btn-buy:hover { background: #333; transform: translateY(-2px); }
+
+    /* 2. Banner */
+    .banner-section { position: relative; width: 100%; height: 500px; border-radius: 30px; overflow: hidden; margin-bottom: 100px; }
+    .banner-bg { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); }
+    .banner-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #fff; width: 90%; }
+    .banner-content h2 { font-size: 3rem; margin-bottom: 1rem; font-weight: 400; }
+    .banner-content p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+    /* 3. Detail Grid */
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 120px; align-items: center; }
+    .detail-text h3 { font-size: 2rem; margin-bottom: 20px; }
+    .detail-text p { color: #666; line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem; }
+    .detail-img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .order-reverse .detail-text { order: 2; }
+    .order-reverse .detail-img { order: 1; }
+
+    /* 4. Usage */
+    .usage-section { background: #f9f9f9; padding: 80px 40px; border-radius: 30px; margin-bottom: 100px; text-align: center; }
+    .usage-section h2 { margin-bottom: 50px; font-size: 2.2rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .step-card { background: #fff; padding: 40px 20px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); transition: transform 0.3s; }
+    .step-card:hover { transform: translateY(-5px); }
+    .step-icon { width: 60px; height: 60px; background: #ebf2ff; color: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px; }
+    .step-card h4 { font-size: 1.1rem; margin-bottom: 10px; }
+    .step-card p { font-size: 0.95rem; color: #666; line-height: 1.6; }
+
+    /* 5. Ingredients */
+    .ingredients-box { border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 60px 0; margin-bottom: 60px; }
+    .ingredients-box h3 { font-size: 1.5rem; margin-bottom: 20px; }
+    .ingredients-content { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+    .ing-list { color: #555; line-height: 1.8; }
+
+    @media(max-width: 900px) {
+      .product-top { grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
+      .product-gallery { position: static; }
+      .banner-content h2 { font-size: 2rem; }
+      .detail-grid { grid-template-columns: 1fr; gap: 40px; }
+      .order-reverse .detail-text { order: 1; }
+      .order-reverse .detail-img { order: 2; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .ingredients-content { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body class="product">
+
+  <div id="siteHeader"></div>
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu"></div>
+  <div class="search-modal" id="searchModal"></div>
+
+  <div class="container">
+
+    <div class="breadcrumb" style="margin-top:20px; color:#888;">
+      <a href="/shop.html">Shop</a> / Cream / Bakuchiol Volume Collagen Cream
+    </div>
+
+    <div class="product-top">
+      <div class="product-gallery">
+        <img src="/images/제품/ms14.png" alt="CELDYQUE Bakuchiol Volume Collagen Cream">
+      </div>
+
+      <div class="product-info">
+        <h1 class="serif">Bakuchiol Volume<br>Collagen Cream</h1>
+        <p class="subtitle">Bakuchiol · Volufiline · EGF · Low-Molecular Collagen</p>
+        
+        <p class="desc-text">
+          A silky Korean face cream designed for firm, hydrated, and radiant-looking skin. 
+          Powered by Bakuchiol, Volufiline, EGF, low-molecular collagen, snail mucin, ceramides, and hyaluronic acid, 
+          this lightweight moisturizer helps support a smoother, plumper-looking complexion without a greasy finish.
+        </p>
+
+        <ul class="features-list">
+          <li>Bakuchiol + Volufiline for a firm, plump-looking finish</li>
+          <li>EGF Peptide + Low-Molecular Collagen care</li>
+          <li>Snail Mucin + Hyaluronic Acid for dewy hydration</li>
+          <li>Ceramide, Panthenol, and Cica for barrier support</li>
+          <li>Lightweight, non-greasy cream texture for daily use</li>
+        </ul>
+
+        <div class="action-group">
+          <a href="store.html" class="btn-buy">
+            Where to Buy &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="banner-section">
+      <img src="https://images.unsplash.com/photo-1748543668687-624e058c367c?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2tpbmNhcmUlMjBmbGF0bGF5fGVufDB8fDB8fHww&ixlib=rb-4.1.0&q=60&w=3000" alt="Golden skincare serum and cream texture inspired by Bakuchiol, Volufiline, and Collagen" class="banner-bg">
+      <div class="banner-content">
+        <h2 class="serif">Soft Volume,<br>Radiant Comfort</h2>
+        <p>
+          A comforting daily cream made for skin that looks tired, dry, or less firm.<br>
+          Hydration, glow, and barrier care in one silky step.
+        </p>
+      </div>
+    </section>
+
+    <section class="details-section">
+      
+      <div class="detail-grid">
+        <div class="detail-text">
+          <h3 class="serif">Bakuchiol Volume Care</h3>
+          <p>
+            Formulated with <strong>Bakuchiol</strong>, a gentle retinol-alternative ingredient, this cream helps care for the look of fine lines, 
+            uneven texture, and tired-looking skin without the heavy feel often found in rich moisturizers.
+          </p>
+          <p>
+            <strong>Volufiline</strong> and low-molecular collagen work together to support a fuller, bouncier-looking complexion, 
+            making it a perfect daily cream for areas that need extra comfort and visible elasticity care.
+          </p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1748543668676-ea8241cb3886?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2tpbmNhcmUlMjBmbGF0bGF5fGVufDB8fDB8fHww&ixlib=rb-4.1.0&q=60&w=3000" alt="Bakuchiol and Volufiline inspired golden skincare texture with botanical leaves" class="detail-img">
+      </div>
+
+      <div class="detail-grid order-reverse">
+        <div class="detail-text">
+          <h3 class="serif">Dewy Barrier Support</h3>
+          <p>
+            A hydrating blend of <strong>snail mucin</strong>, hyaluronic acid, aloe, green tea water, and rosa damascena flower water 
+            helps deliver a fresh, dewy-looking finish while keeping the texture light and comfortable.
+          </p>
+          <p>
+            Ceramide NP, Ceramide AP, Ceramide EOP, Panthenol, Centella Asiatica Extract, Squalane, Jojoba Seed Oil, 
+            Macadamia Seed Oil, and Shea Butter help support the moisture barrier for skin that feels soft, calm, and cared for.
+          </p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1748543668646-e81cda0890f3?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2tpbmNhcmUlMjBmbGF0bGF5fGVufDB8fDB8fHww&ixlib=rb-4.1.0&q=60&w=3000" alt="Collagen and hydration inspired cream and golden serum texture" class="detail-img">
+      </div>
+
+    </section>
+
+    <section class="usage-section">
+      <h2 class="serif">How to Use</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-icon">1</div>
+          <h4>Prep</h4>
+          <p>After cleansing, apply toner and serum first to prepare the skin.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">2</div>
+          <h4>Apply</h4>
+          <p>Take an appropriate amount and gently smooth over the face and neck.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">3</div>
+          <h4>Seal</h4>
+          <p>Use as the final step of your routine to lock in hydration and comfort.</p>
+        </div>
+      </div>
+      <p style="margin-top:30px; color:#888; font-size:0.9rem;">
+        * Use morning and night. When using during the day, finish with sunscreen.
+      </p>
+    </section>
+
+    <div class="ingredients-box">
+      <div class="ingredients-content">
+        <div>
+          <h3 class="serif">Ingredients</h3>
+          <p style="color:#888; font-size:0.9rem;">Firming & Barrier Support Formula</p>
+        </div>
+        <div class="ing-list">
+          <p>
+            <strong>Key Ingredients:</strong> Bakuchiol, Volufiline, Hydrolyzed Collagen, Snail Secretion Filtrate, 
+            Niacinamide, Ceramide NP, Ceramide AP, Ceramide EOP, Sodium Hyaluronate, Hyaluronic Acid, Panthenol, Adenosine, 
+            sh-Oligopeptide-1, sh-Oligopeptide-2, sh-Polypeptide-1, Squalane, Jojoba Seed Oil, Macadamia Seed Oil, Shea Butter, 
+            Centella Asiatica Extract.
+          </p>
+          <p style="margin-top:20px; font-size:0.9rem; color:#666;">
+            <strong>Benefits:</strong> Firm-looking skin, plumping care, dewy hydration, barrier support, smooth texture.
+          </p>
+          <p style="margin-top:10px; font-size:0.9rem; color:#666;">
+            <strong>Texture:</strong> Silky, lightweight cream that absorbs comfortably without a greasy finish.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="siteFooter"></div>
+  <script defer src="/assets/site.js"></script>
+
+</body>
+</html>
+```
