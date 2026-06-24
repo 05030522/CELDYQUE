@@ -335,5 +335,1391 @@
       });
     }
   </script>
+
+  <!-- CELDYQUÉ Prime Day Popup Start -->
+<style>
+  #cdq-prime-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  #cdq-prime-popup {
+    width: 100%;
+    max-width: 430px;
+    background: linear-gradient(180deg, #ffffff 0%, #f5fbff 100%);
+    border-radius: 24px;
+    padding: 28px 24px 22px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+    text-align: center;
+    position: relative;
+    font-family: Arial, sans-serif;
+    animation: cdqPopupFadeUp 0.35s ease;
+  }
+
+  @keyframes cdqPopupFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  #cdq-prime-popup-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #555;
+  }
+
+  .cdq-prime-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #00a8e1;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  #cdq-prime-popup h2 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    line-height: 1.15;
+    color: #111;
+    font-weight: 800;
+  }
+
+  #cdq-prime-popup p {
+    margin: 0 0 20px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #444;
+  }
+
+  .cdq-prime-highlight {
+    color: #0073bb;
+    font-weight: 700;
+  }
+
+  #cdq-prime-popup-main-btn {
+    width: 100%;
+    border: none;
+    border-radius: 14px;
+    padding: 15px 18px;
+    background: #00a8e1;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+
+  #cdq-prime-popup-main-btn:hover {
+    background: #008fc4;
+    transform: translateY(-1px);
+  }
+
+  #cdq-prime-popup-week-hide {
+    margin-top: 14px;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .cdq-prime-subcopy {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #888;
+  }
+
+  @media (max-width: 480px) {
+    #cdq-prime-popup {
+      max-width: 92%;
+      padding: 26px 20px 20px;
+      border-radius: 22px;
+    }
+
+    #cdq-prime-popup h2 {
+      font-size: 25px;
+    }
+  }
+</style>
+
+<div id="cdq-prime-popup-overlay">
+  <div id="cdq-prime-popup">
+    <button id="cdq-prime-popup-close" aria-label="Close popup">×</button>
+
+    <div class="cdq-prime-badge">AMAZON PRIME DAY SALE</div>
+
+    <h2>CELDYQUÉ Prime Day Deal</h2>
+
+    <p>
+      CELDYQUÉ K-beauty skincare is now part of a
+      <span class="cdq-prime-highlight">limited-time Prime Day Sale</span>.
+      Discover our special deals before they end.
+    </p>
+
+    <button id="cdq-prime-popup-main-btn">
+      Shop Prime Day Deals →
+    </button>
+
+    <button id="cdq-prime-popup-week-hide">
+      Hide this offer for 7 days
+    </button>
+
+    <div class="cdq-prime-subcopy">
+      Limited-time offer. Availability may vary.
+    </div>
+  </div>
+</div>
+
+<!-- CELDYQUÉ Prime Day Popup Start -->
+<style>
+  #cdq-prime-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    box-sizing: border-box;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(0, 168, 225, 0.22), transparent 32%),
+      radial-gradient(circle at 80% 75%, rgba(255, 202, 40, 0.18), transparent 34%),
+      rgba(8, 10, 14, 0.68);
+    backdrop-filter: blur(8px);
+  }
+
+  #cdq-prime-popup {
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.96), rgba(245,251,255,0.96)),
+      #fff;
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.34),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+    font-family: "Inter", Arial, sans-serif;
+    animation: cdqPrimePopupIn 0.42s cubic-bezier(.2,.8,.2,1);
+  }
+
+  #cdq-prime-popup::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(120deg, rgba(0,168,225,0.18), transparent 35%),
+      linear-gradient(300deg, rgba(255,198,41,0.20), transparent 42%);
+    pointer-events: none;
+  }
+
+  #cdq-prime-popup::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    top: -90px;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background: rgba(0, 168, 225, 0.16);
+    pointer-events: none;
+  }
+
+  @keyframes cdqPrimePopupIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  #cdq-prime-popup-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    color: #222;
+    font-size: 22px;
+    line-height: 30px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+  }
+
+  .cdq-prime-popup-inner {
+    position: relative;
+    z-index: 1;
+    padding: 34px 28px 24px;
+    text-align: center;
+  }
+
+  .cdq-prime-brand {
+    margin-bottom: 18px;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    font-weight: 800;
+    color: #111;
+  }
+
+  .cdq-prime-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 16px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #07131f;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  }
+
+  .cdq-prime-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00a8e1;
+    box-shadow: 0 0 0 5px rgba(0,168,225,0.18);
+  }
+
+  #cdq-prime-popup h2 {
+    margin: 0;
+    color: #101010;
+    font-size: 34px;
+    line-height: 1.02;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+
+  .cdq-prime-blue {
+    color: #00a8e1;
+  }
+
+  #cdq-prime-popup p {
+    max-width: 350px;
+    margin: 16px auto 24px;
+    color: #40454d;
+    font-size: 15px;
+    line-height: 1.58;
+    font-weight: 500;
+  }
+
+  .cdq-prime-actions {
+    display: grid;
+    gap: 12px;
+  }
+
+  #cdq-prime-popup-main-btn {
+    width: 100%;
+    border: none;
+    border-radius: 999px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #00a8e1, #0073bb);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    box-shadow: 0 14px 30px rgba(0, 123, 188, 0.30);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  #cdq-prime-popup-main-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(0, 123, 188, 0.38);
+  }
+
+  #cdq-prime-popup-week-hide {
+    border: none;
+    background: transparent;
+    color: #6e747c;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  .cdq-prime-note {
+    margin-top: 18px;
+    color: #8a8f98;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 480px) {
+    #cdq-prime-popup {
+      max-width: 94%;
+      border-radius: 24px;
+    }
+
+    .cdq-prime-popup-inner {
+      padding: 32px 22px 22px;
+    }
+
+    #cdq-prime-popup h2 {
+      font-size: 30px;
+    }
+
+    #cdq-prime-popup p {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div id="cdq-prime-popup-overlay">
+  <div id="cdq-prime-popup" role="dialog" aria-modal="true" aria-labelledby="cdq-prime-popup-title">
+    <button id="cdq-prime-popup-close" aria-label="Close popup">×</button>
+
+    <div class="cdq-prime-popup-inner">
+      <div class="cdq-prime-brand">CELDYQUÉ</div>
+
+      <div class="cdq-prime-badge">
+        <span class="cdq-prime-dot"></span>
+        Amazon Prime Day Sale
+      </div>
+
+      <h2 id="cdq-prime-popup-title">
+        Prime Day<br>
+        <span class="cdq-prime-blue">Beauty Deal</span>
+      </h2>
+
+      <p>
+        CELDYQUÉ K-beauty skincare favorites are part of a limited-time Prime Day event.
+        Discover the deal before it ends.
+      </p>
+
+      <div class="cdq-prime-actions">
+        <button id="cdq-prime-popup-main-btn">
+          View Prime Day Deals
+        </button>
+
+        <button id="cdq-prime-popup-week-hide">
+          Don’t show again for 7 days
+        </button>
+      </div>
+
+      <div class="cdq-prime-note">
+        Limited-time offer. Availability and pricing may vary.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CELDYQUÉ Prime Day Popup Start -->
+<style>
+  #cdq-prime-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    box-sizing: border-box;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(0, 186, 255, 0.26), transparent 30%),
+      radial-gradient(circle at 84% 78%, rgba(255, 210, 92, 0.18), transparent 34%),
+      rgba(5, 7, 11, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  #cdq-prime-popup {
+    width: min(92vw, 720px);
+    min-height: 380px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    font-family: "Inter", Arial, sans-serif;
+    color: #111;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.98), rgba(246,251,255,0.96) 46%, rgba(255,251,238,0.96)),
+      #fff;
+    box-shadow:
+      0 34px 110px rgba(0, 0, 0, 0.42),
+      0 0 0 1px rgba(255,255,255,0.58) inset;
+    animation: cdqPrimeIn 0.45s cubic-bezier(.16,1,.3,1);
+  }
+
+  @keyframes cdqPrimeIn {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.96);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  #cdq-prime-popup::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(120deg, rgba(0, 168, 225, 0.18), transparent 36%),
+      radial-gradient(circle at 82% 18%, rgba(0,168,225,0.28), transparent 24%),
+      radial-gradient(circle at 82% 84%, rgba(255,203,65,0.22), transparent 28%);
+    pointer-events: none;
+  }
+
+  #cdq-prime-popup::after {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -95px;
+    width: 310px;
+    height: 310px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle, rgba(0,168,225,0.34), rgba(0,168,225,0.08) 58%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cdq-prime-glow-line {
+    position: absolute;
+    top: 0;
+    left: 34px;
+    right: 34px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,168,225,0.9), rgba(255,215,110,0.8), transparent);
+    opacity: 0.9;
+  }
+
+  #cdq-prime-popup-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 5;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.76);
+    color: #111;
+    font-size: 22px;
+    line-height: 35px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+
+  #cdq-prime-popup-close:hover {
+    transform: rotate(90deg);
+    background: #fff;
+  }
+
+  .cdq-prime-layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    min-height: 380px;
+  }
+
+  .cdq-prime-visual {
+    position: relative;
+    min-height: 380px;
+    padding: 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    background:
+      linear-gradient(160deg, rgba(6, 19, 32, 0.98), rgba(8, 55, 78, 0.90) 50%, rgba(0, 168, 225, 0.50)),
+      #07131f;
+  }
+
+  .cdq-prime-visual::before {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    top: -120px;
+    left: -120px;
+    background: radial-gradient(circle, rgba(0, 168, 225, 0.55), transparent 62%);
+  }
+
+  .cdq-prime-visual::after {
+    content: "PRIME\A DAY";
+    white-space: pre;
+    position: absolute;
+    left: 24px;
+    bottom: 26px;
+    color: rgba(255,255,255,0.07);
+    font-size: 76px;
+    line-height: 0.88;
+    font-weight: 900;
+    letter-spacing: -0.08em;
+  }
+
+  .cdq-prime-ticket {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 250px;
+    border-radius: 26px;
+    padding: 22px 18px;
+    color: #fff;
+    text-align: center;
+    background:
+      linear-gradient(150deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04)),
+      rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.22);
+    box-shadow:
+      0 24px 60px rgba(0,0,0,0.28),
+      inset 0 1px 0 rgba(255,255,255,0.26);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .cdq-prime-ticket-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.13);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cdq-prime-spark {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00a8e1;
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.9);
+  }
+
+  .cdq-prime-ticket h3 {
+    margin: 20px 0 8px;
+    font-size: 42px;
+    line-height: 0.92;
+    font-weight: 900;
+    letter-spacing: -0.07em;
+  }
+
+  .cdq-prime-ticket p {
+    margin: 0;
+    color: rgba(255,255,255,0.76);
+    font-size: 12px;
+    line-height: 1.45;
+    font-weight: 600;
+  }
+
+  .cdq-prime-content {
+    padding: 46px 42px 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .cdq-prime-brand {
+    margin-bottom: 16px;
+    color: #111;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+  }
+
+  .cdq-prime-eyebrow {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: rgba(0, 168, 225, 0.10);
+    color: #0073bb;
+    border: 1px solid rgba(0, 168, 225, 0.16);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .cdq-prime-eyebrow span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00a8e1;
+    box-shadow: 0 0 0 5px rgba(0,168,225,0.13);
+  }
+
+  #cdq-prime-popup-title {
+    margin: 0;
+    max-width: 360px;
+    font-size: 42px;
+    line-height: 0.98;
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    color: #101010;
+  }
+
+  .cdq-prime-blue {
+    color: #0073bb;
+  }
+
+  .cdq-prime-copy {
+    max-width: 370px;
+    margin: 18px 0 26px;
+    color: #454b53;
+    font-size: 15px;
+    line-height: 1.58;
+    font-weight: 500;
+  }
+
+  .cdq-prime-copy strong {
+    color: #0073bb;
+    font-weight: 900;
+  }
+
+  .cdq-prime-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 360px;
+  }
+
+  #cdq-prime-popup-main-btn {
+    width: 100%;
+    border: none;
+    border-radius: 999px;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    background:
+      linear-gradient(135deg, #05bdf2 0%, #0073bb 55%, #005f9f 100%);
+    box-shadow:
+      0 18px 38px rgba(0, 128, 190, 0.32),
+      inset 0 1px 0 rgba(255,255,255,0.28);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  #cdq-prime-popup-main-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 22px 44px rgba(0, 128, 190, 0.42),
+      inset 0 1px 0 rgba(255,255,255,0.34);
+  }
+
+  #cdq-prime-popup-week-hide {
+    width: fit-content;
+    align-self: center;
+    border: none;
+    background: transparent;
+    color: #757a82;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+
+  .cdq-prime-note {
+    max-width: 360px;
+    margin-top: 18px;
+    color: #8b9097;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 720px) {
+    #cdq-prime-popup {
+      width: min(94vw, 430px);
+      min-height: auto;
+      border-radius: 28px;
+    }
+
+    .cdq-prime-layout {
+      display: block;
+      min-height: auto;
+    }
+
+    .cdq-prime-visual {
+      min-height: 170px;
+      padding: 24px;
+      align-items: center;
+    }
+
+    .cdq-prime-visual::after {
+      font-size: 52px;
+      left: 20px;
+      bottom: 18px;
+    }
+
+    .cdq-prime-ticket {
+      max-width: 230px;
+      padding: 18px 16px;
+    }
+
+    .cdq-prime-ticket h3 {
+      font-size: 34px;
+    }
+
+    .cdq-prime-content {
+      padding: 30px 24px 26px;
+      text-align: center;
+      align-items: center;
+    }
+
+    .cdq-prime-brand {
+      margin-bottom: 12px;
+    }
+
+    .cdq-prime-eyebrow {
+      margin-bottom: 14px;
+    }
+
+    #cdq-prime-popup-title {
+      font-size: 32px;
+      max-width: 330px;
+    }
+
+    .cdq-prime-copy {
+      font-size: 14px;
+      margin: 16px 0 22px;
+    }
+
+    .cdq-prime-actions,
+    .cdq-prime-note {
+      width: 100%;
+      max-width: 340px;
+    }
+  }
+</style>
+
+<div id="cdq-prime-popup-overlay">
+  <div id="cdq-prime-popup" role="dialog" aria-modal="true" aria-labelledby="cdq-prime-popup-title">
+    <div class="cdq-prime-glow-line"></div>
+    <button id="cdq-prime-popup-close" aria-label="Close popup">×</button>
+
+    <div class="cdq-prime-layout">
+      <div class="cdq-prime-visual" aria-hidden="true">
+        <div class="cdq-prime-ticket">
+          <div class="cdq-prime-ticket-top">
+            <span class="cdq-prime-spark"></span>
+            2026 Prime Event
+          </div>
+          <h3>Prime<br>Day</h3>
+          <p>Limited-time K-beauty offer from CELDYQUÉ</p>
+        </div>
+      </div>
+
+      <div class="cdq-prime-content">
+        <div class="cdq-prime-brand">CELDYQUÉ</div>
+
+        <div class="cdq-prime-eyebrow">
+          <span></span>
+          Amazon Prime Day Sale
+        </div>
+
+        <h2 id="cdq-prime-popup-title">
+          Prime Day<br>
+          <span class="cdq-prime-blue">Beauty Deals</span>
+        </h2>
+
+        <p class="cdq-prime-copy">
+          CELDYQUÉ K-beauty skincare favorites are now part of a
+          <strong>limited-time Prime Day event.</strong>
+          Discover the deal before it ends.
+        </p>
+
+        <div class="cdq-prime-actions">
+          <button id="cdq-prime-popup-main-btn">
+            Shop Prime Day Deals →
+          </button>
+
+          <button id="cdq-prime-popup-week-hide">
+            Don’t show again for 7 days
+          </button>
+        </div>
+
+        <div class="cdq-prime-note">
+          Limited-time offer. Availability and pricing may vary.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+```html
+<!-- CELDYQUÉ Prime Day Popup Start -->
+<style>
+  #cdq-prime-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background:
+      radial-gradient(circle at 16% 18%, rgba(0, 168, 225, 0.30), transparent 30%),
+      radial-gradient(circle at 82% 82%, rgba(255, 214, 102, 0.18), transparent 32%),
+      linear-gradient(135deg, rgba(3, 8, 13, 0.78), rgba(10, 14, 20, 0.72));
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+  }
+
+  #cdq-prime-popup {
+    width: min(94vw, 780px);
+    position: relative;
+    overflow: hidden;
+    border-radius: 34px;
+    font-family: "Inter", Arial, sans-serif;
+    color: #111;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.96), rgba(246,252,255,0.92) 48%, rgba(255,250,238,0.94)),
+      #fff;
+    box-shadow:
+      0 36px 120px rgba(0, 0, 0, 0.46),
+      0 0 0 1px rgba(255,255,255,0.62) inset;
+    animation: cdqPrimePopupIn 0.45s cubic-bezier(.16,1,.3,1);
+  }
+
+  @keyframes cdqPrimePopupIn {
+    from {
+      opacity: 0;
+      transform: translateY(18px) scale(0.96);
+      filter: blur(5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  #cdq-prime-popup::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(115deg, rgba(0,168,225,0.22), transparent 34%),
+      radial-gradient(circle at 88% 18%, rgba(0,168,225,0.28), transparent 26%),
+      radial-gradient(circle at 86% 88%, rgba(255,214,102,0.24), transparent 30%);
+  }
+
+  #cdq-prime-popup::after {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 34px;
+    right: 34px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,168,225,0.95), rgba(255,221,130,0.85), transparent);
+    opacity: 0.95;
+  }
+
+  #cdq-prime-popup-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 5;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(17, 17, 17, 0.08);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.72);
+    color: #111;
+    font-size: 23px;
+    line-height: 34px;
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  #cdq-prime-popup-close:hover {
+    transform: rotate(90deg);
+    background: #fff;
+  }
+
+  .cdq-prime-layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    min-height: 410px;
+  }
+
+  .cdq-prime-visual {
+    position: relative;
+    min-height: 410px;
+    padding: 34px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(0, 216, 255, 0.35), transparent 34%),
+      linear-gradient(155deg, #06111c 0%, #07334b 52%, #00a8e1 130%);
+  }
+
+  .cdq-prime-visual::before {
+    content: "CELDYQUÉ";
+    position: absolute;
+    top: 28px;
+    left: 30px;
+    color: rgba(255,255,255,0.84);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+  }
+
+  .cdq-prime-visual::after {
+    content: "PRIME\A DAY";
+    white-space: pre;
+    position: absolute;
+    left: 24px;
+    bottom: 22px;
+    color: rgba(255,255,255,0.08);
+    font-size: 78px;
+    line-height: 0.86;
+    font-weight: 900;
+    letter-spacing: -0.08em;
+  }
+
+  .cdq-prime-orb {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 35% 25%, rgba(255,255,255,0.72), rgba(0,168,225,0.20) 36%, rgba(0,168,225,0.03) 68%);
+    filter: blur(0.2px);
+    opacity: 0.9;
+  }
+
+  .cdq-prime-ticket {
+    position: relative;
+    z-index: 2;
+    width: 245px;
+    border-radius: 30px;
+    padding: 24px 20px;
+    color: #fff;
+    text-align: center;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.20), rgba(255,255,255,0.06)),
+      rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.24);
+    box-shadow:
+      0 28px 70px rgba(0,0,0,0.30),
+      inset 0 1px 0 rgba(255,255,255,0.30);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .cdq-prime-ticket-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.14);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cdq-prime-spark {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #39d7ff;
+    box-shadow: 0 0 20px rgba(57, 215, 255, 0.95);
+  }
+
+  .cdq-prime-ticket h3 {
+    margin: 22px 0 10px;
+    font-size: 46px;
+    line-height: 0.9;
+    font-weight: 900;
+    letter-spacing: -0.075em;
+  }
+
+  .cdq-prime-ticket p {
+    margin: 0;
+    color: rgba(255,255,255,0.78);
+    font-size: 12px;
+    line-height: 1.45;
+    font-weight: 600;
+  }
+
+  .cdq-prime-content {
+    padding: 48px 46px 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .cdq-prime-brand {
+    margin-bottom: 16px;
+    color: #111;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+  }
+
+  .cdq-prime-eyebrow {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: #0073bb;
+    background: rgba(0,168,225,0.10);
+    border: 1px solid rgba(0,168,225,0.18);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .cdq-prime-eyebrow span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00a8e1;
+    box-shadow: 0 0 0 5px rgba(0,168,225,0.14);
+  }
+
+  #cdq-prime-popup-title {
+    margin: 0;
+    max-width: 390px;
+    color: #101010;
+    font-size: 44px;
+    line-height: 0.98;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+  }
+
+  .cdq-prime-blue {
+    color: #0073bb;
+  }
+
+  .cdq-prime-copy {
+    max-width: 390px;
+    margin: 18px 0 28px;
+    color: #434a52;
+    font-size: 15px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  .cdq-prime-copy strong {
+    color: #0073bb;
+    font-weight: 900;
+  }
+
+  .cdq-prime-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 380px;
+  }
+
+  #cdq-prime-popup-main-btn {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: none;
+    border-radius: 999px;
+    padding: 17px 22px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    background:
+      linear-gradient(135deg, #12c8ff 0%, #0073bb 52%, #005a99 100%);
+    box-shadow:
+      0 18px 38px rgba(0, 128, 190, 0.34),
+      inset 0 1px 0 rgba(255,255,255,0.30);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  #cdq-prime-popup-main-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.32), transparent);
+    transition: transform 0.55s ease;
+  }
+
+  #cdq-prime-popup-main-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 24px 48px rgba(0, 128, 190, 0.45),
+      inset 0 1px 0 rgba(255,255,255,0.34);
+  }
+
+  #cdq-prime-popup-main-btn:hover::after {
+    transform: translateX(120%);
+  }
+
+  #cdq-prime-popup-week-hide {
+    width: fit-content;
+    align-self: center;
+    border: none;
+    background: transparent;
+    color: #737982;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+
+  #cdq-prime-popup-week-hide:hover {
+    color: #111;
+  }
+
+  .cdq-prime-note {
+    max-width: 380px;
+    margin-top: 18px;
+    color: #8a9098;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 720px) {
+    #cdq-prime-popup {
+      width: min(94vw, 430px);
+      border-radius: 30px;
+    }
+
+    .cdq-prime-layout {
+      display: block;
+      min-height: auto;
+    }
+
+    .cdq-prime-visual {
+      min-height: 180px;
+      padding: 26px;
+    }
+
+    .cdq-prime-visual::after {
+      font-size: 54px;
+      left: 20px;
+      bottom: 18px;
+    }
+
+    .cdq-prime-ticket {
+      width: 225px;
+      padding: 20px 17px;
+    }
+
+    .cdq-prime-ticket h3 {
+      font-size: 36px;
+    }
+
+    .cdq-prime-content {
+      padding: 32px 24px 26px;
+      text-align: center;
+      align-items: center;
+    }
+
+    .cdq-prime-brand {
+      margin-bottom: 12px;
+    }
+
+    .cdq-prime-eyebrow {
+      margin-bottom: 14px;
+    }
+
+    #cdq-prime-popup-title {
+      font-size: 33px;
+      max-width: 340px;
+    }
+
+    .cdq-prime-copy {
+      font-size: 14px;
+      margin: 16px 0 24px;
+    }
+
+    .cdq-prime-actions,
+    .cdq-prime-note {
+      width: 100%;
+      max-width: 350px;
+    }
+  }
+</style>
+
+<div id="cdq-prime-popup-overlay">
+  <div id="cdq-prime-popup" role="dialog" aria-modal="true" aria-labelledby="cdq-prime-popup-title">
+    <button id="cdq-prime-popup-close" aria-label="Close popup">×</button>
+
+    <div class="cdq-prime-layout">
+      <div class="cdq-prime-visual" aria-hidden="true">
+        <div class="cdq-prime-orb"></div>
+
+        <div class="cdq-prime-ticket">
+          <div class="cdq-prime-ticket-label">
+            <span class="cdq-prime-spark"></span>
+            2026 Prime Event
+          </div>
+
+          <h3>Prime<br>Day</h3>
+          <p>Limited-time K-beauty offer from CELDYQUÉ</p>
+        </div>
+      </div>
+
+      <div class="cdq-prime-content">
+        <div class="cdq-prime-brand">CELDYQUÉ</div>
+
+        <div class="cdq-prime-eyebrow">
+          <span></span>
+          Amazon Prime Day Sale
+        </div>
+
+        <h2 id="cdq-prime-popup-title">
+          Prime Day<br>
+          <span class="cdq-prime-blue">Beauty Deals</span>
+        </h2>
+
+        <p class="cdq-prime-copy">
+          CELDYQUÉ K-beauty skincare favorites are now part of a
+          <strong>limited-time Prime Day event.</strong>
+          Discover the deal before it ends.
+        </p>
+
+        <div class="cdq-prime-actions">
+          <button id="cdq-prime-popup-main-btn">
+            Shop Prime Day Deals →
+          </button>
+
+          <button id="cdq-prime-popup-week-hide">
+            Hide this offer for 7 days
+          </button>
+        </div>
+
+        <div class="cdq-prime-note">
+          Limited-time offer. Availability and pricing may vary.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const popupOverlay = document.getElementById("cdq-prime-popup-overlay");
+    const closeBtn = document.getElementById("cdq-prime-popup-close");
+    const weekHideBtn = document.getElementById("cdq-prime-popup-week-hide");
+    const mainBtn = document.getElementById("cdq-prime-popup-main-btn");
+
+    const storageKey = "cdq_prime_day_popup_hide_until_a";
+    const amazonDealUrl = "https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252/deals?ingress=0&visitId=e144ac15-fb9a-4254-ba36-1e1b10a2a5fd&ref_=ast_sto_deals_banner";
+
+    function shouldShowPopup() {
+      const hideUntil = localStorage.getItem(storageKey);
+      if (!hideUntil) return true;
+
+      const now = new Date().getTime();
+      return now > Number(hideUntil);
+    }
+
+    function showPopup() {
+      if (shouldShowPopup()) {
+        popupOverlay.style.display = "flex";
+      }
+    }
+
+    function closePopup() {
+      popupOverlay.style.display = "none";
+    }
+
+    function hideForOneWeek() {
+      const oneWeek = 7 * 24 * 60 * 60 * 1000;
+      const hideUntil = new Date().getTime() + oneWeek;
+      localStorage.setItem(storageKey, String(hideUntil));
+      closePopup();
+    }
+
+    closeBtn.addEventListener("click", closePopup);
+    weekHideBtn.addEventListener("click", hideForOneWeek);
+
+    mainBtn.addEventListener("click", function () {
+      window.location.href = amazonDealUrl;
+    });
+
+    popupOverlay.addEventListener("click", function (event) {
+      if (event.target === popupOverlay) {
+        closePopup();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closePopup();
+      }
+    });
+
+    window.addEventListener("load", function () {
+      setTimeout(showPopup, 650);
+    });
+  })();
+</script>
+<!-- CELDYQUÉ Prime Day Popup End -->
+```
+
+
 </body>
+
 </html>
