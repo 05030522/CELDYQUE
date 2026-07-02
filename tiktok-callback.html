@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TikTok Shop Authorization Callback</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f7f7f7;
+      color: #222;
+    }
+    .box {
+      max-width: 760px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    code {
+      display: block;
+      background: #f1f1f1;
+      padding: 12px;
+      border-radius: 8px;
+      word-break: break-all;
+      margin-top: 8px;
+    }
+    button {
+      margin-top: 8px;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #111;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>TikTok Shop Authorization Callback</h1>
+    <p>Authorization completed. Copy the code below and use it to request an access token on the server side.</p>
+
+    <h3>Authorization Code</h3>
+    <code id="code">Loading...</code>
+    <button onclick="copyCode()">Copy code</button>
+
+    <h3>Full Callback URL</h3>
+    <code id="fullUrl"></code>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    // TikTok 문서/버전에 따라 code 또는 auth_code로 올 수 있어서 둘 다 확인
+    const code = params.get("code") || params.get("auth_code") || "No code found";
+    const state = params.get("state");
+    const appKey = params.get("app_key");
+
+    document.getElementById("code").textContent = code;
+    document.getElementById("fullUrl").textContent = window.location.href;
+
+    function copyCode() {
+      navigator.clipboard.writeText(code);
+      alert("Authorization code copied.");
+    }
+  </script>
+</body>
+</html>
