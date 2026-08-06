@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+
+  <title>Blue Copper Peptide Bakuchiol Serum | CELDYQUE</title>
+  <meta
+    name="description"
+    content="CELDYQUE Blue Copper Peptide Bakuchiol Serum with GHK-Cu, Matrixyl 3000, Argireline, EGF, a 12-Peptide Complex, Niacinamide, Hyaluronic Acid, Collagen and Beta-Glucan."
+  />
+
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --ink: #17191f;
+      --muted: #626875;
+      --line: #e8eaf0;
+      --surface: #f6f7fb;
+      --blue: #1647c5;
+      --blue-dark: #0b2f8f;
+      --blue-soft: #edf3ff;
+      --gold: #b88326;
+      --gold-soft: #fff8eb;
+      --shadow: 0 22px 52px rgba(20, 31, 64, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body.product {
+      margin: 0;
+      padding-top: 80px;
+      background: #fff;
+      color: var(--ink);
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a { color: inherit; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+    }
+
+    .serif { font-family: "Playfair Display", serif; }
+
+    .breadcrumb {
+      margin-top: 20px;
+      color: #8a8f9a;
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+      text-decoration: none;
+      color: #686e7a;
+    }
+
+    .product-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 64px;
+      margin-top: 38px;
+      margin-bottom: 100px;
+      align-items: center;
+    }
+
+    .product-gallery { position: sticky; top: 100px; }
+
+    .gallery-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 22% 16%, rgba(255,255,255,.95), rgba(255,255,255,0) 34%),
+        linear-gradient(145deg, #f1f2f6 0%, #e7e9ef 54%, #f8f9fb 100%);
+      box-shadow: var(--shadow);
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 52px;
+    }
+
+    .gallery-frame::before,
+    .gallery-frame::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .gallery-frame::before {
+      width: 310px;
+      height: 310px;
+      right: -90px;
+      top: -95px;
+      background: rgba(22, 71, 197, 0.08);
+    }
+
+    .gallery-frame::after {
+      width: 210px;
+      height: 210px;
+      left: -70px;
+      bottom: -60px;
+      background: rgba(184, 131, 38, 0.08);
+    }
+
+    .product-gallery img {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 470px);
+      max-height: 560px;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 28px rgba(14, 20, 45, 0.18));
+    }
+
+    .product-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--blue-dark);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .product-kicker::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--blue);
+    }
+
+    .product-info h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+      font-weight: 500;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+    }
+
+    .product-info .subtitle {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .active-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      padding: 7px 13px;
+      border: 1px solid #d9dde7;
+      border-radius: 999px;
+      background: #fff;
+      color: #323846;
+      font-size: 0.77rem;
+      font-weight: 600;
+    }
+
+    .badge.hero {
+      border-color: #a9bdec;
+      background: var(--blue-soft);
+      color: var(--blue-dark);
+    }
+
+    .desc-text {
+      margin-bottom: 30px;
+      color: #404654;
+      font-size: 1.03rem;
+      line-height: 1.85;
+    }
+
+    .features-list {
+      list-style: none;
+      margin: 0 0 38px;
+      padding: 0;
+    }
+
+    .features-list li {
+      position: relative;
+      margin-bottom: 13px;
+      padding-left: 29px;
+      color: #303642;
+      line-height: 1.55;
+    }
+
+    .features-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      display: grid;
+      place-items: center;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .action-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-buy,
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 15px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn-buy {
+      flex: 1;
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 12px 25px rgba(23, 25, 31, 0.16);
+    }
+
+    .btn-secondary {
+      border: 1px solid #dfe2e8;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .btn-buy:hover,
+    .btn-secondary:hover { transform: translateY(-2px); }
+
+    .banner-section {
+      position: relative;
+      width: 100%;
+      min-height: 500px;
+      overflow: hidden;
+      margin-bottom: 110px;
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(85, 135, 255, .48), transparent 28%),
+        radial-gradient(circle at 16% 82%, rgba(218, 177, 96, .25), transparent 25%),
+        linear-gradient(135deg, #071a4b 0%, #0c318c 48%, #102660 100%);
+    }
+
+    .banner-section::before {
+      content: "";
+      position: absolute;
+      width: 390px;
+      height: 390px;
+      top: -115px;
+      right: -65px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 70px rgba(255,255,255,.035),
+        0 0 0 140px rgba(255,255,255,.025);
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      min-height: 500px;
+      padding: 64px 28px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .banner-inner { max-width: 760px; }
+
+    .banner-tag {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 7px 16px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+      color: #e8efff;
+      font-size: .73rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .banner-content h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.08;
+    }
+
+    .banner-content p {
+      max-width: 670px;
+      margin: 0 auto;
+      color: rgba(255,255,255,.82);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .details-section { margin-bottom: 30px; }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 76px;
+      align-items: center;
+      margin-bottom: 120px;
+    }
+
+    .detail-text h3 {
+      margin: 0 0 20px;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      line-height: 1.2;
+    }
+
+    .detail-text p {
+      margin: 0 0 19px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+    .order-reverse .detail-text { order: 2; }
+    .order-reverse .detail-visual { order: 1; }
+
+    .detail-visual {
+      position: relative;
+      min-height: 500px;
+      overflow: hidden;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .stat-item {
+      min-width: 132px;
+      padding: 15px 18px;
+      border: 1px solid #dfe5f5;
+      border-radius: 14px;
+      background: #f7f9ff;
+    }
+
+    .stat-item.gold {
+      border-color: #ead6ad;
+      background: var(--gold-soft);
+    }
+
+    .stat-item .num {
+      color: var(--blue-dark);
+      font-size: 1.14rem;
+      font-weight: 800;
+    }
+
+    .stat-item.gold .num { color: #8b5d12; }
+
+    .stat-item .label {
+      margin-top: 4px;
+      color: #7a8190;
+      font-size: .76rem;
+      line-height: 1.3;
+    }
+
+    /* Editorial visual styles */
+    .editorial-visual {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 34px;
+      color: #fff;
+    }
+
+    .editorial-visual .ev-kicker {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .editorial-visual .ev-title {
+      margin-top: 16px;
+      max-width: 420px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .editorial-visual .ev-copy {
+      max-width: 440px;
+      margin-top: 12px;
+      color: rgba(255,255,255,.82);
+      line-height: 1.75;
+      font-size: .98rem;
+    }
+
+    .editorial-visual .ev-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .editorial-visual .ev-tags span,
+    .editorial-visual .ev-card,
+    .editorial-visual .ev-pill {
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      color: #fff;
+    }
+
+    .editorial-visual .ev-tags span,
+    .editorial-visual .ev-pill {
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 600;
+    }
+
+    .editorial-visual .ev-bottom {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .editorial-visual .ev-card {
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .editorial-visual .ev-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: .92rem;
+    }
+
+    .editorial-visual .ev-card small {
+      display: block;
+      color: rgba(255,255,255,.78);
+      font-size: .78rem;
+      line-height: 1.55;
+    }
+
+    .visual-peptide {
+      background:
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,.18), transparent 18%),
+        radial-gradient(circle at 70% 82%, rgba(255,255,255,.08), transparent 16%),
+        linear-gradient(145deg, #071742 0%, #1543b8 60%, #0b235f 100%);
+    }
+
+    .visual-peptide .ev-kicker {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.24);
+    }
+
+    .molecule-net {
+      position: absolute;
+      inset: auto 28px 24px auto;
+      width: 220px;
+      height: 220px;
+      opacity: .55;
+    }
+
+    .molecule-net span {
+      position: absolute;
+      display: block;
+      background: rgba(255,255,255,.85);
+      border-radius: 50%;
+    }
+
+    .molecule-net .n1 { width: 14px; height: 14px; right: 36px; top: 14px; }
+    .molecule-net .n2 { width: 10px; height: 10px; right: 102px; top: 72px; }
+    .molecule-net .n3 { width: 16px; height: 16px; right: 18px; top: 104px; }
+    .molecule-net .n4 { width: 11px; height: 11px; right: 116px; top: 150px; }
+    .molecule-net .n5 { width: 13px; height: 13px; right: 62px; top: 194px; }
+
+    .molecule-net::before,
+    .molecule-net::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(36deg, transparent 44%, rgba(255,255,255,.5) 45%, rgba(255,255,255,.5) 46%, transparent 47%) 0 0 / 100% 100% no-repeat,
+        linear-gradient(145deg, transparent 48%, rgba(255,255,255,.35) 49%, rgba(255,255,255,.35) 50%, transparent 51%) 0 0 / 100% 100% no-repeat;
+      opacity: .7;
+    }
+
+    .visual-hydra {
+      background:
+        radial-gradient(circle at 12% 14%, rgba(255,255,255,.46), transparent 16%),
+        radial-gradient(circle at 80% 26%, rgba(255,255,255,.22), transparent 18%),
+        linear-gradient(145deg, #fff9ee 0%, #f4e4c2 52%, #f6f8ff 100%);
+      color: #142033;
+    }
+
+    .visual-hydra .ev-kicker {
+      color: #7f5716;
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(143,98,20,.16);
+    }
+
+    .visual-hydra .ev-copy { color: rgba(20,32,51,.72); }
+    .visual-hydra .ev-tags span,
+    .visual-hydra .ev-card,
+    .visual-hydra .ev-pill {
+      color: #15233a;
+      background: rgba(255,255,255,.64);
+      border: 1px solid rgba(20,32,51,.08);
+    }
+
+    .ingredient-orbs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+      max-width: 340px;
+    }
+
+    .ingredient-orbs div {
+      display: grid;
+      place-items: center;
+      min-height: 82px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: .88rem;
+      background: rgba(255,255,255,.65);
+      border: 1px solid rgba(20,32,51,.06);
+      box-shadow: 0 8px 24px rgba(31, 42, 67, .06);
+    }
+
+    .cream-swish {
+      position: absolute;
+      right: 28px;
+      bottom: 26px;
+      width: 200px;
+      height: 110px;
+      background: linear-gradient(180deg, #fffdfa, #f5ecd7);
+      border-radius: 70% 30% 60% 40% / 55% 45% 55% 45%;
+      filter: drop-shadow(0 16px 18px rgba(150, 123, 62, .15));
+      transform: rotate(-8deg);
+    }
+
+    .cream-swish::after {
+      content: "";
+      position: absolute;
+      inset: 18px 28px 34px 38px;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.15));
+      opacity: .55;
+    }
+
+    .visual-routine {
+      background:
+        radial-gradient(circle at 78% 18%, rgba(255,255,255,.18), transparent 18%),
+        radial-gradient(circle at 18% 82%, rgba(255,255,255,.09), transparent 18%),
+        linear-gradient(145deg, #0a1d54 0%, #1a56df 54%, #4f86f6 100%);
+    }
+
+    .visual-routine .ev-kicker {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.24);
+    }
+
+    .routine-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      margin-top: 26px;
+      align-items: stretch;
+    }
+
+    .routine-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .texture-tile {
+      position: relative;
+      border-radius: 24px;
+      background:
+        linear-gradient(155deg, rgba(255,255,255,.18), rgba(255,255,255,.08));
+      border: 1px solid rgba(255,255,255,.16);
+      min-height: 208px;
+      overflow: hidden;
+    }
+
+    .texture-tile::before,
+    .texture-tile::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255,255,255,.82);
+      filter: blur(.2px);
+    }
+
+    .texture-tile::before {
+      width: 170px;
+      height: 42px;
+      left: 28px;
+      top: 64px;
+      transform: rotate(-16deg);
+      opacity: .78;
+    }
+
+    .texture-tile::after {
+      width: 120px;
+      height: 28px;
+      left: 62px;
+      top: 118px;
+      transform: rotate(-14deg);
+      opacity: .45;
+    }
+
+    .benefit-section {
+      margin-bottom: 110px;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 42px;
+    }
+
+    .section-head .eyebrow {
+      margin-bottom: 10px;
+      color: var(--blue);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .benefit-card {
+      min-height: 220px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fff;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px rgba(18, 31, 72, .08);
+    }
+
+    .benefit-num {
+      margin-bottom: 24px;
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+    }
+
+    .benefit-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.17rem;
+    }
+
+    .benefit-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.7;
+    }
+
+    .peptide-section {
+      margin-bottom: 110px;
+      padding: 62px;
+      border-radius: 30px;
+      background: #f7f8fc;
+    }
+
+    .peptide-section h2 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+    }
+
+    .peptide-section .sub {
+      margin: 0 0 36px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .peptide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .peptide-card {
+      padding: 22px;
+      border: 1px solid #e1e4ec;
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .peptide-card.featured {
+      border-color: #9eb7ef;
+      background: var(--blue-soft);
+    }
+
+    .peptide-card .p-name {
+      margin-bottom: 8px;
+      color: var(--blue-dark);
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    .peptide-card .p-desc {
+      color: #6e7481;
+      font-size: .84rem;
+      line-height: 1.55;
+    }
+
+    .usage-section {
+      margin-bottom: 100px;
+      padding: 78px 40px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(22,71,197,.05), rgba(184,131,38,.055));
+      text-align: center;
+    }
+
+    .usage-section h2 {
+      margin: 0 0 46px;
+      font-size: 2.3rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .step-card {
+      padding: 38px 24px;
+      border: 1px solid rgba(219,223,234,.9);
+      border-radius: 20px;
+      background: rgba(255,255,255,.92);
+    }
+
+    .step-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .step-card h4 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.65;
+    }
+
+    .ingredients-box {
+      margin-bottom: 60px;
+      padding: 64px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .ingredients-content {
+      display: grid;
+      grid-template-columns: .8fr 2fr;
+      gap: 56px;
+    }
+
+    .ingredients-box h3 {
+      margin: 0 0 10px;
+      font-size: 1.7rem;
+    }
+
+    .ing-list {
+      color: #555d6c;
+      line-height: 1.85;
+    }
+
+    .ing-list p { margin-top: 0; }
+
+    .freefrom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .freefrom span {
+      padding: 6px 11px;
+      border: 1px solid #d8dfef;
+      border-radius: 999px;
+      background: #f8faff;
+      color: #49536b;
+      font-size: .76rem;
+      font-weight: 600;
+    }
+
+    .caution {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 3px solid #b9c8e8;
+      background: #f8faff;
+      color: #747b88;
+      font-size: .86rem;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 900px) {
+      body.product { padding-top: 66px; }
+      .product-top {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        margin-top: 22px;
+      }
+      .product-gallery { position: static; }
+      .gallery-frame { min-height: 520px; padding: 34px; }
+      .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 85px;
+      }
+      .order-reverse .detail-text { order: 1; }
+      .order-reverse .detail-visual { order: 2; }
+      .benefit-grid,
+      .steps-grid { grid-template-columns: 1fr; }
+      .peptide-section { padding: 42px 24px; }
+      .peptide-grid { grid-template-columns: 1fr 1fr; }
+      .ingredients-content { grid-template-columns: 1fr; }
+      .routine-grid { grid-template-columns: 1fr; }
+      .texture-tile { min-height: 170px; }
+    }
+
+    @media (max-width: 580px) {
+      .container { padding-left: 18px; padding-right: 18px; }
+      .gallery-frame { min-height: 430px; padding: 24px; }
+      .banner-section,
+      .banner-content { min-height: 430px; }
+      .detail-visual { min-height: 420px; }
+      .editorial-visual { padding: 24px; }
+      .peptide-grid { grid-template-columns: 1fr; }
+      .usage-section { padding: 56px 20px; }
+      .action-group { flex-direction: column; }
+      .btn-buy, .btn-secondary { width: 100%; }
+      .editorial-visual .ev-title { font-size: 1.8rem; }
+      .ingredient-orbs { max-width: none; }
+      .cream-swish { width: 150px; height: 90px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "CELDYQUE Blue Copper Peptide Bakuchiol Serum",
+    "image": "/images/제품/ms15.png",
+    "description": "A lightweight Korean face serum with Copper Tripeptide-1, Bakuchiol, EGF, Matrixyl 3000, Argireline and a 12-Peptide Complex for plumping, firming, smoothing and hydration care.",
+    "brand": {
+      "@type": "Brand",
+      "name": "CELDYQUE"
+    },
+    "sku": "B0H6DCQPN8",
+    "url": "https://www.amazon.com/Copper-Peptide-Bakuchiol-Peptides-Plumping/dp/B0H6DCQPN8"
+  }
+  </script>
+</head>
+
+<body class="product">
+
+  <div id="siteHeader"></div>
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu"></div>
+  <div class="search-modal" id="searchModal"></div>
+
+  <main class="container">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/shop.html">Shop</a> / Face Serum / Blue Copper Peptide Bakuchiol Serum
+    </nav>
+
+    <section class="product-top" aria-labelledby="product-title">
+      <div class="product-gallery">
+        <div class="gallery-frame">
+          <img
+            src="/images/제품/ms15.png"
+            alt="CELDYQUE Blue Copper Peptide Bakuchiol Serum bottle"
+            loading="eager"
+          />
+        </div>
+      </div>
+
+      <div class="product-info">
+        <div class="product-kicker">Advanced Korean Peptide Care</div>
+
+        <h1 id="product-title" class="serif">
+          Blue Copper Peptide<br />Bakuchiol Serum
+        </h1>
+
+        <p class="subtitle">
+          Multi-Peptide Plumping &amp; Firming Face Serum · 30 ml / 1.01 fl. oz.
+        </p>
+
+        <div class="active-badges" aria-label="Key ingredients">
+          <span class="badge hero">Copper Tripeptide-1</span>
+          <span class="badge hero">Bakuchiol</span>
+          <span class="badge hero">Matrixyl 3000</span>
+          <span class="badge hero">Argireline</span>
+          <span class="badge">EGF</span>
+          <span class="badge">12-Peptide Complex</span>
+          <span class="badge">Niacinamide 2%</span>
+          <span class="badge">Hyaluronic Acid</span>
+        </div>
+
+        <p class="desc-text">
+          A lightweight blue peptide face serum designed for daily plumping,
+          firming, smoothing and hydration care. Copper Tripeptide-1, Bakuchiol,
+          EGF, Matrixyl 3000, Argireline and a 12-Peptide Complex help support
+          smoother-looking texture, firmer-looking elasticity and a fresh,
+          bouncy-looking finish without a heavy or sticky feel.
+        </p>
+
+        <ul class="features-list">
+          <li>Helps soften the appearance of smile lines and fine lines</li>
+          <li>Supports firmer-looking, plumper-looking skin</li>
+          <li>12-Peptide Complex with GHK-Cu, Matrixyl 3000 and Argireline</li>
+          <li>Hydration support with Hyaluronic Acid, Collagen and Beta-Glucan</li>
+          <li>Fragrance-free, lightweight and fast-absorbing</li>
+          <li>Layers easily under moisturizer, sunscreen and makeup</li>
+        </ul>
+
+        <div class="action-group">
+          <a
+            href="https://www.amazon.com/Copper-Peptide-Bakuchiol-Peptides-Plumping/dp/B0H6DCQPN8?ref_=ast_sto_dp&amp;th=1"
+            class="btn-buy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on Amazon &rarr;
+          </a>
+          <a href="#how-to-use" class="btn-secondary">How to Use</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner-section" aria-label="Product concept">
+      <div class="banner-content">
+        <div class="banner-inner">
+          <span class="banner-tag">Copper Peptide × Bakuchiol</span>
+          <h2 class="serif">Blue Peptide Care<br />for Bounce &amp; Firmness.</h2>
+          <p>
+            A modern daily serum combining advanced peptide care with
+            lightweight hydration for skin that looks smoother, plumper,
+            firmer and more radiant.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="details-section">
+
+      <div class="detail-grid">
+        <div class="detail-text">
+          <h3 class="serif">A Multi-Peptide Firming Complex</h3>
+
+          <div class="stat-row">
+            <div class="stat-item">
+              <div class="num">GHK-Cu</div>
+              <div class="label">Copper Tripeptide-1</div>
+            </div>
+            <div class="stat-item">
+              <div class="num">12</div>
+              <div class="label">Peptide Complex</div>
+            </div>
+            <div class="stat-item">
+              <div class="num">EGF</div>
+              <div class="label">sh-Oligopeptide-1</div>
+            </div>
+          </div>
+
+          <p>
+            <strong>Copper Tripeptide-1</strong>, <strong>Matrixyl 3000</strong>,
+            <strong>Argireline</strong>, EGF and a 12-Peptide Complex work
+            together in a concentrated daily routine focused on the appearance
+            of fine lines, smile lines, elasticity and uneven-looking texture.
+          </p>
+
+          <p>
+            The serum is designed to support a smoother-looking, firmer-looking
+            complexion while maintaining a lightweight finish that works well
+            in both morning and evening routines.
+          </p>
+        </div>
+
+        <div class="detail-visual editorial-visual visual-peptide" aria-label="Peptide concept visual">
+          <div>
+            <span class="ev-kicker">Peptide Lab</span>
+            <div class="ev-title">GHK-Cu, Matrixyl 3000 &amp; Argireline.</div>
+            <div class="ev-copy">
+              A premium multi-peptide system designed around modern firming,
+              smoothing and elasticity-focused daily care.
+            </div>
+            <div class="ev-tags">
+              <span>12-Peptide Complex</span>
+              <span>Fine Line Care</span>
+              <span>Firming Support</span>
+            </div>
+          </div>
+
+          <div class="ev-bottom">
+            <div class="ev-card">
+              <strong>Blue Peptide Focus</strong>
+              <small>
+                Recognizable peptide technologies and advanced actives in a
+                clean, contemporary visual language.
+              </small>
+            </div>
+            <div class="ev-card">
+              <strong>Daily Use Friendly</strong>
+              <small>
+                Lightweight, fast-absorbing and easy to layer in morning and
+                evening routines.
+              </small>
+            </div>
+          </div>
+
+          <div class="molecule-net" aria-hidden="true">
+            <span class="n1"></span>
+            <span class="n2"></span>
+            <span class="n3"></span>
+            <span class="n4"></span>
+            <span class="n5"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-grid order-reverse">
+        <div class="detail-text">
+          <h3 class="serif">Bakuchiol + Hydration Barrier Support</h3>
+
+          <div class="stat-row">
+            <div class="stat-item gold">
+              <div class="num">Bakuchiol</div>
+              <div class="label">Gentle retinol-alternative care</div>
+            </div>
+            <div class="stat-item gold">
+              <div class="num">2%</div>
+              <div class="label">Niacinamide</div>
+            </div>
+            <div class="stat-item gold">
+              <div class="num">HA</div>
+              <div class="label">Hydrolyzed Hyaluronic Acid</div>
+            </div>
+          </div>
+
+          <p>
+            <strong>Bakuchiol</strong>, Niacinamide 2%, Adenosine, Tocopherol
+            and Guaiazulene support a more radiant-looking, even-looking
+            complexion as part of a gentle daily skincare routine.
+          </p>
+
+          <p>
+            Hydrolyzed Hyaluronic Acid, Hydrolyzed Collagen, Beta-Glucan,
+            Panthenol, Allantoin and Betaine help maintain comfortable
+            hydration for a soft, supple and bouncy-looking finish.
+          </p>
+        </div>
+
+        <div class="detail-visual editorial-visual visual-hydra" aria-label="Hydration concept visual">
+          <div>
+            <span class="ev-kicker">Hydration + Glow</span>
+            <div class="ev-title">Bakuchiol care with a soft, bouncy finish.</div>
+            <div class="ev-copy">
+              A balanced blend of firming and hydrating ingredients for skin
+              that looks smoother, more supple and comfortably refreshed.
+            </div>
+
+            <div class="ingredient-orbs">
+              <div>Bakuchiol</div>
+              <div>Niacinamide</div>
+              <div>HA + Collagen</div>
+              <div>Beta-Glucan</div>
+            </div>
+          </div>
+
+          <div class="ev-bottom" style="max-width:300px;">
+            <div class="ev-card">
+              <strong>Hydration Barrier Support</strong>
+              <small>
+                Lightweight moisture with a modern skincare finish that avoids
+                heaviness or residue.
+              </small>
+            </div>
+          </div>
+
+          <div class="cream-swish" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-text">
+          <h3 class="serif">Modern Texture for Daily Layering</h3>
+
+          <div class="stat-row">
+            <div class="stat-item">
+              <div class="num">AM / PM</div>
+              <div class="label">Morning &amp; evening use</div>
+            </div>
+            <div class="stat-item">
+              <div class="num">Zero</div>
+              <div class="label">Heavy, greasy finish</div>
+            </div>
+            <div class="stat-item">
+              <div class="num">Easy</div>
+              <div class="label">Layers under makeup</div>
+            </div>
+          </div>
+
+          <p>
+            The formula is designed to feel weightless and smooth across the
+            skin, making it easy to pair with moisturizer, sunscreen and
+            makeup without pilling or sticky buildup.
+          </p>
+
+          <p>
+            Fragrance-free and refined in texture, it fits neatly into a
+            modern routine focused on peptide care, visible firmness and
+            a healthy-looking glow.
+          </p>
+        </div>
+
+        <div class="detail-visual editorial-visual visual-routine" aria-label="Daily routine concept visual">
+          <div>
+            <span class="ev-kicker">Texture Story</span>
+            <div class="ev-title">Fast-absorbing blue serum for AM/PM care.</div>
+            <div class="ev-copy">
+              Clean texture, elegant layering and a lightweight finish built
+              for everyday peptide routines.
+            </div>
+          </div>
+
+          <div class="routine-grid">
+            <div class="routine-stack">
+              <div class="ev-card">
+                <strong>Fragrance-Free</strong>
+                <small>Comfortable daily use with a refined skincare sensibility.</small>
+              </div>
+              <div class="ev-card">
+                <strong>Makeup-Friendly</strong>
+                <small>Designed to sit smoothly under cream, sunscreen and foundation.</small>
+              </div>
+            </div>
+
+            <div class="texture-tile" aria-hidden="true"></div>
+          </div>
+
+          <div class="ev-tags">
+            <span>Fast-Absorbing</span>
+            <span>Non-Greasy</span>
+            <span>Daily Serum</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="benefit-section" aria-labelledby="benefits-title">
+      <div class="section-head">
+        <div class="eyebrow">Key Benefits</div>
+        <h2 id="benefits-title" class="serif">Designed for a smoother, bouncier look.</h2>
+        <p>
+          Five complementary benefits bring together peptide care, hydration
+          and a refined daily-use texture.
+        </p>
+      </div>
+
+      <div class="benefit-grid">
+        <article class="benefit-card">
+          <div class="benefit-num">01</div>
+          <h3>Smile Line &amp; Fine Line Care</h3>
+          <p>
+            Helps soften the appearance of visible smile lines and fine lines
+            for smoother-looking facial contours.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-num">02</div>
+          <h3>Plumping &amp; Firming</h3>
+          <p>
+            Supports firmer-looking elasticity and a fuller, bouncier-looking
+            finish without a heavy feel.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-num">03</div>
+          <h3>Texture Refining</h3>
+          <p>
+            Peptide and Bakuchiol care help improve the look of uneven,
+            rough-looking texture.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-num">04</div>
+          <h3>Lightweight Hydration</h3>
+          <p>
+            Hyaluronic Acid, Collagen, Beta-Glucan and Panthenol help maintain
+            soft, comfortable moisture.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-num">05</div>
+          <h3>Radiant-Looking Finish</h3>
+          <p>
+            Niacinamide, Adenosine and Guaiazulene support a fresh,
+            even-looking glow.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-num">06</div>
+          <h3>Easy Daily Layering</h3>
+          <p>
+            Fragrance-free, fast-absorbing and non-greasy for use under
+            moisturizer, sunscreen and makeup.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="peptide-section" aria-labelledby="peptide-title">
+      <h2 id="peptide-title" class="serif">Advanced Peptide Architecture</h2>
+      <p class="sub">
+        A concentrated blend of recognizable peptide technologies and
+        supporting actives for daily firming and smoothing care.
+      </p>
+
+      <div class="peptide-grid">
+        <div class="peptide-card featured">
+          <div class="p-name">Copper Tripeptide-1 (GHK-Cu)</div>
+          <div class="p-desc">
+            The hero blue copper peptide supporting a firmer-looking,
+            revitalized-looking complexion.
+          </div>
+        </div>
+
+        <div class="peptide-card">
+          <div class="p-name">Matrixyl 3000</div>
+          <div class="p-desc">
+            Palmitoyl Tripeptide-1 and Palmitoyl Tetrapeptide-7 for
+            smoother-looking, firmer-looking skin.
+          </div>
+        </div>
+
+        <div class="peptide-card">
+          <div class="p-name">Argireline</div>
+          <div class="p-desc">
+            Acetyl Hexapeptide-8 supports the look of expression-prone fine
+            lines as part of a consistent routine.
+          </div>
+        </div>
+
+        <div class="peptide-card">
+          <div class="p-name">EGF (sh-Oligopeptide-1)</div>
+          <div class="p-desc">
+            A peptide ingredient included in the formula's advanced daily
+            skin-conditioning complex.
+          </div>
+        </div>
+
+        <div class="peptide-card">
+          <div class="p-name">Bakuchiol</div>
+          <div class="p-desc">
+            A gentle retinol-alternative ingredient for firming, smoothing
+            and glow-focused care.
+          </div>
+        </div>
+
+        <div class="peptide-card">
+          <div class="p-name">12-Peptide Complex</div>
+          <div class="p-desc">
+            A multi-peptide approach supporting the appearance of elasticity,
+            texture and facial firmness.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-to-use" class="usage-section" aria-labelledby="usage-title">
+      <h2 id="usage-title" class="serif">How to Use</h2>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-icon">1</div>
+          <h4>Prep</h4>
+          <p>
+            After cleansing and toning, make sure the face and neck are ready
+            for serum application.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-icon">2</div>
+          <h4>Apply</h4>
+          <p>
+            Apply 2–3 drops to the face and neck. Add a small amount to visible
+            smile-line or fine-line areas as desired.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-icon">3</div>
+          <h4>Layer</h4>
+          <p>
+            Gently pat until absorbed, then follow with moisturizer. Use
+            sunscreen as the final step of the morning routine.
+          </p>
+        </div>
+      </div>
+
+      <p style="margin:30px 0 0; color:#818795; font-size:.88rem;">
+        Use morning and evening. Introduce gradually if your skin is new to
+        active skincare ingredients.
+      </p>
+    </section>
+
+    <section class="ingredients-box" aria-labelledby="ingredients-title">
+      <div class="ingredients-content">
+        <div>
+          <h3 id="ingredients-title" class="serif">Key Ingredients</h3>
+          <p style="margin:0; color:#8a909d; font-size:.9rem;">
+            Peptides · Hydration · Daily Firming Care
+          </p>
+
+          <div class="freefrom">
+            <span>Fragrance-Free</span>
+            <span>Lightweight</span>
+            <span>Fast-Absorbing</span>
+            <span>Non-Greasy</span>
+          </div>
+        </div>
+
+        <div class="ing-list">
+          <p>
+            <strong>Peptide Complex:</strong> Copper Tripeptide-1 (GHK-Cu),
+            Matrixyl 3000, Argireline / Acetyl Hexapeptide-8,
+            EGF / sh-Oligopeptide-1, Palmitoyl Tripeptide-1,
+            Palmitoyl Tetrapeptide-7 and additional peptides in the
+            12-Peptide Complex.
+          </p>
+
+          <p>
+            <strong>Firming &amp; Radiance Care:</strong> Bakuchiol,
+            Niacinamide 2%, Adenosine, Tocopherol and Guaiazulene.
+          </p>
+
+          <p>
+            <strong>Hydration Support:</strong> Hydrolyzed Hyaluronic Acid,
+            Hydrolyzed Collagen, Beta-Glucan, Panthenol, Allantoin and Betaine.
+          </p>
+
+          <p style="font-size:.86rem; color:#8a909d;">
+            Refer to the product packaging for the complete and most current
+            ingredient list.
+          </p>
+
+          <div class="caution">
+            For external use only. Avoid direct contact with the eyes. Perform
+            a patch test before first use. Discontinue use if persistent
+            irritation occurs. Keep out of reach of children.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="siteFooter"></div>
+  <script defer src="/assets/site.js"></script>
+
+</body>
+</html>
