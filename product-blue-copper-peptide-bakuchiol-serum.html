@@ -25,6 +25,8 @@
       --blue: #1647c5;
       --blue-dark: #0b2f8f;
       --blue-soft: #edf3ff;
+      --blue-mid: #2d5de0;
+      --blue-deep: #071a4b;
       --gold: #b88326;
       --gold-soft: #fff8eb;
       --shadow: 0 22px 52px rgba(20, 31, 64, 0.10);
@@ -47,7 +49,6 @@
       margin: 0 auto;
       padding: 0 24px 120px;
     }
-
     .serif { font-family: "Playfair Display", serif; }
 
     .breadcrumb {
@@ -345,7 +346,7 @@
 
     .detail-visual {
       position: relative;
-      min-height: 500px;
+      min-height: 520px;
       overflow: hidden;
       border-radius: 26px;
       box-shadow: var(--shadow);
@@ -386,19 +387,18 @@
       line-height: 1.3;
     }
 
-    /* Editorial visual styles */
+    /* Product-matched editorial visuals */
     .editorial-visual {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 34px;
-      color: #fff;
     }
 
-    .editorial-visual .ev-kicker {
+    .editorial-visual .eyecap {
       display: inline-flex;
       align-self: flex-start;
-      padding: 7px 14px;
+      padding: 8px 14px;
       border-radius: 999px;
       font-size: .72rem;
       font-weight: 800;
@@ -406,238 +406,379 @@
       text-transform: uppercase;
     }
 
-    .editorial-visual .ev-title {
-      margin-top: 16px;
-      max-width: 420px;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      line-height: 1.1;
-      font-weight: 700;
+    .editorial-visual h4 {
+      margin: 16px 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.45rem);
+      line-height: 1.08;
+      font-weight: 800;
     }
 
-    .editorial-visual .ev-copy {
+    .editorial-visual p {
       max-width: 440px;
-      margin-top: 12px;
-      color: rgba(255,255,255,.82);
+      margin: 0;
       line-height: 1.75;
       font-size: .98rem;
     }
 
-    .editorial-visual .ev-tags {
+    .ev-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 24px;
     }
 
-    .editorial-visual .ev-tags span,
-    .editorial-visual .ev-card,
-    .editorial-visual .ev-pill {
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.10);
-      backdrop-filter: blur(10px);
-      color: #fff;
-    }
-
-    .editorial-visual .ev-tags span,
-    .editorial-visual .ev-pill {
+    .ev-chips span {
       padding: 9px 13px;
       border-radius: 999px;
       font-size: .76rem;
       font-weight: 600;
     }
 
-    .editorial-visual .ev-bottom {
-      display: grid;
-      gap: 12px;
+    .mini-panel {
       margin-top: 28px;
+      border-radius: 20px;
+      padding: 18px 18px 16px;
     }
 
-    .editorial-visual .ev-card {
-      border-radius: 18px;
-      padding: 16px 18px;
-    }
-
-    .editorial-visual .ev-card strong {
+    .mini-panel strong {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-size: .92rem;
     }
 
-    .editorial-visual .ev-card small {
+    .mini-panel small {
       display: block;
-      color: rgba(255,255,255,.78);
-      font-size: .78rem;
-      line-height: 1.55;
+      line-height: 1.6;
+      font-size: .79rem;
     }
 
     .visual-peptide {
       background:
-        radial-gradient(circle at 82% 18%, rgba(255,255,255,.18), transparent 18%),
-        radial-gradient(circle at 70% 82%, rgba(255,255,255,.08), transparent 16%),
-        linear-gradient(145deg, #071742 0%, #1543b8 60%, #0b235f 100%);
+        radial-gradient(circle at 82% 16%, rgba(255,255,255,.13), transparent 16%),
+        radial-gradient(circle at 76% 78%, rgba(255,255,255,.07), transparent 20%),
+        linear-gradient(145deg, #071742 0%, #123a9e 56%, #0c245e 100%);
+      color: #fff;
     }
 
-    .visual-peptide .ev-kicker {
+    .visual-peptide .eyecap {
       background: rgba(255,255,255,.12);
       border: 1px solid rgba(255,255,255,.24);
+      color: #fff;
     }
 
-    .molecule-net {
+    .visual-peptide p { color: rgba(255,255,255,.83); }
+
+    .visual-peptide .ev-chips span,
+    .visual-peptide .mini-panel {
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.10);
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+
+    .formula-sheet {
+      margin-top: 26px;
+      padding: 22px 22px 18px;
+      width: min(100%, 355px);
+      border-radius: 22px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(10px);
+    }
+
+    .formula-sheet .head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+      font-size: .77rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.86);
+    }
+
+    .formula-sheet .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 9px 0;
+      border-top: 1px solid rgba(255,255,255,.12);
+      font-size: .82rem;
+      color: rgba(255,255,255,.9);
+    }
+
+    .formula-sheet .row:first-of-type { border-top: 0; }
+
+    .molecule-dots {
       position: absolute;
-      inset: auto 28px 24px auto;
-      width: 220px;
-      height: 220px;
-      opacity: .55;
+      right: 26px;
+      bottom: 26px;
+      width: 190px;
+      height: 190px;
     }
 
-    .molecule-net span {
-      position: absolute;
-      display: block;
-      background: rgba(255,255,255,.85);
-      border-radius: 50%;
-    }
-
-    .molecule-net .n1 { width: 14px; height: 14px; right: 36px; top: 14px; }
-    .molecule-net .n2 { width: 10px; height: 10px; right: 102px; top: 72px; }
-    .molecule-net .n3 { width: 16px; height: 16px; right: 18px; top: 104px; }
-    .molecule-net .n4 { width: 11px; height: 11px; right: 116px; top: 150px; }
-    .molecule-net .n5 { width: 13px; height: 13px; right: 62px; top: 194px; }
-
-    .molecule-net::before,
-    .molecule-net::after {
+    .molecule-dots::before,
+    .molecule-dots::after {
       content: "";
       position: absolute;
       inset: 0;
+      opacity: .45;
       background:
-        linear-gradient(36deg, transparent 44%, rgba(255,255,255,.5) 45%, rgba(255,255,255,.5) 46%, transparent 47%) 0 0 / 100% 100% no-repeat,
-        linear-gradient(145deg, transparent 48%, rgba(255,255,255,.35) 49%, rgba(255,255,255,.35) 50%, transparent 51%) 0 0 / 100% 100% no-repeat;
-      opacity: .7;
+        radial-gradient(circle at 18% 24%, #fff 0 5px, transparent 6px),
+        radial-gradient(circle at 56% 12%, #fff 0 4px, transparent 5px),
+        radial-gradient(circle at 84% 34%, #fff 0 6px, transparent 7px),
+        radial-gradient(circle at 36% 60%, #fff 0 4px, transparent 5px),
+        radial-gradient(circle at 68% 80%, #fff 0 5px, transparent 6px),
+        linear-gradient(28deg, transparent 47%, rgba(255,255,255,.45) 48%, rgba(255,255,255,.45) 49%, transparent 50%),
+        linear-gradient(122deg, transparent 48%, rgba(255,255,255,.35) 49%, rgba(255,255,255,.35) 50%, transparent 51%);
     }
 
-    .visual-hydra {
+    .visual-bakuchiol {
       background:
-        radial-gradient(circle at 12% 14%, rgba(255,255,255,.46), transparent 16%),
-        radial-gradient(circle at 80% 26%, rgba(255,255,255,.22), transparent 18%),
-        linear-gradient(145deg, #fff9ee 0%, #f4e4c2 52%, #f6f8ff 100%);
-      color: #142033;
+        radial-gradient(circle at 12% 16%, rgba(255,255,255,.55), transparent 17%),
+        radial-gradient(circle at 84% 24%, rgba(255,255,255,.22), transparent 18%),
+        linear-gradient(145deg, #fffaf0 0%, #f3e1bc 52%, #eef4ff 100%);
+      color: #15253f;
     }
 
-    .visual-hydra .ev-kicker {
-      color: #7f5716;
-      background: rgba(255,255,255,.55);
-      border: 1px solid rgba(143,98,20,.16);
+    .visual-bakuchiol .eyecap {
+      color: #8a6018;
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(138,96,24,.12);
     }
 
-    .visual-hydra .ev-copy { color: rgba(20,32,51,.72); }
-    .visual-hydra .ev-tags span,
-    .visual-hydra .ev-card,
-    .visual-hydra .ev-pill {
-      color: #15233a;
-      background: rgba(255,255,255,.64);
+    .visual-bakuchiol p { color: rgba(21,37,63,.74); }
+
+    .visual-bakuchiol .ev-chips span,
+    .visual-bakuchiol .mini-panel {
       border: 1px solid rgba(20,32,51,.08);
+      background: rgba(255,255,255,.66);
+      color: #132038;
+      box-shadow: 0 10px 22px rgba(31,42,67,.05);
     }
 
-    .ingredient-orbs {
+    .ingredient-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 12px;
       margin-top: 22px;
-      max-width: 340px;
+      width: min(100%, 360px);
     }
 
-    .ingredient-orbs div {
+    .ingredient-grid div {
+      min-height: 86px;
       display: grid;
       place-items: center;
-      min-height: 82px;
-      border-radius: 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(20,32,51,.06);
       font-weight: 700;
       font-size: .88rem;
-      background: rgba(255,255,255,.65);
-      border: 1px solid rgba(20,32,51,.06);
-      box-shadow: 0 8px 24px rgba(31, 42, 67, .06);
+      text-align: center;
+      padding: 12px;
     }
 
-    .cream-swish {
+    .swirl-cream {
       position: absolute;
-      right: 28px;
+      right: 30px;
       bottom: 26px;
-      width: 200px;
-      height: 110px;
-      background: linear-gradient(180deg, #fffdfa, #f5ecd7);
-      border-radius: 70% 30% 60% 40% / 55% 45% 55% 45%;
-      filter: drop-shadow(0 16px 18px rgba(150, 123, 62, .15));
+      width: 184px;
+      height: 112px;
       transform: rotate(-8deg);
     }
 
-    .cream-swish::after {
+    .swirl-cream::before,
+    .swirl-cream::after {
       content: "";
       position: absolute;
-      inset: 18px 28px 34px 38px;
-      border-radius: inherit;
-      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.15));
-      opacity: .55;
+      border-radius: 70% 30% 60% 40% / 55% 45% 55% 45%;
+      background: linear-gradient(180deg, #fffefb, #f5edd8);
+      filter: drop-shadow(0 16px 18px rgba(150, 123, 62, .16));
+    }
+
+    .swirl-cream::before {
+      inset: 18px 6px 0 0;
+    }
+
+    .swirl-cream::after {
+      inset: 0 32px 28px 28px;
+      opacity: .95;
     }
 
     .visual-routine {
       background:
-        radial-gradient(circle at 78% 18%, rgba(255,255,255,.18), transparent 18%),
-        radial-gradient(circle at 18% 82%, rgba(255,255,255,.09), transparent 18%),
-        linear-gradient(145deg, #0a1d54 0%, #1a56df 54%, #4f86f6 100%);
+        radial-gradient(circle at 82% 18%, rgba(255,255,255,.16), transparent 18%),
+        radial-gradient(circle at 18% 78%, rgba(255,255,255,.08), transparent 18%),
+        linear-gradient(145deg, #0b1f59 0%, #1f57d8 54%, #4f86f6 100%);
+      color: #fff;
     }
 
-    .visual-routine .ev-kicker {
+    .visual-routine .eyecap {
       background: rgba(255,255,255,.12);
       border: 1px solid rgba(255,255,255,.24);
+      color: #fff;
     }
 
-    .routine-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 14px;
-      margin-top: 26px;
-      align-items: stretch;
-    }
+    .visual-routine p { color: rgba(255,255,255,.84); }
 
-    .routine-stack {
-      display: grid;
-      gap: 14px;
-    }
-
-    .texture-tile {
-      position: relative;
-      border-radius: 24px;
-      background:
-        linear-gradient(155deg, rgba(255,255,255,.18), rgba(255,255,255,.08));
+    .visual-routine .ev-chips span,
+    .visual-routine .mini-panel,
+    .product-tile {
       border: 1px solid rgba(255,255,255,.16);
-      min-height: 208px;
-      overflow: hidden;
+      background: rgba(255,255,255,.10);
+      color: #fff;
+      backdrop-filter: blur(10px);
     }
 
-    .texture-tile::before,
-    .texture-tile::after {
+    .routine-layout {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 14px;
+      margin-top: 24px;
+      align-items: end;
+    }
+
+    .stack-panels {
+      display: grid;
+      gap: 12px;
+    }
+
+    .product-tile {
+      position: relative;
+      min-height: 250px;
+      overflow: hidden;
+      border-radius: 24px;
+      padding: 16px;
+    }
+
+    .product-tile::before {
       content: "";
       position: absolute;
-      border-radius: 999px;
-      background: rgba(255,255,255,.82);
-      filter: blur(.2px);
+      width: 150px;
+      height: 150px;
+      right: -25px;
+      top: -30px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.09);
     }
 
-    .texture-tile::before {
-      width: 170px;
+    .product-illustration {
+      position: absolute;
+      right: 18px;
+      bottom: 20px;
+      width: 132px;
+      height: 180px;
+      filter: drop-shadow(0 20px 22px rgba(0,0,0,.18));
+    }
+
+    .product-illustration .dropper {
+      position: absolute;
+      inset: 0;
+    }
+
+    .product-illustration .cap {
+      position: absolute;
+      left: 34px;
+      top: 22px;
+      width: 64px;
+      height: 36px;
+      border-radius: 12px 12px 8px 8px;
+      background: linear-gradient(180deg, #e2bf76 0%, #b98425 100%);
+    }
+
+    .product-illustration .neck {
+      position: absolute;
+      left: 50px;
+      top: 16px;
+      width: 32px;
+      height: 18px;
+      border-radius: 16px 16px 4px 4px;
+      background: #fff;
+    }
+
+    .product-illustration .bottle {
+      position: absolute;
+      left: 20px;
+      top: 52px;
+      width: 94px;
+      height: 118px;
+      border-radius: 14px 14px 18px 18px;
+      background: linear-gradient(180deg, rgba(109,59,12,.78), rgba(24,18,17,.98));
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    .product-illustration .label-top {
+      position: absolute;
+      left: 6px;
+      top: 12px;
+      width: 82px;
+      height: 50px;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .product-illustration .label-blue {
+      position: absolute;
+      left: 6px;
+      bottom: 10px;
+      width: 82px;
       height: 42px;
-      left: 28px;
-      top: 64px;
-      transform: rotate(-16deg);
-      opacity: .78;
+      border-radius: 6px;
+      background: #1647c5;
     }
 
-    .texture-tile::after {
-      width: 120px;
-      height: 28px;
-      left: 62px;
-      top: 118px;
-      transform: rotate(-14deg);
-      opacity: .45;
+    .product-illustration .shine {
+      position: absolute;
+      left: 60px;
+      top: 8px;
+      width: 18px;
+      height: 90px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,.26), rgba(255,255,255,0));
+      transform: rotate(6deg);
+    }
+
+    .product-tile .label-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 145px;
+      font-size: .75rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,.88);
+    }
+
+    .texture-strip {
+      position: relative;
+      min-height: 92px;
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .texture-strip::before,
+    .texture-strip::after {
+      content: "";
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.94);
+      transform: rotate(-10deg);
+    }
+
+    .texture-strip::before {
+      top: 24px;
+      height: 24px;
+      opacity: .88;
+    }
+
+    .texture-strip::after {
+      top: 48px;
+      left: 54px;
+      right: 54px;
+      height: 14px;
+      opacity: .48;
     }
 
     .benefit-section {
@@ -877,29 +1018,27 @@
       }
       .order-reverse .detail-text { order: 1; }
       .order-reverse .detail-visual { order: 2; }
-      .benefit-grid,
-      .steps-grid { grid-template-columns: 1fr; }
+      .benefit-grid, .steps-grid { grid-template-columns: 1fr; }
       .peptide-section { padding: 42px 24px; }
       .peptide-grid { grid-template-columns: 1fr 1fr; }
       .ingredients-content { grid-template-columns: 1fr; }
-      .routine-grid { grid-template-columns: 1fr; }
-      .texture-tile { min-height: 170px; }
+      .routine-layout { grid-template-columns: 1fr; }
+      .product-tile { min-height: 210px; }
+      .product-illustration { width: 118px; height: 160px; }
     }
 
     @media (max-width: 580px) {
       .container { padding-left: 18px; padding-right: 18px; }
       .gallery-frame { min-height: 430px; padding: 24px; }
-      .banner-section,
-      .banner-content { min-height: 430px; }
-      .detail-visual { min-height: 420px; }
+      .banner-section, .banner-content { min-height: 430px; }
+      .detail-visual { min-height: 430px; }
       .editorial-visual { padding: 24px; }
       .peptide-grid { grid-template-columns: 1fr; }
       .usage-section { padding: 56px 20px; }
       .action-group { flex-direction: column; }
       .btn-buy, .btn-secondary { width: 100%; }
-      .editorial-visual .ev-title { font-size: 1.8rem; }
-      .ingredient-orbs { max-width: none; }
-      .cream-swish { width: 150px; height: 90px; }
+      .ingredient-grid { width: 100%; }
+      .swirl-cream { width: 145px; height: 88px; right: 18px; }
     }
   </style>
 
@@ -910,10 +1049,7 @@
     "name": "CELDYQUE Blue Copper Peptide Bakuchiol Serum",
     "image": "/images/제품/ms15.png",
     "description": "A lightweight Korean face serum with Copper Tripeptide-1, Bakuchiol, EGF, Matrixyl 3000, Argireline and a 12-Peptide Complex for plumping, firming, smoothing and hydration care.",
-    "brand": {
-      "@type": "Brand",
-      "name": "CELDYQUE"
-    },
+    "brand": { "@type": "Brand", "name": "CELDYQUE" },
     "sku": "B0H6DCQPN8",
     "url": "https://www.amazon.com/Copper-Peptide-Bakuchiol-Peptides-Plumping/dp/B0H6DCQPN8"
   }
@@ -1046,45 +1182,41 @@
           </p>
         </div>
 
-        <div class="detail-visual editorial-visual visual-peptide" aria-label="Peptide concept visual">
+        <div class="detail-visual editorial-visual visual-peptide" aria-label="Blue peptide ingredient visual">
           <div>
-            <span class="ev-kicker">Peptide Lab</span>
-            <div class="ev-title">GHK-Cu, Matrixyl 3000 &amp; Argireline.</div>
-            <div class="ev-copy">
-              A premium multi-peptide system designed around modern firming,
-              smoothing and elasticity-focused daily care.
+            <span class="eyecap">Peptide Technology</span>
+            <h4>Blue Copper Peptide<br />meets a 12-peptide complex.</h4>
+            <p>
+              A product-matched visual focused on the serum’s hero technology:
+              GHK-Cu, Matrixyl 3000, Argireline and EGF in a premium blue lab mood.
+            </p>
+
+            <div class="ev-chips">
+              <span>GHK-Cu</span>
+              <span>Matrixyl 3000</span>
+              <span>Argireline</span>
             </div>
-            <div class="ev-tags">
-              <span>12-Peptide Complex</span>
-              <span>Fine Line Care</span>
-              <span>Firming Support</span>
+
+            <div class="formula-sheet">
+              <div class="head">
+                <span>Hero actives</span>
+                <span>Firming system</span>
+              </div>
+              <div class="row"><span>Copper Tripeptide-1</span><span>Signature peptide care</span></div>
+              <div class="row"><span>EGF / sh-Oligopeptide-1</span><span>Daily skin-conditioning support</span></div>
+              <div class="row"><span>12-Peptide Complex</span><span>Elasticity + smoothing focus</span></div>
             </div>
           </div>
 
-          <div class="ev-bottom">
-            <div class="ev-card">
-              <strong>Blue Peptide Focus</strong>
-              <small>
-                Recognizable peptide technologies and advanced actives in a
-                clean, contemporary visual language.
-              </small>
-            </div>
-            <div class="ev-card">
-              <strong>Daily Use Friendly</strong>
-              <small>
-                Lightweight, fast-absorbing and easy to layer in morning and
-                evening routines.
-              </small>
-            </div>
+          <div class="mini-panel">
+            <strong>Why it fits this product</strong>
+            <small>
+              The color language, ingredient framing and premium science-led
+              layout are tailored to the Blue Copper Peptide serum—not generic filler imagery.
+            </small>
           </div>
 
-          <div class="molecule-net" aria-hidden="true">
-            <span class="n1"></span>
-            <span class="n2"></span>
-            <span class="n3"></span>
-            <span class="n4"></span>
-            <span class="n5"></span>
-          </div>
+          <div class="molecule-dots" aria-hidden="true"></div>
         </div>
       </div>
 
@@ -1120,34 +1252,32 @@
           </p>
         </div>
 
-        <div class="detail-visual editorial-visual visual-hydra" aria-label="Hydration concept visual">
+        <div class="detail-visual editorial-visual visual-bakuchiol" aria-label="Bakuchiol and hydration visual">
           <div>
-            <span class="ev-kicker">Hydration + Glow</span>
-            <div class="ev-title">Bakuchiol care with a soft, bouncy finish.</div>
-            <div class="ev-copy">
-              A balanced blend of firming and hydrating ingredients for skin
-              that looks smoother, more supple and comfortably refreshed.
-            </div>
+            <span class="eyecap">Bakuchiol + Moisture</span>
+            <h4>Firming care with a soft, hydrated finish.</h4>
+            <p>
+              This visual is tuned to the formula story: Bakuchiol for daily
+              firming care, plus Hyaluronic Acid, Collagen and Beta-Glucan for comfort and bounce.
+            </p>
 
-            <div class="ingredient-orbs">
+            <div class="ingredient-grid">
               <div>Bakuchiol</div>
-              <div>Niacinamide</div>
+              <div>Niacinamide 2%</div>
               <div>HA + Collagen</div>
               <div>Beta-Glucan</div>
             </div>
           </div>
 
-          <div class="ev-bottom" style="max-width:300px;">
-            <div class="ev-card">
-              <strong>Hydration Barrier Support</strong>
-              <small>
-                Lightweight moisture with a modern skincare finish that avoids
-                heaviness or residue.
-              </small>
-            </div>
+          <div class="mini-panel">
+            <strong>Hydration Barrier Support</strong>
+            <small>
+              Designed to visually communicate a softer, creamier hydration
+              story while staying elegant and premium.
+            </small>
           </div>
 
-          <div class="cream-swish" aria-hidden="true"></div>
+          <div class="swirl-cream" aria-hidden="true"></div>
         </div>
       </div>
 
@@ -1183,35 +1313,53 @@
           </p>
         </div>
 
-        <div class="detail-visual editorial-visual visual-routine" aria-label="Daily routine concept visual">
+        <div class="detail-visual editorial-visual visual-routine" aria-label="Routine and product texture visual">
           <div>
-            <span class="ev-kicker">Texture Story</span>
-            <div class="ev-title">Fast-absorbing blue serum for AM/PM care.</div>
-            <div class="ev-copy">
-              Clean texture, elegant layering and a lightweight finish built
-              for everyday peptide routines.
-            </div>
+            <span class="eyecap">Daily Texture Story</span>
+            <h4>Fast-absorbing serum,<br />modern routine fit.</h4>
+            <p>
+              A product-matched routine visual combining a stylized bottle,
+              texture stroke and layering benefits in the serum’s own blue-and-gold identity.
+            </p>
           </div>
 
-          <div class="routine-grid">
-            <div class="routine-stack">
-              <div class="ev-card">
+          <div class="routine-layout">
+            <div class="stack-panels">
+              <div class="mini-panel">
                 <strong>Fragrance-Free</strong>
-                <small>Comfortable daily use with a refined skincare sensibility.</small>
+                <small>Comfortable for daily AM/PM routines.</small>
               </div>
-              <div class="ev-card">
+              <div class="mini-panel">
                 <strong>Makeup-Friendly</strong>
-                <small>Designed to sit smoothly under cream, sunscreen and foundation.</small>
+                <small>Designed to sit smoothly under moisturizer, sunscreen and makeup.</small>
               </div>
+              <div class="texture-strip" aria-hidden="true"></div>
             </div>
 
-            <div class="texture-tile" aria-hidden="true"></div>
+            <div class="product-tile">
+              <div class="label-copy">
+                Blue Copper Peptide Bakuchiol Serum<br />
+                Plumping · Firming · Glow
+              </div>
+
+              <div class="product-illustration" aria-hidden="true">
+                <div class="dropper">
+                  <div class="neck"></div>
+                  <div class="cap"></div>
+                  <div class="bottle">
+                    <div class="label-top"></div>
+                    <div class="label-blue"></div>
+                    <div class="shine"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="ev-tags">
+          <div class="ev-chips">
             <span>Fast-Absorbing</span>
             <span>Non-Greasy</span>
-            <span>Daily Serum</span>
+            <span>Easy Layering</span>
           </div>
         </div>
       </div>
@@ -1232,55 +1380,37 @@
         <article class="benefit-card">
           <div class="benefit-num">01</div>
           <h3>Smile Line &amp; Fine Line Care</h3>
-          <p>
-            Helps soften the appearance of visible smile lines and fine lines
-            for smoother-looking facial contours.
-          </p>
+          <p>Helps soften the appearance of visible smile lines and fine lines for smoother-looking facial contours.</p>
         </article>
 
         <article class="benefit-card">
           <div class="benefit-num">02</div>
           <h3>Plumping &amp; Firming</h3>
-          <p>
-            Supports firmer-looking elasticity and a fuller, bouncier-looking
-            finish without a heavy feel.
-          </p>
+          <p>Supports firmer-looking elasticity and a fuller, bouncier-looking finish without a heavy feel.</p>
         </article>
 
         <article class="benefit-card">
           <div class="benefit-num">03</div>
           <h3>Texture Refining</h3>
-          <p>
-            Peptide and Bakuchiol care help improve the look of uneven,
-            rough-looking texture.
-          </p>
+          <p>Peptide and Bakuchiol care help improve the look of uneven, rough-looking texture.</p>
         </article>
 
         <article class="benefit-card">
           <div class="benefit-num">04</div>
           <h3>Lightweight Hydration</h3>
-          <p>
-            Hyaluronic Acid, Collagen, Beta-Glucan and Panthenol help maintain
-            soft, comfortable moisture.
-          </p>
+          <p>Hyaluronic Acid, Collagen, Beta-Glucan and Panthenol help maintain soft, comfortable moisture.</p>
         </article>
 
         <article class="benefit-card">
           <div class="benefit-num">05</div>
           <h3>Radiant-Looking Finish</h3>
-          <p>
-            Niacinamide, Adenosine and Guaiazulene support a fresh,
-            even-looking glow.
-          </p>
+          <p>Niacinamide, Adenosine and Guaiazulene support a fresh, even-looking glow.</p>
         </article>
 
         <article class="benefit-card">
           <div class="benefit-num">06</div>
           <h3>Easy Daily Layering</h3>
-          <p>
-            Fragrance-free, fast-absorbing and non-greasy for use under
-            moisturizer, sunscreen and makeup.
-          </p>
+          <p>Fragrance-free, fast-absorbing and non-greasy for use under moisturizer, sunscreen and makeup.</p>
         </article>
       </div>
     </section>
@@ -1295,50 +1425,32 @@
       <div class="peptide-grid">
         <div class="peptide-card featured">
           <div class="p-name">Copper Tripeptide-1 (GHK-Cu)</div>
-          <div class="p-desc">
-            The hero blue copper peptide supporting a firmer-looking,
-            revitalized-looking complexion.
-          </div>
+          <div class="p-desc">The hero blue copper peptide supporting a firmer-looking, revitalized-looking complexion.</div>
         </div>
 
         <div class="peptide-card">
           <div class="p-name">Matrixyl 3000</div>
-          <div class="p-desc">
-            Palmitoyl Tripeptide-1 and Palmitoyl Tetrapeptide-7 for
-            smoother-looking, firmer-looking skin.
-          </div>
+          <div class="p-desc">Palmitoyl Tripeptide-1 and Palmitoyl Tetrapeptide-7 for smoother-looking, firmer-looking skin.</div>
         </div>
 
         <div class="peptide-card">
           <div class="p-name">Argireline</div>
-          <div class="p-desc">
-            Acetyl Hexapeptide-8 supports the look of expression-prone fine
-            lines as part of a consistent routine.
-          </div>
+          <div class="p-desc">Acetyl Hexapeptide-8 supports the look of expression-prone fine lines as part of a consistent routine.</div>
         </div>
 
         <div class="peptide-card">
           <div class="p-name">EGF (sh-Oligopeptide-1)</div>
-          <div class="p-desc">
-            A peptide ingredient included in the formula's advanced daily
-            skin-conditioning complex.
-          </div>
+          <div class="p-desc">A peptide ingredient included in the formula's advanced daily skin-conditioning complex.</div>
         </div>
 
         <div class="peptide-card">
           <div class="p-name">Bakuchiol</div>
-          <div class="p-desc">
-            A gentle retinol-alternative ingredient for firming, smoothing
-            and glow-focused care.
-          </div>
+          <div class="p-desc">A gentle retinol-alternative ingredient for firming, smoothing and glow-focused care.</div>
         </div>
 
         <div class="peptide-card">
           <div class="p-name">12-Peptide Complex</div>
-          <div class="p-desc">
-            A multi-peptide approach supporting the appearance of elasticity,
-            texture and facial firmness.
-          </div>
+          <div class="p-desc">A multi-peptide approach supporting the appearance of elasticity, texture and facial firmness.</div>
         </div>
       </div>
     </section>
@@ -1350,28 +1462,19 @@
         <div class="step-card">
           <div class="step-icon">1</div>
           <h4>Prep</h4>
-          <p>
-            After cleansing and toning, make sure the face and neck are ready
-            for serum application.
-          </p>
+          <p>After cleansing and toning, make sure the face and neck are ready for serum application.</p>
         </div>
 
         <div class="step-card">
           <div class="step-icon">2</div>
           <h4>Apply</h4>
-          <p>
-            Apply 2–3 drops to the face and neck. Add a small amount to visible
-            smile-line or fine-line areas as desired.
-          </p>
+          <p>Apply 2–3 drops to the face and neck. Add a small amount to visible smile-line or fine-line areas as desired.</p>
         </div>
 
         <div class="step-card">
           <div class="step-icon">3</div>
           <h4>Layer</h4>
-          <p>
-            Gently pat until absorbed, then follow with moisturizer. Use
-            sunscreen as the final step of the morning routine.
-          </p>
+          <p>Gently pat until absorbed, then follow with moisturizer. Use sunscreen as the final step of the morning routine.</p>
         </div>
       </div>
 
