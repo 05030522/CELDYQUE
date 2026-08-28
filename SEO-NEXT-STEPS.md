@@ -2,6 +2,14 @@
 
 Updated: 2026-08-28. Code checks do not prove indexing, rankings, AI citations or rich-result eligibility.
 
+## Amazon Single-Item Connections (2026-08-28)
+
+- The owner's supplied ASIN list matches all 14 existing single-item product pages. Their Product ASINs, clean Amazon `sameAs` URLs and existing Attribution purchase links are preserved.
+- Organization `sameAs` now uses the existing visible Where to Buy storefront URL consistently across all 21 sitemap pages, including Home, About and Where to Buy: https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252.
+- No two-packs, mixed-product bundles or new product pages are added. The Kojic Acid / Turmeric / Vitamin C serum is not on the current website, so its ASIN is not attached to another product.
+- `python scripts/test_amazon.py` checks the 14 single-item identities, storefront consistency and the existing per-product Attribution tags. This test runs in deployment CI.
+- Amazon returned HTTP 503 to the external lookup during this change. The storefront address is reused from the already-published Where to Buy link, not newly verified as a live Amazon destination. Structured data does not establish Amazon account ownership or guarantee recognition by search engines.
+
 ## Image and Video Update (2026-08-28)
 
 - The current sitemap has 21 canonical pages, 64 image references and one video entry. The existing sitemap URL is unchanged; no separate video sitemap submission is needed.
