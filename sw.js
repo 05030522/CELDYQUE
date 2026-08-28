@@ -1,13 +1,14 @@
 /* Service Worker — CELDYQUÉ offline cache & speed boost */
-const CACHE_NAME = 'celdyque-v1';
+const CACHE_NAME = 'celdyque-v2-analytics-consent';
 const PRECACHE = [
   '/',
   '/index.html',
-  '/assets/site.css',
+  '/assets/site.css?v=20260828-consent',
   '/assets/home.css',
-  '/assets/site.js',
+  '/assets/site.js?v=20260828-consent',
+  '/assets/analytics.js?v=20260828-consent',
   '/partials/header.html',
-  '/partials/footer.html',
+  '/partials/footer.html?v=20260828-consent',
 ];
 
 /* Install: precache critical assets */

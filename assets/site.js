@@ -1,3 +1,12 @@
+/* Load the first-party consent UI independently of header/footer requests. */
+if (!document.getElementById('site-analytics-loader')) {
+  const analyticsScript = document.createElement('script');
+  analyticsScript.id = 'site-analytics-loader';
+  analyticsScript.src = '/assets/analytics.js?v=20260828-consent';
+  analyticsScript.async = true;
+  document.head.appendChild(analyticsScript);
+}
+
 /* ===== Partials inject ===== */
 async function inject(selector, url) {
   const host = document.querySelector(selector);
@@ -276,9 +285,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 헤더와 푸터 HTML 주입
   await Promise.all([
     inject("#siteHeader", "/partials/header.html"),
-    inject("#siteFooter", "/partials/footer.html"),
+    inject("#siteFooter", "/partials/footer.html?v=20260828-consent"),
   ]);
 
   // 주입이 끝난 후 공통 UI(모바일 메뉴 및 검색 모달) 초기화
   initCommonUI();
+  document.dispatchEvent(new Event('site:ready'));
 });

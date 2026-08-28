@@ -71,6 +71,9 @@ jobs:
       - name: FAQ Interaction Tests
         run: node --test scripts/test_faq.cjs
 
+      - name: Analytics Consent Tests
+        run: node --test scripts/test_analytics.cjs
+
       # ===== 4. 내부 링크 검사 =====
       - name: Internal Link Check
         run: |
