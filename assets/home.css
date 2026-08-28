@@ -146,9 +146,18 @@ body.home #siteHeader{
   bottom: 40px;
   z-index: 2;
   color: #fff;
-  font-size: clamp(1.1rem, 4vw, 1.8rem);
+  font-size: 1.4rem;
   font-weight: 800;
   line-height: 1.1;
+}
+
+.video-hero-copy h1{font-size:2.5rem;line-height:1.1;margin:0 0 10px;letter-spacing:0}
+.video-hero-copy p{font-size:1rem;line-height:1.4;margin:0;letter-spacing:0}
+.home-discovery{max-width:1400px;margin:24px auto 0;display:flex;flex-wrap:wrap;gap:16px 28px}
+.home-discovery a{text-decoration:underline;text-underline-offset:4px;font-size:0.95rem}
+@media(max-width:480px){
+  .video-hero-copy{left:24px;right:24px;bottom:32px}
+  .video-hero-copy h1{font-size:2rem}
 }
 
 #siteHeader {

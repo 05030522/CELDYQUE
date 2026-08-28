@@ -66,35 +66,10 @@ jobs:
 
       # ===== 3. SEO 필수 요소 검사 =====
       - name: SEO Check
-        run: |
-          echo "🔎 SEO 검사..."
-          ERRORS=0
-          
-          for file in *.html; do
-            # title 태그
-            if ! grep -q "<title>" "$file"; then
-              echo "⚠️ $file: <title> 없음"
-              ERRORS=$((ERRORS+1))
-            fi
-            
-            # meta description
-            if ! grep -q 'meta name="description"' "$file"; then
-              echo "⚠️ $file: meta description 없음"
-              ERRORS=$((ERRORS+1))
-            fi
-            
-            # viewport
-            if ! grep -q 'meta name="viewport"' "$file"; then
-              echo "⚠️ $file: viewport 없음"
-              ERRORS=$((ERRORS+1))
-            fi
-          done
-          
-          if [ $ERRORS -gt 5 ]; then
-            echo "❌ SEO 오류 $ERRORS개 (5개 초과 시 실패)"
-            exit 1
-          fi
-          echo "✅ SEO 검사 완료 (경고: $ERRORS개)"
+        run: python3 scripts/check_seo.py
+
+      - name: FAQ Interaction Tests
+        run: node --test scripts/test_faq.cjs
 
       # ===== 4. 내부 링크 검사 =====
       - name: Internal Link Check

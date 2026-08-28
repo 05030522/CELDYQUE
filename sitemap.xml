@@ -1,108 +1,269 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- 메인 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://celdyque.com/</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/videoframe_4286.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/Group%2010.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/Group%2010.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/Group%209.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/Group%209.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/Group%208.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/Group%208.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/Group%207.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/Group%207.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/10.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/10.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-1.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-4.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-4.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-3.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-3.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/ms15.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/ms14.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-5.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-11.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/8.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/8.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/9.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/9.jpg</image:loc>
+    </image:image>
   </url>
-
-  <!-- 주요 페이지 -->
   <url>
     <loc>https://celdyque.com/shop.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/water-forms-beautiful-light-patterns.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/ms15.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/ms14.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/ms13.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-4.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-3.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-6.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-5.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-11.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-9.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-7.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-8.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/faq.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
-
   <url>
     <loc>https://celdyque.com/store.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/yesstyle.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/about.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EB%B8%8C%EB%9E%9C%EB%94%A9%EB%A1%9C%EA%B3%A0.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/bottle-pipette-dropper-close-up-liquid-yelloworange-retinol-vitamin-c-gel-serum-beige-background.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/close-up-hand-applying-nail-treatment.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/golden-underwater-bubbles-abstract-oil.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://celdyque.com/images/closeup-view-glass-.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/contact.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-08-28</lastmod>
   </url>
-
-  <!-- 제품 페이지 -->
   <url>
     <loc>https://celdyque.com/product-volufiline-100.html</loc>
     <lastmod>2026-08-27</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-1.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-pdrn-12-egf.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-pdrn-12-egf-cream.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-6.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-niacinamide-20-advanced.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-8.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-azelaic-12.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-7.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-bakuchiol-30000.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/test.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-9-peptide-scalp-serum.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/ms13.jpg</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-pdrn-25.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-3.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-glutathione-30000.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-2.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-arbutxa-glow-cream.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-5.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-cleansing-oil.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-9.webp</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-gentle-cleanser.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/Mask%20group-11.webp</image:loc>
+    </image:image>
   </url>
-
-  <!-- 신규 제품 페이지 -->
   <url>
     <loc>https://celdyque.com/product-blue-copper-peptide-bakuchiol-serum.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/ms15.png</image:loc>
+    </image:image>
   </url>
-
   <url>
     <loc>https://celdyque.com/product-bakuchiol-volume-collagen-cream.html</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/ms14.png</image:loc>
+    </image:image>
   </url>
-
 </urlset>
