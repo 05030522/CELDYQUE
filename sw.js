@@ -1,10 +1,10 @@
 /* Service Worker — CELDYQUÉ offline cache & speed boost */
-const CACHE_NAME = 'celdyque-v2-analytics-consent';
+const CACHE_NAME = 'celdyque-v3-media-discovery';
 const PRECACHE = [
   '/',
   '/index.html',
   '/assets/site.css?v=20260828-consent',
-  '/assets/home.css',
+  '/assets/home.css?v=20260828-media',
   '/assets/site.js?v=20260828-consent',
   '/assets/analytics.js?v=20260828-consent',
   '/partials/header.html',
@@ -35,6 +35,9 @@ self.addEventListener('fetch', (e) => {
 
   // Skip non-GET and external requests
   if (e.request.method !== 'GET' || url.origin !== self.location.origin) return;
+
+  // Keep native video seeking and partial responses on the network.
+  if (e.request.headers.has('range') || e.request.destination === 'video' || /\.mp4$/i.test(url.pathname)) return;
 
   // HTML pages: network-first (always fresh)
   if (e.request.headers.get('accept')?.includes('text/html')) {

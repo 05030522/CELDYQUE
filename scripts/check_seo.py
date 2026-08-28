@@ -10,7 +10,8 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://celdyque.com/'
 NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9',
-      'image': 'http://www.google.com/schemas/sitemap-image/1.1'}
+      'image': 'http://www.google.com/schemas/sitemap-image/1.1',
+      'video': 'http://www.google.com/schemas/sitemap-video/1.1'}
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
         'link', 'meta', 'param', 'source', 'track', 'wbr'}
 
@@ -72,6 +73,43 @@ def normalized(text):
     return ' '.join(text.split())
 
 
+def video_errors(entry, doc, robots):
+    errors = []
+    for video in entry.findall('video:video', NS):
+        values = {key: video.findtext('video:' + key, namespaces=NS)
+                  for key in ['title', 'description', 'thumbnail_loc', 'content_loc', 'duration']}
+        for key, value in values.items():
+            if not value:
+                errors.append(f'Video sitemap missing {key}')
+        for key in ['thumbnail_loc', 'content_loc']:
+            value = values[key] or ''
+            path = local_path(value)
+            if not value.startswith(BASE) or ' ' in value or not path or not path.is_file():
+                errors.append(f'Invalid video {key}')
+            if not robots.can_fetch('Googlebot', value) or not robots.can_fetch('Googlebot-Video', value):
+                errors.append(f'Video {key} blocked')
+        duration = values['duration'] or ''
+        if not duration.isdigit() or not 1 <= int(duration) <= 28800:
+            errors.append('Invalid video duration')
+        players = doc.find('video')
+        if len(players) != 1 or 'controls' not in players[0].attrs:
+            errors.append('Watch page needs one controlled video')
+        elif local_path(players[0].attrs.get('poster', '')) != local_path(values['thumbnail_loc'] or ''):
+            errors.append('Video thumbnail differs from player poster')
+        else:
+            sources = players[0].find('source')
+            if not any(local_path(s.attrs.get('src', '')) == local_path(values['content_loc'] or '')
+                       and s.attrs.get('type') == 'video/mp4' for s in sources):
+                errors.append('Video sitemap source differs from player')
+        h1 = doc.find('h1')
+        if not h1 or normalized(h1[0].text()) != values['title']:
+            errors.append('Video title differs from visible H1')
+        main = doc.find('main')
+        if not main or not values['description'] or normalized(values['description']) not in normalized(main[0].text()):
+            errors.append('Video description is not visible on page')
+    return errors
+
+
 def check():
     errors, warnings, pages = [], [], {}
     sitemap = ET.parse(ROOT / 'sitemap.xml')
@@ -108,6 +146,10 @@ def check():
                 require(image_path and image_path.is_file(), 'Missing sharing image')
             if tags and key == 'og:url':
                 require(tags[0].attrs.get('content') == url, 'og:url differs from canonical')
+        for key in ['og:image:width', 'og:image:height']:
+            tags = doc.find('meta', property=key)
+            require(len(tags) == 1 and tags[0].attrs.get('content', '').isdigit()
+                    and int(tags[0].attrs['content']) > 0, f'{key} must be a positive dimension')
         graph = []
         for script in doc.find('script', type='application/ld+json'):
             data = json.loads(script.text())
@@ -121,6 +163,16 @@ def check():
                 require(all(item.get('url') in links for item in items), 'ItemList contains non-visible product links')
             if node.get('@type') == 'Product' and not node.get('offers', {}).get('price'):
                 warnings.append(f'{label}: no verified live offer price; Google product rich results are not validated')
+            if node.get('@type') == 'ImageObject' and '#primaryimage' in node.get('@id', ''):
+                for dimension in ['width', 'height']:
+                    meta = doc.find('meta', property='og:image:' + dimension)
+                    require(bool(meta) and str(node.get(dimension, '')) == meta[0].attrs.get('content'),
+                            f'Primary image {dimension} differs from sharing metadata')
+                sharing_image = doc.find('meta', property='og:image')
+                require(bool(sharing_image) and local_path(node.get('contentUrl', '')) == local_path(sharing_image[0].attrs.get('content', '')),
+                        'Primary image differs from sharing image')
+                require(bool(node.get('caption')) and node.get('encodingFormat') in ['image/webp', 'image/png', 'image/jpeg'],
+                        'Primary image needs caption and encoding format')
         if label == 'faq.html':
             faq = next(n for n in graph if n.get('@type') == 'FAQPage')
             visible = doc.find('details', **{'class': 'faq-item'})
@@ -143,8 +195,13 @@ def check():
                 require(target.is_file(), f'Missing local {attr}: {value}')
         for image in doc.find('img'):
             require('alt' in image.attrs, 'Image missing alt attribute')
+            if local_path(image.attrs.get('src', '')):
+                require(all(image.attrs.get(d, '').isdigit() and int(image.attrs[d]) > 0 for d in ['width', 'height']),
+                        'Local image needs positive intrinsic dimensions')
     image_count = 0
     for entry in entries:
+        page_url = entry.findtext('s:loc', namespaces=NS)
+        errors.extend(f'{page_url}: {error}' for error in video_errors(entry, pages[page_url], robots))
         images = entry.findall('image:image/image:loc', NS)
         if '/product-' in entry.findtext('s:loc', namespaces=NS):
             assert images, 'Product sitemap entry missing images'
@@ -157,7 +214,8 @@ def check():
                   if a.attrs.get('href', '').startswith('/product-')}
     assert len(shop_links) == 14, 'Active catalog changed; review the expected product set'
     assert shop_links <= set(urls), 'Active products missing from sitemap'
-    print(f'Checked {len(pages)} pages, {len(shop_links)} products and {image_count} sitemap image references.')
+    video_count = len(sitemap.findall('s:url/video:video', NS))
+    print(f'Checked {len(pages)} pages, {len(shop_links)} products, {image_count} sitemap image references and {video_count} videos.')
     if warnings:
         print(f'NOTICE: {len(warnings)} product pages lack verified live offer prices; no rich-result eligibility claim is made.')
     for error in errors:

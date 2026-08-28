@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://celdyque.com/</loc>
     <lastmod>2026-08-28</lastmod>
     <image:image>
-      <image:loc>https://celdyque.com/images/videoframe_4286.webp</image:loc>
+      <image:loc>https://celdyque.com/images/celdyque-brand-film-poster.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://celdyque.com/images/Group%2010.webp</image:loc>
@@ -149,6 +149,9 @@
     <loc>https://celdyque.com/about.html</loc>
     <lastmod>2026-08-28</lastmod>
     <image:image>
+      <image:loc>https://celdyque.com/images/celdyque-texture-film-poster.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://celdyque.com/images/%EB%B8%8C%EB%9E%9C%EB%94%A9%EB%A1%9C%EA%B3%A0.webp</image:loc>
     </image:image>
     <image:image>
@@ -265,5 +268,22 @@
     <image:image>
       <image:loc>https://celdyque.com/images/%EC%A0%9C%ED%92%88/ms14.png</image:loc>
     </image:image>
+  </url>
+  <url>
+    <loc>https://celdyque.com/brand-film.html</loc>
+    <lastmod>2026-08-28</lastmod>
+    <image:image>
+      <image:loc>https://celdyque.com/images/celdyque-brand-film-poster.jpg</image:loc>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://celdyque.com/images/celdyque-brand-film-poster.jpg</video:thumbnail_loc>
+      <video:title>CELDYQUE Brand Film</video:title>
+      <video:description>Watch the CELDYQUE brand film: a short visual introduction to our Korean skincare world through glassware, flowing liquid and close-up textures.</video:description>
+      <video:content_loc>https://celdyque.com/videos/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.mp4</video:content_loc>
+      <video:duration>14</video:duration>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
   </url>
 </urlset>

@@ -2,6 +2,27 @@
 
 Updated: 2026-08-28. Code checks do not prove indexing, rankings, AI citations or rich-result eligibility.
 
+## Image and Video Update (2026-08-28)
+
+- The current sitemap has 21 canonical pages, 64 image references and one video entry. The existing sitemap URL is unchanged; no separate video sitemap submission is needed.
+- Original product photos and video files are preserved. The lowered Shop photos are also unchanged. Product image descriptions now identify the visible packaging, with real intrinsic dimensions, image encoding metadata and primary-image schema. Home and About stock images have descriptive alt text without presenting them as actual CELDYQUE product photos.
+- `brand-film.html` is a dedicated watch page for the already-public Home film, with native controls, a visible description and links from Home and About. Its duration is 13.72 seconds (rounded to 14 seconds in the sitemap). The original file has no audio track; the page supplies a written visual summary rather than invented spoken captions.
+- `celdyque-brand-film-poster.jpg` was extracted from the Home film at 4.12 seconds; `celdyque-texture-film-poster.jpg` was extracted from the About film at 2.8 seconds. Neither is a generated product scene.
+- The About background clip remains decorative. The unused `videos/video1.mp4` is not newly published or promoted by this change.
+- Video `uploadDate` is not confirmed. Do not use checkout timestamps or Git commit dates as proof of first publication. VideoObject markup is intentionally deferred until the owner supplies the actual first public date; the watch page and video sitemap do not require that optional sitemap field. Do not claim a validated video rich result yet.
+- Video and byte-range requests bypass the service-worker asset cache so partial responses do not interfere with playback or seeking.
+- Run `python scripts/check_seo.py`, `python scripts/test_media.py`, and `node --test scripts/test_faq.cjs scripts/test_analytics.cjs scripts/test_media.cjs`. The new checks run in deployment CI too. File dimensions and duration were measured locally; test results are not evidence of public indexing.
+- Local verification covered 51 image elements and 21 sharing images against their actual file dimensions, the watch page on desktop and mobile, Home-to-film navigation, native video playback, and representative product galleries. The original Home full-bleed layout still has a small pre-existing scrollbar-width overflow; it was not redesigned in this media change. Deployment and public Search Console video indexing have not been verified.
+
+### Remaining Owner Work
+
+1. Confirm the Home film's first public date. Then add matching, truthful VideoObject metadata on its watch page.
+2. After deployment, inspect `https://celdyque.com/brand-film.html` in Search Console and request indexing. Monitor the video indexing report and Performance search types Image and Video when available. The page must be indexed before video eligibility can be assessed.
+3. Provide publishable product-front/back/label photos and real use-demonstration videos with their publication dates and approved descriptions. The short brand film does not substitute for product-specific demonstrations.
+4. Existing HTTPS enforcement, legacy 404 handling and GTM/GA4 publication verification remain separate follow-ups. See `ANALYTICS-SETUP.md` for the implemented consent-gated analytics; the older analytics setup item below describes the earlier SEO-only change.
+
+References: [Google image guidance](https://developers.google.com/search/docs/appearance/google-images), [video watch-page guidance](https://developers.google.com/search/docs/appearance/video), [video sitemap requirements](https://developers.google.com/search/docs/crawling-indexing/sitemaps/video-sitemaps), [VideoObject requirements](https://developers.google.com/search/docs/appearance/structured-data/video).
+
 ## Implemented
 
 - Canonical URLs, Open Graph URLs and site identities use https://celdyque.com/ across the 20 sitemap pages.

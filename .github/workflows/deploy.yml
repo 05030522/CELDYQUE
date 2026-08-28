@@ -74,6 +74,11 @@ jobs:
       - name: Analytics Consent Tests
         run: node --test scripts/test_analytics.cjs
 
+      - name: Media Search and Playback Tests
+        run: |
+          python3 scripts/test_media.py
+          node --test scripts/test_media.cjs
+
       # ===== 4. 내부 링크 검사 =====
       - name: Internal Link Check
         run: |

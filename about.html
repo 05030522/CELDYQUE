@@ -21,6 +21,7 @@
         .brand-hero-text .label{font-size:0.85rem;color:var(--text-light);margin-bottom:1rem}
         .brand-hero-text h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:600;line-height:1.1;margin-bottom:2rem}
         .brand-hero-text p{color:var(--text-light);line-height:1.9;margin-bottom:1rem}
+        .brand-film-link{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px;align-self:flex-start}
         
         .brand-hero-image{position:relative; background:#000; overflow:hidden; height:100vh;} /* 뷰포트 높이에 꽉 차게 */
         /* 비디오가 박스에 꽉 차고 비율이 유지되도록 설정 */
@@ -98,6 +99,7 @@
   <meta property="og:description" content="Meet CELDYQUÉ, a Korean skincare brand focused on ingredient-led formulas. Explore our approach to product development, skincare and everyday routines." />
   <meta property="og:url" content="https://celdyque.com/about.html" />
   <meta property="og:image" content="https://celdyque.com/images/pa2.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="2550" />
   <meta property="og:image:height" content="2550" />
   <meta property="og:image:alt" content="CELDYQUÉ Korean skincare" />
@@ -182,9 +184,10 @@
             <h1>CELDYQUÉ <br> from around the world</h1>
             <p>We strive to find the perfect balance for each product to achieve optimal efficacy.</p>
             <p>CELDYQUÉ constantly researches optimal concentrations and true efficacy so that your skin can always remain in its perfect state. Our mission is not to chase trends, but to persistently research each ingredient to find the perfect formula.</p>
+            <a class="brand-film-link" href="/brand-film.html">Watch the brand film</a>
         </div>
         <div class="brand-hero-image">
-            <video autoplay muted loop playsinline preload="metadata" poster="/images/videoframe_4286.webp">
+            <video autoplay muted loop playsinline preload="metadata" width="1280" height="720" poster="/images/celdyque-texture-film-poster.jpg" aria-label="Close-up of translucent liquid bubbles">
                 <source src="videos/Video Project.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -193,7 +196,7 @@
 
     <section class="mission">
         <div class="mission-inner">
-            <img src="images/브랜딩로고.webp" alt="CELDYQUE Logo" class="mission-logo">
+            <img src="images/브랜딩로고.webp" alt="CELDYQUE Logo" class="mission-logo" width="1920" height="486" decoding="async" loading="lazy" />
             
             <h2>We strive to find the perfect balance for each product to achieve optimal efficacy.</h2>
             <p>We aim to find and provide raw materials with proven efficacy through new research data and papers. Our research involves diligently studying clinical data to identify the exact concentration at which each active ingredient performs best.</p>
@@ -207,7 +210,7 @@
         </div>
         <div class="philosophy-grid">
             <div class="philosophy-card">
-                <img src="images/bottle-pipette-dropper-close-up-liquid-yelloworange-retinol-vitamin-c-gel-serum-beige-background.webp" alt="Step 1">
+                <img src="images/bottle-pipette-dropper-close-up-liquid-yelloworange-retinol-vitamin-c-gel-serum-beige-background.webp" alt="Close-up of golden liquid and bubbles in a glass pipette" width="1920" height="1280" decoding="async" loading="lazy" />
                 <div class="philosophy-card-content">
                     <p class="num">1st Step</p>
                     <h3>We aim to find and provide ingredients with proven efficacy through research.</h3>
@@ -215,7 +218,7 @@
                 </div>
             </div>
             <div class="philosophy-card">
-                <img src="images/close-up-hand-applying-nail-treatment.webp" alt="Step 2">
+                <img src="images/close-up-hand-applying-nail-treatment.webp" alt="A hand applying liquid from a dropper to the other hand" width="1920" height="1277" decoding="async" loading="lazy" />
                 <div class="philosophy-card-content">
                     <p class="num">2nd Step</p>
                     <h3>Maximum efficacy while providing comfortable use from the customer's perspective.</h3>
@@ -223,7 +226,7 @@
                 </div>
             </div>
             <div class="philosophy-card">
-                <img src="images/golden-underwater-bubbles-abstract-oil.webp" alt="Step 3">
+                <img src="images/golden-underwater-bubbles-abstract-oil.webp" alt="Golden liquid with suspended bubbles in close-up" width="1920" height="1280" decoding="async" loading="lazy" />
                 <div class="philosophy-card-content">
                     <p class="num">3rd Step</p>
                     <h3>We do not develop products recklessly to expand meaningless product lines.</h3>
@@ -231,7 +234,7 @@
                 </div>
             </div>
             <div class="philosophy-card">
-                <img src="images/closeup-view-glass-.webp" alt="Step 4">
+                <img src="images/closeup-view-glass-.webp" alt="Clear droplets and bubbles beside a glass pipette" width="1280" height="1920" decoding="async" loading="lazy" />
                 <div class="philosophy-card-content">
                     <p class="num">4th Step</p>
                     <h3>Find yourself regaining confidence with visibly transformed skin.</h3>
