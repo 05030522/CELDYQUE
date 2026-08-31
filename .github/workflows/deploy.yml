@@ -82,6 +82,9 @@ jobs:
       - name: Amazon Single-Item Identity Tests
         run: python3 scripts/test_amazon.py
 
+      - name: Products Navigation Tests
+        run: python3 scripts/test_navigation.py
+
       # ===== 4. 내부 링크 검사 =====
       - name: Internal Link Check
         run: |

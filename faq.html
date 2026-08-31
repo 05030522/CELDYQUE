@@ -15,7 +15,7 @@
 
 <!-- Organization Schema -->
 
-<link href="/assets/site.css?v=20260828-consent" rel="stylesheet"/>
+<link href="/assets/site.css?v=20260831-mobile" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -85,7 +85,26 @@
     .product-card,.faq-question{overflow-wrap:anywhere}
     .faq-answer a,.no-results a{text-decoration:underline;text-underline-offset:3px}
     .faq-section{scroll-margin-top:110px}
-    @media(max-width:480px){.page-header-left h1{font-size:2rem}.tools,.faq-search{width:100%}.faq-search input{width:100%}}
+    @media(max-width:480px){
+      .page-content{padding:100px 16px 64px}
+      .breadcrumbs{margin-bottom:1rem;white-space:nowrap;overflow-x:auto}
+      .page-header{margin-bottom:1.25rem}
+      .page-header-left h1{font-size:2rem;line-height:1.15}
+      .page-subcopy{font-size:.94rem;line-height:1.6}
+      .tools,.faq-search,.filter-select{width:100%}
+      .faq-search input{width:100%;font-size:16px}
+      .faq-search .kbd{display:none}
+      .faq-chips{flex-wrap:nowrap;overflow-x:auto;margin:1rem -16px 1.5rem;padding:0 16px 6px;scrollbar-width:none}
+      .faq-chips::-webkit-scrollbar{display:none}
+      .chip{flex:0 0 auto;min-height:44px}
+      summary.faq-header{gap:8px;padding:16px 0}
+      .faq-category{font-size:.72rem}
+      .faq-question{font-size:1rem;line-height:1.5}
+      .faq-answer{font-size:.94rem;line-height:1.7;padding-bottom:1.35rem}
+      .product-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+      .product-card{min-height:54px;padding:10px;font-size:.82rem}
+      .product-card-label{font-size:.72rem}
+    }
   </style>
 <title>Skincare FAQ | CELDYQUÉ Products, Routines &amp; Shopping</title>
   <meta name="description" content="Answers about CELDYQUÉ Volufiline, PDRN, bakuchiol, peptide serums and cleansers. Find product directions, routine guidance and official retailer links." />
@@ -508,6 +527,6 @@
   </main>
   <div id="siteFooter"></div><div id="searchModal"></div><div id="mobileMenuOverlay"></div><div id="mobileMenu"></div>
   <script defer src="/assets/faq.js"></script>
-  <script defer src="/assets/site.js?v=20260828-consent"></script>
+  <script defer src="/assets/site.js?v=20260831-mobile"></script>
 </body>
 </html>

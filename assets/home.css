@@ -442,6 +442,7 @@ body.home #siteHeader{
 @media (max-width: 740px){
   .home-wrap{
     padding: 0 14px 0;
+    overflow-x: clip;
   }
 
   .home-container{
@@ -453,6 +454,8 @@ body.home #siteHeader{
     border-radius: 0;
     box-shadow: none;
   }
+
+  .top-frame.full-bleed{width:auto;margin-inline:-14px}
 
   .top-collage{
     margin-top: 56px;

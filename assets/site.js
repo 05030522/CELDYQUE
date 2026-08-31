@@ -133,6 +133,11 @@ function highlight(text, query) {
 
 /* ===== UI Initialization (Mobile Menu & Search Modal) ===== */
 function initCommonUI() {
+  // Legacy pages still contain empty menu/modal mounts. Keep the injected shared UI only.
+  for (const id of ['mobileMenuOverlay', 'mobileMenu', 'searchModal']) {
+    document.querySelectorAll('#' + id).forEach((node, index) => { if (index > 0) node.remove(); });
+  }
+
   // --- 1. Mobile Menu Logic ---
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -140,14 +145,23 @@ function initCommonUI() {
 
   function openMenu() {
     mobileMenuBtn?.classList.add('active');
+    mobileMenuBtn?.setAttribute('aria-label', 'Close menu');
+    mobileMenuBtn?.setAttribute('aria-expanded', 'true');
     mobileMenu?.classList.add('active');
+    mobileMenu?.setAttribute('aria-hidden', 'false');
     mobileMenuOverlay?.classList.add('active');
+    mobileMenuOverlay?.setAttribute('aria-hidden', 'false');
     lockBody();
+    mobileMenu?.querySelector('a')?.focus();
   }
   function closeMenu() {
     mobileMenuBtn?.classList.remove('active');
+    mobileMenuBtn?.setAttribute('aria-label', 'Open menu');
+    mobileMenuBtn?.setAttribute('aria-expanded', 'false');
     mobileMenu?.classList.remove('active');
+    mobileMenu?.setAttribute('aria-hidden', 'true');
     mobileMenuOverlay?.classList.remove('active');
+    mobileMenuOverlay?.setAttribute('aria-hidden', 'true');
     unlockBody();
   }
   function toggleMenu() {
@@ -157,6 +171,12 @@ function initCommonUI() {
 
   mobileMenuBtn?.addEventListener('click', toggleMenu);
   mobileMenuOverlay?.addEventListener('click', closeMenu);
+  mobileMenu?.addEventListener('click', event => {
+    if (event.target.closest('a')) closeMenu();
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860 && mobileMenu?.classList.contains('active')) closeMenu();
+  });
 
   // --- 2. Global Search Modal Injection & Logic ---
   // 만약 이미 모달이 없다면 HTML을 동적으로 삽입합니다.
@@ -175,7 +195,7 @@ function initCommonUI() {
               <input type="search" class="search-input" placeholder="Search products..." id="globalSearchInput" autocomplete="off">
             </div>
             <div class="search-actions">
-              <button type="button" class="header-search-btn" id="globalSearchCloseBtn">ESC</button>
+              <button type="button" class="header-search-btn" id="globalSearchCloseBtn" aria-label="Close search" title="Close search">&times;</button>
             </div>
           </div>
           <div class="search-hint">
@@ -203,12 +223,15 @@ function initCommonUI() {
   const list = document.getElementById('globalSuggestionList');
   const count = document.getElementById('globalResultCount');
   const closeBtn = document.getElementById('globalSearchCloseBtn');
+  let searchReturnFocus = null;
 
   // data-open-search 속성이 있는 버튼(헤더 돋보기 등) 클릭 시 모달 열기
   document.addEventListener('click', (e) => {
     const searchTrigger = e.target.closest('[data-open-search]');
     if (searchTrigger) {
       e.preventDefault();
+      if (mobileMenu?.classList.contains('active')) closeMenu();
+      searchReturnFocus = searchTrigger;
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
       lockBody();
@@ -222,18 +245,32 @@ function initCommonUI() {
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     unlockBody();
+    searchReturnFocus?.focus();
+    searchReturnFocus = null;
   }
 
   closeBtn?.addEventListener('click', closeSearch);
   modal?.addEventListener('click', (e) => { if (e.target === modal) closeSearch(); });
   document.addEventListener('keydown', (e) => { 
-    if (e.key === 'Escape' && modal?.classList.contains('open')) closeSearch(); 
+    if (e.key === 'Escape' && modal?.classList.contains('open')) closeSearch();
+    else if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) {
+      closeMenu();
+      mobileMenuBtn?.focus();
+    }
     // Ctrl+K 단축키로 모달 열기
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
       e.preventDefault();
       if (!modal?.classList.contains("open")) {
         document.querySelector('[data-open-search]')?.click();
       }
+    }
+    if (e.key === 'Tab' && modal?.classList.contains('open')) {
+      const focusable = [...modal.querySelectorAll('input, button, a[href]')]
+        .filter(element => !element.hidden && element.getClientRects().length);
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
     }
   });
 
@@ -284,8 +321,8 @@ function initCommonUI() {
 document.addEventListener("DOMContentLoaded", async () => {
   // 헤더와 푸터 HTML 주입
   await Promise.all([
-    inject("#siteHeader", "/partials/header.html"),
-    inject("#siteFooter", "/partials/footer.html?v=20260828-consent"),
+    inject("#siteHeader", "/partials/header.html?v=20260831-mobile"),
+    inject("#siteFooter", "/partials/footer.html?v=20260831-mobile"),
   ]);
 
   // 주입이 끝난 후 공통 UI(모바일 메뉴 및 검색 모달) 초기화

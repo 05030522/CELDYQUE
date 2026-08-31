@@ -4,7 +4,7 @@
 
     <nav class="desktop-nav" aria-label="Primary navigation">
       <div class="nav-item">
-        <a href="/shop.html">Shop</a>
+        <a href="/shop.html">Products</a>
         <div class="mega-menu">
           <a href="/shop.html">All</a>
           <a href="/shop.html?cat=serum">Serum</a>
@@ -28,24 +28,24 @@
 
     <div class="header-right">
       <button class="search-btn" type="button" data-open-search aria-label="Search">
-        Search
+        <span class="search-label">Search</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <circle cx="11" cy="11" r="8"></circle>
           <path d="m21 21-4.35-4.35"></path>
         </svg>
       </button>
 
-      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Menu">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <div class="hamburger"><span></span><span></span><span></span></div>
       </button>
     </div>
   </div>
 </header>
 
-<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <nav class="mobile-menu-nav">
-    <a href="/shop.html">Shop</a>
+    <a href="/shop.html">Products</a>
     <div class="mobile-menu-sub">
       <a href="/shop.html">All</a>
       <a href="/shop.html?cat=serum">Serum</a>
@@ -126,7 +126,7 @@
     <div class="search-bottom">
       <div class="left" id="searchStatus">Type to search products.</div>
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-        <button class="muted-btn" type="button" id="goShopBtn">Go to Shop</button>
+        <button class="muted-btn" type="button" id="goShopBtn">View Products</button>
         <button class="primary-btn" type="button" id="viewAllBtn">Search</button>
       </div>
     </div>
