@@ -52,7 +52,7 @@ class ProductsNavigationTests(unittest.TestCase):
         self.assertEqual(count, 15)
 
     def test_updated_navigation_assets_are_versioned_together(self):
-        version = '?v=20260831-retailer-nav'
+        version = '?v=20260831-retailer-order'
         site = (ROOT / 'assets/site.js').read_text(encoding='utf-8')
         worker = (ROOT / 'sw.js').read_text(encoding='utf-8')
         for partial in ['header', 'footer']:
@@ -60,7 +60,7 @@ class ProductsNavigationTests(unittest.TestCase):
             self.assertIn(url, site)
             self.assertIn(url, worker)
         self.assertIn('/assets/site.js' + version, worker)
-        self.assertIn('celdyque-v6-retailer-nav', worker)
+        self.assertIn('celdyque-v7-retailer-order', worker)
         for name, doc in self.pages.items():
             for script in doc.find('script'):
                 src = script.attrs.get('src', '')

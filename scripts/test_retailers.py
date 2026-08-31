@@ -7,9 +7,9 @@ from check_seo import ROOT, Document
 
 RETAILERS = [
     ('Amazon', 'https://www.amazon.com/celdyque'),
+    ('TikTok Shop', 'https://www.tiktok.com/@celdyque'),
     ('YesStyle', 'https://www.yesstyle.com/en/celdyque/list.html/bpt.299_bid.331400'),
     ('Stylevana', 'https://www.stylevana.com/en_US/brands/celdyque.html'),
-    ('TikTok Shop', 'https://www.tiktok.com/@celdyque'),
 ]
 
 

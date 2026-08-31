@@ -237,8 +237,8 @@ test('shared assets are wired without direct Google scripts or noscript bypasses
     const html = readFileSync(path.join(ROOT, file), 'utf8');
     assert.doesNotMatch(html, /googletagmanager\.com\/(?:gtag\/js|gtm\.js|ns\.html)/, file);
     if (html.includes('/assets/site.css')) {
-      assert.match(html, /src="\/assets\/site\.js\?v=20260831-retailer-nav"/, file);
-      assert.match(html, /href="\/assets\/site\.css\?v=20260831-retailer-nav"/, file);
+      assert.match(html, /src="\/assets\/site\.js\?v=20260831-retailer-order"/, file);
+      assert.match(html, /href="\/assets\/site\.css\?v=20260831-retailer-order"/, file);
     }
   }
   const sw = readFileSync(path.join(ROOT, 'sw.js'), 'utf8');

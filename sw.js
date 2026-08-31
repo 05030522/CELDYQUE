@@ -1,14 +1,14 @@
 /* Service Worker — CELDYQUÉ offline cache & speed boost */
-const CACHE_NAME = 'celdyque-v6-retailer-nav';
+const CACHE_NAME = 'celdyque-v7-retailer-order';
 const PRECACHE = [
   '/',
   '/index.html',
-  '/assets/site.css?v=20260831-retailer-nav',
-  '/assets/home.css?v=20260831-retailer-nav',
-  '/assets/site.js?v=20260831-retailer-nav',
+  '/assets/site.css?v=20260831-retailer-order',
+  '/assets/home.css?v=20260831-retailer-order',
+  '/assets/site.js?v=20260831-retailer-order',
   '/assets/analytics.js?v=20260828-consent',
-  '/partials/header.html?v=20260831-retailer-nav',
-  '/partials/footer.html?v=20260831-retailer-nav',
+  '/partials/header.html?v=20260831-retailer-order',
+  '/partials/footer.html?v=20260831-retailer-order',
 ];
 
 /* Install: precache critical assets */

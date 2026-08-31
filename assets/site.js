@@ -321,8 +321,8 @@ function initCommonUI() {
 document.addEventListener("DOMContentLoaded", async () => {
   // 헤더와 푸터 HTML 주입
   await Promise.all([
-    inject("#siteHeader", "/partials/header.html?v=20260831-retailer-nav"),
-    inject("#siteFooter", "/partials/footer.html?v=20260831-retailer-nav"),
+    inject("#siteHeader", "/partials/header.html?v=20260831-retailer-order"),
+    inject("#siteFooter", "/partials/footer.html?v=20260831-retailer-order"),
   ]);
 
   // 주입이 끝난 후 공통 UI(모바일 메뉴 및 검색 모달) 초기화
