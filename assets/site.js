@@ -175,7 +175,7 @@ function initCommonUI() {
     if (event.target.closest('a')) closeMenu();
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 860 && mobileMenu?.classList.contains('active')) closeMenu();
+    if (window.innerWidth > 980 && mobileMenu?.classList.contains('active')) closeMenu();
   });
 
   // --- 2. Global Search Modal Injection & Logic ---
@@ -321,8 +321,8 @@ function initCommonUI() {
 document.addEventListener("DOMContentLoaded", async () => {
   // 헤더와 푸터 HTML 주입
   await Promise.all([
-    inject("#siteHeader", "/partials/header.html?v=20260831-mobile"),
-    inject("#siteFooter", "/partials/footer.html?v=20260831-mobile"),
+    inject("#siteHeader", "/partials/header.html?v=20260831-retailer-nav"),
+    inject("#siteFooter", "/partials/footer.html?v=20260831-retailer-nav"),
   ]);
 
   // 주입이 끝난 후 공통 UI(모바일 메뉴 및 검색 모달) 초기화

@@ -18,6 +18,7 @@ class RetailerPageTests(unittest.TestCase):
     def setUpClass(cls):
         cls.source = (ROOT / 'store.html').read_text(encoding='utf-8')
         cls.doc = Document(cls.source).root
+        cls.header = Document((ROOT / 'partials/header.html').read_text(encoding='utf-8')).root
 
     def test_visible_retailers_use_requested_order_and_links(self):
         cards = self.doc.find('a', **{'class': 'retailer-card'})
@@ -41,6 +42,12 @@ class RetailerPageTests(unittest.TestCase):
         cards = self.doc.find('a', **{'class': 'retailer-card'})
         self.assertFalse(any(card.find('img') for card in cards))
         self.assertIn('/assets/store.css?v=20260831-retailers', self.source)
+
+    def test_header_retailer_links_match_store_order(self):
+        expected = [url for _, url in RETAILERS]
+        links = [a for a in self.header.find('a') if a.attrs.get('href') in expected]
+        self.assertEqual([a.attrs.get('href') for a in links], expected + expected)
+        self.assertTrue(all(a.attrs.get('target') == '_blank' for a in links))
 
 
 if __name__ == '__main__':
