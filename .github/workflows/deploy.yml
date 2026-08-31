@@ -82,6 +82,9 @@ jobs:
       - name: Amazon Single-Item Identity Tests
         run: python3 scripts/test_amazon.py
 
+      - name: Official Retailer Page Tests
+        run: python3 scripts/test_retailers.py
+
       - name: Products Navigation Tests
         run: python3 scripts/test_navigation.py
 

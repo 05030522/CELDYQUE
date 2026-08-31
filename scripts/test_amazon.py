@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 from check_seo import ROOT, NS, Document, local_path
 
 STOREFRONT = 'https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252'
+STORE_LINK = 'https://www.amazon.com/celdyque'
 
 # Owner-supplied single-item ASINs and existing Amazon Attribution ad groups.
 SINGLES = {
@@ -67,9 +68,9 @@ class AmazonIdentityTests(unittest.TestCase):
                                if urlparse(u).hostname == 'www.amazon.com']
                 self.assertEqual(amazon_urls, [STOREFRONT])
 
-    def test_storefront_matches_existing_visible_store_link(self):
+    def test_store_page_uses_owner_supplied_amazon_link(self):
         links = [a.attrs.get('href') for a in self.pages['store.html'].find('a')]
-        self.assertIn(STOREFRONT, links)
+        self.assertIn(STORE_LINK, links)
 
     def test_purchase_links_keep_single_item_and_attribution(self):
         for name, (asin, ad_group) in SINGLES.items():

@@ -1,109 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <link rel="stylesheet" href="/assets/site.css?v=20260831-mobile" />
+  <link rel="stylesheet" href="/assets/store.css?v=20260831-retailers" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" />
 
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
-
-<link href="/assets/site.css?v=20260831-mobile" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        /* --- 페이지 전용 레이아웃 스타일 (기존 유지) --- */
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{
-            --bg:#f9f9f9;--white:#fff;--text:#1a1a1a;--text-light:#666;--border:#e5e5e5;--font:'Inter',-apple-system,sans-serif;--tap:48px;
-        }
-        body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
-        a{text-decoration:none;color:inherit}
-
-        .page-content{padding:180px 5% 100px;max-width:1400px;margin:0 auto}
-        .page-header{margin-bottom:5rem;text-align:center}
-        .page-header .label{font-size:0.85rem;color:var(--text-light);margin-bottom:1rem;text-transform:uppercase;letter-spacing:0.1em}
-        .page-header h1{font-size:clamp(2.5rem,5vw,3.5rem);font-weight:600;margin-bottom:1rem;letter-spacing:-0.02em}
-        .page-header p{color:var(--text-light);max-width:600px;margin:0 auto;line-height:1.6}
-
-        /* --- 스토어 그리드 디자인 --- */
-        .store-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-        .store-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 40px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            border: 1px solid rgba(0,0,0,0.03);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-        .store-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: rgba(0,0,0,0);
-        }
-        .card-image {
-            width: 100%;
-            height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        .store-card[href*="amazon"] .card-image img { transform: scale(1.4); transform-origin: center; }
-        .store-card[href*="amazon"]:hover .card-image img { transform: scale(1.5); }
-        .card-image img {
-            max-width: 90%;
-            max-height: 100%;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: all 0.4s ease;
-        }
-        .store-card:hover .card-image img {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.05);
-        }
-        .card-info { text-align: center; width: 100%; }
-        .card-info h3 { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-        .shop-link {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-weight: 500;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            display: block;
-        }
-        .store-card:hover .shop-link { opacity: 1; transform: translateY(0); color: var(--text); }
-
-        /* --- 반응형 --- */
-        @media(max-width:1024px){
-            .store-grid{grid-template-columns:repeat(2,1fr); gap: 16px;}
-        }
-        @media(max-width:768px){
-            .store-grid{grid-template-columns:1fr}
-            .page-content{padding-top: 120px;}
-        }
-    </style>
-<title>Where to Buy | CELDYQUÉ Official Retailers</title>
-  <meta name="description" content="Find CELDYQUÉ retailer links for Korean skincare, serums, creams and cleansers. Check each store for current product availability and delivery details." />
+  <title>Where to Buy | CELDYQUÉ Official Retailers</title>
+  <meta name="description" content="Shop CELDYQUÉ Korean skincare through official retailer links for Amazon, YesStyle, Stylevana and TikTok Shop." />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <link rel="canonical" href="https://celdyque.com/store.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="CELDYQUÉ" />
   <meta property="og:title" content="Where to Buy | CELDYQUÉ Official Retailers" />
-  <meta property="og:description" content="Find CELDYQUÉ retailer links for Korean skincare, serums, creams and cleansers. Check each store for current product availability and delivery details." />
+  <meta property="og:description" content="Shop CELDYQUÉ Korean skincare through official retailer links for Amazon, YesStyle, Stylevana and TikTok Shop." />
   <meta property="og:url" content="https://celdyque.com/store.html" />
   <meta property="og:image" content="https://celdyque.com/images/pa2.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -112,137 +25,140 @@
   <meta property="og:image:alt" content="CELDYQUÉ Korean skincare" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Where to Buy | CELDYQUÉ Official Retailers" />
-  <meta name="twitter:description" content="Find CELDYQUÉ retailer links for Korean skincare, serums, creams and cleansers. Check each store for current product availability and delivery details." />
+  <meta name="twitter:description" content="Shop CELDYQUÉ Korean skincare through official retailer links for Amazon, YesStyle, Stylevana and TikTok Shop." />
   <meta name="twitter:image" content="https://celdyque.com/images/pa2.jpg" />
   <meta name="twitter:image:alt" content="CELDYQUÉ Korean skincare" />
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://celdyque.com/#organization",
-      "name": "CELDYQUÉ",
-      "alternateName": "CELDYQUE",
-      "url": "https://celdyque.com/",
-      "logo": "https://celdyque.com/images/pa2.webp",
-      "email": "team@celdyque.com",
-      "sameAs": [
-        "https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://celdyque.com/#website",
-      "name": "CELDYQUÉ",
-      "alternateName": "CELDYQUE",
-      "url": "https://celdyque.com/",
-      "publisher": {
-        "@id": "https://celdyque.com/#organization"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://celdyque.com/store.html#webpage",
-      "url": "https://celdyque.com/store.html",
-      "name": "Where to Buy | CELDYQUÉ Official Retailers",
-      "description": "Find CELDYQUÉ retailer links for Korean skincare, serums, creams and cleansers. Check each store for current product availability and delivery details.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@id": "https://celdyque.com/#website"
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://celdyque.com/#organization",
+        "name": "CELDYQUÉ",
+        "alternateName": "CELDYQUE",
+        "url": "https://celdyque.com/",
+        "logo": "https://celdyque.com/images/pa2.webp",
+        "email": "team@celdyque.com",
+        "sameAs": [
+          "https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252",
+          "https://www.yesstyle.com/en/celdyque/list.html/bpt.299_bid.331400",
+          "https://www.stylevana.com/en_US/brands/celdyque.html",
+          "https://www.tiktok.com/@celdyque"
+        ]
       },
-      "publisher": {
-        "@id": "https://celdyque.com/#organization"
+      {
+        "@type": "WebSite",
+        "@id": "https://celdyque.com/#website",
+        "name": "CELDYQUÉ",
+        "alternateName": "CELDYQUE",
+        "url": "https://celdyque.com/",
+        "publisher": {"@id": "https://celdyque.com/#organization"}
       },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://celdyque.com/images/pa2.jpg"
-      },
-      "dateModified": "2026-08-28",
-      "breadcrumb": {
-        "@id": "https://celdyque.com/store.html#breadcrumb"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://celdyque.com/store.html#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://celdyque.com/"
+      {
+        "@type": "WebPage",
+        "@id": "https://celdyque.com/store.html#webpage",
+        "url": "https://celdyque.com/store.html",
+        "name": "Where to Buy | CELDYQUÉ Official Retailers",
+        "description": "Shop CELDYQUÉ Korean skincare through official retailer links for Amazon, YesStyle, Stylevana and TikTok Shop.",
+        "inLanguage": "en",
+        "isPartOf": {"@id": "https://celdyque.com/#website"},
+        "publisher": {"@id": "https://celdyque.com/#organization"},
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://celdyque.com/images/pa2.jpg"
         },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Where to Buy",
-          "item": "https://celdyque.com/store.html"
-        }
-      ]
-    }
-  ]
-}
-</script>
+        "dateModified": "2026-08-31",
+        "breadcrumb": {"@id": "https://celdyque.com/store.html#breadcrumb"},
+        "mainEntity": {"@id": "https://celdyque.com/store.html#retailers"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://celdyque.com/store.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://celdyque.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Where to Buy", "item": "https://celdyque.com/store.html"}
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://celdyque.com/store.html#retailers",
+        "name": "CELDYQUÉ Authorized Retailers",
+        "numberOfItems": 4,
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Amazon", "url": "https://www.amazon.com/celdyque"},
+          {"@type": "ListItem", "position": 2, "name": "YesStyle", "url": "https://www.yesstyle.com/en/celdyque/list.html/bpt.299_bid.331400"},
+          {"@type": "ListItem", "position": 3, "name": "Stylevana", "url": "https://www.stylevana.com/en_US/brands/celdyque.html"},
+          {"@type": "ListItem", "position": 4, "name": "TikTok Shop", "url": "https://www.tiktok.com/@celdyque"}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-    <div id="siteHeader"></div>
+  <div id="siteHeader"></div>
 
-    <main class="page-content">
-        <div class="page-header">
-            <p class="label">Where to Buy</p>
-            <h1>Authorized Retailers</h1>
-            <p>Experience CELDYQUÉ at our trusted official partners worldwide.</p>
+  <main class="retailers-page">
+    <div class="retailers-inner">
+      <header class="retailers-header">
+        <div>
+          <p class="retailers-eyebrow">Where to buy</p>
+          <h1>Shop CELDYQUÉ worldwide.</h1>
         </div>
+        <p class="retailers-intro">Explore CELDYQUÉ skincare through our official retail partners. Select a store to view current availability, delivery options and regional offers.</p>
+      </header>
 
-        <div class="store-grid">
-            <a href="https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252" target="_blank" rel="noopener noreferrer" class="store-card">
-                <div class="card-image">
-                    <img src="https://shacknews-www.s3.amazonaws.com/assets/article/2022/02/03/amazon-prime-price-increase_feature.jpg" alt="Amazon">
-                </div>
-                <div class="card-info">
-                    <h3>Amazon</h3>
-                    <span class="shop-link">Visit Store &rarr;</span>
-                </div>
-            </a>
+      <nav class="retailer-grid" aria-label="CELDYQUÉ official retailers">
+        <a href="https://www.amazon.com/celdyque" target="_blank" rel="noopener noreferrer" class="retailer-card" data-retailer="amazon" aria-label="Shop CELDYQUÉ on Amazon (opens in a new tab)">
+          <span class="retailer-order">01</span>
+          <strong class="retailer-wordmark" aria-hidden="true">amazon</strong>
+          <div class="retailer-card-footer">
+            <div><h2>Amazon</h2><p>Official brand store</p></div>
+            <span class="retailer-arrow" aria-hidden="true">&#8599;</span>
+          </div>
+        </a>
 
-            <a href="https://www.tiktok.com/@celdyque" target="_blank" rel="noopener noreferrer" class="store-card">
-                <div class="card-image">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok Shop">
-                </div>
-                <div class="card-info">
-                    <h3>TikTok Shop</h3>
-                    <span class="shop-link">Visit Store &rarr;</span>
-                </div>
-            </a>
+        <a href="https://www.yesstyle.com/en/celdyque/list.html/bpt.299_bid.331400" target="_blank" rel="noopener noreferrer" class="retailer-card" data-retailer="yesstyle" aria-label="Shop CELDYQUÉ on YesStyle (opens in a new tab)">
+          <span class="retailer-order">02</span>
+          <strong class="retailer-wordmark" aria-hidden="true">yesstyle</strong>
+          <div class="retailer-card-footer">
+            <div><h2>YesStyle</h2><p>Global beauty retailer</p></div>
+            <span class="retailer-arrow" aria-hidden="true">&#8599;</span>
+          </div>
+        </a>
 
-            <a href="https://www.yesstyle.com/en/celdyque/list.html/bpt.299_bid.331400" target="_blank" rel="noopener noreferrer" class="store-card">
-                <div class="card-image">
-                    <img src="/images/yesstyle.webp" alt="YesStyle" width="700" height="191" decoding="async" />
-                </div>
-                <div class="card-info">
-                    <h3>YesStyle</h3>
-                    <span class="shop-link">Visit Store &rarr;</span>
-                </div>
-            </a>
+        <a href="https://www.stylevana.com/en_US/brands/celdyque.html" target="_blank" rel="noopener noreferrer" class="retailer-card" data-retailer="stylevana" aria-label="Shop CELDYQUÉ on Stylevana (opens in a new tab)">
+          <span class="retailer-order">03</span>
+          <strong class="retailer-wordmark" aria-hidden="true">STYLEVANA</strong>
+          <div class="retailer-card-footer">
+            <div><h2>Stylevana</h2><p>K-beauty retailer</p></div>
+            <span class="retailer-arrow" aria-hidden="true">&#8599;</span>
+          </div>
+        </a>
 
-            <a href="https://www.stylevana.com/en_US/brands/celdyque.html" target="_blank" rel="noopener noreferrer" class="store-card">
-                <div class="card-image">
-                    <img src="https://sv9-cdn.stylevana.com/media/logo/websites/1/SV-logo-664x130.png" alt="Stylevana">
-                </div>
-                <div class="card-info">
-                    <h3>Stylevana</h3>
-                    <span class="shop-link">Visit Store &rarr;</span>
-                </div>
-            </a>
-        </div>
-    </main>
+        <a href="https://www.tiktok.com/@celdyque" target="_blank" rel="noopener noreferrer" class="retailer-card" data-retailer="tiktok" aria-label="Visit CELDYQUÉ on TikTok (opens in a new tab)">
+          <span class="retailer-order">04</span>
+          <strong class="retailer-wordmark" aria-hidden="true">TikTok</strong>
+          <div class="retailer-card-footer">
+            <div><h2>TikTok Shop</h2><p>CELDYQUÉ official account</p></div>
+            <span class="retailer-arrow" aria-hidden="true">&#8599;</span>
+          </div>
+        </a>
+      </nav>
 
-    <div id="siteFooter"></div>
-    <div id="searchModal"></div>
-    <div id="mobileMenuOverlay"></div>
-    <div id="mobileMenu"></div>
+      <div class="retailer-note">
+        <p><strong>Official links</strong> verified by CELDYQUÉ.</p>
+        <p>Selection, pricing and shipping may vary by retailer and region.</p>
+      </div>
+    </div>
+  </main>
 
-    <script defer src="/assets/site.js?v=20260831-mobile"></script>
+  <div id="siteFooter"></div>
+  <div id="searchModal"></div>
+  <div id="mobileMenuOverlay"></div>
+  <div id="mobileMenu"></div>
+
+  <script defer src="/assets/site.js?v=20260831-mobile"></script>
 </body>
 </html>

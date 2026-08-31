@@ -1,0 +1,204 @@
+.retailers-page {
+  min-height: 100vh;
+  padding: 132px var(--page-pad) 96px;
+  background: #f4f4f2;
+}
+
+.retailers-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.retailers-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
+  gap: 48px;
+  align-items: end;
+  padding: 20px 0 42px;
+  border-bottom: 1px solid #d7d7d2;
+}
+
+.retailers-eyebrow {
+  margin-bottom: 13px;
+  color: #62625d;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.retailers-header h1 {
+  max-width: 720px;
+  font-size: clamp(2.35rem, 5vw, 4.7rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.retailers-intro {
+  color: #555550;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.retailer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  padding: 34px 0 30px;
+}
+
+.retailer-card {
+  --retailer-accent: #222;
+  min-width: 0;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid #deded9;
+  border-radius: 6px;
+  background: #fff;
+  color: #181818;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.retailer-card::before {
+  content: "";
+  width: 42px;
+  height: 3px;
+  display: block;
+  background: var(--retailer-accent);
+}
+
+.retailer-card:hover {
+  transform: translateY(-4px);
+  border-color: #bdbdb7;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, .08);
+}
+
+.retailer-card:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 3px;
+}
+
+.retailer-card[data-retailer="amazon"] { --retailer-accent: #ff9900; }
+.retailer-card[data-retailer="yesstyle"] { --retailer-accent: #8faf38; }
+.retailer-card[data-retailer="stylevana"] { --retailer-accent: #676767; }
+.retailer-card[data-retailer="tiktok"] { --retailer-accent: #25f4ee; }
+
+.retailer-order {
+  align-self: flex-end;
+  color: #777771;
+  font-size: .72rem;
+  font-weight: 600;
+}
+
+.retailer-wordmark {
+  display: flex;
+  min-height: 88px;
+  align-items: center;
+  color: #202020;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 700;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.retailer-card[data-retailer="amazon"] .retailer-wordmark {
+  font-weight: 800;
+  text-transform: lowercase;
+}
+
+.retailer-card[data-retailer="yesstyle"] .retailer-wordmark {
+  text-transform: lowercase;
+}
+
+.retailer-card[data-retailer="stylevana"] .retailer-wordmark {
+  font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+  font-weight: 500;
+}
+
+.retailer-card[data-retailer="tiktok"] .retailer-wordmark {
+  text-shadow: 2px 0 0 rgba(254, 44, 85, .22);
+}
+
+.retailer-card-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: end;
+}
+
+.retailer-card h2 {
+  margin-bottom: 3px;
+  font-size: .98rem;
+  font-weight: 700;
+}
+
+.retailer-card p {
+  color: #6a6a64;
+  font-size: .8rem;
+  line-height: 1.45;
+}
+
+.retailer-arrow {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d7d7d2;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.retailer-card:hover .retailer-arrow {
+  border-color: #181818;
+  background: #181818;
+  color: #fff;
+}
+
+.retailer-note {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #d7d7d2;
+  color: #666660;
+  font-size: .83rem;
+}
+
+.retailer-note strong {
+  color: #222;
+  font-weight: 650;
+}
+
+@media (max-width: 900px) {
+  .retailers-page { padding-top: 112px; }
+  .retailers-header { grid-template-columns: 1fr; gap: 20px; }
+  .retailer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+  .retailers-page { padding: 90px 12px 64px; }
+  .retailers-header { padding: 12px 0 24px; }
+  .retailers-header h1 { font-size: 2.35rem; }
+  .retailers-intro { font-size: .93rem; line-height: 1.6; }
+  .retailer-grid { gap: 8px; padding: 20px 0; }
+  .retailer-card { height: 214px; min-height: 214px; padding: 14px; }
+  .retailer-card::before { width: 30px; }
+  .retailer-wordmark { min-height: 62px; font-size: 1.35rem; }
+  .retailer-card[data-retailer="stylevana"] .retailer-wordmark { font-size: 1.05rem; }
+  .retailer-card-footer { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .retailer-card h2 { font-size: .86rem; }
+  .retailer-card p { font-size: .72rem; }
+  .retailer-arrow { width: 34px; height: 34px; justify-self: end; }
+  .retailer-note { flex-direction: column; gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .retailer-card, .retailer-arrow { transition: none; }
+}
