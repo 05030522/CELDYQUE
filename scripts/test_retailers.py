@@ -6,7 +6,7 @@ from check_seo import ROOT, Document
 
 
 RETAILERS = [
-    ('Amazon', 'https://www.amazon.com/celdyque'),
+    ('Amazon', 'https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252?maas=maas_adg_E856BC7BDD5C52C4C8DD6D3C8EFCB0D8_afap_abs&ref_=aa_maas&tag=maas&ingress=3'),
     ('TikTok Shop', 'https://www.tiktok.com/@celdyque'),
     ('YesStyle', 'https://www.yesstyle.com/en/celdyque/list.html/bpt.299_bid.331400'),
     ('Stylevana', 'https://www.stylevana.com/en_US/brands/celdyque.html'),

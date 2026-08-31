@@ -6,7 +6,9 @@ import xml.etree.ElementTree as ET
 from check_seo import ROOT, NS, Document, local_path
 
 STOREFRONT = 'https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252'
-STORE_LINK = 'https://www.amazon.com/celdyque'
+STORE_LINK = ('https://www.amazon.com/stores/page/176EC99B-F37D-4FC8-BC48-E30CEC0FA252'
+              '?maas=maas_adg_E856BC7BDD5C52C4C8DD6D3C8EFCB0D8_afap_abs'
+              '&ref_=aa_maas&tag=maas&ingress=3')
 
 # Owner-supplied single-item ASINs and existing Amazon Attribution ad groups.
 SINGLES = {
@@ -71,6 +73,11 @@ class AmazonIdentityTests(unittest.TestCase):
     def test_store_page_uses_owner_supplied_amazon_link(self):
         links = [a.attrs.get('href') for a in self.pages['store.html'].find('a')]
         self.assertIn(STORE_LINK, links)
+        query = parse_qs(urlparse(STORE_LINK).query)
+        self.assertEqual(query.get('maas'), ['maas_adg_E856BC7BDD5C52C4C8DD6D3C8EFCB0D8_afap_abs'])
+        self.assertEqual(query.get('ref_'), ['aa_maas'])
+        self.assertEqual(query.get('tag'), ['maas'])
+        self.assertEqual(query.get('ingress'), ['3'])
 
     def test_purchase_links_keep_single_item_and_attribution(self):
         for name, (asin, ad_group) in SINGLES.items():

@@ -1,14 +1,14 @@
 /* Service Worker — CELDYQUÉ offline cache & speed boost */
-const CACHE_NAME = 'celdyque-v7-retailer-order';
+const CACHE_NAME = 'celdyque-v8-amazon-attribution';
 const PRECACHE = [
   '/',
   '/index.html',
-  '/assets/site.css?v=20260831-retailer-order',
-  '/assets/home.css?v=20260831-retailer-order',
-  '/assets/site.js?v=20260831-retailer-order',
+  '/assets/site.css?v=20260831-amazon-attribution',
+  '/assets/home.css?v=20260831-amazon-attribution',
+  '/assets/site.js?v=20260831-amazon-attribution',
   '/assets/analytics.js?v=20260828-consent',
-  '/partials/header.html?v=20260831-retailer-order',
-  '/partials/footer.html?v=20260831-retailer-order',
+  '/partials/header.html?v=20260831-amazon-attribution',
+  '/partials/footer.html?v=20260831-amazon-attribution',
 ];
 
 /* Install: precache critical assets */
